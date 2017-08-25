@@ -23,9 +23,9 @@ namespace ABIenCouche
             this.numContrat = leNumContrat;
             this.idCollaborateur = unCollaborateur;
             this.Salaire = leSalaire;
-            this.MotifFin = leMotif;
+            this.motifFin = leMotif;
             this.typeContrat = leType;
-            this.EcoleStage = unEcole;
+            this.ecoleStage = unEcole;
             this.DateDebut = leDebut;
             this.DateFin = laFin;
         }
@@ -48,14 +48,14 @@ namespace ABIenCouche
         private Int32 numContrat;
         private Int32 idCollaborateur;
         private String typeContrat;
-        private double Salaire;
-        private String Qualif;
-        private DateTime DateDebut;
-        private DateTime? DateFin;
-        private String NomAgence;
-        private String MotifFin;
-        private String EcoleStage;
-        private Int32 Augmentation;
+        private double salaire;
+        private String qualif;
+        private DateTime dateDebut;
+        private DateTime? dateFin;
+        private String nomAgence;
+        private String motifFin;
+        private String ecoleStage;
+        private Int32 augmentation;
 
         public int NumContrat
         {
@@ -70,107 +70,107 @@ namespace ABIenCouche
             }
         }
 
-        public double _Salaire
+        public double Salaire
         {
             get
             {
-                return Salaire;
+                return salaire;
             }
             set
             {
-                if (this.Salaire != value)
-                    this.Salaire = value;
+                if (this.salaire != value)
+                    this.salaire = value;
             }
         }
 
-        public String _Qualif
+        public String Qualif
         {
             get
             {
-                return Qualif;
+                return qualif;
             }
             set
             {
-                if (this.Qualif != value)
-                    this.Qualif = value;
+                if (this.qualif != value)
+                    this.qualif = value;
             }
         }
 
-        public DateTime _DateDebut
+        public DateTime DateDebut
         {
             get
             {
-                return DateDebut;
+                return dateDebut;
             }
             set
             {
-                if (this.DateDebut != value)
-                    this.DateDebut = value;
+                if (this.dateDebut != value)
+                    this.dateDebut = value;
             }
         }
 
-        public String _NomAgence
+        public String NomAgence
         {
             get
             {
-                return NomAgence;
+                return nomAgence;
             }
             set
             {
-                if (this.NomAgence != value)
-                    this.NomAgence = value;
+                if (this.nomAgence != value)
+                    this.nomAgence = value;
             }
         }
 
-        public String _Motif
+        public String MotifFin
         {
             get
             {
-                return MotifFin;
+                return motifFin;
             }
             set
             {
-                if (this.MotifFin != value)
-                    this.MotifFin = value;
+                if (this.motifFin != value)
+                    this.motifFin = value;
             }
         }
 
-        public DateTime _DateFin
+        public DateTime? DateFin
         {
             get
             {
-                return DateFin;
+                return dateFin;
             }
             set
             {
-                if (this.DateFin != value)
-                    this.DateFin = value;
+                if (this.dateFin != value)
+                    this.dateFin = value;
             }
         }
 
-        public String _EcoleStage
+        public String EcoleStage
         {
             get
             {
-                return EcoleStage;
+                return ecoleStage;
             }
             set
             {
-                if (this.EcoleStage != value)
-                    this.EcoleStage = value;
+                if (this.ecoleStage != value)
+                    this.ecoleStage = value;
             }
         }
 
-        public Int32 _Augmentation
+        public Int32 Augmentation
         {
             get
             {
-                return Augmentation;
+                return augmentation;
             }
             set
             {
-                if (this.Augmentation != value)
-                    this.Augmentation = value;
+                if (this.augmentation != value)
+                    this.augmentation = value;
             }
         }
 
