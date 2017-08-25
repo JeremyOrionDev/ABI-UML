@@ -5,135 +5,142 @@
  ***********************************************************************/
 
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Text;
 
-public class Collaborateur
+namespace ABIenCouche
 {
-   public Collaborateur(String nomCollaborateur, String prenomCollaborateur, int matricule)
-   {
-      // TODO: implement
-   }
-   
-   public String ToString(String nomCollaborateur, String prenomCollaborateur, int matricule, String situation)
-   {
-      // TODO: implement
-      return null;
+
+    public class Collaborateur
+    {
+        /// <summary>
+        /// Constructeur pour les collaborateur
+        /// </summary>
+        /// <param name="unNom">le nom du collaborateur</param>
+        /// <param name="unPrenom">le prenom du collaborateur</param>
+        /// <param name="unMatricule">le matricule du collaborateur</param>
+        public Collaborateur(Int32 unMatricule, String unNom, String unPrenom)
+        {
+            this.NomCollaborateur = unNom;
+            this.PrenomCollaborateur = unPrenom;
+            this.Matricule = unMatricule;
+        }
+
+        public override String ToString()
+        {
+            return "collaborateur matricule: " + this.Matricule + " nom: " + this.NomCollaborateur + " prenom: " + this.PrenomCollaborateur;
+        }
+
+
+
+
+        /// <pdGenerated>default setter</pdGenerated>
+        public void newContrat(Contrat unContrat)
+        {
+            if (unContrat.)
    }
 
-   public System.Collections.ArrayList contrat;
-   
-   /// <pdGenerated>default getter</pdGenerated>
-   public System.Collections.ArrayList GetContrat()
-   {
-      if (contrat == null)
-         contrat = new System.Collections.ArrayList();
-      return contrat;
-   }
-   
-   /// <pdGenerated>default setter</pdGenerated>
-   public void SetContrat(System.Collections.ArrayList newContrat)
-   {
-      RemoveAllContrat();
-      foreach (Contrat oContrat in newContrat)
-         AddContrat(oContrat);
-   }
-   
-   /// <pdGenerated>default Add</pdGenerated>
-   public void AddContrat(Contrat newContrat)
-   {
-      if (newContrat == null)
-         return;
-      if (this.contrat == null)
-         this.contrat = new System.Collections.ArrayList();
-      if (!this.contrat.Contains(newContrat))
-         this.contrat.Add(newContrat);
-   }
-   
-   /// <pdGenerated>default Remove</pdGenerated>
-   public void RemoveContrat(Contrat oldContrat)
-   {
-      if (oldContrat == null)
-         return;
-      if (this.contrat != null)
-         if (this.contrat.Contains(oldContrat))
-            this.contrat.Remove(oldContrat);
-   }
-   
-   /// <pdGenerated>default removeAll</pdGenerated>
-   public void RemoveAllContrat()
-   {
-      if (contrat != null)
-         contrat.Clear();
-   }
+        /// <pdGenerated>default Add</pdGenerated>
+        public void AddContrat(Contrat newContrat)
+        {
+            if (newContrat == null)
+                return;
+            if (this.contrat == null)
+                this.contrat = new System.Collections.ArrayList();
+            if (!this.contrat.Contains(newContrat))
+                this.contrat.Add(newContrat);
+        }
 
-   private string NomCollaborateur;
-   private string PrenomCollaborateur;
-   private int Matricule;
-   private object Photo;
-   private String SituationMaritale;
+        /// <pdGenerated>default Remove</pdGenerated>
+        public void RemoveContrat(Contrat oldContrat)
+        {
+            if (oldContrat == null)
+                return;
+            if (this.contrat != null)
+                if (this.contrat.Contains(oldContrat))
+                    this.contrat.Remove(oldContrat);
+        }
 
-   public string _NomCollaborateur
-   {
-      get
-      {
-         return NomCollaborateur;
-      }
-      set
-      {
-         if (this.NomCollaborateur != value)
-            this.NomCollaborateur = value;
-      }
-   }
-   
-   public string _PrenomCollaborateur
-   {
-      get
-      {
-         return PrenomCollaborateur;
-      }
-      set
-      {
-         if (this.PrenomCollaborateur != value)
-            this.PrenomCollaborateur = value;
-      }
-   }
-   
-   public int _Matricule
-   {
-      get
-      {
-         return Matricule;
-      }
-      set
-      {
-         if (this.Matricule != value)
-            this.Matricule = value;
-      }
-   }
-   
-   public object _Photo
-   {
-      get
-      {
-         return Photo;
-      }
-      set
-      {
-         if (this.Photo != value)
-            this.Photo = value;
-      }
-   }
-   
-   public String _SituationMaritale
-   {
-      get
-      {
-         return SituationMaritale;
-      }
-      set
-      {
-         if (this.SituationMaritale != value)
-            this.SituationMaritale = value;
-      }
-   }
+        /// <pdGenerated>default removeAll</pdGenerated>
+        public void RemoveAllContrat()
+        {
+            if (contrat != null)
+                contrat.Clear();
+        }
 
+        private string nomCollaborateur;
+        private string prenomCollaborateur;
+        private Int32 matricule;
+        private object photo;
+        private String situationMaritale;
+
+        public string NomCollaborateur
+        {
+            get
+            {
+                return nomCollaborateur;
+            }
+            set
+            {
+                if (this.nomCollaborateur != value)
+                    this.nomCollaborateur = value;
+            }
+        }
+
+        public string PrenomCollaborateur
+        {
+            get
+            {
+                return prenomCollaborateur;
+            }
+            set
+            {
+                if (this.prenomCollaborateur != value)
+                    this.prenomCollaborateur = value;
+            }
+        }
+
+        public int Matricule
+        {
+            get
+            {
+                return matricule;
+            }
+            set
+            {
+                if (this.matricule != value)
+                    this.matricule = value;
+            }
+        }
+
+        public object Photo
+        {
+            get
+            {
+                return Photo;
+            }
+            set
+            {
+                if (this.Photo != value)
+                    this.Photo = value;
+            }
+        }
+
+        public String SituationMaritale
+        {
+            get
+            {
+                return situationMaritale;
+            }
+            set
+            {
+                if (this.situationMaritale != value)
+                    this.situationMaritale = value;
+            }
+        }
+
+    }
 }
