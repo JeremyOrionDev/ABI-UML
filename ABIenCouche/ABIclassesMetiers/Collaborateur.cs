@@ -16,22 +16,29 @@ namespace ABIenCouche
 
     public class Collaborateur
     {
+
+        public SortedDictionary<Int32,Contrat> lstContrat;
+        
         /// <summary>
         /// Constructeur pour les collaborateur
         /// </summary>
         /// <param name="unNom">le nom du collaborateur</param>
         /// <param name="unPrenom">le prenom du collaborateur</param>
         /// <param name="unMatricule">le matricule du collaborateur</param>
-        public Collaborateur(Int32 unMatricule, String unNom, String unPrenom)
+        public Collaborateur(Int32 unMatricule, String unNom, String unPrenom, String uneRue, String uneVille, String unCP)
         {
             this.NomCollaborateur = unNom;
             this.PrenomCollaborateur = unPrenom;
             this.Matricule = unMatricule;
+            this.rueCollab = uneRue;
+            this.villeCollab = uneVille;
+            this.cpCollab = unCP;
+            lstContrat = new SortedDictionary<Int32, Contrat>();
         }
 
         public override String ToString()
         {
-            return "collaborateur matricule: " + this.Matricule + " nom: " + this.NomCollaborateur + " prenom: " + this.PrenomCollaborateur;
+            return "collaborateur matricule: " + this.Matricule + " nom: " + this.NomCollaborateur + " prenom: " + this.PrenomCollaborateur + " à l'adresse: " + this.RueCollab + " " + this.CpCollab + " " + this.VilleCollab;
         }
 
 
@@ -40,7 +47,14 @@ namespace ABIenCouche
         /// <pdGenerated>default setter</pdGenerated>
         public void newContrat(Contrat unContrat)
         {
-            if (unContrat.)
+            if(!lstContrat.ContainsKey(unContrat.NumContrat))
+            {
+                lstContrat.Add(unContrat.NumContrat, unContrat);
+            }
+            else
+            {
+                throw new Exception "Le collaborateur "+this.nomCollaborateur+" possède déja le contrat: "+unContrat.n
+            }
    }
 
         /// <pdGenerated>default Add</pdGenerated>
@@ -71,8 +85,11 @@ namespace ABIenCouche
                 contrat.Clear();
         }
 
-        private string nomCollaborateur;
-        private string prenomCollaborateur;
+        private String nomCollaborateur;
+        private String prenomCollaborateur;
+        private String rueCollab;
+        private String villeCollab;
+        private String cpCollab;
         private Int32 matricule;
         private object photo;
         private String situationMaritale;
@@ -142,5 +159,43 @@ namespace ABIenCouche
             }
         }
 
+        public string RueCollab
+        {
+            get
+            {
+                return rueCollab;
+            }
+
+            set
+            {
+                rueCollab = value;
+            }
+        }
+
+        public string VilleCollab
+        {
+            get
+            {
+                return villeCollab;
+            }
+
+            set
+            {
+                villeCollab = value;
+            }
+        }
+
+        public string CpCollab
+        {
+            get
+            {
+                return cpCollab;
+            }
+
+            set
+            {
+                cpCollab = value;
+            }
+        }
     }
 }

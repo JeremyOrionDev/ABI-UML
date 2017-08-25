@@ -7,7 +7,7 @@
     <ProjectGuid>{46C87214-4547-48B7-B07A-973C76198991}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ABIclassesMetiers</RootNamespace>
+    <RootNamespace>ABIenCouche</RootNamespace>
     <AssemblyName>ABIclassesMetiers</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="DictionnaireCollaborateur.cs" />
     <Compile Include="Collaborateur.cs" />
     <Compile Include="Contrat.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

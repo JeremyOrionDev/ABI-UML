@@ -11,11 +11,25 @@ namespace ABIenCouche
 
     public abstract class Contrat
     {
-        Collaborateur unCollaborateur = new Collaborateur(1,"nom","prenom");
+        
         public override String ToString()
         {
-            // TODO: implement
-            return "le contrat numero: " + numContrat + " du collaborateur: " +unCollaborateur.Matricule+" dont le salaire est: "+ Salaire+"€ type de contrat: "+typeContrat];
+            if(this.typeContrat=="CDI")
+            {
+                return ("Ceci est le contrat numero: " + this.numContrat +" c'est un CDI débutant le " + this.dateDebut);
+            }
+            else
+            {
+                if (this.typeContrat =="stage")
+                {
+                    return ("ce contrat est un stage pour le motif: " + this.motifCDD + " avec l'école: " + this.ecoleStage + "commençant le: " + this.dateDebut + "finissant le: " + this.dateFin);
+                }
+                if (this.typeContrat =="CDD")
+                {
+                    return ("ce contrat est un CDD pour le motif: " + this.motifCDD + " pour un salaire de " + this.salaire + "€ débutant le " + this.dateDebut + " finissant le: " + this.dateFin);
+                }
+                
+            }
         }
 
         public Contrat(Int32 leNumContrat,Int32 unCollaborateur, Int32 leSalaire, String leMotif,String leType, String unEcole, DateTime leDebut, DateTime? laFin)
@@ -54,6 +68,7 @@ namespace ABIenCouche
         private DateTime? dateFin;
         private String nomAgence;
         private String motifFin;
+        private String motifCDD;
         private String ecoleStage;
         private Int32 augmentation;
 
