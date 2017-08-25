@@ -16,6 +16,14 @@ namespace ABIenCouche
 
     public class Collaborateur
     {
+        private String nomCollaborateur;
+        private String prenomCollaborateur;
+        private String rueCollab;
+        private String villeCollab;
+        private String cpCollab;
+        private Int32 matricule;
+        private object photo;
+        private String situationMaritale;
 
         public SortedDictionary<Int32,Contrat> lstContrat;
         
@@ -45,7 +53,7 @@ namespace ABIenCouche
 
 
         /// <pdGenerated>default setter</pdGenerated>
-        public void newContrat(Contrat unContrat)
+        public void ajoutContrat(Contrat unContrat)
         {
             if(!lstContrat.ContainsKey(unContrat.NumContrat))
             {
@@ -53,46 +61,29 @@ namespace ABIenCouche
             }
             else
             {
-                throw new Exception "Le collaborateur "+this.nomCollaborateur+" possède déja le contrat: "+unContrat.n
+                throw new Exception("Le collaborateur " + this.nomCollaborateur + " possède déja le contrat: " + unContrat.NumContrat);
             }
    }
 
-        /// <pdGenerated>default Add</pdGenerated>
-        public void AddContrat(Contrat newContrat)
-        {
-            if (newContrat == null)
-                return;
-            if (this.contrat == null)
-                this.contrat = new System.Collections.ArrayList();
-            if (!this.contrat.Contains(newContrat))
-                this.contrat.Add(newContrat);
-        }
+
 
         /// <pdGenerated>default Remove</pdGenerated>
-        public void RemoveContrat(Contrat oldContrat)
+        public void supprimeContrat(Contrat oldContrat)
         {
             if (oldContrat == null)
-                return;
-            if (this.contrat != null)
-                if (this.contrat.Contains(oldContrat))
-                    this.contrat.Remove(oldContrat);
+                throw new Exception("le contrat entré n'existe pas");
+            if (lstContrat.ContainsKey(oldContrat.NumContrat))
+                
+                    lstContrat.Remove(oldContrat.NumContrat);
         }
 
         /// <pdGenerated>default removeAll</pdGenerated>
         public void RemoveAllContrat()
         {
-            if (contrat != null)
-                contrat.Clear();
+            if (lstContrat.Count != 0)
+                lstContrat.Clear();
         }
 
-        private String nomCollaborateur;
-        private String prenomCollaborateur;
-        private String rueCollab;
-        private String villeCollab;
-        private String cpCollab;
-        private Int32 matricule;
-        private object photo;
-        private String situationMaritale;
 
         public string NomCollaborateur
         {

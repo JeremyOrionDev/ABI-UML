@@ -32,7 +32,16 @@ namespace ABIenCouche
             }
         }
 
-        public Contrat(Int32 leNumContrat,Int32 unCollaborateur, Int32 leSalaire, String leMotif,String leType, String unEcole, DateTime leDebut, DateTime? laFin)
+        public Contrat(Int32 leNumContrat, Int32 unCollaborateur, Int32 leSalaire, String leType,  DateTime leDebut)
+        {
+            this.numContrat = leNumContrat;
+            this.idCollaborateur = unCollaborateur;
+            this.Salaire = leSalaire;
+            this.typeContrat = leType;
+            this.DateDebut = leDebut;
+          
+        }
+        public Contrat(Int32 leNumContrat,Int32 unCollaborateur, Int32 leSalaire, String? leMotif,String leType, String? unEcole, DateTime leDebut, DateTime? laFin)
         {
             this.numContrat = leNumContrat;
             this.idCollaborateur = unCollaborateur;
@@ -66,10 +75,10 @@ namespace ABIenCouche
         private String qualif;
         private DateTime dateDebut;
         private DateTime? dateFin;
-        private String nomAgence;
-        private String motifFin;
-        private String motifCDD;
-        private String ecoleStage;
+        private String? nomAgence;
+        private String? motifFin;
+        private String? motifCDD;
+        private String? ecoleStage;
         private Int32 augmentation;
 
         public int NumContrat
@@ -124,7 +133,7 @@ namespace ABIenCouche
             }
         }
 
-        public String NomAgence
+        public String? NomAgence
         {
             get
             {
@@ -132,12 +141,12 @@ namespace ABIenCouche
             }
             set
             {
-                if (this.nomAgence != value)
+               
                     this.nomAgence = value;
             }
         }
 
-        public String MotifFin
+        public String? MotifFin
         {
             get
             {
@@ -145,7 +154,7 @@ namespace ABIenCouche
             }
             set
             {
-                if (this.motifFin != value)
+                
                     this.motifFin = value;
             }
         }
@@ -163,7 +172,7 @@ namespace ABIenCouche
             }
         }
 
-        public String EcoleStage
+        public String? EcoleStage
         {
             get
             {
@@ -171,7 +180,7 @@ namespace ABIenCouche
             }
             set
             {
-                if (this.ecoleStage != value)
+                
                     this.ecoleStage = value;
             }
         }
