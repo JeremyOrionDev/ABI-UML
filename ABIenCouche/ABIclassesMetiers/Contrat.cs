@@ -9,7 +9,7 @@ using System;
 namespace ABIenCouche
 {
 
-    public abstract class Contrat
+    public /*abstract*/ class Contrat
     {
         
         public override String ToString()

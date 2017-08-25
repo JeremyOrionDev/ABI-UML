@@ -188,5 +188,12 @@ namespace ABIenCouche
                 cpCollab = value;
             }
         }
+
+        public DataTable ListCollab()
+        {
+            DataTable dt = new DataTable();
+            DataRow DR;
+            dt.Columns.Add(new C)
+        }
     }
 }

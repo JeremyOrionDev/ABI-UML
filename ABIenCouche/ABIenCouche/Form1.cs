@@ -23,17 +23,14 @@ namespace ABIenCouche
         {
             InitializeComponent();
             this.leCol = new Collaborateur(1, "nom", "prenom", "la rue", "la ville", "12345");
-            //this.leContrat = new Contrat(1, 1, 1000 , null, "CDI", null, new DateTime(), null); // valide
+            Contrat unContrat= new Contrat(1,1,1000,"CDI",new DateTime());
+            leCol.lstContrat.Add(unContrat.NumContrat, unContrat);
+            //this.unContrat = new Contrat(1, 1, 1000 , null, "CDI", null, new DateTime(), null); // valide
         }
 
-        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        private void afficheCollabo()
         {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
+            this.dgCollabo.DataSource=
         }
     }
 }
