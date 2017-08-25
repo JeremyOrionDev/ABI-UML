@@ -41,7 +41,7 @@ namespace ABIenCouche
             this.DateDebut = leDebut;
           
         }
-        public Contrat(Int32 leNumContrat,Int32 unCollaborateur, Int32 leSalaire, String? leMotif,String leType, String? unEcole, DateTime leDebut, DateTime? laFin)
+        public Contrat(Int32 leNumContrat,Int32 unCollaborateur, Int32 leSalaire, String leMotif,String leType, String unEcole, DateTime leDebut, DateTime? laFin)
         {
             this.numContrat = leNumContrat;
             this.idCollaborateur = unCollaborateur;
@@ -75,10 +75,10 @@ namespace ABIenCouche
         private String qualif;
         private DateTime dateDebut;
         private DateTime? dateFin;
-        private String? nomAgence;
-        private String? motifFin;
-        private String? motifCDD;
-        private String? ecoleStage;
+        private String nomAgence;
+        private String motifFin;
+        private String motifCDD;
+        private String ecoleStage;
         private Int32 augmentation;
 
         public int NumContrat
@@ -133,7 +133,7 @@ namespace ABIenCouche
             }
         }
 
-        public String? NomAgence
+        public String NomAgence
         {
             get
             {
@@ -146,7 +146,7 @@ namespace ABIenCouche
             }
         }
 
-        public String? MotifFin
+        public String MotifFin
         {
             get
             {
@@ -172,7 +172,7 @@ namespace ABIenCouche
             }
         }
 
-        public String? EcoleStage
+        public String EcoleStage
         {
             get
             {

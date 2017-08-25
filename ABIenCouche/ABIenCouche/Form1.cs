@@ -23,7 +23,7 @@ namespace ABIenCouche
         {
             InitializeComponent();
             this.leCol = new Collaborateur(1, "nom", "prenom", "la rue", "la ville", "12345");
-            this.leContrat = new Contrat(1, 1, 1000, "CDI", 12/2/12); 
+            //this.leContrat = new Contrat(1, 1, 1000 , null, "CDI", null, new DateTime(), null); // valide
         }
 
         private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
