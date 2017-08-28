@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace ABIenCouche
 {
-    class Donnees
+    public class Donnees
     {
-     
+        public static DictionnaireCollaborateur lesCollaborateurs;
     }
 }

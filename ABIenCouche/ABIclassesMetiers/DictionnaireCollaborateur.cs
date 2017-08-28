@@ -9,23 +9,24 @@ namespace ABIenCouche
 {
     public class DictionnaireCollaborateur
     {
-        public  SortedDictionary<int, Collaborateur> SDCollaborateur;
+        public  static SortedDictionary<int, Collaborateur> listCollaborateur = listCollaborateur = new SortedDictionary<int, Collaborateur>();
+
         /// <summary>
         /// Initialisation de la collection de collaborateurs
         /// </summary>
         public DictionnaireCollaborateur()
         {
-            SDCollaborateur = new SortedDictionary<int, Collaborateur>();
+            listCollaborateur = new SortedDictionary<int, Collaborateur>();
         }
         /// <summary>
         /// Ajout du collaborateur unColab en collection
         /// </summary>
         /// <param name="unColab">le collaborateur a ajouter en collection</param>
-        public void AJouter(Collaborateur unColab)
+        public void Ajouter(Collaborateur unColab)
         {
-            if (!SDCollaborateur.ContainsKey(unColab.Matricule))
+            if (!listCollaborateur.ContainsKey(unColab.Matricule))
             {
-                SDCollaborateur.Add(unColab.Matricule, unColab);
+                listCollaborateur.Add(unColab.Matricule, unColab);
             }
             else throw new Exception(" le collaborateur est déja dans la base");
         }
@@ -39,9 +40,9 @@ namespace ABIenCouche
             String nom = unColab.NomCollaborateur;
             String prenom = unColab.PrenomCollaborateur;
             Int32 matricul = unColab.Matricule;
-            if (SDCollaborateur.ContainsKey(unColab.Matricule))
+            if (listCollaborateur.ContainsKey(unColab.Matricule))
             {
-                SDCollaborateur.Remove(unColab.Matricule);
+                listCollaborateur.Remove(unColab.Matricule);
                 return "le collaborateur matricule: " + matricul + " Nom: " + nom + " prénom: " + prenom+"a bien été supprimé";
             }
             else return "le collaborateur selectionné n'existe pas dans la base, merci de vérifier votre saisie";
@@ -53,12 +54,12 @@ namespace ABIenCouche
         /// <returns></returns>
         public String SupprimerCollab(Int32 unMatricule)
         {
-            String nom = SDCollaborateur[unMatricule].NomCollaborateur;
-            String prenom = SDCollaborateur[unMatricule].PrenomCollaborateur;
+            String nom = listCollaborateur[unMatricule].NomCollaborateur;
+            String prenom = listCollaborateur[unMatricule].PrenomCollaborateur;
             Int32 matricul = unMatricule;
-            if (SDCollaborateur.ContainsKey(unMatricule))
+            if (listCollaborateur.ContainsKey(unMatricule))
             {
-                SDCollaborateur.Remove(unMatricule);
+                listCollaborateur.Remove(unMatricule);
                 return "le collaborateur de matricule: " + matricul + " Nom: " + nom + " prenom: " + prenom + " a bien été supprimé";
             }
             else return "le matricule selectionné ne correspond à aucun collaborateur, merci de vérifier votre saisie.";
@@ -69,9 +70,9 @@ namespace ABIenCouche
         /// <param name="leColab">le collaborateur à mettre à jour</param>
         public void RemplacerColab(Collaborateur leColab)
         {
-            if (SDCollaborateur.ContainsKey(leColab.Matricule))
+            if (listCollaborateur.ContainsKey(leColab.Matricule))
             {
-                SDCollaborateur[leColab.Matricule] = leColab;
+                listCollaborateur[leColab.Matricule] = leColab;
             }
             else throw new Exception("le collaborateur ne peut pas être remplacé car il n'existe pas, il faut le créer");
         }
@@ -81,16 +82,16 @@ namespace ABIenCouche
         /// </summary>
         /// <param name="unMatricule">le numéro de matricule du collaborateur à retrouver</param>
         /// <returns></returns>
-        public Collaborateur retrouverCollaborateur(Int32 unMatricule)
+        public static Collaborateur retrouverCollaborateur(Int32 unMatricule)
         {
-            if (SDCollaborateur.ContainsKey(unMatricule))
+            if (listCollaborateur.ContainsKey(unMatricule))
             {
-                return SDCollaborateur[unMatricule];
+                return listCollaborateur[unMatricule];
             }
             else throw new Exception("le matricule renseigné ne correspond à aucun collaborateur, merci de vérifier votre saisie");
         }
 
-        public DataTable ListCollab()
+        public static DataTable ListCollab()
         {
             DataTable dt = new DataTable();
             DataRow DR;
@@ -99,7 +100,7 @@ namespace ABIenCouche
             dt.Columns.Add(new DataColumn("Prénom", typeof(String)));
             dt.Columns.Add(new DataColumn("Adresse", typeof(String)));
 
-            foreach (KeyValuePair<Int32, Collaborateur> colab in SDCollaborateur)
+            foreach (KeyValuePair<Int32, Collaborateur> colab in listCollaborateur)
             {
                 DR = dt.NewRow();
                 DR[0] = colab.Value.Matricule;
