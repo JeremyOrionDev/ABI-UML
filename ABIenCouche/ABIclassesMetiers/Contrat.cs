@@ -31,14 +31,15 @@ namespace ABIenCouche
                 
             }
         }
-
-        public Contrat(Int32 leNumContrat, Int32 unCollaborateur, Int32 leSalaire, String leType,  DateTime leDebut)
+        String libelleContrat;
+        public Contrat(Int32 leNumContrat,String unLibelle, Int32 leSalaire, String leType,  DateTime leDebut)
         {
             this.numContrat = leNumContrat;
-            this.idCollaborateur = unCollaborateur;
+
             this.Salaire = leSalaire;
             this.typeContrat = leType;
             this.DateDebut = leDebut;
+            this.libelleContrat = unLibelle;
           
         }
         public Contrat(Int32 leNumContrat,Int32 unCollaborateur, Int32 leSalaire, String leMotif,String leType, String unEcole, DateTime leDebut, DateTime? laFin)
@@ -69,7 +70,7 @@ namespace ABIenCouche
                 return false;
         }
         private Int32 numContrat;
-        private Int32 idCollaborateur;
+
         private String typeContrat;
         private double salaire;
         private String qualif;
@@ -211,16 +212,18 @@ namespace ABIenCouche
             }
         }
 
-        public int IdCollaborateur
+
+
+        public string LibelleContrat
         {
             get
             {
-                return idCollaborateur;
+                return libelleContrat;
             }
 
             set
             {
-                idCollaborateur = value;
+                libelleContrat = value;
             }
         }
     }

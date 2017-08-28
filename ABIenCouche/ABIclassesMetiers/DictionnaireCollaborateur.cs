@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 
 namespace ABIenCouche
 {
@@ -87,6 +88,28 @@ namespace ABIenCouche
                 return SDCollaborateur[unMatricule];
             }
             else throw new Exception("le matricule renseigné ne correspond à aucun collaborateur, merci de vérifier votre saisie");
+        }
+
+        public DataTable ListCollab()
+        {
+            DataTable dt = new DataTable();
+            DataRow DR;
+            dt.Columns.Add(new DataColumn("Matricule", typeof(Int32)));
+            dt.Columns.Add(new DataColumn("Nom", typeof(String)));
+            dt.Columns.Add(new DataColumn("Prénom", typeof(String)));
+            dt.Columns.Add(new DataColumn("Adresse", typeof(String)));
+
+            foreach (KeyValuePair<Int32, Collaborateur> colab in SDCollaborateur)
+            {
+                DR = dt.NewRow();
+                DR[0] = colab.Value.Matricule;
+                DR[1] = colab.Value.NomCollaborateur;
+                DR[2] = colab.Value.PrenomCollaborateur;
+                DR[3] = colab.Value.RueCollab+" "+colab.Value.CpCollab+" "+colab.Value.VilleCollab;
+                dt.Rows.Add(DR);
+
+            }
+            return dt;
         }
     }
 }

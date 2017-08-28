@@ -189,20 +189,6 @@ namespace ABIenCouche
             }
         }
 
-        public DataTable ListCollab()
-        {
-            DataTable dt = new DataTable();
-            DataRow DR;
-            dt.Columns.Add(new DataColumn("Matricule", typeof(Int32)));
-            dt.Columns.Add(new DataColumn("Nom", typeof(String)));
-            dt.Columns.Add(new DataColumn("Prénom", typeof(String)));
-            dt.Columns.Add(new DataColumn("Adresse", typeof(String)));
 
-            foreach(KeyValuePair<Int32,Collaborateur> colab in lesColab)
-            {
-                DR = dt.NewRow();
-                DR[0]=lesColab.Values.
-            }
-        }
     }
 }
