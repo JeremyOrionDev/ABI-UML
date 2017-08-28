@@ -18,7 +18,7 @@ namespace ABIenCouche
         /// </summary>
         private Collaborateur leCol;
         private Contrat leContrat;
-
+        DictionnaireCollaborateur.
         public frmDspCollaborateur()
         {
             InitializeComponent();
@@ -26,6 +26,9 @@ namespace ABIenCouche
             Contrat unContrat= new Contrat(1,1,1000,"CDI",new DateTime());
             leCol.lstContrat.Add(unContrat.NumContrat, unContrat);
             //this.unContrat = new Contrat(1, 1, 1000 , null, "CDI", null, new DateTime(), null); // valide
+            Collaborateur unCollab;
+            unCollab = new Collaborateur(1, "nom", "prenom", "244 route de turin", "nice", "06300");
+            
         }
 
         private void afficheCollabo()

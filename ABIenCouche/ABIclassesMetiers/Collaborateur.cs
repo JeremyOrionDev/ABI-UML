@@ -26,7 +26,7 @@ namespace ABIenCouche
         private String situationMaritale;
 
         public SortedDictionary<Int32,Contrat> lstContrat;
-        
+        public SortedDictionary<Int32, Collaborateur> lesColab;
         /// <summary>
         /// Constructeur pour les collaborateur
         /// </summary>
@@ -193,7 +193,16 @@ namespace ABIenCouche
         {
             DataTable dt = new DataTable();
             DataRow DR;
-            dt.Columns.Add(new C)
+            dt.Columns.Add(new DataColumn("Matricule", typeof(Int32)));
+            dt.Columns.Add(new DataColumn("Nom", typeof(String)));
+            dt.Columns.Add(new DataColumn("Prénom", typeof(String)));
+            dt.Columns.Add(new DataColumn("Adresse", typeof(String)));
+
+            foreach(KeyValuePair<Int32,Collaborateur> colab in lesColab)
+            {
+                DR = dt.NewRow();
+                DR[0]=lesColab.Values.
+            }
         }
     }
 }

@@ -33,9 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ClassesMetiers">
-      <HintPath>..\..\..\..\exo9dll\ClassesMetiers\bin\Debug\ClassesMetiers.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -85,7 +82,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ABIclassesMetiers\ABIclassesMetiers.csproj">
-      <Project>{46C87214-4547-48B7-B07A-973C76198991}</Project>
+      <Project>{46c87214-4547-48b7-b07a-973c76198991}</Project>
       <Name>ABIclassesMetiers</Name>
     </ProjectReference>
   </ItemGroup>
