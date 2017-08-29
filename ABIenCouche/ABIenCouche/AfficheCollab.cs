@@ -43,13 +43,13 @@ namespace ABIenCouche
 
         private void dgCollabo_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            Console.WriteLine("coucou");
+            //Console.WriteLine("coucou");
             Collaborateur leCollabo;
             Int32 numcolab;
 
             if (this.dgCollabo.RowCount != 0)
             {
-                numcolab = (Int32)this.dgCollabo.CurrentRow.Cells[0].Value;
+                numcolab = Convert.ToInt32(this.dgCollabo.CurrentRow.Cells[0].Value.ToString());
             }
             else numcolab = 0;
 
@@ -60,12 +60,10 @@ namespace ABIenCouche
 
             frmColab.Show();
 
-            this.afficheCollabo();
-        }
-
-        private void dgCollabo_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
+            
 
         }
+
+
     }
 }

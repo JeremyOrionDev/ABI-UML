@@ -442,8 +442,8 @@
             this.dgCollabo.ShowEditingIcon = false;
             this.dgCollabo.Size = new System.Drawing.Size(341, 218);
             this.dgCollabo.TabIndex = 5;
-            this.dgCollabo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgCollabo_CellContentClick);
             this.dgCollabo.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgCollabo_CellContentDoubleClick);
+            this.dgCollabo.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgCollabo_CellContentDoubleClick);
             // 
             // btnAjouter
             // 

@@ -22,7 +22,7 @@ namespace ABIenCouche
         /// Ajout du collaborateur unColab en collection
         /// </summary>
         /// <param name="unColab">le collaborateur a ajouter en collection</param>
-        public void Ajouter(Collaborateur unColab)
+        public static void Ajouter(Collaborateur unColab)
         {
             if (!listCollaborateur.ContainsKey(unColab.Matricule))
             {
@@ -35,7 +35,7 @@ namespace ABIenCouche
         /// </summary>
         /// <param name="unColab">le collaborateur à supprimer</param>
         /// <returns></returns>
-        public String SupprimerCollab(Collaborateur unColab)
+        public static String SupprimerCollab(Collaborateur unColab)
         {
             String nom = unColab.NomCollaborateur;
             String prenom = unColab.PrenomCollaborateur;
@@ -52,7 +52,7 @@ namespace ABIenCouche
         /// </summary>
         /// <param name="unMatricule">le matricule du collaborateur à supprimer</param>
         /// <returns></returns>
-        public String SupprimerCollab(Int32 unMatricule)
+        public static String SupprimerCollab(Int32 unMatricule)
         {
             String nom = listCollaborateur[unMatricule].NomCollaborateur;
             String prenom = listCollaborateur[unMatricule].PrenomCollaborateur;
@@ -68,7 +68,7 @@ namespace ABIenCouche
         /// Remplacement des données du collaborateur par des nouvelles
         /// </summary>
         /// <param name="leColab">le collaborateur à mettre à jour</param>
-        public void RemplacerColab(Collaborateur leColab)
+        public  static void RemplacerColab(Collaborateur leColab)
         {
             if (listCollaborateur.ContainsKey(leColab.Matricule))
             {

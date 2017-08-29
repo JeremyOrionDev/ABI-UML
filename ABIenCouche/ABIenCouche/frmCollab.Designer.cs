@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtBoxAdresseCollab = new System.Windows.Forms.TextBox();
+            this.txtBoxRueCollab = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtBoxMatriculeCollab = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -36,24 +36,27 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtBoxNomCollab = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblCP = new System.Windows.Forms.Label();
+            this.txtBxCP = new System.Windows.Forms.TextBox();
+            this.lblVille = new System.Windows.Forms.Label();
+            this.txtBxVille = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // txtBoxAdresseCollab
+            // txtBoxRueCollab
             // 
-            this.txtBoxAdresseCollab.Location = new System.Drawing.Point(76, 92);
-            this.txtBoxAdresseCollab.Multiline = true;
-            this.txtBoxAdresseCollab.Name = "txtBoxAdresseCollab";
-            this.txtBoxAdresseCollab.Size = new System.Drawing.Size(221, 45);
-            this.txtBoxAdresseCollab.TabIndex = 15;
+            this.txtBoxRueCollab.Location = new System.Drawing.Point(76, 92);
+            this.txtBoxRueCollab.Name = "txtBoxRueCollab";
+            this.txtBoxRueCollab.Size = new System.Drawing.Size(221, 20);
+            this.txtBoxRueCollab.TabIndex = 15;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(12, 95);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 13);
+            this.label4.Size = new System.Drawing.Size(25, 13);
             this.label4.TabIndex = 14;
-            this.label4.Text = "Adresse";
+            this.label4.Text = "rue ";
             // 
             // txtBoxMatriculeCollab
             // 
@@ -104,12 +107,48 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "Nom: ";
             // 
+            // lblCP
+            // 
+            this.lblCP.AutoSize = true;
+            this.lblCP.Location = new System.Drawing.Point(12, 121);
+            this.lblCP.Name = "lblCP";
+            this.lblCP.Size = new System.Drawing.Size(62, 13);
+            this.lblCP.TabIndex = 14;
+            this.lblCP.Text = "code postal";
+            // 
+            // txtBxCP
+            // 
+            this.txtBxCP.Location = new System.Drawing.Point(76, 118);
+            this.txtBxCP.Name = "txtBxCP";
+            this.txtBxCP.Size = new System.Drawing.Size(221, 20);
+            this.txtBxCP.TabIndex = 15;
+            // 
+            // lblVille
+            // 
+            this.lblVille.AutoSize = true;
+            this.lblVille.Location = new System.Drawing.Point(12, 147);
+            this.lblVille.Name = "lblVille";
+            this.lblVille.Size = new System.Drawing.Size(26, 13);
+            this.lblVille.TabIndex = 14;
+            this.lblVille.Text = "Ville";
+            // 
+            // txtBxVille
+            // 
+            this.txtBxVille.Location = new System.Drawing.Point(76, 144);
+            this.txtBxVille.Name = "txtBxVille";
+            this.txtBxVille.Size = new System.Drawing.Size(221, 20);
+            this.txtBxVille.TabIndex = 15;
+            // 
             // frmCollab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(309, 261);
-            this.Controls.Add(this.txtBoxAdresseCollab);
+            this.Controls.Add(this.txtBxVille);
+            this.Controls.Add(this.lblVille);
+            this.Controls.Add(this.txtBxCP);
+            this.Controls.Add(this.lblCP);
+            this.Controls.Add(this.txtBoxRueCollab);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtBoxMatriculeCollab);
             this.Controls.Add(this.label3);
@@ -129,9 +168,13 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        protected System.Windows.Forms.TextBox txtBoxAdresseCollab;
+        protected System.Windows.Forms.TextBox txtBoxRueCollab;
         protected System.Windows.Forms.TextBox txtBoxMatriculeCollab;
         protected System.Windows.Forms.TextBox txtBoxPrenomCollab;
         protected System.Windows.Forms.TextBox txtBoxNomCollab;
+        private System.Windows.Forms.Label lblCP;
+        protected System.Windows.Forms.TextBox txtBxCP;
+        private System.Windows.Forms.Label lblVille;
+        protected System.Windows.Forms.TextBox txtBxVille;
     }
 }

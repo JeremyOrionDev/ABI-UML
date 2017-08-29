@@ -33,21 +33,27 @@
             this.btnModifier = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
+            // txtBoxAdresseCollab
+            // 
+            this.txtBoxRueCollab.Multiline = false;
+            this.txtBoxRueCollab.Size = new System.Drawing.Size(221, 20);
+            // 
             // btnOK
             // 
             this.btnOK.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Location = new System.Drawing.Point(58, 140);
+            this.btnOK.Location = new System.Drawing.Point(58, 189);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 8;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // btnAnnuler
             // 
             this.btnAnnuler.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnAnnuler.Location = new System.Drawing.Point(139, 140);
+            this.btnAnnuler.Location = new System.Drawing.Point(139, 189);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(75, 23);
             this.btnAnnuler.TabIndex = 9;
@@ -57,7 +63,7 @@
             // 
             // btnModifier
             // 
-            this.btnModifier.Location = new System.Drawing.Point(220, 140);
+            this.btnModifier.Location = new System.Drawing.Point(220, 189);
             this.btnModifier.Name = "btnModifier";
             this.btnModifier.Size = new System.Drawing.Size(75, 23);
             this.btnModifier.TabIndex = 10;
@@ -69,13 +75,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(319, 181);
+            this.ClientSize = new System.Drawing.Size(319, 278);
             this.Controls.Add(this.btnModifier);
             this.Controls.Add(this.btnAnnuler);
             this.Controls.Add(this.btnOK);
             this.Name = "frmAfficheCollab";
             this.Text = "frmAfficheCollab";
-            this.Load += new System.EventHandler(this.frmAfficheCollab_Load_1);
+            this.Controls.SetChildIndex(this.txtBoxNomCollab, 0);
+            this.Controls.SetChildIndex(this.txtBoxPrenomCollab, 0);
+            this.Controls.SetChildIndex(this.txtBoxMatriculeCollab, 0);
+            this.Controls.SetChildIndex(this.txtBoxRueCollab, 0);
             this.Controls.SetChildIndex(this.btnOK, 0);
             this.Controls.SetChildIndex(this.btnAnnuler, 0);
             this.Controls.SetChildIndex(this.btnModifier, 0);

@@ -22,7 +22,7 @@ namespace ABIenCouche
         private String villeCollab;
         private String cpCollab;
         private Int32 matricule;
-        private String photo;
+        //private String photo;
         private String situationMaritale;
 
         public SortedDictionary<Int32,Contrat> lstContrat;
