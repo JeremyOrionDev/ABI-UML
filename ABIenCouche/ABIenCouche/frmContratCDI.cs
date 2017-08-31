@@ -20,6 +20,9 @@ namespace ABIenCouche
             cBxTypeContrat.Items.Add( "CDI");
             cBxTypeContrat.SelectedItem = "CDI";
             cBxTypeContrat.Enabled = false;
+            lblDateFinContrat.Visible = false;
+            ChoixDateFinContrat.Visible = false;
+            
         }
 
         private void btnContratParcourir_Click(object sender, EventArgs e)

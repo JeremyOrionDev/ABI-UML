@@ -15,6 +15,7 @@ namespace ABIenCouche
         public frmContrat()
         {
             InitializeComponent();
+        
             cBxTypeContrat.Items.AddRange(new String[] { "CDI", "CDD", "stage", "interim" });
         }
     }

@@ -44,7 +44,7 @@
             // lblSalaireContratCDI
             // 
             this.lblSalaireContratCDI.AutoSize = true;
-            this.lblSalaireContratCDI.Location = new System.Drawing.Point(3, 382);
+            this.lblSalaireContratCDI.Location = new System.Drawing.Point(16, 271);
             this.lblSalaireContratCDI.Name = "lblSalaireContratCDI";
             this.lblSalaireContratCDI.Size = new System.Drawing.Size(39, 13);
             this.lblSalaireContratCDI.TabIndex = 14;
@@ -52,7 +52,7 @@
             // 
             // tBxSalaireCDI
             // 
-            this.tBxSalaireCDI.Location = new System.Drawing.Point(90, 379);
+            this.tBxSalaireCDI.Location = new System.Drawing.Point(103, 268);
             this.tBxSalaireCDI.Name = "tBxSalaireCDI";
             this.tBxSalaireCDI.Size = new System.Drawing.Size(217, 20);
             this.tBxSalaireCDI.TabIndex = 15;
