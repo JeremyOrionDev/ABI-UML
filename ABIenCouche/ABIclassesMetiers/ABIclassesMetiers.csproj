@@ -40,8 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="avenantContrat.cs" />
     <Compile Include="ContratCDD.cs" />
-    <Compile Include="DictionnaireContrats.cs" />
+    <Compile Include="ContratCDI.cs" />
+    <Compile Include="contratInterim.cs" />
+    <Compile Include="contratStage.cs" />
     <Compile Include="DictionnaireCollaborateur.cs" />
     <Compile Include="Collaborateur.cs" />
     <Compile Include="Contrat.cs" />

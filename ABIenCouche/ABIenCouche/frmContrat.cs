@@ -10,11 +10,12 @@ using System.Windows.Forms;
 
 namespace ABIenCouche
 {
-    public partial class frmCollab : Form
+    public partial class frmContrat : Form
     {
-        public frmCollab()
+        public frmContrat()
         {
             InitializeComponent();
+            cBxTypeContrat.Items.AddRange(new String[] { "CDI", "CDD", "stage", "interim" });
         }
     }
 }

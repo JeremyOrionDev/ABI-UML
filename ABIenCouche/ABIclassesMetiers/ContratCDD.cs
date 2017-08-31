@@ -8,19 +8,21 @@ namespace ABIenCouche
 {
     public class ContratCDD:Contrat
     {
-        public ContratCDD(Int32 unNum,DateTime uneDateDebut,String unLibelle, String unMotif, DateTime uneDateFin ):base(unNum,uneDateDebut)
+        
+        public ContratCDD(Int32 unNum,String unLibelle,DateTime uneDateFin,String unMotif,String uneFonction,String uneQualif,Boolean unStatut,DateTime leDebut,String uneRue,String uneVille,String unCP ) :base(uneFonction, uneQualif, unStatut, leDebut, uneRue, uneVille, unCP)
         {
             
             this.NumContrat = unNum;
             this.Libelle = unLibelle;
             this.dateFinContrat = uneDateFin;
             this.motifContrat = unMotif;
+        
         }
 
 
         private DateTime dateFinContrat;
         private String libelle;
-        private String fonction;
+
         private String motifContrat;
 
         public DateTime DateFinContrat
@@ -49,18 +51,7 @@ namespace ABIenCouche
             }
         }
 
-        public string Fonction
-        {
-            get
-            {
-                return fonction;
-            }
 
-            set
-            {
-                fonction = value;
-            }
-        }
 
         public string MotifContrat
         {

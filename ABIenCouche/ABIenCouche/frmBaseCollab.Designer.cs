@@ -1,6 +1,6 @@
 ﻿namespace ABIenCouche
 {
-    partial class frmCollab
+    partial class frmBaseCollab
     {
         /// <summary>
         /// Required designer variable.
@@ -40,6 +40,8 @@
             this.txtBxCP = new System.Windows.Forms.TextBox();
             this.lblVille = new System.Windows.Forms.Label();
             this.txtBxVille = new System.Windows.Forms.TextBox();
+            this.lblTypeContratCollab = new System.Windows.Forms.Label();
+            this.cBxTypeContratColab = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // txtBoxRueCollab
@@ -139,11 +141,30 @@
             this.txtBxVille.Size = new System.Drawing.Size(221, 20);
             this.txtBxVille.TabIndex = 15;
             // 
-            // frmCollab
+            // lblTypeContratCollab
+            // 
+            this.lblTypeContratCollab.AutoSize = true;
+            this.lblTypeContratCollab.Location = new System.Drawing.Point(12, 173);
+            this.lblTypeContratCollab.Name = "lblTypeContratCollab";
+            this.lblTypeContratCollab.Size = new System.Drawing.Size(64, 13);
+            this.lblTypeContratCollab.TabIndex = 16;
+            this.lblTypeContratCollab.Text = "type Contrat";
+            // 
+            // cBxTypeContratColab
+            // 
+            this.cBxTypeContratColab.FormattingEnabled = true;
+            this.cBxTypeContratColab.Location = new System.Drawing.Point(76, 173);
+            this.cBxTypeContratColab.Name = "cBxTypeContratColab";
+            this.cBxTypeContratColab.Size = new System.Drawing.Size(121, 21);
+            this.cBxTypeContratColab.TabIndex = 17;
+            // 
+            // frmBaseCollab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(309, 261);
+            this.Controls.Add(this.cBxTypeContratColab);
+            this.Controls.Add(this.lblTypeContratCollab);
             this.Controls.Add(this.txtBxVille);
             this.Controls.Add(this.lblVille);
             this.Controls.Add(this.txtBxCP);
@@ -156,8 +177,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtBoxNomCollab);
             this.Controls.Add(this.label1);
-            this.Name = "frmCollab";
-            this.Text = "frmCollab";
+            this.Name = "frmBaseCollab";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -176,5 +196,7 @@
         protected System.Windows.Forms.TextBox txtBxCP;
         private System.Windows.Forms.Label lblVille;
         protected System.Windows.Forms.TextBox txtBxVille;
+        private System.Windows.Forms.Label lblTypeContratCollab;
+        internal System.Windows.Forms.ComboBox cBxTypeContratColab;
     }
 }

@@ -9,15 +9,12 @@ namespace ABIenCouche
 {
     public class DictionnaireCollaborateur
     {
-        public  static SortedDictionary<int, Collaborateur> listCollaborateur = listCollaborateur = new SortedDictionary<int, Collaborateur>();
+        public static SortedDictionary<int, Collaborateur> listCollaborateur =new SortedDictionary<int, Collaborateur> ();
 
         /// <summary>
         /// Initialisation de la collection de collaborateurs
         /// </summary>
-        public DictionnaireCollaborateur()
-        {
-            listCollaborateur = new SortedDictionary<int, Collaborateur>();
-        }
+
         /// <summary>
         /// Ajout du collaborateur unColab en collection
         /// </summary>

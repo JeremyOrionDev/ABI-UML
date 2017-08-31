@@ -1,6 +1,6 @@
 /***********************************************************************
  * Module:  Collaborateur.cs
- * Author:  CDI14
+ * Author:  Jeremy ORION
  * Purpose: Definition of the Class Collaborateur
  ***********************************************************************/
 
@@ -13,27 +13,30 @@ using System.Text;
 
 namespace ABIenCouche
 {
-
+    
     public class Collaborateur
     {
+        public SortedDictionary<Int32, Contrat> lesContrats ;
+
         private String nomCollaborateur;
         private String prenomCollaborateur;
         private String rueCollab;
         private String villeCollab;
         private String cpCollab;
         private Int32 matricule;
+        private Int32 augmentation;
         //private String photo;
         private String situationMaritale;
-
-        public SortedDictionary<Int32,Contrat> lstContrat;
-        public SortedDictionary<Int32, Collaborateur> lesColab;
+        
+    
+   
         /// <summary>
         /// Constructeur pour les collaborateur
         /// </summary>
         /// <param name="unNom">le nom du collaborateur</param>
         /// <param name="unPrenom">le prenom du collaborateur</param>
         /// <param name="unMatricule">le matricule du collaborateur</param>
-        public Collaborateur(Int32 unMatricule, String unNom, String unPrenom, String uneRue, String uneVille, String unCP)
+        public Collaborateur(Int32 unMatricule, String unNom, String unPrenom, String uneRue, String uneVille, String unCP,Int32 uneAugmentation)
         {
             this.NomCollaborateur = unNom;
             this.PrenomCollaborateur = unPrenom;
@@ -41,7 +44,10 @@ namespace ABIenCouche
             this.rueCollab = uneRue;
             this.villeCollab = uneVille;
             this.cpCollab = unCP;
-            lstContrat = new SortedDictionary<Int32, Contrat>();
+            this.Augmentation = uneAugmentation;
+
+            lesContrats = new SortedDictionary<Int32, Contrat>();
+            
         }
 
         public override String ToString()
@@ -55,9 +61,9 @@ namespace ABIenCouche
         /// <pdGenerated>default setter</pdGenerated>
         public void ajoutContrat(Contrat unContrat)
         {
-            if(!lstContrat.ContainsKey(unContrat.NumContrat))
+            if(!lesContrats.ContainsKey(unContrat.NumContrat))
             {
-                lstContrat.Add(unContrat.NumContrat, unContrat);
+                lesContrats.Add(unContrat.NumContrat, unContrat);
             }
             else
             {
@@ -72,16 +78,16 @@ namespace ABIenCouche
         {
             if (oldContrat == null)
                 throw new Exception("le contrat entré n'existe pas");
-            if (lstContrat.ContainsKey(oldContrat.NumContrat))
-                
-                    lstContrat.Remove(oldContrat.NumContrat);
+            if (lesContrats.ContainsKey(oldContrat.NumContrat))
+
+                lesContrats.Remove(oldContrat.NumContrat);
         }
 
         /// <pdGenerated>default removeAll</pdGenerated>
         public void RemoveAllContrat()
         {
-            if (lstContrat.Count != 0)
-                lstContrat.Clear();
+            if (lesContrats.Count != 0)
+                lesContrats.Clear();
         }
 
 
@@ -189,6 +195,17 @@ namespace ABIenCouche
             }
         }
 
+        public int Augmentation
+        {
+            get
+            {
+                return augmentation;
+            }
 
+            set
+            {
+                augmentation = value;
+            }
+        }
     }
 }

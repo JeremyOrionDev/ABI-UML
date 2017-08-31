@@ -13,22 +13,24 @@ namespace ABIenCouche
 {
     public partial class frmDspCollaborateur : Form
     {
-        /// <summary>
-        /// Le collaborateur
-        /// </summary>
-        private Collaborateur leCol;
-        private Contrat leContrat;
+
+      
+        
 
         public frmDspCollaborateur()
         {
+          
             InitializeComponent();
-            this.leCol = new Collaborateur(1, "nom", "prenom", "la rue", "la ville", "12345");
-            this.leContrat= new ContratCDD(1,new DateTime(),"libelle contrat","motif contrat",new DateTime());
-            leCol.lstContrat.Add(this.leContrat.NumContrat, this.leContrat);
-            //this.unContrat = new Contrat(1, 1, 1000 , null, "CDI", null, new DateTime(), null); // valide
-            Collaborateur unCollab;
-            unCollab = new Collaborateur(1, "nom", "prenom", "244 route de turin", "nice", "06300");
-            DictionnaireCollaborateur.listCollaborateur.Add(unCollab.Matricule, unCollab);
+    
+            Collaborateur leCol = new Collaborateur(1, "nom" , "prenom" , "la rue", "la ville", "12345",0);
+            DictionnaireCollaborateur.Ajouter(leCol);
+            Contrat leContrat= new ContratCDD(1,"libelle contrat", new DateTime(), "motif contrat","ma fonction","ma qualif", true,new DateTime(),"rue ici", "la ville","23456");
+            avenantContrat lavenant = new avenantContrat(1, "mon avenant", new DateTime());
+            ContratCDD unCDD = new ContratCDD(1, "le libelle", new DateTime(), "le motif", "lafonction", "sans qualif", true, new DateTime(), "ma rue", "ma ville", "mon CP");
+            leCol.lesContrats.Add(unCDD.NumContrat, unCDD);
+            leContrat.ListAvenant.Add(lavenant.NumeroAvenant, lavenant);
+            Collaborateur unCollab = new Collaborateur(1, "nom", "prenom", "244 route de turin", "nice", "06300",2);
+
             this.afficheCollabo();
         }
 
@@ -43,6 +45,8 @@ namespace ABIenCouche
 
         private void dgCollabo_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            //instancie le controleur lister collabo
+            //this.ctrlListerCollabo ctrl = new ctrlListerCollabo();
             //Console.WriteLine("coucou");
             Collaborateur leCollabo;
             Int32 numcolab;
@@ -59,11 +63,31 @@ namespace ABIenCouche
             frmColab.Text = leCollabo.NomCollaborateur.ToString() + " ";leCollabo.PrenomCollaborateur.ToString();
 
             frmColab.Show();
-
+         
             
 
         }
 
+        private void btnAjouter_Click(object sender, EventArgs e)
+        {
+            frmNouveauCollab leColab = new frmNouveauCollab();
+            leColab.ShowDialog();
+            if (leColab.DialogResult==DialogResult.OK)
+            {
+                frmContratCDI leCDI = new frmContratCDI();
+                leCDI.ShowDialog();
+            }
+        }
 
+        private void btnContrat_Click(object sender, EventArgs e)
+        {
+            frmContratCDI unCDI = new ABIenCouche.frmContratCDI();
+
+            if (this.DialogResult == DialogResult.OK)
+            {
+                unCDI.ShowDialog();
+            }
+            else throw new Exception("Fatal error!!!!!!FFFUUUUCCCCKKKK");
+        }
     }
 }
