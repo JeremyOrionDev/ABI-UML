@@ -22,19 +22,22 @@ namespace ABIenCouche
           
             InitializeComponent();
     
-            Collaborateur leCol = new Collaborateur(1, "nom" , "prenom" , "la rue", "la ville", "12345",0);
+            Collaborateur leCol = new Collaborateur(1,"Mr", "nom" , "prenom" , "la rue", "la ville", "12345",0,"0123456789");
             DictionnaireCollaborateur.Ajouter(leCol);
             Contrat leContrat= new ContratCDD(1,"libelle contrat", new DateTime(), "motif contrat","ma fonction","ma qualif", true,new DateTime(),"rue ici", "la ville","23456");
             avenantContrat lavenant = new avenantContrat(1, "mon avenant", new DateTime());
             ContratCDD unCDD = new ContratCDD(1, "le libelle", new DateTime(), "le motif", "lafonction", "sans qualif", true, new DateTime(), "ma rue", "ma ville", "mon CP");
             leCol.lesContrats.Add(unCDD.NumContrat, unCDD);
             leContrat.ListAvenant.Add(lavenant.NumeroAvenant, lavenant);
-            Collaborateur unCollab = new Collaborateur(1, "nom", "prenom", "244 route de turin", "nice", "06300",2);
-
+            Collaborateur unCollab = new Collaborateur(2,"Mme", "nom", "prenom", "244 route de turin", "nice", "06300",2,"0541236587");
+            DictionnaireCollaborateur.Ajouter(unCollab);
             this.afficheCollabo();
+            dgCollabo.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            dgCollabo.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgCollabo.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
         }
 
-        private void afficheCollabo()
+        public void afficheCollabo()
         {
             this.dgCollabo.DataSource = DictionnaireCollaborateur.ListCollab();
             this.dgCollabo.Refresh();
@@ -70,18 +73,18 @@ namespace ABIenCouche
 
         private void btnAjouter_Click(object sender, EventArgs e)
         {
-            frmNouveauCollab leColab = new frmNouveauCollab();
-            leColab.ShowDialog();
-            if (leColab.DialogResult==DialogResult.OK)
+            ctrlNouveauCollaborateur ctrl = new ctrlNouveauCollaborateur();
+            
+            if (ctrl.Resultat)
             {
-                frmContratCDI leCDI = new frmContratCDI();
-                leCDI.ShowDialog();
+                this.afficheCollabo();
             }
+            
         }
 
         private void btnContrat_Click(object sender, EventArgs e)
         {
-            frmContratCDI unCDI = new ABIenCouche.frmContratCDI();
+            frmContratCDI unCDI = new frmContratCDI();
 
             if (this.DialogResult == DialogResult.OK)
             {

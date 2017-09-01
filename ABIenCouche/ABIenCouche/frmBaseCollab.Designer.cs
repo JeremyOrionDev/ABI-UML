@@ -45,7 +45,9 @@
             this.lblCivilite = new System.Windows.Forms.Label();
             this.cBxCivilite = new System.Windows.Forms.ComboBox();
             this.lblAugmentation = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TbxAugmentation = new System.Windows.Forms.TextBox();
+            this.lblTel = new System.Windows.Forms.Label();
+            this.tBxTel = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // txtBoxRueCollab
@@ -53,7 +55,7 @@
             this.txtBoxRueCollab.Location = new System.Drawing.Point(103, 116);
             this.txtBoxRueCollab.Name = "txtBoxRueCollab";
             this.txtBoxRueCollab.Size = new System.Drawing.Size(221, 20);
-            this.txtBoxRueCollab.TabIndex = 15;
+            this.txtBoxRueCollab.TabIndex = 5;
             // 
             // lblRue
             // 
@@ -61,7 +63,7 @@
             this.lblRue.Location = new System.Drawing.Point(12, 119);
             this.lblRue.Name = "lblRue";
             this.lblRue.Size = new System.Drawing.Size(25, 13);
-            this.lblRue.TabIndex = 14;
+            this.lblRue.TabIndex = 0;
             this.lblRue.Text = "rue ";
             // 
             // txtBoxMatriculeCollab
@@ -70,7 +72,7 @@
             this.txtBoxMatriculeCollab.Location = new System.Drawing.Point(103, 36);
             this.txtBoxMatriculeCollab.Name = "txtBoxMatriculeCollab";
             this.txtBoxMatriculeCollab.Size = new System.Drawing.Size(221, 20);
-            this.txtBoxMatriculeCollab.TabIndex = 13;
+            this.txtBoxMatriculeCollab.TabIndex = 2;
             // 
             // lblMatricule
             // 
@@ -78,7 +80,7 @@
             this.lblMatricule.Location = new System.Drawing.Point(12, 36);
             this.lblMatricule.Name = "lblMatricule";
             this.lblMatricule.Size = new System.Drawing.Size(56, 13);
-            this.lblMatricule.TabIndex = 12;
+            this.lblMatricule.TabIndex = 0;
             this.lblMatricule.Text = "Matricule :";
             // 
             // txtBoxPrenomCollab
@@ -86,7 +88,7 @@
             this.txtBoxPrenomCollab.Location = new System.Drawing.Point(103, 90);
             this.txtBoxPrenomCollab.Name = "txtBoxPrenomCollab";
             this.txtBoxPrenomCollab.Size = new System.Drawing.Size(221, 20);
-            this.txtBoxPrenomCollab.TabIndex = 11;
+            this.txtBoxPrenomCollab.TabIndex = 4;
             // 
             // lblPrenom
             // 
@@ -94,7 +96,7 @@
             this.lblPrenom.Location = new System.Drawing.Point(12, 93);
             this.lblPrenom.Name = "lblPrenom";
             this.lblPrenom.Size = new System.Drawing.Size(49, 13);
-            this.lblPrenom.TabIndex = 10;
+            this.lblPrenom.TabIndex = 0;
             this.lblPrenom.Text = "Prénom: ";
             // 
             // txtBoxNomCollab
@@ -102,7 +104,7 @@
             this.txtBoxNomCollab.Location = new System.Drawing.Point(103, 63);
             this.txtBoxNomCollab.Name = "txtBoxNomCollab";
             this.txtBoxNomCollab.Size = new System.Drawing.Size(221, 20);
-            this.txtBoxNomCollab.TabIndex = 9;
+            this.txtBoxNomCollab.TabIndex = 3;
             // 
             // lblNom
             // 
@@ -110,7 +112,7 @@
             this.lblNom.Location = new System.Drawing.Point(12, 66);
             this.lblNom.Name = "lblNom";
             this.lblNom.Size = new System.Drawing.Size(35, 13);
-            this.lblNom.TabIndex = 8;
+            this.lblNom.TabIndex = 0;
             this.lblNom.Text = "Nom: ";
             // 
             // lblCP
@@ -119,7 +121,7 @@
             this.lblCP.Location = new System.Drawing.Point(12, 145);
             this.lblCP.Name = "lblCP";
             this.lblCP.Size = new System.Drawing.Size(62, 13);
-            this.lblCP.TabIndex = 14;
+            this.lblCP.TabIndex = 0;
             this.lblCP.Text = "code postal";
             // 
             // txtBxCP
@@ -127,7 +129,7 @@
             this.txtBxCP.Location = new System.Drawing.Point(103, 142);
             this.txtBxCP.Name = "txtBxCP";
             this.txtBxCP.Size = new System.Drawing.Size(221, 20);
-            this.txtBxCP.TabIndex = 15;
+            this.txtBxCP.TabIndex = 6;
             // 
             // lblVille
             // 
@@ -135,7 +137,7 @@
             this.lblVille.Location = new System.Drawing.Point(12, 171);
             this.lblVille.Name = "lblVille";
             this.lblVille.Size = new System.Drawing.Size(26, 13);
-            this.lblVille.TabIndex = 14;
+            this.lblVille.TabIndex = 0;
             this.lblVille.Text = "Ville";
             // 
             // txtBxVille
@@ -143,24 +145,24 @@
             this.txtBxVille.Location = new System.Drawing.Point(103, 168);
             this.txtBxVille.Name = "txtBxVille";
             this.txtBxVille.Size = new System.Drawing.Size(221, 20);
-            this.txtBxVille.TabIndex = 15;
+            this.txtBxVille.TabIndex = 7;
             // 
             // lblTypeContratCollab
             // 
             this.lblTypeContratCollab.AutoSize = true;
-            this.lblTypeContratCollab.Location = new System.Drawing.Point(12, 220);
+            this.lblTypeContratCollab.Location = new System.Drawing.Point(12, 251);
             this.lblTypeContratCollab.Name = "lblTypeContratCollab";
             this.lblTypeContratCollab.Size = new System.Drawing.Size(64, 13);
-            this.lblTypeContratCollab.TabIndex = 16;
+            this.lblTypeContratCollab.TabIndex = 0;
             this.lblTypeContratCollab.Text = "type Contrat";
             // 
             // cBxTypeContratColab
             // 
             this.cBxTypeContratColab.FormattingEnabled = true;
-            this.cBxTypeContratColab.Location = new System.Drawing.Point(103, 220);
+            this.cBxTypeContratColab.Location = new System.Drawing.Point(103, 251);
             this.cBxTypeContratColab.Name = "cBxTypeContratColab";
             this.cBxTypeContratColab.Size = new System.Drawing.Size(121, 21);
-            this.cBxTypeContratColab.TabIndex = 17;
+            this.cBxTypeContratColab.TabIndex = 9;
             // 
             // lblCivilite
             // 
@@ -168,7 +170,7 @@
             this.lblCivilite.Location = new System.Drawing.Point(12, 9);
             this.lblCivilite.Name = "lblCivilite";
             this.lblCivilite.Size = new System.Drawing.Size(37, 13);
-            this.lblCivilite.TabIndex = 18;
+            this.lblCivilite.TabIndex = 0;
             this.lblCivilite.Text = "Civilite";
             // 
             // cBxCivilite
@@ -177,30 +179,48 @@
             this.cBxCivilite.Location = new System.Drawing.Point(103, 9);
             this.cBxCivilite.Name = "cBxCivilite";
             this.cBxCivilite.Size = new System.Drawing.Size(121, 21);
-            this.cBxCivilite.TabIndex = 19;
+            this.cBxCivilite.TabIndex = 1;
             // 
             // lblAugmentation
             // 
             this.lblAugmentation.AutoSize = true;
-            this.lblAugmentation.Location = new System.Drawing.Point(12, 197);
+            this.lblAugmentation.Location = new System.Drawing.Point(12, 228);
             this.lblAugmentation.Name = "lblAugmentation";
             this.lblAugmentation.Size = new System.Drawing.Size(72, 13);
-            this.lblAugmentation.TabIndex = 20;
+            this.lblAugmentation.TabIndex = 0;
             this.lblAugmentation.Text = "Augmentation";
             // 
-            // textBox1
+            // TbxAugmentation
             // 
-            this.textBox1.Location = new System.Drawing.Point(103, 194);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(221, 20);
-            this.textBox1.TabIndex = 21;
+            this.TbxAugmentation.Location = new System.Drawing.Point(103, 225);
+            this.TbxAugmentation.Name = "TbxAugmentation";
+            this.TbxAugmentation.Size = new System.Drawing.Size(221, 20);
+            this.TbxAugmentation.TabIndex = 8;
+            // 
+            // lblTel
+            // 
+            this.lblTel.AutoSize = true;
+            this.lblTel.Location = new System.Drawing.Point(12, 199);
+            this.lblTel.Name = "lblTel";
+            this.lblTel.Size = new System.Drawing.Size(58, 13);
+            this.lblTel.TabIndex = 10;
+            this.lblTel.Text = "Telephone";
+            // 
+            // tBxTel
+            // 
+            this.tBxTel.Location = new System.Drawing.Point(103, 199);
+            this.tBxTel.Name = "tBxTel";
+            this.tBxTel.Size = new System.Drawing.Size(221, 20);
+            this.tBxTel.TabIndex = 11;
             // 
             // frmBaseCollab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(349, 360);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tBxTel);
+            this.Controls.Add(this.lblTel);
+            this.Controls.Add(this.TbxAugmentation);
             this.Controls.Add(this.lblAugmentation);
             this.Controls.Add(this.cBxCivilite);
             this.Controls.Add(this.lblCivilite);
@@ -229,19 +249,21 @@
         private System.Windows.Forms.Label lblMatricule;
         private System.Windows.Forms.Label lblPrenom;
         private System.Windows.Forms.Label lblNom;
-        protected System.Windows.Forms.TextBox txtBoxRueCollab;
-        protected System.Windows.Forms.TextBox txtBoxMatriculeCollab;
-        protected System.Windows.Forms.TextBox txtBoxPrenomCollab;
-        protected System.Windows.Forms.TextBox txtBoxNomCollab;
         private System.Windows.Forms.Label lblCP;
-        protected System.Windows.Forms.TextBox txtBxCP;
         private System.Windows.Forms.Label lblVille;
-        protected System.Windows.Forms.TextBox txtBxVille;
         private System.Windows.Forms.Label lblTypeContratCollab;
         internal System.Windows.Forms.ComboBox cBxTypeContratColab;
         private System.Windows.Forms.Label lblCivilite;
         internal System.Windows.Forms.ComboBox cBxCivilite;
         private System.Windows.Forms.Label lblAugmentation;
-        private System.Windows.Forms.TextBox textBox1;
+        internal System.Windows.Forms.TextBox txtBoxRueCollab;
+        internal System.Windows.Forms.TextBox txtBoxMatriculeCollab;
+        internal System.Windows.Forms.TextBox txtBoxPrenomCollab;
+        internal System.Windows.Forms.TextBox txtBoxNomCollab;
+        internal System.Windows.Forms.TextBox txtBxCP;
+        internal System.Windows.Forms.TextBox txtBxVille;
+        internal System.Windows.Forms.TextBox TbxAugmentation;
+        private System.Windows.Forms.Label lblTel;
+        internal System.Windows.Forms.TextBox tBxTel;
     }
 }

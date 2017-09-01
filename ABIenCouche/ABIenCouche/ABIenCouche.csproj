@@ -91,6 +91,7 @@
     <Compile Include="frmNouveauCollab.Designer.cs">
       <DependentUpon>frmNouveauCollab.cs</DependentUpon>
     </Compile>
+    <Compile Include="Outils.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AfficheCollab.resx">

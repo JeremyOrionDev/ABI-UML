@@ -34,7 +34,7 @@ namespace ABIenCouche
 
         internal void afficheCollabo(Collaborateur unCollabo)
         {
-           
+            this.cBxCivilite.Text = unCollabo.SituationMaritale;
             this.txtBoxNomCollab.Text = unCollabo.NomCollaborateur;
             this.txtBoxPrenomCollab.Text = unCollabo.PrenomCollaborateur;
             this.txtBoxMatriculeCollab.Text = unCollabo.Matricule.ToString();

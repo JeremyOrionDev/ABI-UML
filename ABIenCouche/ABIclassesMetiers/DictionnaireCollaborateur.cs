@@ -11,9 +11,6 @@ namespace ABIenCouche
     {
         public static SortedDictionary<int, Collaborateur> listCollaborateur =new SortedDictionary<int, Collaborateur> ();
 
-        /// <summary>
-        /// Initialisation de la collection de collaborateurs
-        /// </summary>
 
         /// <summary>
         /// Ajout du collaborateur unColab en collection
@@ -21,9 +18,11 @@ namespace ABIenCouche
         /// <param name="unColab">le collaborateur a ajouter en collection</param>
         public static void Ajouter(Collaborateur unColab)
         {
+            
             if (!listCollaborateur.ContainsKey(unColab.Matricule))
             {
                 listCollaborateur.Add(unColab.Matricule, unColab);
+                
             }
             else throw new Exception(" le collaborateur est déja dans la base");
         }
@@ -92,18 +91,22 @@ namespace ABIenCouche
         {
             DataTable dt = new DataTable();
             DataRow DR;
-            dt.Columns.Add(new DataColumn("Matricule", typeof(Int32)));
+            dt.Columns.Add(new DataColumn("#", typeof(Int32)));
+            dt.Columns.Add(new DataColumn("Civ", typeof(String)));
             dt.Columns.Add(new DataColumn("Nom", typeof(String)));
             dt.Columns.Add(new DataColumn("Prénom", typeof(String)));
             dt.Columns.Add(new DataColumn("Adresse", typeof(String)));
-
+            dt.Columns.Add(new DataColumn("Telephone", typeof(String)));
+            
             foreach (KeyValuePair<Int32, Collaborateur> colab in listCollaborateur)
             {
                 DR = dt.NewRow();
                 DR[0] = colab.Value.Matricule;
-                DR[1] = colab.Value.NomCollaborateur;
-                DR[2] = colab.Value.PrenomCollaborateur;
-                DR[3] = colab.Value.RueCollab+" "+colab.Value.CpCollab+" "+colab.Value.VilleCollab;
+                DR[1] = colab.Value.Civilite;
+                DR[2] = colab.Value.NomCollaborateur;
+                DR[3] = colab.Value.PrenomCollaborateur;
+                DR[4] = colab.Value.RueCollab+" "+colab.Value.CpCollab+" "+colab.Value.VilleCollab;
+                DR[5] = colab.Value.Telephone;
                 dt.Rows.Add(DR);
 
             }

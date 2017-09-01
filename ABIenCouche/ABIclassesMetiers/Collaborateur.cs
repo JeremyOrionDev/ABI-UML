@@ -26,8 +26,8 @@ namespace ABIenCouche
         private Int32 matricule;
         private Int32 augmentation;
         private String situationMaritale;
-        
-    
+        private String civilite;
+        private String telephone;
    
         /// <summary>
         /// Constructeur pour les collaborateur
@@ -35,7 +35,7 @@ namespace ABIenCouche
         /// <param name="unNom">le nom du collaborateur</param>
         /// <param name="unPrenom">le prenom du collaborateur</param>
         /// <param name="unMatricule">le matricule du collaborateur</param>
-        public Collaborateur(Int32 unMatricule, String unNom, String unPrenom, String uneRue, String uneVille, String unCP,Int32 uneAugmentation)
+        public Collaborateur(Int32 unMatricule,String uneCivilite, String unNom, String unPrenom, String uneRue, String uneVille, String unCP,Int32 uneAugmentation,String unTel)
         {
             this.NomCollaborateur = unNom;
             this.PrenomCollaborateur = unPrenom;
@@ -44,8 +44,10 @@ namespace ABIenCouche
             this.villeCollab = uneVille;
             this.cpCollab = unCP;
             this.Augmentation = uneAugmentation;
-
+            this.Civilite = uneCivilite;
+            this.Telephone = unTel;
             lesContrats = new SortedDictionary<Int32, Contrat>();
+
             
         }
 
@@ -204,6 +206,31 @@ namespace ABIenCouche
             set
             {
                 augmentation = value;
+            }
+        }
+
+        public String Civilite
+        {
+            get
+            {
+                return civilite;
+            }
+            private set
+            {
+                civilite = value;
+            }
+        }
+
+        public string Telephone
+        {
+            get
+            {
+                return telephone;
+            }
+
+            set
+            {
+                telephone = value;
             }
         }
     }

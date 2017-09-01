@@ -34,39 +34,31 @@
             // 
             // btnAnnulerNvColab
             // 
-            this.btnAnnulerNvColab.Location = new System.Drawing.Point(222, 217);
+            this.btnAnnulerNvColab.Location = new System.Drawing.Point(255, 283);
             this.btnAnnulerNvColab.Name = "btnAnnulerNvColab";
             this.btnAnnulerNvColab.Size = new System.Drawing.Size(75, 23);
-            this.btnAnnulerNvColab.TabIndex = 16;
+            this.btnAnnulerNvColab.TabIndex = 15;
             this.btnAnnulerNvColab.Text = "Annuler";
             this.btnAnnulerNvColab.UseVisualStyleBackColor = true;
-            this.btnAnnulerNvColab.Click += new System.EventHandler(this.btnAnnulerNvColab_Click);
             // 
             // btnOKNvColab
             // 
-            this.btnOKNvColab.Location = new System.Drawing.Point(141, 217);
+            this.btnOKNvColab.Location = new System.Drawing.Point(174, 283);
             this.btnOKNvColab.Name = "btnOKNvColab";
             this.btnOKNvColab.Size = new System.Drawing.Size(75, 23);
-            this.btnOKNvColab.TabIndex = 17;
+            this.btnOKNvColab.TabIndex = 14;
             this.btnOKNvColab.Text = "OK";
             this.btnOKNvColab.UseVisualStyleBackColor = true;
-            this.btnOKNvColab.Click += new System.EventHandler(this.btnOKNvColab_Click);
             // 
             // frmNouveauCollab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(309, 261);
+            this.ClientSize = new System.Drawing.Size(342, 316);
             this.Controls.Add(this.btnOKNvColab);
             this.Controls.Add(this.btnAnnulerNvColab);
             this.Name = "frmNouveauCollab";
             this.Text = "frmNouveauCollab";
-            this.Controls.SetChildIndex(this.txtBoxNomCollab, 0);
-            this.Controls.SetChildIndex(this.txtBoxPrenomCollab, 0);
-            this.Controls.SetChildIndex(this.txtBoxMatriculeCollab, 0);
-            this.Controls.SetChildIndex(this.txtBoxRueCollab, 0);
-            this.Controls.SetChildIndex(this.txtBxCP, 0);
-            this.Controls.SetChildIndex(this.txtBxVille, 0);
             this.Controls.SetChildIndex(this.btnAnnulerNvColab, 0);
             this.Controls.SetChildIndex(this.btnOKNvColab, 0);
             this.ResumeLayout(false);
@@ -75,8 +67,7 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnAnnulerNvColab;
-        private System.Windows.Forms.Button btnOKNvColab;
+        internal System.Windows.Forms.Button btnOKNvColab;
+        internal System.Windows.Forms.Button btnAnnulerNvColab;
     }
 }

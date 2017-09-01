@@ -18,25 +18,9 @@ namespace ABIenCouche
             
         }
         
-        private void btnOKNvColab_Click(object sender, EventArgs e)
-        {
-            frmContratCDI leCDI = new frmContratCDI();
-            frmContratTemporaire contratTemp = new frmContratTemporaire();
-            if (base.cBxTypeContratColab.Text=="CDI")
-            {
-                leCDI.ShowDialog();
-            }
-            else 
-            {
-                contratTemp.ShowDialog();
-            }
-    
 
-        }
+        //}
 
-        private void btnAnnulerNvColab_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+
     }
 }

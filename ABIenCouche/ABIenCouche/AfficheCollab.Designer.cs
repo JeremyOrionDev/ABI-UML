@@ -104,7 +104,7 @@
             this.aideToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(461, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(453, 24);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -345,7 +345,7 @@
             this.ToolStripButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(461, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(453, 25);
             this.toolStrip1.TabIndex = 4;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -441,17 +441,22 @@
             this.dgCollabo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.dgCollabo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgCollabo.Location = new System.Drawing.Point(12, 91);
+            this.dgCollabo.MultiSelect = false;
             this.dgCollabo.Name = "dgCollabo";
             this.dgCollabo.ReadOnly = true;
+            this.dgCollabo.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgCollabo.RowHeadersVisible = false;
+            this.dgCollabo.RowHeadersWidth = 20;
+            this.dgCollabo.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgCollabo.ShowEditingIcon = false;
-            this.dgCollabo.Size = new System.Drawing.Size(437, 231);
+            this.dgCollabo.Size = new System.Drawing.Size(423, 231);
             this.dgCollabo.TabIndex = 5;
             this.dgCollabo.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgCollabo_CellContentDoubleClick);
             this.dgCollabo.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgCollabo_CellContentDoubleClick);
             // 
             // btnAjouter
             // 
-            this.btnAjouter.Location = new System.Drawing.Point(212, 328);
+            this.btnAjouter.Location = new System.Drawing.Point(198, 328);
             this.btnAjouter.Name = "btnAjouter";
             this.btnAjouter.Size = new System.Drawing.Size(75, 23);
             this.btnAjouter.TabIndex = 6;
@@ -462,7 +467,7 @@
             // btnSupprimer
             // 
             this.btnSupprimer.Enabled = false;
-            this.btnSupprimer.Location = new System.Drawing.Point(293, 328);
+            this.btnSupprimer.Location = new System.Drawing.Point(279, 328);
             this.btnSupprimer.Name = "btnSupprimer";
             this.btnSupprimer.Size = new System.Drawing.Size(75, 23);
             this.btnSupprimer.TabIndex = 7;
@@ -471,7 +476,7 @@
             // 
             // btnQuitter
             // 
-            this.btnQuitter.Location = new System.Drawing.Point(374, 328);
+            this.btnQuitter.Location = new System.Drawing.Point(360, 328);
             this.btnQuitter.Name = "btnQuitter";
             this.btnQuitter.Size = new System.Drawing.Size(75, 23);
             this.btnQuitter.TabIndex = 8;
@@ -483,7 +488,7 @@
             // 
             this.tBxRechercher.Location = new System.Drawing.Point(139, 65);
             this.tBxRechercher.Name = "tBxRechercher";
-            this.tBxRechercher.Size = new System.Drawing.Size(229, 20);
+            this.tBxRechercher.Size = new System.Drawing.Size(201, 20);
             this.tBxRechercher.TabIndex = 9;
             // 
             // cBxRechercheCollab
@@ -496,7 +501,7 @@
             // 
             // btnRechercher
             // 
-            this.btnRechercher.Location = new System.Drawing.Point(374, 64);
+            this.btnRechercher.Location = new System.Drawing.Point(360, 63);
             this.btnRechercher.Name = "btnRechercher";
             this.btnRechercher.Size = new System.Drawing.Size(75, 23);
             this.btnRechercher.TabIndex = 11;
@@ -507,7 +512,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(461, 363);
+            this.ClientSize = new System.Drawing.Size(453, 363);
             this.Controls.Add(this.btnRechercher);
             this.Controls.Add(this.cBxRechercheCollab);
             this.Controls.Add(this.tBxRechercher);
@@ -575,13 +580,13 @@
         private System.Windows.Forms.ToolStripButton collerToolStripButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripButton ToolStripButton;
-        private System.Windows.Forms.DataGridView dgCollabo;
         private System.Windows.Forms.Button btnAjouter;
         private System.Windows.Forms.Button btnSupprimer;
         private System.Windows.Forms.Button btnQuitter;
         private System.Windows.Forms.TextBox tBxRechercher;
         private System.Windows.Forms.ComboBox cBxRechercheCollab;
         private System.Windows.Forms.Button btnRechercher;
+        internal System.Windows.Forms.DataGridView dgCollabo;
     }
 }
 
