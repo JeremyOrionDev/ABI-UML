@@ -76,7 +76,10 @@
             this.dgCollabo = new System.Windows.Forms.DataGridView();
             this.btnAjouter = new System.Windows.Forms.Button();
             this.btnSupprimer = new System.Windows.Forms.Button();
-            this.btnContrat = new System.Windows.Forms.Button();
+            this.btnQuitter = new System.Windows.Forms.Button();
+            this.tBxRechercher = new System.Windows.Forms.TextBox();
+            this.cBxRechercheCollab = new System.Windows.Forms.ComboBox();
+            this.btnRechercher = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgCollabo)).BeginInit();
@@ -301,30 +304,30 @@
             // sommaireToolStripMenuItem
             // 
             this.sommaireToolStripMenuItem.Name = "sommaireToolStripMenuItem";
-            this.sommaireToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.sommaireToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.sommaireToolStripMenuItem.Text = "&Sommaire";
             // 
             // indexToolStripMenuItem
             // 
             this.indexToolStripMenuItem.Name = "indexToolStripMenuItem";
-            this.indexToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.indexToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.indexToolStripMenuItem.Text = "&Index";
             // 
             // rechercherToolStripMenuItem
             // 
             this.rechercherToolStripMenuItem.Name = "rechercherToolStripMenuItem";
-            this.rechercherToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.rechercherToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.rechercherToolStripMenuItem.Text = "&Rechercher";
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(144, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(149, 6);
             // 
             // àproposdeToolStripMenuItem
             // 
             this.àproposdeToolStripMenuItem.Name = "àproposdeToolStripMenuItem";
-            this.àproposdeToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.àproposdeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.àproposdeToolStripMenuItem.Text = "À &propos de...";
             // 
             // toolStrip1
@@ -437,18 +440,18 @@
             this.dgCollabo.AllowUserToResizeRows = false;
             this.dgCollabo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.dgCollabo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgCollabo.Location = new System.Drawing.Point(48, 104);
+            this.dgCollabo.Location = new System.Drawing.Point(12, 91);
             this.dgCollabo.Name = "dgCollabo";
             this.dgCollabo.ReadOnly = true;
             this.dgCollabo.ShowEditingIcon = false;
-            this.dgCollabo.Size = new System.Drawing.Size(341, 218);
+            this.dgCollabo.Size = new System.Drawing.Size(437, 231);
             this.dgCollabo.TabIndex = 5;
             this.dgCollabo.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgCollabo_CellContentDoubleClick);
             this.dgCollabo.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgCollabo_CellContentDoubleClick);
             // 
             // btnAjouter
             // 
-            this.btnAjouter.Location = new System.Drawing.Point(71, 350);
+            this.btnAjouter.Location = new System.Drawing.Point(212, 328);
             this.btnAjouter.Name = "btnAjouter";
             this.btnAjouter.Size = new System.Drawing.Size(75, 23);
             this.btnAjouter.TabIndex = 6;
@@ -459,29 +462,56 @@
             // btnSupprimer
             // 
             this.btnSupprimer.Enabled = false;
-            this.btnSupprimer.Location = new System.Drawing.Point(266, 350);
+            this.btnSupprimer.Location = new System.Drawing.Point(293, 328);
             this.btnSupprimer.Name = "btnSupprimer";
             this.btnSupprimer.Size = new System.Drawing.Size(75, 23);
             this.btnSupprimer.TabIndex = 7;
             this.btnSupprimer.Text = "supprimer";
             this.btnSupprimer.UseVisualStyleBackColor = true;
             // 
-            // btnContrat
+            // btnQuitter
             // 
-            this.btnContrat.Location = new System.Drawing.Point(165, 350);
-            this.btnContrat.Name = "btnContrat";
-            this.btnContrat.Size = new System.Drawing.Size(75, 23);
-            this.btnContrat.TabIndex = 8;
-            this.btnContrat.Text = "Contrat";
-            this.btnContrat.UseVisualStyleBackColor = true;
-            this.btnContrat.Click += new System.EventHandler(this.btnContrat_Click);
+            this.btnQuitter.Location = new System.Drawing.Point(374, 328);
+            this.btnQuitter.Name = "btnQuitter";
+            this.btnQuitter.Size = new System.Drawing.Size(75, 23);
+            this.btnQuitter.TabIndex = 8;
+            this.btnQuitter.Text = "Quitter";
+            this.btnQuitter.UseVisualStyleBackColor = true;
+            this.btnQuitter.Click += new System.EventHandler(this.btnQuitter_Click);
+            // 
+            // tBxRechercher
+            // 
+            this.tBxRechercher.Location = new System.Drawing.Point(139, 65);
+            this.tBxRechercher.Name = "tBxRechercher";
+            this.tBxRechercher.Size = new System.Drawing.Size(229, 20);
+            this.tBxRechercher.TabIndex = 9;
+            // 
+            // cBxRechercheCollab
+            // 
+            this.cBxRechercheCollab.FormattingEnabled = true;
+            this.cBxRechercheCollab.Location = new System.Drawing.Point(12, 64);
+            this.cBxRechercheCollab.Name = "cBxRechercheCollab";
+            this.cBxRechercheCollab.Size = new System.Drawing.Size(121, 21);
+            this.cBxRechercheCollab.TabIndex = 10;
+            // 
+            // btnRechercher
+            // 
+            this.btnRechercher.Location = new System.Drawing.Point(374, 64);
+            this.btnRechercher.Name = "btnRechercher";
+            this.btnRechercher.Size = new System.Drawing.Size(75, 23);
+            this.btnRechercher.TabIndex = 11;
+            this.btnRechercher.Text = "rechercher";
+            this.btnRechercher.UseVisualStyleBackColor = true;
             // 
             // frmDspCollaborateur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(461, 409);
-            this.Controls.Add(this.btnContrat);
+            this.ClientSize = new System.Drawing.Size(461, 363);
+            this.Controls.Add(this.btnRechercher);
+            this.Controls.Add(this.cBxRechercheCollab);
+            this.Controls.Add(this.tBxRechercher);
+            this.Controls.Add(this.btnQuitter);
             this.Controls.Add(this.btnSupprimer);
             this.Controls.Add(this.btnAjouter);
             this.Controls.Add(this.dgCollabo);
@@ -548,7 +578,10 @@
         private System.Windows.Forms.DataGridView dgCollabo;
         private System.Windows.Forms.Button btnAjouter;
         private System.Windows.Forms.Button btnSupprimer;
-        private System.Windows.Forms.Button btnContrat;
+        private System.Windows.Forms.Button btnQuitter;
+        private System.Windows.Forms.TextBox tBxRechercher;
+        private System.Windows.Forms.ComboBox cBxRechercheCollab;
+        private System.Windows.Forms.Button btnRechercher;
     }
 }
 

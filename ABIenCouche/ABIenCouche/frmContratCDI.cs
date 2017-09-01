@@ -24,7 +24,7 @@ namespace ABIenCouche
             ChoixDateFinContrat.Visible = false;
             
         }
-
+        String path;
         private void btnContratParcourir_Click(object sender, EventArgs e)
         {
             try
@@ -34,21 +34,21 @@ namespace ABIenCouche
                 openPhoto.Multiselect = false;
                 if(openPhoto.ShowDialog()==DialogResult.OK)
                 {
-                    String path = openPhoto.FileName;
+                     path = openPhoto.FileName;
                     txtBxAdressePhotoContrat.Enabled = false;
                     this.txtBxAdressePhotoContrat.Text = path;
                     FileStream fs = new FileStream(@path, FileMode.Open);
                     pictureBoxPhotoContrat.Image = Image.FromStream(fs);
-         
                     fs.Close();
-                    using (StreamReader reader = new StreamReader(new FileStream(path, FileMode.Open), new UTF8Encoding())) ;
+                    using (StreamReader reader = new StreamReader(new FileStream(path, FileMode.Open), new UTF8Encoding()));
                 }
             }
-            catch (Exception)
+            catch (Exception )
             {
 
-                throw;
+                throw new Exception(" erreur rencontrée:" + e) ;
             }
+            
         }
 
 

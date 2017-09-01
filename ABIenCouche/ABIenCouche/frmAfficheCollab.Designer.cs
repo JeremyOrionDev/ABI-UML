@@ -37,7 +37,7 @@
             // 
             this.btnOK.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Location = new System.Drawing.Point(59, 170);
+            this.btnOK.Location = new System.Drawing.Point(87, 262);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 8;
@@ -48,7 +48,7 @@
             // btnAnnuler
             // 
             this.btnAnnuler.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnAnnuler.Location = new System.Drawing.Point(140, 170);
+            this.btnAnnuler.Location = new System.Drawing.Point(168, 262);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(75, 23);
             this.btnAnnuler.TabIndex = 9;
@@ -58,7 +58,7 @@
             // 
             // btnModifier
             // 
-            this.btnModifier.Location = new System.Drawing.Point(221, 170);
+            this.btnModifier.Location = new System.Drawing.Point(249, 262);
             this.btnModifier.Name = "btnModifier";
             this.btnModifier.Size = new System.Drawing.Size(75, 23);
             this.btnModifier.TabIndex = 10;
@@ -70,7 +70,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(305, 206);
+            this.ClientSize = new System.Drawing.Size(338, 300);
             this.Controls.Add(this.btnModifier);
             this.Controls.Add(this.btnAnnuler);
             this.Controls.Add(this.btnOK);

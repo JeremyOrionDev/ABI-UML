@@ -89,5 +89,12 @@ namespace ABIenCouche
             }
             else throw new Exception("Fatal error!!!!!!FFFUUUUCCCCKKKK");
         }
+
+        private void btnQuitter_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+
     }
 }

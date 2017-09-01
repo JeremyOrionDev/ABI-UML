@@ -8,8 +8,15 @@ namespace ABIenCouche
 {
     public class crtlListerCollabo
     {
+        private Collaborateur leColab;
+
+        private DictionnaireCollaborateur ListColab;
+
+        
+
         public  crtlListerCollabo()
             {
+                
                 
             }
     }

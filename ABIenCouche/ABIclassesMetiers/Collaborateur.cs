@@ -25,7 +25,6 @@ namespace ABIenCouche
         private String cpCollab;
         private Int32 matricule;
         private Int32 augmentation;
-        //private String photo;
         private String situationMaritale;
         
     

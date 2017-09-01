@@ -26,9 +26,9 @@ namespace ABIenCouche
             {
                 leCDI.ShowDialog();
             }
-            else if (cBxTypeContratColab.Text=="temporaire")
+            else 
             {
-
+                contratTemp.ShowDialog();
             }
     
 
@@ -37,7 +37,6 @@ namespace ABIenCouche
         private void btnAnnulerNvColab_Click(object sender, EventArgs e)
         {
             this.Close();
-
         }
     }
 }

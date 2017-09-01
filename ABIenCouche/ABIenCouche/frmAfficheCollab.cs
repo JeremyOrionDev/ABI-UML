@@ -16,7 +16,7 @@ namespace ABIenCouche
         private Collaborateur leCollaborateur;
         public frmAfficheCollab(Collaborateur unCollab)
         {
-           
+            this.leCollaborateur = unCollab;
             InitializeComponent();
             //this.afficheCollabo(unCollab);
             this.txtBoxRueCollab.Enabled = false;
