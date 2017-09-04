@@ -10,8 +10,15 @@ namespace ABIenCouche
     public class DictionnaireCollaborateur
     {
         private static SortedDictionary<int, Collaborateur> listCollaborateur =new SortedDictionary<int, Collaborateur> ();
-
-
+        private Collaborateur unColab;
+        public Collaborateur LeCollaborateur
+        {
+            get
+            {
+                return unColab;
+            }
+            
+        }
         /// <summary>
         /// Ajout du collaborateur unColab en collection
         /// </summary>
@@ -73,6 +80,7 @@ namespace ABIenCouche
             else throw new Exception("le collaborateur ne peut pas être remplacé car il n'existe pas, il faut le créer");
         }
 
+
         /// <summary>
         /// Fonction de récupération d'un collaborateur à partir de son matricule
         /// </summary>
@@ -112,39 +120,40 @@ namespace ABIenCouche
             }
             return dt;
         }
-        public static DataTable ListNomCollab(String unNom)
+        public static DataTable ListContrats(Collaborateur unCollaborateur)
         {
+            
             DataTable dt = new DataTable();
             DataRow DR;
             dt.Columns.Add(new DataColumn("#", typeof(Int32)));
-            dt.Columns.Add(new DataColumn("Civ", typeof(String)));
-            dt.Columns.Add(new DataColumn("Nom", typeof(String)));
-            dt.Columns.Add(new DataColumn("Prénom", typeof(String)));
-            dt.Columns.Add(new DataColumn("Adresse", typeof(String)));
-            dt.Columns.Add(new DataColumn("Telephone", typeof(String)));
+            dt.Columns.Add(new DataColumn("type", typeof(String)));
+            dt.Columns.Add(new DataColumn("statut", typeof(String)));
+            dt.Columns.Add(new DataColumn("qualification", typeof(String)));
+            dt.Columns.Add(new DataColumn("fonction", typeof(String)));
+            dt.Columns.Add(new DataColumn("avenant", typeof(Int32)));
 
-            foreach (KeyValuePair<Int32, Collaborateur> colab in listCollaborateur)
+            foreach (KeyValuePair<Int32,Contrat> leContrat in unCollaborateur.lesContrats)
             {
-                if(colab.Value.NomCollaborateur==unNom)
-                {
-                    DR = dt.NewRow();
-                    DR[0] = colab.Value.Matricule;
-                    DR[1] = colab.Value.Civilite;
-                    DR[2] = colab.Value.NomCollaborateur;
-                    DR[3] = colab.Value.PrenomCollaborateur;
-                    DR[4] = colab.Value.RueCollab + " " + colab.Value.CpCollab + " " + colab.Value.VilleCollab;
-                    DR[5] = colab.Value.Telephone;
-                    dt.Rows.Add(DR);
-                }
                 DR = dt.NewRow();
-                DR[0] = colab.Value.Matricule;
-                DR[1] = colab.Value.Civilite;
-                DR[2] = colab.Value.NomCollaborateur;
-                DR[3] = colab.Value.PrenomCollaborateur;
-                DR[4] = colab.Value.RueCollab + " " + colab.Value.CpCollab + " " + colab.Value.VilleCollab;
-                DR[5] = colab.Value.Telephone;
+                DR[0] = leContrat.Value.NumContrat;
+                if (leContrat is ContratCDD)
+                {
+                    DR[1] = "CDD";
+                }
+                else if (leContrat is ContratCDI)
+                {
+                    DR[1] = "CDI";
+                }
+                else if (leContrat is contratInterim)
+                {
+                    DR[1] = "interim";
+                }
+                else DR[1] = "stage";
+                DR[2] = leContrat.Value.LeStatut;
+                DR[3] = leContrat.Value.QualificationCollaborateur;
+                DR[4] = leContrat.Value.FonctionCollaborateur;
+                DR[5] = leContrat.Value.ListAvenant.Count;
                 dt.Rows.Add(DR);
-
             }
             return dt;
         }

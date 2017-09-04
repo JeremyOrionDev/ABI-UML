@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ABIenCouche
 {
-    class contratInterim:Contrat
+    public class contratInterim:Contrat
     {
-        public contratInterim(Int32 uneRef,String uneAgence,Double leSalaire, String uneFonction, String uneQualif, Boolean unStatut, DateTime leDebut, String uneRue, String uneVille, String unCP) : base(uneFonction, uneQualif, unStatut, leDebut, uneRue, uneVille, unCP)
+        public contratInterim(Int32 uneRef,String uneAgence,Double leSalaire,String uneFonction, String uneQualif, String unLibelle, Boolean unStatut, DateTime leDebut) : base( uneFonction, uneQualif, unLibelle, unStatut, leDebut)
         {
             this.RefContrat = uneRef;
             this.Agence = uneAgence;

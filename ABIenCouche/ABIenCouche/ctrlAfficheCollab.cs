@@ -32,20 +32,51 @@ namespace ABIenCouche
             formAffiche.txtBxCP.Text = unColab.CpCollab;
             formAffiche.tBxTel.Text = unColab.Telephone;
             formAffiche.TbxAugmentation.Text = unColab.Augmentation.ToString();
-            formAffiche.panelPhoto.Visible = false;
-            OpenFileDialog openPhoto = new OpenFileDialog();
-            openPhoto.Filter = "Images files jpeg | *.jpg";
-            openPhoto.Multiselect = false;
-            String path = unColab.LaPhoto;
-            formAffiche.txtBxAdressePhoto.Enabled = false;
-            formAffiche.txtBxAdressePhoto.Text = path;
-            FileStream fs = new FileStream(@path, FileMode.Open);
-            formAffiche.pictureBoxPhotoCollab.Image = Image.FromStream(fs);
-            fs.Close();
-            using (StreamReader reader = new StreamReader(new FileStream(path, FileMode.Open), new UTF8Encoding())) ;
-
-    
+            //formAffiche.panelPhoto.Visible = false;
+            //OpenFileDialog openPhoto = new OpenFileDialog();
+            //openPhoto.Filter = "Images files jpeg | *.jpg";
+            //openPhoto.Multiselect = false;
+            //String path = unColab.LaPhoto;
+            //formAffiche.txtBxAdressePhoto.Enabled = false;
+            //formAffiche.txtBxAdressePhoto.Text = path;
+            //FileStream fs = new FileStream(@path, FileMode.Open);
+            //formAffiche.pictureBoxPhotoCollab.Image = Image.FromStream(fs);
+            //fs.Close();
+            //formAffiche.gBxContrat.Visible = false;
+            //using (StreamReader reader = new StreamReader(new FileStream(path, FileMode.Open), new UTF8Encoding())) ;
+            formAffiche.btnContrats.Click += new EventHandler(btnContrats_Click);
+            formAffiche.dgContrats.DoubleClick += new EventHandler(dgContrat_DoubleClick);
+            formAffiche.panelContrat.Visible = false;
             formAffiche.ShowDialog();
+            init();
         }
+
+        private void dgContrat_DoubleClick(object sender, EventArgs e)
+        {
+            Contrat leContrat;
+            Int32 numContrat;
+            if (formAffiche.dgContrats.RowCount != 0)
+            {
+                numContrat = Convert.ToInt32(formAffiche.dgContrats.CurrentRow.Cells[0].Value.ToString());
+            }
+            else numContrat = 0;
+            leContrat = DictionnaireCollaborateur.retrouverContrat(leCollaborateur, numContrat);
+            ctrlAfficheContrat affichecontrat = new ctrlAfficheContrat(leContrat);
+            MessageBox.Show("test", "test", MessageBoxButtons.OK);
+        }
+        internal void init()
+        {
+            formAffiche.dgContrats.DataSource = DictionnaireCollaborateur.ListContrats(leCollaborateur);
+            formAffiche.dgContrats.Refresh();
+        }
+        private void btnContrats_Click(object sender, EventArgs e)
+        {
+            formAffiche.panelContrat.Visible = true;
+            init();
+            
+
+        }
+
+
     }
 }

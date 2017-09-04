@@ -9,16 +9,23 @@ namespace ABIenCouche
     public class ContratCDD:Contrat
     {
         
-        public ContratCDD(Int32 unNum,String unLibelle,DateTime uneDateFin,String unMotif,String uneFonction,String uneQualif,Boolean unStatut,DateTime leDebut,String uneRue,String uneVille,String unCP ) :base(uneFonction, uneQualif, unStatut, leDebut, uneRue, uneVille, unCP)
+        public ContratCDD(Int32 unNum,String unLibelle,DateTime uneDateFin,String unMotif,String uneFonction,String uneQualif,Boolean unStatut,DateTime leDebut ) :base(uneFonction, uneQualif,unLibelle, unStatut, leDebut)
         {
             
             this.NumContrat = unNum;
-            this.Libelle = unLibelle;
+            //this.Libelle = unLibelle;
             this.dateFinContrat = uneDateFin;
             this.motifContrat = unMotif;
         
         }
-
+        public static Contrat retrouverCDD(Collaborateur unColab, Int32 numContrat)
+        {
+            if (unColab.lesContrats.ContainsKey(numContrat))
+            {
+                return unColab.lesContrats[numContrat];
+            }
+            else throw new Exception("le collaborateur ne possede pas de contrats");
+        }
 
         private DateTime dateFinContrat;
         private String libelle;

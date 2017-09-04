@@ -16,32 +16,37 @@ namespace ABIenCouche
     public abstract class Contrat
     {
         public SortedDictionary<Int32, avenantContrat> ListAvenant;
-
+        private Collaborateur leCollaborateur;
+        private Contrat leContrat;
         public override String ToString()
         {
             return "le contrat numero: " + this.numContrat + "commençant le : " + DateDebutContrat;
         }
 
-        public Contrat(String uneFonction,String uneQualif,Boolean unStatut, DateTime leDebut,String uneRue,String uneVille,String unCP)
+        public Contrat(String uneFonction,String uneQualif,String unLibelle,Boolean unStatut, DateTime leDebut)
         {
-            this.RueContrat = uneRue;
-            this.VilleContrat = uneVille;
-            this.CodePostalContrat = unCP;
+
             this.DateDebutContrat = leDebut;
             this.LeStatut = unStatut;
             this.QualificationCollaborateur = uneQualif;
+            this.LibelleContrat = unLibelle;
             this.FonctionCollaborateur = uneFonction;
             ListAvenant = new SortedDictionary<int, ABIenCouche.avenantContrat>();
         }
-        private String rueContrat;
-        private String villeContrat;
-        private String codePostalContrat;
+        public static Contrat retrouverContrat(Collaborateur unColab, Int32 numContrat)
+        {
+            if (unColab.lesContrats.ContainsKey(numContrat))
+            {
+                return unColab.lesContrats[numContrat];
+            }
+            else throw new Exception("le collaborateur ne possede pas de contrats");
+        }
         private String qualificationCollaborateur;
         private String fonctionCollaborateur;
         private Boolean leStatut;
         private Int32 numContrat;
         private DateTime dateDebutContrat;
-
+        private String libelleContrat;
         public int NumContrat
         {
             get
@@ -111,42 +116,17 @@ namespace ABIenCouche
             }
         }
 
-        public string RueContrat
+       
+        public string LibelleContrat
         {
             get
             {
-                return rueContrat;
+                return libelleContrat;
             }
 
             set
             {
-                rueContrat = value;
-            }
-        }
-
-        public string VilleContrat
-        {
-            get
-            {
-                return villeContrat;
-            }
-
-            set
-            {
-                villeContrat = value;
-            }
-        }
-
-        public string CodePostalContrat
-        {
-            get
-            {
-                return codePostalContrat;
-            }
-
-            set
-            {
-                codePostalContrat = value;
+                libelleContrat = value;
             }
         }
     }

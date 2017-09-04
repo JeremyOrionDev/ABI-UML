@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace ABIenCouche
 {
-    class ContratCDI:Contrat
+    public class ContratCDI:Contrat
     {
         public SortedDictionary<Int32, avenantContrat> lesAvenants = new SortedDictionary<int, avenantContrat>();
 
-        public ContratCDI(Int32 leNumContrat, String unLibelle, Double unSalaire,String unePhoto, String uneFonction, String uneQualif, Boolean unStatut, DateTime leDebut,String uneRue,String uneVille,String unCP) :
-            base( uneFonction, uneQualif, unStatut, leDebut, uneRue, uneVille, unCP)
+        public ContratCDI(Int32 leNumContrat, String unLibelle, Double unSalaire,String unePhoto, String uneFonction, String uneQualif, Boolean unStatut, DateTime leDebut) :
+            base( uneFonction, uneQualif,unLibelle, unStatut, leDebut)
         {
 
             this.NumContrat = leNumContrat;

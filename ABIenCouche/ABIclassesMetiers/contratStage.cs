@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ABIenCouche
 {
-    class ContratStage:Contrat
+    public class ContratStage:Contrat
     {
-        public ContratStage(String uneEcole,String unMotif,DateTime uneDateDeFin ,String laMission, String leMaitre, String uneFonction, String uneQualif, Boolean unStatut, DateTime leDebut, String uneRue, String uneVille, String unCP) : base(uneFonction, uneQualif, unStatut, leDebut, uneRue, uneVille, unCP)
+        public ContratStage(String uneEcole,String unMotif,DateTime uneDateDeFin ,String laMission, String leMaitre, String uneFonction, String uneQualif,String unLibelle, Boolean unStatut, DateTime leDebut) : base(uneFonction, uneQualif, unLibelle, unStatut, leDebut)
         {
             this.Ecole = uneEcole;
             this.Motif = unMotif;
