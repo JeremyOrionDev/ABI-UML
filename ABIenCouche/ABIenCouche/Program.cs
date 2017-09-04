@@ -16,7 +16,7 @@ namespace ABIenCouche
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmDspCollaborateur());
+            Application.Run(new frmMDI());
         }
     }
 }

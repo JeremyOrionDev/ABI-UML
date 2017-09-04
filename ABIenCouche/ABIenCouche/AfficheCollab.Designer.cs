@@ -304,30 +304,30 @@
             // sommaireToolStripMenuItem
             // 
             this.sommaireToolStripMenuItem.Name = "sommaireToolStripMenuItem";
-            this.sommaireToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.sommaireToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.sommaireToolStripMenuItem.Text = "&Sommaire";
             // 
             // indexToolStripMenuItem
             // 
             this.indexToolStripMenuItem.Name = "indexToolStripMenuItem";
-            this.indexToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.indexToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.indexToolStripMenuItem.Text = "&Index";
             // 
             // rechercherToolStripMenuItem
             // 
             this.rechercherToolStripMenuItem.Name = "rechercherToolStripMenuItem";
-            this.rechercherToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.rechercherToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.rechercherToolStripMenuItem.Text = "&Rechercher";
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(144, 6);
             // 
             // àproposdeToolStripMenuItem
             // 
             this.àproposdeToolStripMenuItem.Name = "àproposdeToolStripMenuItem";
-            this.àproposdeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.àproposdeToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.àproposdeToolStripMenuItem.Text = "À &propos de...";
             // 
             // toolStrip1
@@ -580,13 +580,13 @@
         private System.Windows.Forms.ToolStripButton collerToolStripButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripButton ToolStripButton;
-        private System.Windows.Forms.Button btnAjouter;
-        private System.Windows.Forms.Button btnSupprimer;
-        private System.Windows.Forms.Button btnQuitter;
-        private System.Windows.Forms.TextBox tBxRechercher;
-        private System.Windows.Forms.ComboBox cBxRechercheCollab;
-        private System.Windows.Forms.Button btnRechercher;
         internal System.Windows.Forms.DataGridView dgCollabo;
+        internal System.Windows.Forms.Button btnAjouter;
+        internal System.Windows.Forms.Button btnSupprimer;
+        internal System.Windows.Forms.Button btnQuitter;
+        internal System.Windows.Forms.TextBox tBxRechercher;
+        internal System.Windows.Forms.ComboBox cBxRechercheCollab;
+        internal System.Windows.Forms.Button btnRechercher;
     }
 }
 

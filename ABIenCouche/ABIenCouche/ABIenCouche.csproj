@@ -85,6 +85,12 @@
     <Compile Include="frmContratTemporaire.Designer.cs">
       <DependentUpon>frmContratTemporaire.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmMDI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMDI.Designer.cs">
+      <DependentUpon>frmMDI.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmNouveauCollab.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +114,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmContratCDI.resx">
       <DependentUpon>frmContratCDI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMDI.resx">
+      <DependentUpon>frmMDI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmNouveauCollab.resx">
       <DependentUpon>frmNouveauCollab.cs</DependentUpon>
