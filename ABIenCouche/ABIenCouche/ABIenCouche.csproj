@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="crtlListerCollabo.cs" />
+    <Compile Include="ctrlAfficheCollab.cs" />
     <Compile Include="ctrlNouveauCollaborateur.cs" />
     <Compile Include="Donnees.cs" />
     <Compile Include="AfficheCollab.cs">

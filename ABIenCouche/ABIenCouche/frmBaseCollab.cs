@@ -15,10 +15,7 @@ namespace ABIenCouche
         public frmBaseCollab()
         {
             InitializeComponent();
-            this.cBxTypeContratColab.Items.AddRange(new String[]
-                {"stage","cdd","interim","CDI"});
-            this.cBxCivilite.Items.AddRange(new String[]
-    {"Mr","Mme","Mlle"});
+           
         }
 
 

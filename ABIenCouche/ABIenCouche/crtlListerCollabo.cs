@@ -40,6 +40,7 @@ namespace ABIenCouche
             formAfficheColab.btnQuitter.Click += new EventHandler(btnQuitter_Click);
             formAfficheColab.dgCollabo.DoubleClick += new EventHandler(dgCollabo_CellContentDoubleClick);
             formAfficheColab.btnRechercher.Click += new EventHandler(btnRecherche_Click);
+            
             formAfficheColab.ShowDialog();
         }
 
@@ -115,11 +116,11 @@ namespace ABIenCouche
             else numcolab = 0;
 
             leCollabo = DictionnaireCollaborateur.retrouverCollaborateur(numcolab);
-            frmAfficheCollab frmColab = new frmAfficheCollab(leCollabo);
+            ctrlAfficheCollab leCtrlAffiche = new ctrlAfficheCollab(leCollabo);
+            
+            //frmColab.Text = leCollabo.NomCollaborateur.ToString() + " "; leCollabo.PrenomCollaborateur.ToString();
 
-            frmColab.Text = leCollabo.NomCollaborateur.ToString() + " "; leCollabo.PrenomCollaborateur.ToString();
-
-            frmColab.Show();
+            //frmColab.Show();
         }
 
 
@@ -143,8 +144,8 @@ namespace ABIenCouche
 
         internal void init()
         {
-            Collaborateur leCol = new Collaborateur(1, "Mr", "nom", "prenom", "la rue", "la ville", "12345", 0, "0123456789");
-            Collaborateur jeremy = new Collaborateur(3, "Mr", "orion", "jeremy", "la rue", "la ville", "12345", 0, "0123456789");
+            Collaborateur leCol = new Collaborateur(1, "Mr", "nom", "prenom", "la rue", "la ville", "12345", 0, "0123456789","");
+            Collaborateur jeremy = new Collaborateur(3, "Mr", "orion", "jeremy", "la rue", "la ville", "12345", 0, "0123456789","");
             DictionnaireCollaborateur.Ajouter(jeremy);
             DictionnaireCollaborateur.Ajouter(leCol);
             Contrat leContrat = new ContratCDD(1, "libelle contrat", new DateTime(), "motif contrat", "ma fonction", "ma qualif", true, new DateTime(), "rue ici", "la ville", "23456");
@@ -153,7 +154,7 @@ namespace ABIenCouche
             ContratCDD unCDD = new ContratCDD(3, "le libelle", new DateTime(), "le motif", "lafonction", "sans qualif", true, new DateTime(), "ma rue", "ma ville", "mon CP");
             leCol.lesContrats.Add(unCDD.NumContrat, unCDD);
             leContrat.ListAvenant.Add(lavenant.NumeroAvenant, lavenant);
-            Collaborateur unCollab = new Collaborateur(2, "Mme", "nom", "prenom", "244 route de turin", "nice", "06300", 2, "0541236587");
+            Collaborateur unCollab = new Collaborateur(2, "Mme", "nom", "prenom", "244 route de turin", "nice", "06300", 2, "0541236587","");
             DictionnaireCollaborateur.Ajouter(unCollab);
             this.afficheCollabo();
             formAfficheColab.dgCollabo.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;

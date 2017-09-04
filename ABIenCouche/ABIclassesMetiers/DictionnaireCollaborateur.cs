@@ -9,7 +9,7 @@ namespace ABIenCouche
 {
     public class DictionnaireCollaborateur
     {
-        public static SortedDictionary<int, Collaborateur> listCollaborateur =new SortedDictionary<int, Collaborateur> ();
+        private static SortedDictionary<int, Collaborateur> listCollaborateur =new SortedDictionary<int, Collaborateur> ();
 
 
         /// <summary>
@@ -147,6 +147,11 @@ namespace ABIenCouche
 
             }
             return dt;
+        }
+
+        public static Int32 nbCollab()
+        {
+            return listCollaborateur.Count();
         }
     }
 }

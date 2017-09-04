@@ -37,7 +37,7 @@
             // 
             this.btnOK.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Location = new System.Drawing.Point(87, 262);
+            this.btnOK.Location = new System.Drawing.Point(69, 562);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 8;
@@ -48,7 +48,7 @@
             // btnAnnuler
             // 
             this.btnAnnuler.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnAnnuler.Location = new System.Drawing.Point(168, 262);
+            this.btnAnnuler.Location = new System.Drawing.Point(150, 562);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(75, 23);
             this.btnAnnuler.TabIndex = 9;
@@ -58,7 +58,7 @@
             // 
             // btnModifier
             // 
-            this.btnModifier.Location = new System.Drawing.Point(249, 262);
+            this.btnModifier.Location = new System.Drawing.Point(231, 562);
             this.btnModifier.Name = "btnModifier";
             this.btnModifier.Size = new System.Drawing.Size(75, 23);
             this.btnModifier.TabIndex = 10;
@@ -70,23 +70,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(338, 300);
+            this.ClientSize = new System.Drawing.Size(338, 601);
             this.Controls.Add(this.btnModifier);
             this.Controls.Add(this.btnAnnuler);
             this.Controls.Add(this.btnOK);
             this.Name = "frmAfficheCollab";
             this.Text = "frmAfficheCollab";
-            this.Controls.SetChildIndex(this.txtBxCP, 0);
-            this.Controls.SetChildIndex(this.txtBxVille, 0);
-            this.Controls.SetChildIndex(this.txtBoxNomCollab, 0);
-            this.Controls.SetChildIndex(this.txtBoxPrenomCollab, 0);
-            this.Controls.SetChildIndex(this.txtBoxMatriculeCollab, 0);
-            this.Controls.SetChildIndex(this.txtBoxRueCollab, 0);
             this.Controls.SetChildIndex(this.btnOK, 0);
             this.Controls.SetChildIndex(this.btnAnnuler, 0);
             this.Controls.SetChildIndex(this.btnModifier, 0);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

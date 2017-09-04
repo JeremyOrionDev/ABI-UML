@@ -34,7 +34,7 @@
             // 
             // btnAnnulerNvColab
             // 
-            this.btnAnnulerNvColab.Location = new System.Drawing.Point(255, 283);
+            this.btnAnnulerNvColab.Location = new System.Drawing.Point(255, 575);
             this.btnAnnulerNvColab.Name = "btnAnnulerNvColab";
             this.btnAnnulerNvColab.Size = new System.Drawing.Size(75, 23);
             this.btnAnnulerNvColab.TabIndex = 15;
@@ -43,7 +43,7 @@
             // 
             // btnOKNvColab
             // 
-            this.btnOKNvColab.Location = new System.Drawing.Point(174, 283);
+            this.btnOKNvColab.Location = new System.Drawing.Point(174, 575);
             this.btnOKNvColab.Name = "btnOKNvColab";
             this.btnOKNvColab.Size = new System.Drawing.Size(75, 23);
             this.btnOKNvColab.TabIndex = 14;
@@ -54,7 +54,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(342, 316);
+            this.ClientSize = new System.Drawing.Size(342, 607);
             this.Controls.Add(this.btnOKNvColab);
             this.Controls.Add(this.btnAnnulerNvColab);
             this.Name = "frmNouveauCollab";
@@ -62,7 +62,6 @@
             this.Controls.SetChildIndex(this.btnAnnulerNvColab, 0);
             this.Controls.SetChildIndex(this.btnOKNvColab, 0);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
