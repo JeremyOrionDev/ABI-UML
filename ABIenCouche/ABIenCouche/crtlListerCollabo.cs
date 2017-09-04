@@ -34,6 +34,7 @@ namespace ABIenCouche
 
         public  crtlListerCollabo()
         {
+            init();
             formAfficheColab = new frmDspCollaborateur();
             formAfficheColab.btnAjouter.Click += new EventHandler(btnAjout_Click);
             formAfficheColab.btnSupprimer.Click += new EventHandler(btnSupprimer_Click);
@@ -66,7 +67,7 @@ namespace ABIenCouche
             }
         }
 
-        internal void dgCollabo_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        internal void dgCollabo_CellContentDoubleClick(object sender, EventArgs e)
         {
             //instancie le controleur lister collabo
             //this.ctrlListerCollabo ctrl = new ctrlListerCollabo();
