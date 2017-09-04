@@ -12,7 +12,7 @@ namespace ABIenCouche
 {
     public partial class frmMDI : Form
     {
-        private int childFormNumber = 0;
+        //private int childFormNumber = 0;
 
         public frmMDI()
         {
@@ -36,6 +36,7 @@ namespace ABIenCouche
             //{
             //    string FileName = openFileDialog.FileName;
             //}
+            ctrlNouveauCollaborateur ctrl = new ctrlNouveauCollaborateur();
         }
 
         private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -107,6 +108,7 @@ namespace ABIenCouche
         private void btnAfficheColab_Click(object sender, EventArgs e)
         {
             crtlListerCollabo ctrl = new crtlListerCollabo();
+            
         }
     }
 }

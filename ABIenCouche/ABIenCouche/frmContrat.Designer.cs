@@ -32,8 +32,8 @@
             this.txBxNumeroContrat = new System.Windows.Forms.TextBox();
             this.lblCadre = new System.Windows.Forms.Label();
             this.gBxCadre = new System.Windows.Forms.GroupBox();
-            this.rbtCadreOui = new System.Windows.Forms.RadioButton();
             this.rbtCadreNon = new System.Windows.Forms.RadioButton();
+            this.rbtCadreOui = new System.Windows.Forms.RadioButton();
             this.lblMotifContrat = new System.Windows.Forms.Label();
             this.tBxMotifContrat = new System.Windows.Forms.TextBox();
             this.lblCPContrat = new System.Windows.Forms.Label();
@@ -52,15 +52,17 @@
             this.cBxTypeContrat = new System.Windows.Forms.ComboBox();
             this.panelDate = new System.Windows.Forms.Panel();
             this.panelAdresse = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.gBxCadre.SuspendLayout();
             this.panelDate.SuspendLayout();
             this.panelAdresse.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblNumContrat
             // 
             this.lblNumContrat.AutoSize = true;
-            this.lblNumContrat.Location = new System.Drawing.Point(12, 15);
+            this.lblNumContrat.Location = new System.Drawing.Point(225, 0);
             this.lblNumContrat.Name = "lblNumContrat";
             this.lblNumContrat.Size = new System.Drawing.Size(82, 13);
             this.lblNumContrat.TabIndex = 0;
@@ -68,7 +70,7 @@
             // 
             // txBxNumeroContrat
             // 
-            this.txBxNumeroContrat.Location = new System.Drawing.Point(100, 12);
+            this.txBxNumeroContrat.Location = new System.Drawing.Point(3, 3);
             this.txBxNumeroContrat.Name = "txBxNumeroContrat";
             this.txBxNumeroContrat.Size = new System.Drawing.Size(216, 20);
             this.txBxNumeroContrat.TabIndex = 1;
@@ -92,17 +94,6 @@
             this.gBxCadre.TabIndex = 3;
             this.gBxCadre.TabStop = false;
             // 
-            // rbtCadreOui
-            // 
-            this.rbtCadreOui.AutoSize = true;
-            this.rbtCadreOui.Location = new System.Drawing.Point(6, 19);
-            this.rbtCadreOui.Name = "rbtCadreOui";
-            this.rbtCadreOui.Size = new System.Drawing.Size(41, 17);
-            this.rbtCadreOui.TabIndex = 0;
-            this.rbtCadreOui.TabStop = true;
-            this.rbtCadreOui.Text = "Oui";
-            this.rbtCadreOui.UseVisualStyleBackColor = true;
-            // 
             // rbtCadreNon
             // 
             this.rbtCadreNon.AutoSize = true;
@@ -113,6 +104,17 @@
             this.rbtCadreNon.TabStop = true;
             this.rbtCadreNon.Text = "Non";
             this.rbtCadreNon.UseVisualStyleBackColor = true;
+            // 
+            // rbtCadreOui
+            // 
+            this.rbtCadreOui.AutoSize = true;
+            this.rbtCadreOui.Location = new System.Drawing.Point(6, 19);
+            this.rbtCadreOui.Name = "rbtCadreOui";
+            this.rbtCadreOui.Size = new System.Drawing.Size(41, 17);
+            this.rbtCadreOui.TabIndex = 0;
+            this.rbtCadreOui.TabStop = true;
+            this.rbtCadreOui.Text = "Oui";
+            this.rbtCadreOui.UseVisualStyleBackColor = true;
             // 
             // lblMotifContrat
             // 
@@ -269,11 +271,21 @@
             this.panelAdresse.TabIndex = 18;
             this.panelAdresse.Tag = "";
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.txBxNumeroContrat);
+            this.flowLayoutPanel1.Controls.Add(this.lblNumContrat);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(430, 27);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(360, 424);
+            this.flowLayoutPanel1.TabIndex = 19;
+            // 
             // frmContrat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(340, 475);
+            this.ClientSize = new System.Drawing.Size(832, 475);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.panelAdresse);
             this.Controls.Add(this.panelDate);
             this.Controls.Add(this.cBxTypeContrat);
@@ -284,8 +296,6 @@
             this.Controls.Add(this.lblFonctionContrat);
             this.Controls.Add(this.gBxCadre);
             this.Controls.Add(this.lblCadre);
-            this.Controls.Add(this.txBxNumeroContrat);
-            this.Controls.Add(this.lblNumContrat);
             this.Name = "frmContrat";
             this.Text = "frmContrat";
             this.gBxCadre.ResumeLayout(false);
@@ -294,6 +304,8 @@
             this.panelDate.PerformLayout();
             this.panelAdresse.ResumeLayout(false);
             this.panelAdresse.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -325,5 +337,6 @@
         internal System.Windows.Forms.DateTimePicker ChoixDateFinContrat;
         internal System.Windows.Forms.Panel panelDate;
         internal System.Windows.Forms.Panel panelAdresse;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

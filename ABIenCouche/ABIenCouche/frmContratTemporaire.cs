@@ -13,11 +13,11 @@ namespace ABIenCouche
     public partial class frmContratTemporaire : frmContrat
     {
 
-        public frmContratTemporaire()
+        public frmContratTemporaire(String typeContrat)
         {
 
             InitializeComponent();
-           
+            this.cBxTypeContrat.Text = typeContrat;
         }
     }
 }

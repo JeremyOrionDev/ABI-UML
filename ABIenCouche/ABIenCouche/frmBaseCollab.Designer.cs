@@ -48,6 +48,7 @@
             this.TbxAugmentation = new System.Windows.Forms.TextBox();
             this.lblTel = new System.Windows.Forms.Label();
             this.tBxTel = new System.Windows.Forms.TextBox();
+            this.cBxContrat = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // txtBoxRueCollab
@@ -158,10 +159,11 @@
             // 
             // cBxTypeContratColab
             // 
+            this.cBxTypeContratColab.Enabled = false;
             this.cBxTypeContratColab.FormattingEnabled = true;
-            this.cBxTypeContratColab.Location = new System.Drawing.Point(103, 251);
+            this.cBxTypeContratColab.Location = new System.Drawing.Point(181, 248);
             this.cBxTypeContratColab.Name = "cBxTypeContratColab";
-            this.cBxTypeContratColab.Size = new System.Drawing.Size(121, 21);
+            this.cBxTypeContratColab.Size = new System.Drawing.Size(143, 21);
             this.cBxTypeContratColab.TabIndex = 9;
             // 
             // lblCivilite
@@ -213,11 +215,20 @@
             this.tBxTel.Size = new System.Drawing.Size(221, 20);
             this.tBxTel.TabIndex = 11;
             // 
+            // cBxContrat
+            // 
+            this.cBxContrat.FormattingEnabled = true;
+            this.cBxContrat.Location = new System.Drawing.Point(103, 248);
+            this.cBxContrat.Name = "cBxContrat";
+            this.cBxContrat.Size = new System.Drawing.Size(72, 21);
+            this.cBxContrat.TabIndex = 12;
+            // 
             // frmBaseCollab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(349, 360);
+            this.Controls.Add(this.cBxContrat);
             this.Controls.Add(this.tBxTel);
             this.Controls.Add(this.lblTel);
             this.Controls.Add(this.TbxAugmentation);
@@ -265,5 +276,6 @@
         internal System.Windows.Forms.TextBox TbxAugmentation;
         private System.Windows.Forms.Label lblTel;
         internal System.Windows.Forms.TextBox tBxTel;
+        internal System.Windows.Forms.ComboBox cBxContrat;
     }
 }

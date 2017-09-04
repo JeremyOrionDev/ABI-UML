@@ -80,6 +80,7 @@
             this.tBxRechercher = new System.Windows.Forms.TextBox();
             this.cBxRechercheCollab = new System.Windows.Forms.ComboBox();
             this.btnRechercher = new System.Windows.Forms.Button();
+            this.btnAnnulerRecherche = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgCollabo)).BeginInit();
@@ -104,7 +105,7 @@
             this.aideToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(453, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(519, 24);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -345,7 +346,7 @@
             this.ToolStripButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(453, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(519, 25);
             this.toolStrip1.TabIndex = 4;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -449,23 +450,22 @@
             this.dgCollabo.RowHeadersWidth = 20;
             this.dgCollabo.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgCollabo.ShowEditingIcon = false;
-            this.dgCollabo.Size = new System.Drawing.Size(423, 231);
+            this.dgCollabo.Size = new System.Drawing.Size(495, 231);
             this.dgCollabo.TabIndex = 5;
             // 
             // btnAjouter
             // 
-            this.btnAjouter.Location = new System.Drawing.Point(198, 328);
+            this.btnAjouter.Location = new System.Drawing.Point(270, 371);
             this.btnAjouter.Name = "btnAjouter";
             this.btnAjouter.Size = new System.Drawing.Size(75, 23);
             this.btnAjouter.TabIndex = 6;
             this.btnAjouter.Text = "Ajouter";
             this.btnAjouter.UseVisualStyleBackColor = true;
-            this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
             // 
             // btnSupprimer
             // 
             this.btnSupprimer.Enabled = false;
-            this.btnSupprimer.Location = new System.Drawing.Point(279, 328);
+            this.btnSupprimer.Location = new System.Drawing.Point(351, 371);
             this.btnSupprimer.Name = "btnSupprimer";
             this.btnSupprimer.Size = new System.Drawing.Size(75, 23);
             this.btnSupprimer.TabIndex = 7;
@@ -474,13 +474,12 @@
             // 
             // btnQuitter
             // 
-            this.btnQuitter.Location = new System.Drawing.Point(360, 328);
+            this.btnQuitter.Location = new System.Drawing.Point(432, 371);
             this.btnQuitter.Name = "btnQuitter";
             this.btnQuitter.Size = new System.Drawing.Size(75, 23);
             this.btnQuitter.TabIndex = 8;
             this.btnQuitter.Text = "Quitter";
             this.btnQuitter.UseVisualStyleBackColor = true;
-            this.btnQuitter.Click += new System.EventHandler(this.btnQuitter_Click);
             // 
             // tBxRechercher
             // 
@@ -499,18 +498,28 @@
             // 
             // btnRechercher
             // 
-            this.btnRechercher.Location = new System.Drawing.Point(360, 63);
+            this.btnRechercher.Location = new System.Drawing.Point(346, 62);
             this.btnRechercher.Name = "btnRechercher";
             this.btnRechercher.Size = new System.Drawing.Size(75, 23);
             this.btnRechercher.TabIndex = 11;
             this.btnRechercher.Text = "rechercher";
             this.btnRechercher.UseVisualStyleBackColor = true;
             // 
+            // btnAnnulerRecherche
+            // 
+            this.btnAnnulerRecherche.Location = new System.Drawing.Point(427, 62);
+            this.btnAnnulerRecherche.Name = "btnAnnulerRecherche";
+            this.btnAnnulerRecherche.Size = new System.Drawing.Size(75, 23);
+            this.btnAnnulerRecherche.TabIndex = 12;
+            this.btnAnnulerRecherche.Text = "Annuler";
+            this.btnAnnulerRecherche.UseVisualStyleBackColor = true;
+            // 
             // frmDspCollaborateur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(453, 363);
+            this.ClientSize = new System.Drawing.Size(519, 406);
+            this.Controls.Add(this.btnAnnulerRecherche);
             this.Controls.Add(this.btnRechercher);
             this.Controls.Add(this.cBxRechercheCollab);
             this.Controls.Add(this.tBxRechercher);
@@ -585,6 +594,7 @@
         internal System.Windows.Forms.TextBox tBxRechercher;
         internal System.Windows.Forms.ComboBox cBxRechercheCollab;
         internal System.Windows.Forms.Button btnRechercher;
+        internal System.Windows.Forms.Button btnAnnulerRecherche;
     }
 }
 

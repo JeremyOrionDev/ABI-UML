@@ -115,6 +115,9 @@
     <EmbeddedResource Include="frmContratCDI.resx">
       <DependentUpon>frmContratCDI.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmContratTemporaire.resx">
+      <DependentUpon>frmContratTemporaire.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMDI.resx">
       <DependentUpon>frmMDI.cs</DependentUpon>
     </EmbeddedResource>

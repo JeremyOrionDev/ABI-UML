@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data;
 
 namespace ABIenCouche
 {
@@ -16,11 +18,7 @@ namespace ABIenCouche
         /// <summary>
         /// ref au form d'affichage des collaborateurs
         /// </summary>
-        private frmDspCollaborateur formAfficheColab;
-        /// <summary>
-        /// ref au dictionnaire de collaborateurs
-        /// </summary>
-        private DictionnaireCollaborateur ListColab;
+        public frmDspCollaborateur formAfficheColab=new frmDspCollaborateur ();
         /// <summary>
         /// obtient la réference du collaborateur
         /// </summary>
@@ -35,11 +33,46 @@ namespace ABIenCouche
         public  crtlListerCollabo()
         {
             init();
-            formAfficheColab = new frmDspCollaborateur();
+            //formAfficheColab = new frmDspCollaborateur();
+            formAfficheColab.btnAnnulerRecherche.Click += new EventHandler(btnAnnulerRecherche_Click);
             formAfficheColab.btnAjouter.Click += new EventHandler(btnAjout_Click);
             formAfficheColab.btnSupprimer.Click += new EventHandler(btnSupprimer_Click);
             formAfficheColab.btnQuitter.Click += new EventHandler(btnQuitter_Click);
             formAfficheColab.dgCollabo.DoubleClick += new EventHandler(dgCollabo_CellContentDoubleClick);
+            formAfficheColab.btnRechercher.Click += new EventHandler(btnRecherche_Click);
+            formAfficheColab.ShowDialog();
+        }
+
+        internal void btnAnnulerRecherche_Click(object sender,EventArgs e)
+        {
+            (formAfficheColab.dgCollabo.DataSource as DataTable).DefaultView.RowFilter = null;
+
+        }
+
+        internal void btnRecherche_Click(object sender,EventArgs e)
+        {
+
+            if (formAfficheColab.tBxRechercher.Text!=null)
+            {
+                if (formAfficheColab.cBxRechercheCollab.Text == "")
+                {
+                    ((DataView)(formAfficheColab.dgCollabo.DataSource)).RowFilter = string.Format(this.formAfficheColab.tBxRechercher.Text);
+                    formAfficheColab.dgCollabo.Refresh();
+                }
+                if (formAfficheColab.cBxRechercheCollab.SelectedItem.ToString()=="nom")
+                {
+                    //((DataView)(formAfficheColab.dgCollabo.DataSource)).RowFilter = string.Format("Nom like'%{0}%'", this.formAfficheColab.tBxRechercher.Text);
+                    //((DataView)(formAfficheColab.dgCollabo.DataSource)).RowFilter = string.Format("Nom like '%" + this.formAfficheColab.tBxRechercher.Text + "%'");
+                    //(formAfficheColab.dgCollabo.DataSource as DataTable).DefaultView.RowFilter = string.Format("Nom like '{0}%' OR nom LIKE '% {0}%'", formAfficheColab.tBxRechercher.Text);
+                    //DataTable nomColabDT = DictionnaireCollaborateur.ListNomCollab(formAfficheColab.tBxRechercher.Text);
+                    //formAfficheColab.dgCollabo.DataSource = nomColabDT;
+                    //formAfficheColab.dgCollabo.Refresh();
+
+                    (formAfficheColab.dgCollabo.DataSource as DataTable).DefaultView.RowFilter = string.Format("Nom = '{0}'", formAfficheColab.tBxRechercher.Text);
+                }
+            }
+
+
         }
 
         internal void btnAjout_Click(object sender, EventArgs e)
@@ -102,6 +135,7 @@ namespace ABIenCouche
 
         public void afficheCollabo()
         {
+            
             formAfficheColab.dgCollabo.DataSource = DictionnaireCollaborateur.ListCollab();
             formAfficheColab.dgCollabo.Refresh();
             formAfficheColab.btnSupprimer.Enabled = (formAfficheColab.dgCollabo.SelectedRows == null ? false : true);
@@ -110,10 +144,13 @@ namespace ABIenCouche
         internal void init()
         {
             Collaborateur leCol = new Collaborateur(1, "Mr", "nom", "prenom", "la rue", "la ville", "12345", 0, "0123456789");
+            Collaborateur jeremy = new Collaborateur(3, "Mr", "orion", "jeremy", "la rue", "la ville", "12345", 0, "0123456789");
+            DictionnaireCollaborateur.Ajouter(jeremy);
             DictionnaireCollaborateur.Ajouter(leCol);
             Contrat leContrat = new ContratCDD(1, "libelle contrat", new DateTime(), "motif contrat", "ma fonction", "ma qualif", true, new DateTime(), "rue ici", "la ville", "23456");
             avenantContrat lavenant = new avenantContrat(1, "mon avenant", new DateTime());
-            ContratCDD unCDD = new ContratCDD(1, "le libelle", new DateTime(), "le motif", "lafonction", "sans qualif", true, new DateTime(), "ma rue", "ma ville", "mon CP");
+            leCol.ajoutContrat(leContrat);
+            ContratCDD unCDD = new ContratCDD(3, "le libelle", new DateTime(), "le motif", "lafonction", "sans qualif", true, new DateTime(), "ma rue", "ma ville", "mon CP");
             leCol.lesContrats.Add(unCDD.NumContrat, unCDD);
             leContrat.ListAvenant.Add(lavenant.NumeroAvenant, lavenant);
             Collaborateur unCollab = new Collaborateur(2, "Mme", "nom", "prenom", "244 route de turin", "nice", "06300", 2, "0541236587");

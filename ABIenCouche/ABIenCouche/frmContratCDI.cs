@@ -40,7 +40,7 @@ namespace ABIenCouche
                     FileStream fs = new FileStream(@path, FileMode.Open);
                     pictureBoxPhotoContrat.Image = Image.FromStream(fs);
                     fs.Close();
-                    using (StreamReader reader = new StreamReader(new FileStream(path, FileMode.Open), new UTF8Encoding()));
+                    using(StreamReader reader = new StreamReader(new FileStream(path, FileMode.Open), new UTF8Encoding()));
                 }
             }
             catch (Exception )

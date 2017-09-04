@@ -40,6 +40,10 @@ namespace ABIenCouche
             }
         }
 
+        private void cBxContratSelectedValueChanged(object sender,EventArgs e)
+        {
+            leForm.cBxTypeContratColab.Enabled = (leForm.cBxContrat.SelectedItem.ToString() == "oui" ? true : false);
+        }
         public Boolean Resultat
         {
             get
@@ -59,10 +63,13 @@ namespace ABIenCouche
             this.leForm.Text = "Ajouter un collaborateur au projet en cours";
             this.leForm.btnOKNvColab.Click += new EventHandler(this.btnOK_Click);
             this.leForm.btnAnnulerNvColab.Click += new EventHandler(this.btnAnnuler_Click);
+            leForm.cBxContrat.Items.AddRange(new String[] { "oui", "non" });
+            this.leForm.cBxContrat.SelectedValueChanged += new EventHandler(this.cBxContratSelectedValueChanged);
             Int32 numColab;
             numColab = DictionnaireCollaborateur.listCollaborateur.Count;
             leForm.txtBoxMatriculeCollab.Text = (numColab + 1).ToString();
             leForm.ShowDialog();
+            //leForm.cBxTypeContratColab.Enabled = leForm.chkBxContrat.Checked ? false : true;
         }
 
         private void btnAnnuler_Click(object sender, EventArgs e)
@@ -117,6 +124,18 @@ namespace ABIenCouche
             DictionnaireCollaborateur.Ajouter(unColab);
             this.resultat = true;
             leForm.DialogResult = DialogResult.OK;
+
+            if (leForm.cBxTypeContratColab.SelectedItem.ToString() == "CDI")
+            {
+                frmContratCDI leCdi = new frmContratCDI();
+                leCdi.ShowDialog();
+            }
+            else 
+            {
+                frmContratTemporaire leTemporaire = new frmContratTemporaire(leForm.cBxTypeContratColab.Text);
+                leTemporaire.ShowDialog();
+            }
+            
             //frmContratCDI leCDI = new frmContratCDI();
             //frmContratTemporaire contratTemp = new frmContratTemporaire();
             //if (leForm.cBxTypeContratColab.Text == "CDI")
