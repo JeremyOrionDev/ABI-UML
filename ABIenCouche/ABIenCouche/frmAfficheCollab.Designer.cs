@@ -30,7 +30,6 @@
         {
             this.btnOK = new System.Windows.Forms.Button();
             this.btnAnnuler = new System.Windows.Forms.Button();
-            this.btnModifier = new System.Windows.Forms.Button();
             this.btnContrats = new System.Windows.Forms.Button();
             this.dgContrats = new System.Windows.Forms.DataGridView();
             this.btnSupprimerContrat = new System.Windows.Forms.Button();
@@ -44,7 +43,7 @@
             // 
             this.btnOK.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Location = new System.Drawing.Point(122, 668);
+            this.btnOK.Location = new System.Drawing.Point(90, 525);
             this.btnOK.Margin = new System.Windows.Forms.Padding(4);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(100, 24);
@@ -56,7 +55,7 @@
             // btnAnnuler
             // 
             this.btnAnnuler.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnAnnuler.Location = new System.Drawing.Point(230, 668);
+            this.btnAnnuler.Location = new System.Drawing.Point(198, 525);
             this.btnAnnuler.Margin = new System.Windows.Forms.Padding(4);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(100, 24);
@@ -65,21 +64,10 @@
             this.btnAnnuler.UseVisualStyleBackColor = true;
             this.btnAnnuler.Click += new System.EventHandler(this.btnAnnuler_Click);
             // 
-            // btnModifier
-            // 
-            this.btnModifier.Location = new System.Drawing.Point(338, 668);
-            this.btnModifier.Margin = new System.Windows.Forms.Padding(4);
-            this.btnModifier.Name = "btnModifier";
-            this.btnModifier.Size = new System.Drawing.Size(100, 24);
-            this.btnModifier.TabIndex = 10;
-            this.btnModifier.Text = "Modifier";
-            this.btnModifier.UseVisualStyleBackColor = true;
-            this.btnModifier.Click += new System.EventHandler(this.btnModifier_Click);
-            // 
             // btnContrats
             // 
             this.btnContrats.AutoSize = true;
-            this.btnContrats.Location = new System.Drawing.Point(38, 666);
+            this.btnContrats.Location = new System.Drawing.Point(6, 523);
             this.btnContrats.Name = "btnContrats";
             this.btnContrats.Size = new System.Drawing.Size(77, 27);
             this.btnContrats.TabIndex = 21;
@@ -130,19 +118,18 @@
             this.panelContrat.Controls.Add(this.dgContrats);
             this.panelContrat.Controls.Add(this.btnSupprimerContrat);
             this.panelContrat.Controls.Add(this.btnAjouterContrat);
-            this.panelContrat.Location = new System.Drawing.Point(492, 12);
+            this.panelContrat.Location = new System.Drawing.Point(362, 12);
             this.panelContrat.Name = "panelContrat";
-            this.panelContrat.Size = new System.Drawing.Size(557, 445);
+            this.panelContrat.Size = new System.Drawing.Size(496, 373);
             this.panelContrat.TabIndex = 25;
             // 
             // frmAfficheCollab
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1052, 696);
+            this.ClientSize = new System.Drawing.Size(861, 553);
             this.Controls.Add(this.panelContrat);
             this.Controls.Add(this.btnContrats);
-            this.Controls.Add(this.btnModifier);
             this.Controls.Add(this.btnAnnuler);
             this.Controls.Add(this.btnOK);
             this.Margin = new System.Windows.Forms.Padding(5);
@@ -150,7 +137,6 @@
             this.Text = "frmAfficheCollab";
             this.Controls.SetChildIndex(this.btnOK, 0);
             this.Controls.SetChildIndex(this.btnAnnuler, 0);
-            this.Controls.SetChildIndex(this.btnModifier, 0);
             this.Controls.SetChildIndex(this.btnContrats, 0);
             this.Controls.SetChildIndex(this.panelContrat, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dgContrats)).EndInit();
@@ -164,7 +150,6 @@
         #endregion
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnAnnuler;
-        private System.Windows.Forms.Button btnModifier;
         internal System.Windows.Forms.Button btnAjouterContrat;
         private System.Windows.Forms.Button btnSupprimerContrat;
         internal System.Windows.Forms.Button btnContrats;

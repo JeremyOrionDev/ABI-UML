@@ -66,6 +66,7 @@
             this.panelPhoto = new System.Windows.Forms.Panel();
             this.panelAffichagePhoto = new System.Windows.Forms.Panel();
             this.btnModifierPhoto = new System.Windows.Forms.Button();
+            this.btnModifier = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhotoCollab)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.panelCivilite.SuspendLayout();
@@ -84,6 +85,7 @@
             // 
             // txtBoxRueCollab
             // 
+            this.txtBoxRueCollab.Enabled = false;
             this.txtBoxRueCollab.Location = new System.Drawing.Point(94, 7);
             this.txtBoxRueCollab.Name = "txtBoxRueCollab";
             this.txtBoxRueCollab.Size = new System.Drawing.Size(221, 20);
@@ -100,6 +102,7 @@
             // 
             // txtBoxMatriculeCollab
             // 
+            this.txtBoxMatriculeCollab.Enabled = false;
             this.txtBoxMatriculeCollab.Location = new System.Drawing.Point(94, 3);
             this.txtBoxMatriculeCollab.Name = "txtBoxMatriculeCollab";
             this.txtBoxMatriculeCollab.Size = new System.Drawing.Size(221, 20);
@@ -116,6 +119,7 @@
             // 
             // txtBoxPrenomCollab
             // 
+            this.txtBoxPrenomCollab.Enabled = false;
             this.txtBoxPrenomCollab.Location = new System.Drawing.Point(94, 3);
             this.txtBoxPrenomCollab.Name = "txtBoxPrenomCollab";
             this.txtBoxPrenomCollab.Size = new System.Drawing.Size(221, 20);
@@ -132,6 +136,7 @@
             // 
             // txtBoxNomCollab
             // 
+            this.txtBoxNomCollab.Enabled = false;
             this.txtBoxNomCollab.Location = new System.Drawing.Point(94, 4);
             this.txtBoxNomCollab.Name = "txtBoxNomCollab";
             this.txtBoxNomCollab.Size = new System.Drawing.Size(221, 20);
@@ -157,6 +162,7 @@
             // 
             // txtBxCP
             // 
+            this.txtBxCP.Enabled = false;
             this.txtBxCP.Location = new System.Drawing.Point(94, 3);
             this.txtBxCP.Name = "txtBxCP";
             this.txtBxCP.Size = new System.Drawing.Size(221, 20);
@@ -173,6 +179,7 @@
             // 
             // txtBxVille
             // 
+            this.txtBxVille.Enabled = false;
             this.txtBxVille.Location = new System.Drawing.Point(94, 3);
             this.txtBxVille.Name = "txtBxVille";
             this.txtBxVille.Size = new System.Drawing.Size(221, 20);
@@ -189,6 +196,7 @@
             // 
             // cBxTypeContratColab
             // 
+            this.cBxTypeContratColab.Enabled = false;
             this.cBxTypeContratColab.FormattingEnabled = true;
             this.cBxTypeContratColab.Location = new System.Drawing.Point(172, 3);
             this.cBxTypeContratColab.Name = "cBxTypeContratColab";
@@ -206,6 +214,7 @@
             // 
             // cBxCivilite
             // 
+            this.cBxCivilite.Enabled = false;
             this.cBxCivilite.FormattingEnabled = true;
             this.cBxCivilite.Location = new System.Drawing.Point(94, 3);
             this.cBxCivilite.Name = "cBxCivilite";
@@ -223,6 +232,7 @@
             // 
             // TbxAugmentation
             // 
+            this.TbxAugmentation.Enabled = false;
             this.TbxAugmentation.Location = new System.Drawing.Point(94, 3);
             this.TbxAugmentation.Name = "TbxAugmentation";
             this.TbxAugmentation.Size = new System.Drawing.Size(221, 20);
@@ -239,6 +249,7 @@
             // 
             // tBxTel
             // 
+            this.tBxTel.Enabled = false;
             this.tBxTel.Location = new System.Drawing.Point(94, 5);
             this.tBxTel.Name = "tBxTel";
             this.tBxTel.Size = new System.Drawing.Size(221, 20);
@@ -246,6 +257,7 @@
             // 
             // cBxContrat
             // 
+            this.cBxContrat.Enabled = false;
             this.cBxContrat.FormattingEnabled = true;
             this.cBxContrat.Location = new System.Drawing.Point(94, 3);
             this.cBxContrat.Name = "cBxContrat";
@@ -291,6 +303,7 @@
             this.flowLayoutPanel1.Controls.Add(this.panelTypeContrat);
             this.flowLayoutPanel1.Controls.Add(this.panelPhoto);
             this.flowLayoutPanel1.Controls.Add(this.panelAffichagePhoto);
+            this.flowLayoutPanel1.Controls.Add(this.btnModifier);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 12);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(344, 506);
@@ -404,6 +417,7 @@
             this.panelAffichagePhoto.Name = "panelAffichagePhoto";
             this.panelAffichagePhoto.Size = new System.Drawing.Size(200, 100);
             this.panelAffichagePhoto.TabIndex = 11;
+            this.panelAffichagePhoto.Visible = false;
             // 
             // btnModifierPhoto
             // 
@@ -414,13 +428,24 @@
             this.btnModifierPhoto.Text = "Modifier";
             this.btnModifierPhoto.UseVisualStyleBackColor = true;
             // 
+            // btnModifier
+            // 
+            this.btnModifier.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnModifier.Location = new System.Drawing.Point(210, 437);
+            this.btnModifier.Margin = new System.Windows.Forms.Padding(4);
+            this.btnModifier.Name = "btnModifier";
+            this.btnModifier.Size = new System.Drawing.Size(100, 24);
+            this.btnModifier.TabIndex = 13;
+            this.btnModifier.Text = "Modifier";
+            this.btnModifier.UseVisualStyleBackColor = true;
+            // 
             // frmBaseCollab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(365, 807);
+            this.ClientSize = new System.Drawing.Size(365, 525);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "frmBaseCollab";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhotoCollab)).EndInit();
@@ -491,5 +516,6 @@
         internal System.Windows.Forms.Panel panelAugmentation;
         internal System.Windows.Forms.Panel panelTypeContrat;
         internal System.Windows.Forms.Panel panelAffichagePhoto;
+        private System.Windows.Forms.Button btnModifier;
     }
 }

@@ -28,14 +28,14 @@ namespace ABIenCouche
         private String situationMaritale;
         private String civilite;
         private String telephone;
-        private String laPhoto;
+        private string laPhoto;
         /// <summary>
         /// Constructeur pour les collaborateur
         /// </summary>
         /// <param name="unNom">le nom du collaborateur</param>
         /// <param name="unPrenom">le prenom du collaborateur</param>
         /// <param name="unMatricule">le matricule du collaborateur</param>
-        public Collaborateur(Int32 unMatricule,String uneCivilite, String unNom, String unPrenom, String uneRue, String uneVille, String unCP,Int32 uneAugmentation,String unTel,String unePhoto)
+        public Collaborateur(Int32 unMatricule,String uneCivilite, String unNom, String unPrenom, String uneRue, String uneVille, String unCP,Int32 uneAugmentation,String unTel,string unePhoto)
         {
             this.NomCollaborateur = unNom;
             this.PrenomCollaborateur = unPrenom;

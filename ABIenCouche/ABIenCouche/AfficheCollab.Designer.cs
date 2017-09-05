@@ -449,6 +449,7 @@
             this.dgCollabo.RowHeadersVisible = false;
             this.dgCollabo.RowHeadersWidth = 20;
             this.dgCollabo.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgCollabo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgCollabo.ShowEditingIcon = false;
             this.dgCollabo.Size = new System.Drawing.Size(495, 231);
             this.dgCollabo.TabIndex = 5;

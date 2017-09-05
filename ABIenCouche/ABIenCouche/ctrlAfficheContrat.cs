@@ -13,14 +13,19 @@ namespace ABIenCouche
         private ContratCDI leCDI;
         private contratInterim lInterim;
         private frmAfficheContrat leForm;
+
+        private void btnValider_Click(object sender,EventArgs e)
+        {
+            leForm.Close();
+        }
         public ctrlAfficheContrat(Contrat unContrat)
         {
             this.leContrat = unContrat;
             
-             
             if (unContrat is ContratCDI)
             {
                 leCDI = (ContratCDI)unContrat;
+                leForm.btnValiderContrat.Click += new EventHandler(btnValider_Click);
                 leForm.txBxNumeroContrat.Text = leCDI.NumContrat.ToString();
                 leForm.cBxTypeContrat.SelectedItem = "CDI";
                 if (leCDI.LeStatut == true)
@@ -42,6 +47,8 @@ namespace ABIenCouche
             {
                 if (unContrat is ContratCDD)
                 {
+                    leForm = new frmAfficheContrat(unContrat);
+                    leForm.btnValiderContrat.Click += new EventHandler(btnValider_Click);
                     leForm.panelAgence.Visible = false;
                     leForm.panelEcole.Visible = false;
                     leCDD = (ContratCDD)unContrat;
@@ -54,15 +61,16 @@ namespace ABIenCouche
                     }
                     else leForm.rbtCadreNon.Checked = true;
                     leForm.tBxFonctionContrat.Text = leCDD.FonctionCollaborateur;
-                    leForm.tBxQualification.Text = leCDD.QualificationCollaborateur;
-                    leForm.choixDateDebutContrat.Text = leCDD.DateDebutContrat.ToString();
-                    leForm.ChoixDateFinContrat.Text = leCDD.DateFinContrat.ToString();
-                    leForm = new ABIenCouche.frmAfficheContrat(leCDD);
-                    //leFormTemp.ShowDialog();
+                    leForm.tBxQualification.Text = leCDD.QualificationCollaborateur;                    
+                    leForm.choixDateDebutContrat.Value= leCDD.DateDebutContrat;
+                    leForm.ChoixDateFinContrat.Value = leCDD.DateFinContrat;
+                    leForm.btnAnnuler.Visible = false;
+                    leForm.btnValiderContrat.Text = "Fermer";
                 }
                 else if (unContrat is contratInterim )
                 {
                     lInterim = (contratInterim)unContrat;
+                    leForm.btnValiderContrat.Click += new EventHandler(btnValider_Click);
                     leForm.txBxNumeroContrat.Text = lInterim.NumContrat.ToString();
                     leForm.tBxMotifContrat.Text = lInterim.MotifContrat;
                     leForm.cBxTypeContrat.SelectedItem = "CDD";
@@ -85,5 +93,7 @@ namespace ABIenCouche
             leForm.ShowDialog();
       
         }
+
+
     }
 }

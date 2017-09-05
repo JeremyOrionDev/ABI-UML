@@ -31,41 +31,42 @@ namespace ABIenCouche
             formAffiche.txtBxVille.Text = unColab.VilleCollab;
             formAffiche.txtBxCP.Text = unColab.CpCollab;
             formAffiche.tBxTel.Text = unColab.Telephone;
+            formAffiche.cBxCivilite.SelectedText = unColab.Civilite;
             formAffiche.cBxContrat.Items.AddRange(new String[] { "oui", "non" });
             formAffiche.TbxAugmentation.Text = unColab.Augmentation.ToString();
-            //formAffiche.panelPhoto.Visible = false;
+            formAffiche.panelPhoto.Visible = false;
+            formAffiche.panelAffichagePhoto.Visible = false;
+            formAffiche.panelTypeContrat.Visible = false;
+            
             //OpenFileDialog openPhoto = new OpenFileDialog();
             //openPhoto.Filter = "Images files jpeg | *.jpg";
             //openPhoto.Multiselect = false;
-            //String path = unColab.LaPhoto;
-            //formAffiche.txtBxAdressePhoto.Enabled = false;
-            //formAffiche.txtBxAdressePhoto.Text = path;
-            //FileStream fs = new FileStream(@path, FileMode.Open);
+            //FileStream fs = new FileStream(leCollaborateur.LaPhoto, FileMode.Open, FileAccess.Read);
             //formAffiche.pictureBoxPhotoCollab.Image = Image.FromStream(fs);
             //fs.Close();
-            //formAffiche.gBxContrat.Visible = false;
-            //using (StreamReader reader = new StreamReader(new FileStream(path, FileMode.Open), new UTF8Encoding())) ;
             formAffiche.btnContrats.Click += new EventHandler(btnContrats_Click);
             formAffiche.dgContrats.DoubleClick += new EventHandler(dgContrat_DoubleClick);
             formAffiche.panelContrat.Visible = false;
-            formAffiche.ShowDialog();
             init();
+            formAffiche.Show();
         }
 
          
 
         private void dgContrat_DoubleClick(object sender, EventArgs e)
         {
-     
+           Contrat unContrat;
             Int32 numContrat;
+            Int32 nbContrat=this.leCollaborateur.lesContrats.Count();
+            
             if (formAffiche.dgContrats.RowCount != 0)
             {
                 numContrat = Convert.ToInt32(formAffiche.dgContrats.CurrentRow.Cells[0].Value.ToString());
             }
             else numContrat = 0;
-            if (leCollaborateur.lesContrats.ContainsKey(leContrat.NumContrat))
+            if (leCollaborateur.lesContrats.ContainsKey(numContrat))
             {
-                leContrat = leCollaborateur.lesContrats[leContrat.NumContrat];
+                leContrat = leCollaborateur.lesContrats[numContrat];
             }
             else throw new Exception("erreur le contrat demandé n'existe pas");
             if (leContrat is ContratCDD)
