@@ -10,33 +10,22 @@ namespace ABIenCouche
     {
         public SortedDictionary<Int32, avenantContrat> lesAvenants = new SortedDictionary<int, avenantContrat>();
 
-        public ContratCDI(Int32 leNumContrat, String unLibelle, Double unSalaire,String unePhoto, String uneFonction, String uneQualif, Boolean unStatut, DateTime leDebut) :
-            base( uneFonction, uneQualif,unLibelle, unStatut, leDebut)
+        public ContratCDI( String unLibelle, Double unSalaire,String unePhoto, Int32 unNumContrat, String uneFonction, String uneQualif, Boolean unStatut, DateTime leDebut) :
+            base( unNumContrat,uneFonction, uneQualif,unLibelle, unStatut, leDebut)
         {
 
-            this.NumContrat = leNumContrat;
             this.LibelleContrat = unLibelle;
             this.SalaireBrut = unSalaire;
             this.LaPhoto = unePhoto;
-
+      
             lesAvenants = new SortedDictionary<int, ABIenCouche.avenantContrat>();
         }
         private String libelleContrat;
         private double salaireBrut;
         private String laPhoto;
+        private Int32 numContrat;
 
-        public string LibelleContrat
-        {
-            get
-            {
-                return libelleContrat;
-            }
 
-            set
-            {
-                libelleContrat = value;
-            }
-        }
 
         public double SalaireBrut
         {
@@ -63,5 +52,7 @@ namespace ABIenCouche
                 laPhoto = value;
             }
         }
+
+
     }
 }

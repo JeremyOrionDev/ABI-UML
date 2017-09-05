@@ -8,7 +8,7 @@ namespace ABIenCouche
 {
     public class ContratStage:Contrat
     {
-        public ContratStage(String uneEcole,String unMotif,DateTime uneDateDeFin ,String laMission, String leMaitre, String uneFonction, String uneQualif,String unLibelle, Boolean unStatut, DateTime leDebut) : base(uneFonction, uneQualif, unLibelle, unStatut, leDebut)
+        public ContratStage(String uneEcole,String unMotif,DateTime uneDateDeFin ,String laMission, String leMaitre,Int32 unNumContrat, String uneFonction, String uneQualif,String unLibelle, Boolean unStatut, DateTime leDebut) : base(unNumContrat,uneFonction, uneQualif, unLibelle, unStatut, leDebut)
         {
             this.Ecole = uneEcole;
             this.Motif = unMotif;

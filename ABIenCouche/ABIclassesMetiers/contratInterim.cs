@@ -8,28 +8,19 @@ namespace ABIenCouche
 {
     public class contratInterim:Contrat
     {
-        public contratInterim(Int32 uneRef,String uneAgence,Double leSalaire,String uneFonction, String uneQualif, String unLibelle, Boolean unStatut, DateTime leDebut) : base( uneFonction, uneQualif, unLibelle, unStatut, leDebut)
+        public contratInterim(String uneAgence,String unMotif,Double leSalaire,DateTime uneDateFin, Int32 unNumContrat, String uneFonction, String uneQualif, String unLibelle, Boolean unStatut, DateTime leDebut) : base(unNumContrat, uneFonction, uneQualif, unLibelle, unStatut, leDebut)
         {
-            this.RefContrat = uneRef;
             this.Agence = uneAgence;
             this.Salaire = leSalaire;
+            this.LaDateFin = uneDateFin;
+            this.MotifContrat = unMotif;
         }
-        private Int32 refContrat;
+
         private String agence;
         private Double salaire;
+        private DateTime? laDateFin;
+        private String motifContrat;
 
-        public int RefContrat
-        {
-            get
-            {
-                return refContrat;
-            }
-
-            set
-            {
-                refContrat = value;
-            }
-        }
 
         public string Agence
         {
@@ -54,6 +45,32 @@ namespace ABIenCouche
             set
             {
                 salaire = value;
+            }
+        }
+
+        public DateTime? LaDateFin
+        {
+            get
+            {
+                return laDateFin;
+            }
+
+            set
+            {
+                laDateFin = value;
+            }
+        }
+
+        public string MotifContrat
+        {
+            get
+            {
+                return motifContrat;
+            }
+
+            set
+            {
+                motifContrat = value;
             }
         }
     }

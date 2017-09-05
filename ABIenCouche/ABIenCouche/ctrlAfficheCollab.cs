@@ -19,10 +19,6 @@ namespace ABIenCouche
         /// ref au collaborateur à afficher
         /// </summary>
         private Collaborateur leCollaborateur;
-        private ContratCDD leCDD;
-        private ContratCDI leCDI;
-        private contratInterim lInterim;
-        private ContratStage leStage;
         private Contrat leContrat;
         public ctrlAfficheCollab(Collaborateur unColab)
         {
@@ -35,6 +31,7 @@ namespace ABIenCouche
             formAffiche.txtBxVille.Text = unColab.VilleCollab;
             formAffiche.txtBxCP.Text = unColab.CpCollab;
             formAffiche.tBxTel.Text = unColab.Telephone;
+            formAffiche.cBxContrat.Items.AddRange(new String[] { "oui", "non" });
             formAffiche.TbxAugmentation.Text = unColab.Augmentation.ToString();
             //formAffiche.panelPhoto.Visible = false;
             //OpenFileDialog openPhoto = new OpenFileDialog();
@@ -55,14 +52,11 @@ namespace ABIenCouche
             init();
         }
 
-        public 
+         
 
         private void dgContrat_DoubleClick(object sender, EventArgs e)
         {
-            if (leContrat.)
-            {
-                
-            }
+     
             Int32 numContrat;
             if (formAffiche.dgContrats.RowCount != 0)
             {
@@ -74,9 +68,25 @@ namespace ABIenCouche
                 leContrat = leCollaborateur.lesContrats[leContrat.NumContrat];
             }
             else throw new Exception("erreur le contrat demandé n'existe pas");
-            
+            if (leContrat is ContratCDD)
+            {
+                leContrat = (ContratCDD)leContrat;
+            }
+            else if (leContrat is ContratCDI)
+            {
+                leContrat = (ContratCDI)leContrat;
+            }
+            else if (leContrat is contratInterim)
+            {
+                leContrat = (contratInterim)leContrat;
+            }
+            else if (leContrat is ContratStage)
+            {
+                leContrat = (ContratStage)leContrat;
+            }
+            else throw new ArgumentOutOfRangeException("le contrat n'est pas défini sur un type de contrat précis (stage,interim,CDD ou CDI)");
             ctrlAfficheContrat affichecontrat = new ctrlAfficheContrat(leContrat);
-            MessageBox.Show("test", "test", MessageBoxButtons.OK);
+            //MessageBox.Show("test", "test", MessageBoxButtons.OK);
         }
         internal void init()
         {

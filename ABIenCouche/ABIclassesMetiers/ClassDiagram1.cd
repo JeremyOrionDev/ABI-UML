@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ABIenCouche.avenantContrat" Collapsed="true">
+    <Position X="7.25" Y="3.25" Width="1.5" />
+    <AssociationLine Name="ContratCDD" Type="ABIenCouche.ContratCDD">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.058" Y="0.376" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AACAAAAAgEAABAAAAAQAAAAAAEAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>avenantContrat.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ContratCDD" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ABIenCouche.Collaborateur" Collapsed="true">
+    <Position X="11.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IBAQQAQAEAAIQAAUAAAAAAAQAgAAQAJAIIAQACCQARA=</HashCode>
+      <FileName>Collaborateur.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ABIenCouche.Contrat" Collapsed="true">
+    <Position X="3.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAMAgUAAAAAIAAQEAAIAAAAAiAAACAIAACgCAAAAAAQ=</HashCode>
+      <FileName>Contrat.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ABIenCouche.ContratCDD" Collapsed="true">
+    <Position X="7.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAEAAAAAAAAAAAAAAAAYAAAACAAAACAAAAAgAA=</HashCode>
+      <FileName>ContratCDD.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ABIenCouche.ContratCDI" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAIAgEACAABAA=</HashCode>
+      <FileName>ContratCDI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ABIenCouche.contratInterim" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAACAAAAAgAgAAAAIIAAAAAAAAAAA=</HashCode>
+      <FileName>contratInterim.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ABIenCouche.ContratStage" Collapsed="true">
+    <Position X="5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AICAKAAAgCgAAAAAAAAAAAAAAAAAgAAAQAAAAEAAAAA=</HashCode>
+      <FileName>contratStage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ABIenCouche.DictionnaireCDD" Collapsed="true">
+    <Position X="9.75" Y="1.75" Width="1.5" />
+    <AssociationLine Name="ContratCDD" Type="ABIenCouche.ContratCDD">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.027" Y="0.218" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgIAAAAAAAAAAAAAAQAAAAgBAAAAAAAAAAAA=</HashCode>
+      <FileName>DictionnaireCDD.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ContratCDD" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ABIenCouche.DictionnaireCDI" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <AssociationLine Name="ContratCDI" Type="ABIenCouche.ContratCDI">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.995" Y="0.397" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAgAAAAABAAAAAAAAAQAAAAEBAAAAAAAAAAAA=</HashCode>
+      <FileName>DictionnaireCDI.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ContratCDI" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ABIenCouche.DictionnaireCollaborateur" Collapsed="true">
+    <Position X="11.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ARAAIAAAAAAAAEBAAAAEAAAAAAAAAAAAAAACAMEAAAA=</HashCode>
+      <FileName>DictionnaireCollaborateur.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

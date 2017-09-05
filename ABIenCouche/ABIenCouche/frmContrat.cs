@@ -38,5 +38,10 @@ namespace ABIenCouche
         {
 
         }
+
+        private void tBxSalaire_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

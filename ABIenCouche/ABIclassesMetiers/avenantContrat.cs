@@ -57,5 +57,17 @@ namespace ABIenCouche
                 dateAvenant = value;
             }
         }
+
+        public ContratCDD ContratCDD
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
     }
 }

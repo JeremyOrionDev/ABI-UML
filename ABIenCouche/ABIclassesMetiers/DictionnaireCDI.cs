@@ -23,6 +23,19 @@ namespace ABIenCouche
 
             
         }
+
+        public ContratCDI ContratCDI
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
         /// <summary>
         /// methode publique d'ajout de contrat CDI
         /// </summary>

@@ -50,6 +50,7 @@
     <Compile Include="ctrlAfficheCollab.cs" />
     <Compile Include="ctrlAfficheContrat.cs" />
     <Compile Include="ctrlNouveauCollaborateur.cs" />
+    <Compile Include="ctrlNouveauContrat.cs" />
     <Compile Include="Donnees.cs" />
     <Compile Include="AfficheCollab.cs">
       <SubType>Form</SubType>

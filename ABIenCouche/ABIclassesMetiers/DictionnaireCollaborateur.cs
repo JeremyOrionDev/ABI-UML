@@ -10,14 +10,19 @@ namespace ABIenCouche
     public class DictionnaireCollaborateur
     {
         private static SortedDictionary<int, Collaborateur> listCollaborateur =new SortedDictionary<int, Collaborateur> ();
-        private Collaborateur unColab;
-        public Collaborateur LeCollaborateur
+        private Collaborateur leColab;
+        public Collaborateur LeColab
         {
             get
             {
-                return unColab;
+                return leColab;
             }
-            
+            set
+            {
+          
+                    leColab = value;
+                
+            }
         }
         /// <summary>
         /// Ajout du collaborateur unColab en collection
@@ -25,7 +30,7 @@ namespace ABIenCouche
         /// <param name="unColab">le collaborateur a ajouter en collection</param>
         public static void Ajouter(Collaborateur unColab)
         {
-            
+    
             if (!listCollaborateur.ContainsKey(unColab.Matricule))
             {
                 listCollaborateur.Add(unColab.Matricule, unColab);
@@ -134,6 +139,10 @@ namespace ABIenCouche
 
             foreach (KeyValuePair<Int32,Contrat> leContrat in unCollaborateur.lesContrats)
             {
+                if (leContrat is ContratCDD)
+                {
+
+                }
                 DR = dt.NewRow();
                 DR[0] = leContrat.Value.NumContrat;
                 if (leContrat is ContratCDD)

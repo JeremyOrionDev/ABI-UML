@@ -149,11 +149,11 @@ namespace ABIenCouche
             Collaborateur jeremy = new Collaborateur(3, "Mr", "orion", "jeremy", "la rue", "la ville", "12345", 0, "0123456789","");
             DictionnaireCollaborateur.Ajouter(jeremy);
             DictionnaireCollaborateur.Ajouter(leCol);
-            ContratCDD leContrat = new ContratCDD(1, "libelle contrat", new DateTime(), "motif contrat", "ma fonction", "ma qualif", true, new DateTime());
+            ContratCDD leContrat = new ContratCDD( "libelle contrat" ,  new DateTime(), "motif contrat", 1, "ma fonction", "ma qualif", true, new DateTime());
             avenantContrat lavenant = new avenantContrat(1, "mon avenant", new DateTime());
             DictionnaireCDD.AjouterCDD(leContrat);
             leCol.ajoutContrat(leContrat);
-            ContratCDD unCDD = new ContratCDD(3, "le libelle", new DateTime(), "le motif", "lafonction", "sans qualif", true, new DateTime());
+            ContratCDD unCDD = new ContratCDD( "le libelle", new DateTime(), "le motif", 3, "lafonction", "sans qualif", true, new DateTime());
             leCol.lesContrats.Add(unCDD.NumContrat, unCDD);
             leContrat.ListAvenant.Add(lavenant.NumeroAvenant, lavenant);
             Collaborateur unCollab = new Collaborateur(2, "Mme", "nom", "prenom", "244 route de turin", "nice", "06300", 2, "0541236587","");

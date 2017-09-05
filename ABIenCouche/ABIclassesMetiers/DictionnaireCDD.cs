@@ -12,6 +12,19 @@ namespace ABIenCouche
         /// dictionnaire statique privé de contrat CDD
         /// </summary>
         private static SortedDictionary<int, ContratCDD> lesCDD = new SortedDictionary<int, ContratCDD>();
+
+        public ContratCDD ContratCDD
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
         /// <summary>
         /// méthode publique d'ajout de contrat CDD
         /// </summary>

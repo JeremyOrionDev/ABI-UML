@@ -20,16 +20,17 @@ namespace ABIenCouche
         private Contrat leContrat;
         public override String ToString()
         {
-            return "le contrat numero: " + this.numContrat + "commençant le : " + DateDebutContrat;
+            return "le contrat ";
         }
 
-        public Contrat(String uneFonction,String uneQualif,String unLibelle,Boolean unStatut, DateTime leDebut)
+        public Contrat(Int32 unNumContrat,String uneFonction,String uneQualif,String unLibelle,Boolean unStatut, DateTime leDebut)
         {
 
             this.DateDebutContrat = leDebut;
             this.LeStatut = unStatut;
             this.QualificationCollaborateur = uneQualif;
             this.LibelleContrat = unLibelle;
+            this.NumContrat = unNumContrat;
             this.FonctionCollaborateur = uneFonction;
             ListAvenant = new SortedDictionary<int, ABIenCouche.avenantContrat>();
         }
@@ -47,18 +48,7 @@ namespace ABIenCouche
         private Int32 numContrat;
         private DateTime dateDebutContrat;
         private String libelleContrat;
-        public int NumContrat
-        {
-            get
-            {
-                return numContrat;
-            }
-            set
-            {
-                if (this.NumContrat != value)
-                    this.numContrat = value;
-            }
-        }
+
 
 
 
@@ -127,6 +117,19 @@ namespace ABIenCouche
             set
             {
                 libelleContrat = value;
+            }
+        }
+
+        public int NumContrat
+        {
+            get
+            {
+                return numContrat;
+            }
+
+            set
+            {
+                numContrat = value;
             }
         }
     }
