@@ -19,7 +19,11 @@ namespace ABIenCouche
         /// ref au collaborateur à afficher
         /// </summary>
         private Collaborateur leCollaborateur;
-
+        private ContratCDD leCDD;
+        private ContratCDI leCDI;
+        private contratInterim lInterim;
+        private ContratStage leStage;
+        private Contrat leContrat;
         public ctrlAfficheCollab(Collaborateur unColab)
         {
             this.leCollaborateur = unColab;
@@ -51,16 +55,26 @@ namespace ABIenCouche
             init();
         }
 
+        public 
+
         private void dgContrat_DoubleClick(object sender, EventArgs e)
         {
-            Contrat leContrat;
+            if (leContrat.)
+            {
+                
+            }
             Int32 numContrat;
             if (formAffiche.dgContrats.RowCount != 0)
             {
                 numContrat = Convert.ToInt32(formAffiche.dgContrats.CurrentRow.Cells[0].Value.ToString());
             }
             else numContrat = 0;
-            leContrat = DictionnaireCollaborateur.retrouverContrat(leCollaborateur, numContrat);
+            if (leCollaborateur.lesContrats.ContainsKey(leContrat.NumContrat))
+            {
+                leContrat = leCollaborateur.lesContrats[leContrat.NumContrat];
+            }
+            else throw new Exception("erreur le contrat demandé n'existe pas");
+            
             ctrlAfficheContrat affichecontrat = new ctrlAfficheContrat(leContrat);
             MessageBox.Show("test", "test", MessageBoxButtons.OK);
         }

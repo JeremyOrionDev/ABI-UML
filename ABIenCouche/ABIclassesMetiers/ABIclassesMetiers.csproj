@@ -46,9 +46,11 @@
     <Compile Include="contratInterim.cs" />
     <Compile Include="contratStage.cs" />
     <Compile Include="DictionnaireCDD.cs" />
+    <Compile Include="DictionnaireCDI.cs" />
     <Compile Include="DictionnaireCollaborateur.cs" />
     <Compile Include="Collaborateur.cs" />
     <Compile Include="Contrat.cs" />
+    <Compile Include="outils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

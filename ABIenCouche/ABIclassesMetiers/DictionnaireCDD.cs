@@ -8,7 +8,14 @@ namespace ABIenCouche
 {
     public class DictionnaireCDD
     {
+        /// <summary>
+        /// dictionnaire statique privé de contrat CDD
+        /// </summary>
         private static SortedDictionary<int, ContratCDD> lesCDD = new SortedDictionary<int, ContratCDD>();
+        /// <summary>
+        /// méthode publique d'ajout de contrat CDD
+        /// </summary>
+        /// <param name="unCDD"></param>
         public static void AjouterCDD(ContratCDD unCDD)
         {
 
@@ -19,6 +26,23 @@ namespace ABIenCouche
             }
             else throw new Exception(" le collaborateur est déja dans la base");
         }
+        /// <summary>
+        /// méthode publique de suppression de contrat CDD
+        /// </summary>
+        /// <param name="unCDD"></param>
+        public static void  supprimerCDD(ContratCDD unCDD)
+        {
+            if (lesCDD.ContainsKey(unCDD.NumContrat))
+            {
+                lesCDD.Remove(unCDD.NumContrat);
+            }
+            else throw new Exception("le contrat CDD n'existe pas merci de vérifier le numéro saisi du contrat saisi");
+        }
+        /// <summary>
+        /// methode publique de récupération de CDD
+        /// </summary>
+        /// <param name="numContrat"></param>
+        /// <returns></returns>
         public static ContratCDD retrouverCDD(Int32 numContrat)
         {
             if (lesCDD.ContainsKey(numContrat))

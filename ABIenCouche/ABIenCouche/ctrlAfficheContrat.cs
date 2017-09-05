@@ -25,13 +25,17 @@ namespace ABIenCouche
                 numContrat = unContrat.NumContrat;
                 if (leCollaborateur.lesContrats.ContainsKey(numContrat))
                 {
-                    leCDD = DictionnaireCollaborateur.retrouverContrat(leCollaborateur, numContrat);
+                    leCDD = DictionnaireCDD.retrouverCDD( numContrat);
                 }
                 //leCDD = leCollaborateur.lesContrats.Values[numContrat];
             }
+            else if (unContrat is ContratCDI)
+            {
+
+            }
             leForm = new frmAfficheContrat(unContrat);
             leForm.tBxFonctionContrat.Text = unContrat.FonctionCollaborateur;
-            leForm.tBxMotifContrat.Text=unContrat.mo
+            //leForm.tBxMotifContrat.Text=unContrat.mo
             leForm.ShowDialog();
         }
     }
