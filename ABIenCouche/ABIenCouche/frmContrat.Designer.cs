@@ -75,6 +75,7 @@
             this.btnAnnuler = new System.Windows.Forms.Button();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.panelPhoto = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.gBxCadre.SuspendLayout();
             this.panelDate.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -91,6 +92,7 @@
             this.gBxContratPhoto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhotoContrat)).BeginInit();
             this.panelPhoto.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblNumContrat
@@ -258,6 +260,8 @@
             // 
             // flowLayoutPanel2
             // 
+            this.flowLayoutPanel2.AutoSize = true;
+            this.flowLayoutPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanel2.Controls.Add(this.panelContratNumero);
             this.flowLayoutPanel2.Controls.Add(this.panelTypeContrat);
             this.flowLayoutPanel2.Controls.Add(this.panelCadre);
@@ -270,11 +274,11 @@
             this.flowLayoutPanel2.Controls.Add(this.panel9);
             this.flowLayoutPanel2.Controls.Add(this.panelDate);
             this.flowLayoutPanel2.Controls.Add(this.panelPhoto);
-            this.flowLayoutPanel2.Controls.Add(this.btnValiderContrat);
-            this.flowLayoutPanel2.Controls.Add(this.btnAnnuler);
+            this.flowLayoutPanel2.Controls.Add(this.panel3);
+            this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(12, 12);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(362, 564);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(357, 581);
             this.flowLayoutPanel2.TabIndex = 20;
             // 
             // panelContratNumero
@@ -495,7 +499,7 @@
             // btnValiderContrat
             // 
             this.btnValiderContrat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnValiderContrat.Location = new System.Drawing.Point(3, 535);
+            this.btnValiderContrat.Location = new System.Drawing.Point(3, 3);
             this.btnValiderContrat.Name = "btnValiderContrat";
             this.btnValiderContrat.Size = new System.Drawing.Size(75, 23);
             this.btnValiderContrat.TabIndex = 24;
@@ -505,7 +509,7 @@
             // btnAnnuler
             // 
             this.btnAnnuler.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAnnuler.Location = new System.Drawing.Point(84, 535);
+            this.btnAnnuler.Location = new System.Drawing.Point(84, 3);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(75, 23);
             this.btnAnnuler.TabIndex = 25;
@@ -520,6 +524,15 @@
             this.panelPhoto.Size = new System.Drawing.Size(351, 154);
             this.panelPhoto.TabIndex = 26;
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.btnValiderContrat);
+            this.panel3.Controls.Add(this.btnAnnuler);
+            this.panel3.Location = new System.Drawing.Point(3, 535);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(348, 43);
+            this.panel3.TabIndex = 27;
+            // 
             // frmContrat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -527,7 +540,7 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(387, 583);
+            this.ClientSize = new System.Drawing.Size(387, 746);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Name = "frmContrat";
             this.Text = "frmContrat";
@@ -560,7 +573,9 @@
             this.gBxContratPhoto.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhotoContrat)).EndInit();
             this.panelPhoto.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -612,5 +627,6 @@
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         internal System.Windows.Forms.GroupBox gBxContratPhoto;
         internal System.Windows.Forms.Panel panelPhoto;
+        private System.Windows.Forms.Panel panel3;
     }
 }

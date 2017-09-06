@@ -80,6 +80,7 @@
             this.lblSituationMaritale = new System.Windows.Forms.Label();
             this.warningSituation = new System.Windows.Forms.PictureBox();
             this.cBxSituation = new System.Windows.Forms.ComboBox();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhotoCollab)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.panelCivilite.SuspendLayout();
@@ -103,6 +104,7 @@
             this.panelAffichagePhoto.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.warningSituation)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtBoxRueCollab
@@ -307,12 +309,10 @@
             this.flowLayoutPanel1.Controls.Add(this.panelTypeContrat);
             this.flowLayoutPanel1.Controls.Add(this.panelPhoto);
             this.flowLayoutPanel1.Controls.Add(this.panelAffichagePhoto);
-            this.flowLayoutPanel1.Controls.Add(this.btnOKNvColab);
-            this.flowLayoutPanel1.Controls.Add(this.btnModifier);
-            this.flowLayoutPanel1.Controls.Add(this.btnAnnulerNvColab);
+            this.flowLayoutPanel1.Controls.Add(this.panel2);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 12);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(344, 582);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(344, 589);
             this.flowLayoutPanel1.TabIndex = 20;
             // 
             // panelCivilite
@@ -520,7 +520,7 @@
             // btnOKNvColab
             // 
             this.btnOKNvColab.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOKNvColab.Location = new System.Drawing.Point(3, 540);
+            this.btnOKNvColab.Location = new System.Drawing.Point(6, 5);
             this.btnOKNvColab.Name = "btnOKNvColab";
             this.btnOKNvColab.Size = new System.Drawing.Size(75, 24);
             this.btnOKNvColab.TabIndex = 21;
@@ -530,7 +530,7 @@
             // btnModifier
             // 
             this.btnModifier.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btnModifier.Location = new System.Drawing.Point(85, 539);
+            this.btnModifier.Location = new System.Drawing.Point(86, 4);
             this.btnModifier.Margin = new System.Windows.Forms.Padding(4);
             this.btnModifier.Name = "btnModifier";
             this.btnModifier.Size = new System.Drawing.Size(100, 24);
@@ -541,7 +541,7 @@
             // btnAnnulerNvColab
             // 
             this.btnAnnulerNvColab.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAnnulerNvColab.Location = new System.Drawing.Point(192, 541);
+            this.btnAnnulerNvColab.Location = new System.Drawing.Point(191, 5);
             this.btnAnnulerNvColab.Name = "btnAnnulerNvColab";
             this.btnAnnulerNvColab.Size = new System.Drawing.Size(75, 23);
             this.btnAnnulerNvColab.TabIndex = 22;
@@ -586,13 +586,23 @@
             this.cBxSituation.Size = new System.Drawing.Size(121, 21);
             this.cBxSituation.TabIndex = 4;
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.btnModifier);
+            this.panel2.Controls.Add(this.btnAnnulerNvColab);
+            this.panel2.Controls.Add(this.btnOKNvColab);
+            this.panel2.Location = new System.Drawing.Point(3, 538);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(331, 31);
+            this.panel2.TabIndex = 21;
+            // 
             // frmBaseCollab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(365, 632);
+            this.ClientSize = new System.Drawing.Size(365, 747);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "frmBaseCollab";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhotoCollab)).EndInit();
@@ -630,6 +640,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.warningSituation)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -686,5 +697,6 @@
         private System.Windows.Forms.Label lblSituationMaritale;
         internal System.Windows.Forms.PictureBox warningSituation;
         internal System.Windows.Forms.ComboBox cBxSituation;
+        private System.Windows.Forms.Panel panel2;
     }
 }
