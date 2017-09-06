@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblNumContrat = new System.Windows.Forms.Label();
             this.txBxNumeroContrat = new System.Windows.Forms.TextBox();
             this.lblCadre = new System.Windows.Forms.Label();
@@ -50,43 +51,46 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panelTypeContrat = new System.Windows.Forms.Panel();
             this.panelCadre = new System.Windows.Forms.Panel();
+            this.panelMotif = new System.Windows.Forms.Panel();
+            this.tBxMotifContrat = new System.Windows.Forms.TextBox();
+            this.lblMotifContrat = new System.Windows.Forms.Label();
             this.panelFonction = new System.Windows.Forms.Panel();
             this.panelQualification = new System.Windows.Forms.Panel();
+            this.panelEcole = new System.Windows.Forms.Panel();
+            this.tBxEcole = new System.Windows.Forms.TextBox();
+            this.lblEcole = new System.Windows.Forms.Label();
+            this.panelAgence = new System.Windows.Forms.Panel();
+            this.tBxAgence = new System.Windows.Forms.TextBox();
+            this.lblAgence = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.tBxSalaire = new System.Windows.Forms.TextBox();
+            this.lblSalaire = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.panelMotif = new System.Windows.Forms.Panel();
-            this.lblMotifContrat = new System.Windows.Forms.Label();
-            this.tBxMotifContrat = new System.Windows.Forms.TextBox();
             this.gBxContratPhoto = new System.Windows.Forms.GroupBox();
+            this.Modifier = new System.Windows.Forms.Button();
             this.pictureBoxPhotoContrat = new System.Windows.Forms.PictureBox();
             this.txtBxAdressePhotoContrat = new System.Windows.Forms.TextBox();
             this.btnContratParcourir = new System.Windows.Forms.Button();
-            this.Modifier = new System.Windows.Forms.Button();
-            this.panelEcole = new System.Windows.Forms.Panel();
-            this.lblEcole = new System.Windows.Forms.Label();
-            this.tBxEcole = new System.Windows.Forms.TextBox();
-            this.panelAgence = new System.Windows.Forms.Panel();
-            this.lblAgence = new System.Windows.Forms.Label();
-            this.tBxAgence = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lblSalaire = new System.Windows.Forms.Label();
-            this.tBxSalaire = new System.Windows.Forms.TextBox();
             this.btnValiderContrat = new System.Windows.Forms.Button();
             this.btnAnnuler = new System.Windows.Forms.Button();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.panelPhoto = new System.Windows.Forms.Panel();
             this.gBxCadre.SuspendLayout();
             this.panelDate.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.panelContratNumero.SuspendLayout();
             this.panelTypeContrat.SuspendLayout();
             this.panelCadre.SuspendLayout();
+            this.panelMotif.SuspendLayout();
             this.panelFonction.SuspendLayout();
             this.panelQualification.SuspendLayout();
-            this.panel9.SuspendLayout();
-            this.panelMotif.SuspendLayout();
-            this.gBxContratPhoto.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhotoContrat)).BeginInit();
             this.panelEcole.SuspendLayout();
             this.panelAgence.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel9.SuspendLayout();
+            this.gBxContratPhoto.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhotoContrat)).BeginInit();
+            this.panelPhoto.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblNumContrat
@@ -122,7 +126,6 @@
             this.gBxCadre.BackColor = System.Drawing.Color.Transparent;
             this.gBxCadre.Controls.Add(this.rbtCadreNon);
             this.gBxCadre.Controls.Add(this.rbtCadreOui);
-            this.gBxCadre.Enabled = false;
             this.gBxCadre.Location = new System.Drawing.Point(100, -3);
             this.gBxCadre.Name = "gBxCadre";
             this.gBxCadre.Size = new System.Drawing.Size(133, 39);
@@ -164,7 +167,6 @@
             // 
             // tBxFonctionContrat
             // 
-            this.tBxFonctionContrat.Enabled = false;
             this.tBxFonctionContrat.Location = new System.Drawing.Point(100, 3);
             this.tBxFonctionContrat.Name = "tBxFonctionContrat";
             this.tBxFonctionContrat.Size = new System.Drawing.Size(216, 20);
@@ -183,7 +185,6 @@
             // 
             // tBxQualification
             // 
-            this.tBxQualification.Enabled = false;
             this.tBxQualification.Location = new System.Drawing.Point(100, 2);
             this.tBxQualification.Name = "tBxQualification";
             this.tBxQualification.Size = new System.Drawing.Size(216, 20);
@@ -191,7 +192,6 @@
             // 
             // choixDateDebutContrat
             // 
-            this.choixDateDebutContrat.Enabled = false;
             this.choixDateDebutContrat.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.choixDateDebutContrat.Location = new System.Drawing.Point(99, 3);
             this.choixDateDebutContrat.Name = "choixDateDebutContrat";
@@ -209,7 +209,6 @@
             // 
             // ChoixDateFinContrat
             // 
-            this.ChoixDateFinContrat.Enabled = false;
             this.ChoixDateFinContrat.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.ChoixDateFinContrat.Location = new System.Drawing.Point(100, 3);
             this.ChoixDateFinContrat.Name = "ChoixDateFinContrat";
@@ -252,7 +251,6 @@
             this.panelDate.BackColor = System.Drawing.Color.Transparent;
             this.panelDate.Controls.Add(this.lblDateFinContrat);
             this.panelDate.Controls.Add(this.ChoixDateFinContrat);
-            this.panelDate.Enabled = false;
             this.panelDate.Location = new System.Drawing.Point(3, 341);
             this.panelDate.Name = "panelDate";
             this.panelDate.Size = new System.Drawing.Size(351, 28);
@@ -271,12 +269,12 @@
             this.flowLayoutPanel2.Controls.Add(this.panel1);
             this.flowLayoutPanel2.Controls.Add(this.panel9);
             this.flowLayoutPanel2.Controls.Add(this.panelDate);
-            this.flowLayoutPanel2.Controls.Add(this.gBxContratPhoto);
+            this.flowLayoutPanel2.Controls.Add(this.panelPhoto);
             this.flowLayoutPanel2.Controls.Add(this.btnValiderContrat);
             this.flowLayoutPanel2.Controls.Add(this.btnAnnuler);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(12, 12);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(362, 558);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(362, 564);
             this.flowLayoutPanel2.TabIndex = 20;
             // 
             // panelContratNumero
@@ -284,7 +282,6 @@
             this.panelContratNumero.Controls.Add(this.panel2);
             this.panelContratNumero.Controls.Add(this.lblNumContrat);
             this.panelContratNumero.Controls.Add(this.txBxNumeroContrat);
-            this.panelContratNumero.Enabled = false;
             this.panelContratNumero.Location = new System.Drawing.Point(3, 3);
             this.panelContratNumero.Name = "panelContratNumero";
             this.panelContratNumero.Size = new System.Drawing.Size(351, 26);
@@ -301,7 +298,6 @@
             // 
             this.panelTypeContrat.Controls.Add(this.cBxTypeContrat);
             this.panelTypeContrat.Controls.Add(this.lblTypeContrat);
-            this.panelTypeContrat.Enabled = false;
             this.panelTypeContrat.Location = new System.Drawing.Point(3, 35);
             this.panelTypeContrat.Name = "panelTypeContrat";
             this.panelTypeContrat.Size = new System.Drawing.Size(351, 28);
@@ -311,51 +307,26 @@
             // 
             this.panelCadre.Controls.Add(this.gBxCadre);
             this.panelCadre.Controls.Add(this.lblCadre);
-            this.panelCadre.Enabled = false;
             this.panelCadre.Location = new System.Drawing.Point(3, 69);
             this.panelCadre.Name = "panelCadre";
             this.panelCadre.Size = new System.Drawing.Size(351, 40);
             this.panelCadre.TabIndex = 2;
             // 
-            // panelFonction
-            // 
-            this.panelFonction.Controls.Add(this.tBxFonctionContrat);
-            this.panelFonction.Controls.Add(this.lblFonctionContrat);
-            this.panelFonction.Enabled = false;
-            this.panelFonction.Location = new System.Drawing.Point(3, 147);
-            this.panelFonction.Name = "panelFonction";
-            this.panelFonction.Size = new System.Drawing.Size(351, 27);
-            this.panelFonction.TabIndex = 3;
-            // 
-            // panelQualification
-            // 
-            this.panelQualification.Controls.Add(this.tBxQualification);
-            this.panelQualification.Controls.Add(this.lblQualificationContrat);
-            this.panelQualification.Enabled = false;
-            this.panelQualification.Location = new System.Drawing.Point(3, 180);
-            this.panelQualification.Name = "panelQualification";
-            this.panelQualification.Size = new System.Drawing.Size(351, 23);
-            this.panelQualification.TabIndex = 4;
-            // 
-            // panel9
-            // 
-            this.panel9.Controls.Add(this.label1);
-            this.panel9.Controls.Add(this.choixDateDebutContrat);
-            this.panel9.Enabled = false;
-            this.panel9.Location = new System.Drawing.Point(3, 308);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(351, 27);
-            this.panel9.TabIndex = 18;
-            // 
             // panelMotif
             // 
             this.panelMotif.Controls.Add(this.tBxMotifContrat);
             this.panelMotif.Controls.Add(this.lblMotifContrat);
-            this.panelMotif.Enabled = false;
             this.panelMotif.Location = new System.Drawing.Point(3, 115);
             this.panelMotif.Name = "panelMotif";
             this.panelMotif.Size = new System.Drawing.Size(351, 26);
             this.panelMotif.TabIndex = 19;
+            // 
+            // tBxMotifContrat
+            // 
+            this.tBxMotifContrat.Location = new System.Drawing.Point(100, 3);
+            this.tBxMotifContrat.Name = "tBxMotifContrat";
+            this.tBxMotifContrat.Size = new System.Drawing.Size(216, 20);
+            this.tBxMotifContrat.TabIndex = 1;
             // 
             // lblMotifContrat
             // 
@@ -366,13 +337,108 @@
             this.lblMotifContrat.TabIndex = 0;
             this.lblMotifContrat.Text = "Motif";
             // 
-            // tBxMotifContrat
+            // panelFonction
             // 
-            this.tBxMotifContrat.Enabled = false;
-            this.tBxMotifContrat.Location = new System.Drawing.Point(100, 3);
-            this.tBxMotifContrat.Name = "tBxMotifContrat";
-            this.tBxMotifContrat.Size = new System.Drawing.Size(216, 20);
-            this.tBxMotifContrat.TabIndex = 1;
+            this.panelFonction.Controls.Add(this.tBxFonctionContrat);
+            this.panelFonction.Controls.Add(this.lblFonctionContrat);
+            this.panelFonction.Location = new System.Drawing.Point(3, 147);
+            this.panelFonction.Name = "panelFonction";
+            this.panelFonction.Size = new System.Drawing.Size(351, 27);
+            this.panelFonction.TabIndex = 3;
+            // 
+            // panelQualification
+            // 
+            this.panelQualification.Controls.Add(this.tBxQualification);
+            this.panelQualification.Controls.Add(this.lblQualificationContrat);
+            this.panelQualification.Location = new System.Drawing.Point(3, 180);
+            this.panelQualification.Name = "panelQualification";
+            this.panelQualification.Size = new System.Drawing.Size(351, 23);
+            this.panelQualification.TabIndex = 4;
+            // 
+            // panelEcole
+            // 
+            this.panelEcole.Controls.Add(this.tBxEcole);
+            this.panelEcole.Controls.Add(this.lblEcole);
+            this.panelEcole.Location = new System.Drawing.Point(3, 209);
+            this.panelEcole.Name = "panelEcole";
+            this.panelEcole.Size = new System.Drawing.Size(351, 26);
+            this.panelEcole.TabIndex = 21;
+            // 
+            // tBxEcole
+            // 
+            this.tBxEcole.Location = new System.Drawing.Point(100, 3);
+            this.tBxEcole.Name = "tBxEcole";
+            this.tBxEcole.Size = new System.Drawing.Size(216, 20);
+            this.tBxEcole.TabIndex = 1;
+            // 
+            // lblEcole
+            // 
+            this.lblEcole.AutoSize = true;
+            this.lblEcole.Location = new System.Drawing.Point(3, 6);
+            this.lblEcole.Name = "lblEcole";
+            this.lblEcole.Size = new System.Drawing.Size(34, 13);
+            this.lblEcole.TabIndex = 0;
+            this.lblEcole.Text = "Ecole";
+            // 
+            // panelAgence
+            // 
+            this.panelAgence.Controls.Add(this.tBxAgence);
+            this.panelAgence.Controls.Add(this.lblAgence);
+            this.panelAgence.Location = new System.Drawing.Point(3, 241);
+            this.panelAgence.Name = "panelAgence";
+            this.panelAgence.Size = new System.Drawing.Size(351, 27);
+            this.panelAgence.TabIndex = 22;
+            // 
+            // tBxAgence
+            // 
+            this.tBxAgence.Location = new System.Drawing.Point(100, 3);
+            this.tBxAgence.Name = "tBxAgence";
+            this.tBxAgence.Size = new System.Drawing.Size(216, 20);
+            this.tBxAgence.TabIndex = 1;
+            // 
+            // lblAgence
+            // 
+            this.lblAgence.AutoSize = true;
+            this.lblAgence.Location = new System.Drawing.Point(3, 6);
+            this.lblAgence.Name = "lblAgence";
+            this.lblAgence.Size = new System.Drawing.Size(44, 13);
+            this.lblAgence.TabIndex = 0;
+            this.lblAgence.Text = "Agence";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.tBxSalaire);
+            this.panel1.Controls.Add(this.lblSalaire);
+            this.panel1.Location = new System.Drawing.Point(3, 274);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(351, 28);
+            this.panel1.TabIndex = 23;
+            // 
+            // tBxSalaire
+            // 
+            this.tBxSalaire.Location = new System.Drawing.Point(100, 4);
+            this.tBxSalaire.Name = "tBxSalaire";
+            this.tBxSalaire.Size = new System.Drawing.Size(216, 20);
+            this.tBxSalaire.TabIndex = 1;
+            this.tBxSalaire.TextChanged += new System.EventHandler(this.tBxSalaire_TextChanged);
+            // 
+            // lblSalaire
+            // 
+            this.lblSalaire.AutoSize = true;
+            this.lblSalaire.Location = new System.Drawing.Point(3, 7);
+            this.lblSalaire.Name = "lblSalaire";
+            this.lblSalaire.Size = new System.Drawing.Size(39, 13);
+            this.lblSalaire.TabIndex = 0;
+            this.lblSalaire.Text = "Salaire";
+            // 
+            // panel9
+            // 
+            this.panel9.Controls.Add(this.label1);
+            this.panel9.Controls.Add(this.choixDateDebutContrat);
+            this.panel9.Location = new System.Drawing.Point(3, 308);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(351, 27);
+            this.panel9.TabIndex = 18;
             // 
             // gBxContratPhoto
             // 
@@ -381,12 +447,23 @@
             this.gBxContratPhoto.Controls.Add(this.txtBxAdressePhotoContrat);
             this.gBxContratPhoto.Controls.Add(this.btnContratParcourir);
             this.gBxContratPhoto.Enabled = false;
-            this.gBxContratPhoto.Location = new System.Drawing.Point(3, 375);
+            this.gBxContratPhoto.Location = new System.Drawing.Point(3, 3);
             this.gBxContratPhoto.Name = "gBxContratPhoto";
             this.gBxContratPhoto.Size = new System.Drawing.Size(294, 145);
             this.gBxContratPhoto.TabIndex = 20;
             this.gBxContratPhoto.TabStop = false;
             this.gBxContratPhoto.Text = "Photo";
+            // 
+            // Modifier
+            // 
+            this.Modifier.Enabled = false;
+            this.Modifier.Location = new System.Drawing.Point(176, 92);
+            this.Modifier.Name = "Modifier";
+            this.Modifier.Size = new System.Drawing.Size(75, 23);
+            this.Modifier.TabIndex = 3;
+            this.Modifier.Text = "Modifier";
+            this.Modifier.UseVisualStyleBackColor = true;
+            this.Modifier.Visible = false;
             // 
             // pictureBoxPhotoContrat
             // 
@@ -415,103 +492,10 @@
             this.btnContratParcourir.Text = "Parcourir";
             this.btnContratParcourir.UseVisualStyleBackColor = true;
             // 
-            // Modifier
-            // 
-            this.Modifier.Enabled = false;
-            this.Modifier.Location = new System.Drawing.Point(176, 92);
-            this.Modifier.Name = "Modifier";
-            this.Modifier.Size = new System.Drawing.Size(75, 23);
-            this.Modifier.TabIndex = 3;
-            this.Modifier.Text = "Modifier";
-            this.Modifier.UseVisualStyleBackColor = true;
-            this.Modifier.Visible = false;
-            // 
-            // panelEcole
-            // 
-            this.panelEcole.Controls.Add(this.tBxEcole);
-            this.panelEcole.Controls.Add(this.lblEcole);
-            this.panelEcole.Enabled = false;
-            this.panelEcole.Location = new System.Drawing.Point(3, 209);
-            this.panelEcole.Name = "panelEcole";
-            this.panelEcole.Size = new System.Drawing.Size(351, 26);
-            this.panelEcole.TabIndex = 21;
-            // 
-            // lblEcole
-            // 
-            this.lblEcole.AutoSize = true;
-            this.lblEcole.Location = new System.Drawing.Point(3, 6);
-            this.lblEcole.Name = "lblEcole";
-            this.lblEcole.Size = new System.Drawing.Size(34, 13);
-            this.lblEcole.TabIndex = 0;
-            this.lblEcole.Text = "Ecole";
-            // 
-            // tBxEcole
-            // 
-            this.tBxEcole.Enabled = false;
-            this.tBxEcole.Location = new System.Drawing.Point(100, 3);
-            this.tBxEcole.Name = "tBxEcole";
-            this.tBxEcole.Size = new System.Drawing.Size(216, 20);
-            this.tBxEcole.TabIndex = 1;
-            // 
-            // panelAgence
-            // 
-            this.panelAgence.Controls.Add(this.tBxAgence);
-            this.panelAgence.Controls.Add(this.lblAgence);
-            this.panelAgence.Enabled = false;
-            this.panelAgence.Location = new System.Drawing.Point(3, 241);
-            this.panelAgence.Name = "panelAgence";
-            this.panelAgence.Size = new System.Drawing.Size(351, 27);
-            this.panelAgence.TabIndex = 22;
-            // 
-            // lblAgence
-            // 
-            this.lblAgence.AutoSize = true;
-            this.lblAgence.Location = new System.Drawing.Point(3, 6);
-            this.lblAgence.Name = "lblAgence";
-            this.lblAgence.Size = new System.Drawing.Size(44, 13);
-            this.lblAgence.TabIndex = 0;
-            this.lblAgence.Text = "Agence";
-            // 
-            // tBxAgence
-            // 
-            this.tBxAgence.Enabled = false;
-            this.tBxAgence.Location = new System.Drawing.Point(100, 3);
-            this.tBxAgence.Name = "tBxAgence";
-            this.tBxAgence.Size = new System.Drawing.Size(216, 20);
-            this.tBxAgence.TabIndex = 1;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.tBxSalaire);
-            this.panel1.Controls.Add(this.lblSalaire);
-            this.panel1.Enabled = false;
-            this.panel1.Location = new System.Drawing.Point(3, 274);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(351, 28);
-            this.panel1.TabIndex = 23;
-            // 
-            // lblSalaire
-            // 
-            this.lblSalaire.AutoSize = true;
-            this.lblSalaire.Location = new System.Drawing.Point(3, 7);
-            this.lblSalaire.Name = "lblSalaire";
-            this.lblSalaire.Size = new System.Drawing.Size(39, 13);
-            this.lblSalaire.TabIndex = 0;
-            this.lblSalaire.Text = "Salaire";
-            // 
-            // tBxSalaire
-            // 
-            this.tBxSalaire.Enabled = false;
-            this.tBxSalaire.Location = new System.Drawing.Point(100, 4);
-            this.tBxSalaire.Name = "tBxSalaire";
-            this.tBxSalaire.Size = new System.Drawing.Size(216, 20);
-            this.tBxSalaire.TabIndex = 1;
-            this.tBxSalaire.TextChanged += new System.EventHandler(this.tBxSalaire_TextChanged);
-            // 
             // btnValiderContrat
             // 
             this.btnValiderContrat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnValiderContrat.Location = new System.Drawing.Point(3, 526);
+            this.btnValiderContrat.Location = new System.Drawing.Point(3, 535);
             this.btnValiderContrat.Name = "btnValiderContrat";
             this.btnValiderContrat.Size = new System.Drawing.Size(75, 23);
             this.btnValiderContrat.TabIndex = 24;
@@ -521,19 +505,29 @@
             // btnAnnuler
             // 
             this.btnAnnuler.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAnnuler.Location = new System.Drawing.Point(84, 526);
+            this.btnAnnuler.Location = new System.Drawing.Point(84, 535);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(75, 23);
             this.btnAnnuler.TabIndex = 25;
             this.btnAnnuler.Text = "Annuler";
             this.btnAnnuler.UseVisualStyleBackColor = true;
             // 
+            // panelPhoto
+            // 
+            this.panelPhoto.Controls.Add(this.gBxContratPhoto);
+            this.panelPhoto.Location = new System.Drawing.Point(3, 375);
+            this.panelPhoto.Name = "panelPhoto";
+            this.panelPhoto.Size = new System.Drawing.Size(351, 154);
+            this.panelPhoto.TabIndex = 26;
+            // 
             // frmContrat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(387, 581);
+            this.ClientSize = new System.Drawing.Size(387, 583);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Name = "frmContrat";
             this.Text = "frmContrat";
@@ -548,23 +542,24 @@
             this.panelTypeContrat.PerformLayout();
             this.panelCadre.ResumeLayout(false);
             this.panelCadre.PerformLayout();
+            this.panelMotif.ResumeLayout(false);
+            this.panelMotif.PerformLayout();
             this.panelFonction.ResumeLayout(false);
             this.panelFonction.PerformLayout();
             this.panelQualification.ResumeLayout(false);
             this.panelQualification.PerformLayout();
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
-            this.panelMotif.ResumeLayout(false);
-            this.panelMotif.PerformLayout();
-            this.gBxContratPhoto.ResumeLayout(false);
-            this.gBxContratPhoto.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhotoContrat)).EndInit();
             this.panelEcole.ResumeLayout(false);
             this.panelEcole.PerformLayout();
             this.panelAgence.ResumeLayout(false);
             this.panelAgence.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
+            this.gBxContratPhoto.ResumeLayout(false);
+            this.gBxContratPhoto.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhotoContrat)).EndInit();
+            this.panelPhoto.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -598,7 +593,6 @@
         internal System.Windows.Forms.RadioButton rbtCadreOui;
         internal System.Windows.Forms.TextBox tBxMotifContrat;
         private System.Windows.Forms.Label lblMotifContrat;
-        private System.Windows.Forms.GroupBox gBxContratPhoto;
         internal System.Windows.Forms.Button Modifier;
         internal System.Windows.Forms.PictureBox pictureBoxPhotoContrat;
         internal System.Windows.Forms.TextBox txtBxAdressePhotoContrat;
@@ -615,5 +609,8 @@
         internal System.Windows.Forms.Panel panelAgence;
         internal System.Windows.Forms.Button btnValiderContrat;
         internal System.Windows.Forms.Button btnAnnuler;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
+        internal System.Windows.Forms.GroupBox gBxContratPhoto;
+        internal System.Windows.Forms.Panel panelPhoto;
     }
 }

@@ -15,9 +15,9 @@ namespace ABIenCouche
         public frmBaseCollab()
         {
             InitializeComponent();
-           
+           //txtBoxNomCollab.TextChanged+=new EventHandler(WaterMarkTextBox.)
         }
-
-
+        
+        
     }
 }

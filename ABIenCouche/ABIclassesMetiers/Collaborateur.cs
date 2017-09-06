@@ -35,19 +35,20 @@ namespace ABIenCouche
         /// <param name="unNom">le nom du collaborateur</param>
         /// <param name="unPrenom">le prenom du collaborateur</param>
         /// <param name="unMatricule">le matricule du collaborateur</param>
-        public Collaborateur(Int32 unMatricule,String uneCivilite, String unNom, String unPrenom, String uneRue, String uneVille, String unCP,Int32 uneAugmentation,String unTel,string unePhoto)
+        public Collaborateur(Int32 unMatricule,String uneCivilite,String situation, String unNom, String unPrenom, String uneRue, String uneVille, String unCP,Int32 uneAugmentation,String unTel,string unePhoto)
         {
-            this.NomCollaborateur = unNom;
-            this.PrenomCollaborateur = unPrenom;
-            this.Matricule = unMatricule;
-            this.rueCollab = uneRue;
-            this.villeCollab = uneVille;
-            this.cpCollab = unCP;
-            this.Augmentation = uneAugmentation;
-            this.Civilite = uneCivilite;
-            this.Telephone = unTel;
+            NomCollaborateur = unNom;
+            PrenomCollaborateur = unPrenom;
+            Matricule = unMatricule;
+            rueCollab = uneRue;
+            villeCollab = uneVille;
+            cpCollab = unCP;
+            Augmentation = uneAugmentation;
+            Civilite = uneCivilite;
+            Telephone = unTel;
+            SituationMaritale = situation;
             lesContrats = new SortedDictionary<Int32, Contrat>();
-            this.laPhoto = unePhoto;
+            laPhoto = unePhoto;
             
         }
 
@@ -204,7 +205,7 @@ namespace ABIenCouche
             {
                 return civilite;
             }
-            private set
+            set
             {
                 civilite = value;
             }

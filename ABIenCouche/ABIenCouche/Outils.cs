@@ -9,7 +9,34 @@ namespace ABIenCouche
     /// </summary>
     public class Outils
     {
-
+        /// <summary>
+        /// controle du code postal qui doit être un entier de 5 chiffre
+        /// </summary>
+        /// <param name="CP">le code postal à contrôler</param>
+        /// <returns> retourne le résultat sous forme de booléen</returns>
+        public static Boolean CPControl(String CP)
+        {
+            bool resultat=false;
+            if (CP.Length < 6 && CP.Length > 0)
+            {
+                foreach (Char chiffre in CP)
+                {
+                    if (!Char.IsDigit(chiffre))
+                    {
+                        resultat= false;
+                    }
+                    else
+                    {
+                        resultat= true;
+                    }
+                }
+            }
+            else
+            {
+                resultat= false;
+            }
+            return resultat;
+        }
         /// <summary>
         /// fonction générique de contrôle qu'une chaine reçue pourra se convertir en Int32
         /// </summary>
@@ -44,6 +71,26 @@ namespace ABIenCouche
                 code = false; // erreur détectée
             }
             return code;
+        }
+
+        public static Boolean controlTel(String tel)
+        {
+            Boolean resultat = true;
+            if (tel.Length > 0 && tel.Length < 11)
+            {
+
+                foreach (Char chiffre in tel)
+                {
+                    if (!Char.IsNumber(chiffre))
+                    {
+                        resultat = false;
+                    }
+                    else resultat = true;
+                }
+
+            }
+            else resultat = false;
+            return resultat;
         }
     }
 }

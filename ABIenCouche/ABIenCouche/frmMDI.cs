@@ -36,7 +36,7 @@ namespace ABIenCouche
             //{
             //    string FileName = openFileDialog.FileName;
             //}
-            ctrlNouveauCollaborateur ctrl = new ctrlNouveauCollaborateur();
+            crtlListerCollabo ctrl = new crtlListerCollabo();
         }
 
         private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e)

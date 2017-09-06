@@ -11,6 +11,9 @@ namespace ABIenCouche
     {
         private static SortedDictionary<int, Collaborateur> listCollaborateur =new SortedDictionary<int, Collaborateur> ();
         private Collaborateur leColab;
+        private Contrat leContrat;
+        
+
         public Collaborateur LeColab
         {
             get
@@ -139,26 +142,28 @@ namespace ABIenCouche
 
             foreach (KeyValuePair<Int32,Contrat> leContrat in unCollaborateur.lesContrats)
             {
-                if (leContrat is ContratCDD)
-                {
-
-                }
+                
                 DR = dt.NewRow();
                 DR[0] = leContrat.Value.NumContrat;
-                if (leContrat is ContratCDD)
+                if (leContrat.Value is ContratCDD)
                 {
                     DR[1] = "CDD";
                 }
-                else if (leContrat is ContratCDI)
+                else if (leContrat.Value is ContratCDI)
                 {
                     DR[1] = "CDI";
                 }
-                else if (leContrat is contratInterim)
+                else if (leContrat.Value is contratInterim)
                 {
                     DR[1] = "interim";
                 }
                 else DR[1] = "stage";
-                DR[2] = leContrat.Value.LeStatut;
+                //DR[2] = leContrat.Value.LeStatut;
+                if (leContrat.Value.LeStatut == true)
+                {
+                    DR[2] = "cadre";
+                }
+                else DR[2] = "non cadre";
                 DR[3] = leContrat.Value.QualificationCollaborateur;
                 DR[4] = leContrat.Value.FonctionCollaborateur;
                 DR[5] = leContrat.Value.ListAvenant.Count;
@@ -166,7 +171,14 @@ namespace ABIenCouche
             }
             return dt;
         }
-
+        public static Boolean Exist(Collaborateur unCollaborateur)
+        {
+            if (listCollaborateur.ContainsKey(unCollaborateur.Matricule))
+            {
+                return true;
+            }
+            else return false;
+        }
         public static Int32 nbCollab()
         {
             return listCollaborateur.Count();

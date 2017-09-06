@@ -27,7 +27,7 @@ namespace ABIenCouche
         /// <summary>
         /// ref au form non CDI
         /// </summary>
-        private frmContratTemporaire formContratTemp;
+        //private frmContratTemporaire formContratTemp;
 
         public ctrlNouveauContrat(Collaborateur unCollaborateur,String unType)
         {
@@ -36,16 +36,42 @@ namespace ABIenCouche
             {
                 formContratCDI = new frmContratCDI();
                 formContratCDI.cBxTypeContrat.SelectedItem = "CDI";
+                formContratCDI.txBxNumeroContrat.Enabled = false;
+                formContratCDI.panelAgence.Visible = false;
+                formContratCDI.panelEcole.Visible = false;
+                formContratCDI.panelDate.Visible = false;
+                formContratCDI.panelPhoto.Visible = false;
+                if (leCollaborateur.lesContrats.Count==0)
+                {
+                    formContratCDI.txBxNumeroContrat.Text = "1";
+                }
                 formContratCDI.ShowDialog();
             }
             else
             {
-                formContratTemp = new frmContratTemporaire(unType);
+                frmContratTemporaire formContratTemp = new frmContratTemporaire(unType);
+                formContratTemp.txBxNumeroContrat.Enabled = false;
+                if (DictionnaireCollaborateur.Exist(unCollaborateur))
+                {
+                    formContratTemp.txBxNumeroContrat.Text = (leCollaborateur.lesContrats.Count() + 1).ToString();
+
+                }
+                else formContratTemp.txBxNumeroContrat.Text = "1";
                 formContratTemp.ShowDialog();
             }
 
-            //formContratCDI.bt
+            
         }
 
+        //public Boolean controleContrat()
+        //{
+        //    if (formContratCDI.tBxAgence.Visible)
+        //    {
+        //        if (formContratCDI.tBxAgence.Text!="")
+        //        {
+
+        //        }
+        //    }
+        //}
     }
 }

@@ -50,7 +50,7 @@
             this.btnOK.TabIndex = 8;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
-            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
+            //this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // btnAnnuler
             // 
@@ -62,7 +62,7 @@
             this.btnAnnuler.TabIndex = 9;
             this.btnAnnuler.Text = "Annuler";
             this.btnAnnuler.UseVisualStyleBackColor = true;
-            this.btnAnnuler.Click += new System.EventHandler(this.btnAnnuler_Click);
+            //this.btnAnnuler.Click += new System.EventHandler(this.btnAnnuler_Click);
             // 
             // btnContrats
             // 
