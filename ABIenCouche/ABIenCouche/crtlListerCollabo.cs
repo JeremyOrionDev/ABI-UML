@@ -11,7 +11,7 @@ namespace ABIenCouche
 {
     public class crtlListerCollabo
     {
-
+        internal DialogResult DR;
         /// <summary>
         /// ref au colaborateur pour les modifications/suppresions
         /// </summary>
@@ -145,6 +145,8 @@ namespace ABIenCouche
         /// <param name="e"></param>
         internal void btnQuitter_Click(object sender, EventArgs e)
         {
+            DR = DialogResult.OK;
+            
             formAfficheColab.Close();
         }
 

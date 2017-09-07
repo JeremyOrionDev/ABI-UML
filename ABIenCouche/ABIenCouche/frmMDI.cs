@@ -37,6 +37,10 @@ namespace ABIenCouche
             //    string FileName = openFileDialog.FileName;
             //}
             crtlListerCollabo ctrl = new crtlListerCollabo();
+            if (ctrl.DR==DialogResult.OK)
+            {
+                this.Close();
+            }
         }
 
         private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -108,7 +112,10 @@ namespace ABIenCouche
         private void btnAfficheColab_Click(object sender, EventArgs e)
         {
             crtlListerCollabo ctrl = new crtlListerCollabo();
-            
+            if (ctrl.DR == DialogResult.OK)
+            {
+                this.Close();
+            }
         }
     }
 }
