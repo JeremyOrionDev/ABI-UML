@@ -11,7 +11,6 @@ namespace ABIenCouche
     {
         private static SortedDictionary<int, Collaborateur> listCollaborateur =new SortedDictionary<int, Collaborateur> ();
         private Collaborateur leColab;
-        private Contrat leContrat;
         
 
         public Collaborateur LeColab

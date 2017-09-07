@@ -37,14 +37,14 @@ namespace ABIenCouche
         /// <param name="unMatricule">le matricule du collaborateur</param>
         public Collaborateur(Int32 unMatricule,String uneCivilite,String situation, String unNom, String unPrenom, String uneRue, String uneVille, String unCP,Int32 uneAugmentation,String unTel,string unePhoto)
         {
+            Matricule = unMatricule;
+            Civilite = uneCivilite;
             NomCollaborateur = unNom;
             PrenomCollaborateur = unPrenom;
-            Matricule = unMatricule;
             rueCollab = uneRue;
             villeCollab = uneVille;
             cpCollab = unCP;
             Augmentation = uneAugmentation;
-            Civilite = uneCivilite;
             Telephone = unTel;
             SituationMaritale = situation;
             lesContrats = new SortedDictionary<Int32, Contrat>();

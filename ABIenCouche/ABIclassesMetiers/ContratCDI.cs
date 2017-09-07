@@ -20,10 +20,8 @@ namespace ABIenCouche
       
             lesAvenants = new SortedDictionary<int, ABIenCouche.avenantContrat>();
         }
-        private String libelleContrat;
         private double salaireBrut;
         private String laPhoto;
-        private Int32 numContrat;
 
 
 

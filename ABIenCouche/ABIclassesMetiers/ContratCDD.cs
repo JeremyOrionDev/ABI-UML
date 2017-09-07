@@ -29,7 +29,6 @@ namespace ABIenCouche
 
         private DateTime dateFinContrat;
         private String libelle;
-        private int numContrat;
         private String motifContrat;
 
         public DateTime DateFinContrat

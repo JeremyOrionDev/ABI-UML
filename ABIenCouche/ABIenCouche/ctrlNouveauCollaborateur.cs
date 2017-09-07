@@ -49,8 +49,9 @@ namespace ABIenCouche
         {
             this.leForm = new frmNouveauCollab();
             leForm.txtBoxMatriculeCollab.Enabled = false;
-            leForm.panelAffichagePhoto.Visible = false;
-            leForm.panelPhoto.Visible = false;
+            leForm.panelAffichagePhoto.Visible = true;
+            leForm.panelPhoto.Visible = true;
+            leForm.btnContrats.Visible = false;
             leForm.btnModifier.Visible = false;
             leForm.panelAugmentation.Visible = false;
             leForm.cBxSituation.Items.AddRange(new String[]
@@ -60,8 +61,8 @@ namespace ABIenCouche
             leForm.cBxCivilite.Items.AddRange(new String[]
     {"Mr","Mme","Mlle"});
             this.leForm.Text = "Ajouter un collaborateur au projet en cours";
-            this.leForm.btnOKNvColab.Click += new EventHandler(this.btnOK_Click);
-            this.leForm.btnAnnulerNvColab.Click += new EventHandler(this.btnAnnuler_Click);
+            this.leForm.btnOKColab.Click += new EventHandler(this.btnOK_Click);
+            this.leForm.btnAnnulerColab.Click += new EventHandler(this.btnAnnuler_Click);
             this.leForm.btnParcourircollab.Click += new EventHandler(btnParcourirCollab_Click);
             Int32 numColab;
             leForm.btnModifierPhoto.Visible = false;

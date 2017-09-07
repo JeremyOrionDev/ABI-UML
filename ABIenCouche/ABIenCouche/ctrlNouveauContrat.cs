@@ -3,24 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ABIenCouche
 {
     class ctrlNouveauContrat
     {
-        /// <summary>
-        /// ref au form nouveau collaborateur appelant ce controleur
-        /// </summary>
-        private frmNouveauCollab formNouveauCollab;
+
         /// <summary>
         /// ref au collaborateur à qui ajouter le collaborateur
         /// </summary>
         private Collaborateur leCollaborateur;
-        /// <summary>
-        /// ref au contrat de base
-        /// </summary>
-        private Contrat leContrat;
-        /// <summary>
+
+        internal Boolean contratOK=false;
         /// ref au form de nouveau contrat CDI
         /// </summary>
         private frmContratCDI formContratCDI;
@@ -45,6 +40,7 @@ namespace ABIenCouche
                 {
                     formContratCDI.txBxNumeroContrat.Text = "1";
                 }
+                formContratCDI.btnValiderContrat.Click += new EventHandler(btnValiderContrat_Click);
                 formContratCDI.ShowDialog();
             }
             else
@@ -58,20 +54,25 @@ namespace ABIenCouche
                 }
                 else formContratTemp.txBxNumeroContrat.Text = "1";
                 formContratTemp.ShowDialog();
+            formContratCDI.btnValiderContrat.Click += new EventHandler(btnValiderContrat_Click);
             }
 
-            
         }
 
-        //public Boolean controleContrat()
-        //{
-        //    if (formContratCDI.tBxAgence.Visible)
-        //    {
-        //        if (formContratCDI.tBxAgence.Text!="")
-        //        {
+        private void btnValiderContrat_Click(object sender,EventArgs e)
+        {
+            Boolean cadre;
+            if (formContratCDI.rbtCadreOui.Checked)
+            {
+                cadre = true;
+            } else cadre = false;
+            ContratCDI leContrat = new ContratCDI(formContratCDI.tBxLibelle.Text,Convert.ToDouble( formContratCDI.tBxSalaire.Text), formContratCDI.txtBxAdressePhotoContrat.Text,Convert.ToInt32( formContratCDI.txBxNumeroContrat.Text), formContratCDI.tBxFonctionContrat.Text, formContratCDI.tBxQualification.Text,cadre, formContratCDI.choixDateDebutContrat.Value);
+            leCollaborateur.ajoutContrat(leContrat);
+            formContratCDI.DialogResult = DialogResult.OK;
+            contratOK = true;
+            formContratCDI.Close();
+        }
 
-        //        }
-        //    }
-        //}
+
     }
 }

@@ -53,9 +53,13 @@
             this.txtBxAdressePhoto = new System.Windows.Forms.TextBox();
             this.btnParcourircollab = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panelMatricule = new System.Windows.Forms.Panel();
             this.panelCivilite = new System.Windows.Forms.Panel();
             this.warningCivilite = new System.Windows.Forms.PictureBox();
-            this.panelMatricule = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.cBxSituation = new System.Windows.Forms.ComboBox();
+            this.warningSituation = new System.Windows.Forms.PictureBox();
+            this.lblSituationMaritale = new System.Windows.Forms.Label();
             this.panelNom = new System.Windows.Forms.Panel();
             this.warningNom = new System.Windows.Forms.PictureBox();
             this.panelPrenom = new System.Windows.Forms.Panel();
@@ -73,19 +77,18 @@
             this.panelPhoto = new System.Windows.Forms.Panel();
             this.panelAffichagePhoto = new System.Windows.Forms.Panel();
             this.btnModifierPhoto = new System.Windows.Forms.Button();
-            this.btnOKNvColab = new System.Windows.Forms.Button();
-            this.btnModifier = new System.Windows.Forms.Button();
-            this.btnAnnulerNvColab = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lblSituationMaritale = new System.Windows.Forms.Label();
-            this.warningSituation = new System.Windows.Forms.PictureBox();
-            this.cBxSituation = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnModifier = new System.Windows.Forms.Button();
+            this.btnAnnulerColab = new System.Windows.Forms.Button();
+            this.btnOKColab = new System.Windows.Forms.Button();
+            this.btnContrats = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhotoCollab)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
+            this.panelMatricule.SuspendLayout();
             this.panelCivilite.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.warningCivilite)).BeginInit();
-            this.panelMatricule.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.warningSituation)).BeginInit();
             this.panelNom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.warningNom)).BeginInit();
             this.panelPrenom.SuspendLayout();
@@ -102,8 +105,6 @@
             this.panelTypeContrat.SuspendLayout();
             this.panelPhoto.SuspendLayout();
             this.panelAffichagePhoto.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.warningSituation)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -296,6 +297,8 @@
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.AutoSize = true;
+            this.flowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanel1.Controls.Add(this.panelMatricule);
             this.flowLayoutPanel1.Controls.Add(this.panelCivilite);
             this.flowLayoutPanel1.Controls.Add(this.panel1);
@@ -310,10 +313,20 @@
             this.flowLayoutPanel1.Controls.Add(this.panelPhoto);
             this.flowLayoutPanel1.Controls.Add(this.panelAffichagePhoto);
             this.flowLayoutPanel1.Controls.Add(this.panel2);
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 12);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(344, 589);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(337, 572);
             this.flowLayoutPanel1.TabIndex = 20;
+            // 
+            // panelMatricule
+            // 
+            this.panelMatricule.Controls.Add(this.txtBoxMatriculeCollab);
+            this.panelMatricule.Controls.Add(this.lblMatricule);
+            this.panelMatricule.Location = new System.Drawing.Point(3, 3);
+            this.panelMatricule.Name = "panelMatricule";
+            this.panelMatricule.Size = new System.Drawing.Size(331, 30);
+            this.panelMatricule.TabIndex = 1;
             // 
             // panelCivilite
             // 
@@ -336,14 +349,43 @@
             this.warningCivilite.TabStop = false;
             this.warningCivilite.Visible = false;
             // 
-            // panelMatricule
+            // panel1
             // 
-            this.panelMatricule.Controls.Add(this.txtBoxMatriculeCollab);
-            this.panelMatricule.Controls.Add(this.lblMatricule);
-            this.panelMatricule.Location = new System.Drawing.Point(3, 3);
-            this.panelMatricule.Name = "panelMatricule";
-            this.panelMatricule.Size = new System.Drawing.Size(331, 30);
-            this.panelMatricule.TabIndex = 1;
+            this.panel1.Controls.Add(this.cBxSituation);
+            this.panel1.Controls.Add(this.warningSituation);
+            this.panel1.Controls.Add(this.lblSituationMaritale);
+            this.panel1.Location = new System.Drawing.Point(3, 76);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(331, 28);
+            this.panel1.TabIndex = 23;
+            // 
+            // cBxSituation
+            // 
+            this.cBxSituation.FormattingEnabled = true;
+            this.cBxSituation.Location = new System.Drawing.Point(94, 4);
+            this.cBxSituation.Name = "cBxSituation";
+            this.cBxSituation.Size = new System.Drawing.Size(121, 21);
+            this.cBxSituation.TabIndex = 4;
+            // 
+            // warningSituation
+            // 
+            this.warningSituation.Image = ((System.Drawing.Image)(resources.GetObject("warningSituation.Image")));
+            this.warningSituation.Location = new System.Drawing.Point(299, 3);
+            this.warningSituation.Name = "warningSituation";
+            this.warningSituation.Size = new System.Drawing.Size(21, 21);
+            this.warningSituation.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.warningSituation.TabIndex = 3;
+            this.warningSituation.TabStop = false;
+            this.warningSituation.Visible = false;
+            // 
+            // lblSituationMaritale
+            // 
+            this.lblSituationMaritale.AutoSize = true;
+            this.lblSituationMaritale.Location = new System.Drawing.Point(3, 6);
+            this.lblSituationMaritale.Name = "lblSituationMaritale";
+            this.lblSituationMaritale.Size = new System.Drawing.Size(88, 13);
+            this.lblSituationMaritale.TabIndex = 0;
+            this.lblSituationMaritale.Text = "Situation Maritale";
             // 
             // panelNom
             // 
@@ -517,84 +559,56 @@
             this.btnModifierPhoto.Text = "Modifier";
             this.btnModifierPhoto.UseVisualStyleBackColor = true;
             // 
-            // btnOKNvColab
-            // 
-            this.btnOKNvColab.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOKNvColab.Location = new System.Drawing.Point(6, 5);
-            this.btnOKNvColab.Name = "btnOKNvColab";
-            this.btnOKNvColab.Size = new System.Drawing.Size(75, 24);
-            this.btnOKNvColab.TabIndex = 21;
-            this.btnOKNvColab.Text = "OK";
-            this.btnOKNvColab.UseVisualStyleBackColor = true;
-            // 
-            // btnModifier
-            // 
-            this.btnModifier.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btnModifier.Location = new System.Drawing.Point(86, 4);
-            this.btnModifier.Margin = new System.Windows.Forms.Padding(4);
-            this.btnModifier.Name = "btnModifier";
-            this.btnModifier.Size = new System.Drawing.Size(100, 24);
-            this.btnModifier.TabIndex = 13;
-            this.btnModifier.Text = "Modifier";
-            this.btnModifier.UseVisualStyleBackColor = true;
-            // 
-            // btnAnnulerNvColab
-            // 
-            this.btnAnnulerNvColab.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAnnulerNvColab.Location = new System.Drawing.Point(191, 5);
-            this.btnAnnulerNvColab.Name = "btnAnnulerNvColab";
-            this.btnAnnulerNvColab.Size = new System.Drawing.Size(75, 23);
-            this.btnAnnulerNvColab.TabIndex = 22;
-            this.btnAnnulerNvColab.Text = "Annuler";
-            this.btnAnnulerNvColab.UseVisualStyleBackColor = true;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.cBxSituation);
-            this.panel1.Controls.Add(this.warningSituation);
-            this.panel1.Controls.Add(this.lblSituationMaritale);
-            this.panel1.Location = new System.Drawing.Point(3, 76);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(331, 28);
-            this.panel1.TabIndex = 23;
-            // 
-            // lblSituationMaritale
-            // 
-            this.lblSituationMaritale.AutoSize = true;
-            this.lblSituationMaritale.Location = new System.Drawing.Point(3, 6);
-            this.lblSituationMaritale.Name = "lblSituationMaritale";
-            this.lblSituationMaritale.Size = new System.Drawing.Size(88, 13);
-            this.lblSituationMaritale.TabIndex = 0;
-            this.lblSituationMaritale.Text = "Situation Maritale";
-            // 
-            // warningSituation
-            // 
-            this.warningSituation.Image = ((System.Drawing.Image)(resources.GetObject("warningSituation.Image")));
-            this.warningSituation.Location = new System.Drawing.Point(299, 3);
-            this.warningSituation.Name = "warningSituation";
-            this.warningSituation.Size = new System.Drawing.Size(21, 21);
-            this.warningSituation.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.warningSituation.TabIndex = 3;
-            this.warningSituation.TabStop = false;
-            this.warningSituation.Visible = false;
-            // 
-            // cBxSituation
-            // 
-            this.cBxSituation.FormattingEnabled = true;
-            this.cBxSituation.Location = new System.Drawing.Point(94, 4);
-            this.cBxSituation.Name = "cBxSituation";
-            this.cBxSituation.Size = new System.Drawing.Size(121, 21);
-            this.cBxSituation.TabIndex = 4;
-            // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnContrats);
             this.panel2.Controls.Add(this.btnModifier);
-            this.panel2.Controls.Add(this.btnAnnulerNvColab);
-            this.panel2.Controls.Add(this.btnOKNvColab);
+            this.panel2.Controls.Add(this.btnAnnulerColab);
+            this.panel2.Controls.Add(this.btnOKColab);
             this.panel2.Location = new System.Drawing.Point(3, 538);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(331, 31);
             this.panel2.TabIndex = 21;
+            // 
+            // btnModifier
+            // 
+            this.btnModifier.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnModifier.Location = new System.Drawing.Point(85, 5);
+            this.btnModifier.Margin = new System.Windows.Forms.Padding(4);
+            this.btnModifier.Name = "btnModifier";
+            this.btnModifier.Size = new System.Drawing.Size(73, 24);
+            this.btnModifier.TabIndex = 13;
+            this.btnModifier.Text = "Modifier";
+            this.btnModifier.UseVisualStyleBackColor = true;
+            // 
+            // btnAnnulerColab
+            // 
+            this.btnAnnulerColab.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAnnulerColab.Location = new System.Drawing.Point(165, 6);
+            this.btnAnnulerColab.Name = "btnAnnulerColab";
+            this.btnAnnulerColab.Size = new System.Drawing.Size(72, 23);
+            this.btnAnnulerColab.TabIndex = 22;
+            this.btnAnnulerColab.Text = "Annuler";
+            this.btnAnnulerColab.UseVisualStyleBackColor = true;
+            // 
+            // btnOKColab
+            // 
+            this.btnOKColab.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnOKColab.Location = new System.Drawing.Point(6, 5);
+            this.btnOKColab.Name = "btnOKColab";
+            this.btnOKColab.Size = new System.Drawing.Size(72, 24);
+            this.btnOKColab.TabIndex = 21;
+            this.btnOKColab.Text = "OK";
+            this.btnOKColab.UseVisualStyleBackColor = true;
+            // 
+            // btnContrats
+            // 
+            this.btnContrats.Location = new System.Drawing.Point(243, 6);
+            this.btnContrats.Name = "btnContrats";
+            this.btnContrats.Size = new System.Drawing.Size(75, 23);
+            this.btnContrats.TabIndex = 23;
+            this.btnContrats.Text = "Contrats >>";
+            this.btnContrats.UseVisualStyleBackColor = true;
             // 
             // frmBaseCollab
             // 
@@ -607,11 +621,14 @@
             this.Name = "frmBaseCollab";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhotoCollab)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
+            this.panelMatricule.ResumeLayout(false);
+            this.panelMatricule.PerformLayout();
             this.panelCivilite.ResumeLayout(false);
             this.panelCivilite.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.warningCivilite)).EndInit();
-            this.panelMatricule.ResumeLayout(false);
-            this.panelMatricule.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.warningSituation)).EndInit();
             this.panelNom.ResumeLayout(false);
             this.panelNom.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.warningNom)).EndInit();
@@ -637,11 +654,9 @@
             this.panelPhoto.ResumeLayout(false);
             this.panelPhoto.PerformLayout();
             this.panelAffichagePhoto.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.warningSituation)).EndInit();
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -684,8 +699,8 @@
         internal System.Windows.Forms.Panel panelTypeContrat;
         internal System.Windows.Forms.Panel panelAffichagePhoto;
         internal System.Windows.Forms.Button btnModifier;
-        internal System.Windows.Forms.Button btnOKNvColab;
-        internal System.Windows.Forms.Button btnAnnulerNvColab;
+        internal System.Windows.Forms.Button btnOKColab;
+        internal System.Windows.Forms.Button btnAnnulerColab;
         internal System.Windows.Forms.PictureBox warningCivilite;
         internal System.Windows.Forms.PictureBox warningNom;
         internal System.Windows.Forms.PictureBox warningPrenom;
@@ -698,5 +713,6 @@
         internal System.Windows.Forms.PictureBox warningSituation;
         internal System.Windows.Forms.ComboBox cBxSituation;
         private System.Windows.Forms.Panel panel2;
+        internal System.Windows.Forms.Button btnContrats;
     }
 }

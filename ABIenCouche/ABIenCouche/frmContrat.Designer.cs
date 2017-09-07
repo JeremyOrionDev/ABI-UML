@@ -66,16 +66,19 @@
             this.tBxSalaire = new System.Windows.Forms.TextBox();
             this.lblSalaire = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.panelPhoto = new System.Windows.Forms.Panel();
             this.gBxContratPhoto = new System.Windows.Forms.GroupBox();
             this.Modifier = new System.Windows.Forms.Button();
             this.pictureBoxPhotoContrat = new System.Windows.Forms.PictureBox();
             this.txtBxAdressePhotoContrat = new System.Windows.Forms.TextBox();
             this.btnContratParcourir = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.btnValiderContrat = new System.Windows.Forms.Button();
             this.btnAnnuler = new System.Windows.Forms.Button();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.panelPhoto = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.lblLibelleContrat = new System.Windows.Forms.Label();
+            this.tBxLibelle = new System.Windows.Forms.TextBox();
             this.gBxCadre.SuspendLayout();
             this.panelDate.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -89,10 +92,11 @@
             this.panelAgence.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel9.SuspendLayout();
+            this.panelPhoto.SuspendLayout();
             this.gBxContratPhoto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhotoContrat)).BeginInit();
-            this.panelPhoto.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblNumContrat
@@ -253,7 +257,7 @@
             this.panelDate.BackColor = System.Drawing.Color.Transparent;
             this.panelDate.Controls.Add(this.lblDateFinContrat);
             this.panelDate.Controls.Add(this.ChoixDateFinContrat);
-            this.panelDate.Location = new System.Drawing.Point(3, 341);
+            this.panelDate.Location = new System.Drawing.Point(3, 375);
             this.panelDate.Name = "panelDate";
             this.panelDate.Size = new System.Drawing.Size(351, 28);
             this.panelDate.TabIndex = 17;
@@ -264,6 +268,7 @@
             this.flowLayoutPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanel2.Controls.Add(this.panelContratNumero);
             this.flowLayoutPanel2.Controls.Add(this.panelTypeContrat);
+            this.flowLayoutPanel2.Controls.Add(this.panel4);
             this.flowLayoutPanel2.Controls.Add(this.panelCadre);
             this.flowLayoutPanel2.Controls.Add(this.panelMotif);
             this.flowLayoutPanel2.Controls.Add(this.panelFonction);
@@ -278,7 +283,7 @@
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(12, 12);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(357, 581);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(357, 613);
             this.flowLayoutPanel2.TabIndex = 20;
             // 
             // panelContratNumero
@@ -311,7 +316,7 @@
             // 
             this.panelCadre.Controls.Add(this.gBxCadre);
             this.panelCadre.Controls.Add(this.lblCadre);
-            this.panelCadre.Location = new System.Drawing.Point(3, 69);
+            this.panelCadre.Location = new System.Drawing.Point(3, 103);
             this.panelCadre.Name = "panelCadre";
             this.panelCadre.Size = new System.Drawing.Size(351, 40);
             this.panelCadre.TabIndex = 2;
@@ -320,7 +325,7 @@
             // 
             this.panelMotif.Controls.Add(this.tBxMotifContrat);
             this.panelMotif.Controls.Add(this.lblMotifContrat);
-            this.panelMotif.Location = new System.Drawing.Point(3, 115);
+            this.panelMotif.Location = new System.Drawing.Point(3, 149);
             this.panelMotif.Name = "panelMotif";
             this.panelMotif.Size = new System.Drawing.Size(351, 26);
             this.panelMotif.TabIndex = 19;
@@ -345,7 +350,7 @@
             // 
             this.panelFonction.Controls.Add(this.tBxFonctionContrat);
             this.panelFonction.Controls.Add(this.lblFonctionContrat);
-            this.panelFonction.Location = new System.Drawing.Point(3, 147);
+            this.panelFonction.Location = new System.Drawing.Point(3, 181);
             this.panelFonction.Name = "panelFonction";
             this.panelFonction.Size = new System.Drawing.Size(351, 27);
             this.panelFonction.TabIndex = 3;
@@ -354,7 +359,7 @@
             // 
             this.panelQualification.Controls.Add(this.tBxQualification);
             this.panelQualification.Controls.Add(this.lblQualificationContrat);
-            this.panelQualification.Location = new System.Drawing.Point(3, 180);
+            this.panelQualification.Location = new System.Drawing.Point(3, 214);
             this.panelQualification.Name = "panelQualification";
             this.panelQualification.Size = new System.Drawing.Size(351, 23);
             this.panelQualification.TabIndex = 4;
@@ -363,7 +368,7 @@
             // 
             this.panelEcole.Controls.Add(this.tBxEcole);
             this.panelEcole.Controls.Add(this.lblEcole);
-            this.panelEcole.Location = new System.Drawing.Point(3, 209);
+            this.panelEcole.Location = new System.Drawing.Point(3, 243);
             this.panelEcole.Name = "panelEcole";
             this.panelEcole.Size = new System.Drawing.Size(351, 26);
             this.panelEcole.TabIndex = 21;
@@ -388,7 +393,7 @@
             // 
             this.panelAgence.Controls.Add(this.tBxAgence);
             this.panelAgence.Controls.Add(this.lblAgence);
-            this.panelAgence.Location = new System.Drawing.Point(3, 241);
+            this.panelAgence.Location = new System.Drawing.Point(3, 275);
             this.panelAgence.Name = "panelAgence";
             this.panelAgence.Size = new System.Drawing.Size(351, 27);
             this.panelAgence.TabIndex = 22;
@@ -413,7 +418,7 @@
             // 
             this.panel1.Controls.Add(this.tBxSalaire);
             this.panel1.Controls.Add(this.lblSalaire);
-            this.panel1.Location = new System.Drawing.Point(3, 274);
+            this.panel1.Location = new System.Drawing.Point(3, 308);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(351, 28);
             this.panel1.TabIndex = 23;
@@ -439,10 +444,18 @@
             // 
             this.panel9.Controls.Add(this.label1);
             this.panel9.Controls.Add(this.choixDateDebutContrat);
-            this.panel9.Location = new System.Drawing.Point(3, 308);
+            this.panel9.Location = new System.Drawing.Point(3, 342);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(351, 27);
             this.panel9.TabIndex = 18;
+            // 
+            // panelPhoto
+            // 
+            this.panelPhoto.Controls.Add(this.gBxContratPhoto);
+            this.panelPhoto.Location = new System.Drawing.Point(3, 409);
+            this.panelPhoto.Name = "panelPhoto";
+            this.panelPhoto.Size = new System.Drawing.Size(351, 154);
+            this.panelPhoto.TabIndex = 26;
             // 
             // gBxContratPhoto
             // 
@@ -496,10 +509,19 @@
             this.btnContratParcourir.Text = "Parcourir";
             this.btnContratParcourir.UseVisualStyleBackColor = true;
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.btnValiderContrat);
+            this.panel3.Controls.Add(this.btnAnnuler);
+            this.panel3.Location = new System.Drawing.Point(3, 569);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(348, 41);
+            this.panel3.TabIndex = 27;
+            // 
             // btnValiderContrat
             // 
             this.btnValiderContrat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnValiderContrat.Location = new System.Drawing.Point(3, 3);
+            this.btnValiderContrat.Location = new System.Drawing.Point(3, 1);
             this.btnValiderContrat.Name = "btnValiderContrat";
             this.btnValiderContrat.Size = new System.Drawing.Size(75, 23);
             this.btnValiderContrat.TabIndex = 24;
@@ -509,29 +531,37 @@
             // btnAnnuler
             // 
             this.btnAnnuler.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAnnuler.Location = new System.Drawing.Point(84, 3);
+            this.btnAnnuler.Location = new System.Drawing.Point(84, 1);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(75, 23);
             this.btnAnnuler.TabIndex = 25;
             this.btnAnnuler.Text = "Annuler";
             this.btnAnnuler.UseVisualStyleBackColor = true;
             // 
-            // panelPhoto
+            // panel4
             // 
-            this.panelPhoto.Controls.Add(this.gBxContratPhoto);
-            this.panelPhoto.Location = new System.Drawing.Point(3, 375);
-            this.panelPhoto.Name = "panelPhoto";
-            this.panelPhoto.Size = new System.Drawing.Size(351, 154);
-            this.panelPhoto.TabIndex = 26;
+            this.panel4.Controls.Add(this.tBxLibelle);
+            this.panel4.Controls.Add(this.lblLibelleContrat);
+            this.panel4.Location = new System.Drawing.Point(3, 69);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(348, 28);
+            this.panel4.TabIndex = 28;
             // 
-            // panel3
+            // lblLibelleContrat
             // 
-            this.panel3.Controls.Add(this.btnValiderContrat);
-            this.panel3.Controls.Add(this.btnAnnuler);
-            this.panel3.Location = new System.Drawing.Point(3, 535);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(348, 43);
-            this.panel3.TabIndex = 27;
+            this.lblLibelleContrat.AutoSize = true;
+            this.lblLibelleContrat.Location = new System.Drawing.Point(0, 8);
+            this.lblLibelleContrat.Name = "lblLibelleContrat";
+            this.lblLibelleContrat.Size = new System.Drawing.Size(37, 13);
+            this.lblLibelleContrat.TabIndex = 0;
+            this.lblLibelleContrat.Text = "Libellé";
+            // 
+            // tBxLibelle
+            // 
+            this.tBxLibelle.Location = new System.Drawing.Point(100, 5);
+            this.tBxLibelle.Name = "tBxLibelle";
+            this.tBxLibelle.Size = new System.Drawing.Size(216, 20);
+            this.tBxLibelle.TabIndex = 1;
             // 
             // frmContrat
             // 
@@ -569,11 +599,13 @@
             this.panel1.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
+            this.panelPhoto.ResumeLayout(false);
             this.gBxContratPhoto.ResumeLayout(false);
             this.gBxContratPhoto.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhotoContrat)).EndInit();
-            this.panelPhoto.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -628,5 +660,8 @@
         internal System.Windows.Forms.GroupBox gBxContratPhoto;
         internal System.Windows.Forms.Panel panelPhoto;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
+        internal System.Windows.Forms.TextBox tBxLibelle;
+        private System.Windows.Forms.Label lblLibelleContrat;
     }
 }

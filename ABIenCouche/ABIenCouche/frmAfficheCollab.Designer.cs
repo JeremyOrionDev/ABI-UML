@@ -28,9 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnOK = new System.Windows.Forms.Button();
-            this.btnAnnuler = new System.Windows.Forms.Button();
-            this.btnContrats = new System.Windows.Forms.Button();
             this.dgContrats = new System.Windows.Forms.DataGridView();
             this.btnSupprimerContrat = new System.Windows.Forms.Button();
             this.btnAjouterContrat = new System.Windows.Forms.Button();
@@ -38,41 +35,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgContrats)).BeginInit();
             this.panelContrat.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnOK
-            // 
-            this.btnOK.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Location = new System.Drawing.Point(90, 525);
-            this.btnOK.Margin = new System.Windows.Forms.Padding(4);
-            this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(100, 24);
-            this.btnOK.TabIndex = 8;
-            this.btnOK.Text = "OK";
-            this.btnOK.UseVisualStyleBackColor = true;
-            //this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
-            // 
-            // btnAnnuler
-            // 
-            this.btnAnnuler.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnAnnuler.Location = new System.Drawing.Point(198, 525);
-            this.btnAnnuler.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAnnuler.Name = "btnAnnuler";
-            this.btnAnnuler.Size = new System.Drawing.Size(100, 24);
-            this.btnAnnuler.TabIndex = 9;
-            this.btnAnnuler.Text = "Annuler";
-            this.btnAnnuler.UseVisualStyleBackColor = true;
-            //this.btnAnnuler.Click += new System.EventHandler(this.btnAnnuler_Click);
-            // 
-            // btnContrats
-            // 
-            this.btnContrats.AutoSize = true;
-            this.btnContrats.Location = new System.Drawing.Point(6, 523);
-            this.btnContrats.Name = "btnContrats";
-            this.btnContrats.Size = new System.Drawing.Size(77, 27);
-            this.btnContrats.TabIndex = 21;
-            this.btnContrats.Text = "Contrats";
-            this.btnContrats.UseVisualStyleBackColor = true;
             // 
             // dgContrats
             // 
@@ -127,17 +89,11 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(861, 553);
+            this.ClientSize = new System.Drawing.Size(861, 587);
             this.Controls.Add(this.panelContrat);
-            this.Controls.Add(this.btnContrats);
-            this.Controls.Add(this.btnAnnuler);
-            this.Controls.Add(this.btnOK);
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "frmAfficheCollab";
             this.Text = "frmAfficheCollab";
-            this.Controls.SetChildIndex(this.btnOK, 0);
-            this.Controls.SetChildIndex(this.btnAnnuler, 0);
-            this.Controls.SetChildIndex(this.btnContrats, 0);
             this.Controls.SetChildIndex(this.panelContrat, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dgContrats)).EndInit();
             this.panelContrat.ResumeLayout(false);
@@ -148,12 +104,9 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button btnOK;
-        private System.Windows.Forms.Button btnAnnuler;
         internal System.Windows.Forms.Button btnAjouterContrat;
-        private System.Windows.Forms.Button btnSupprimerContrat;
-        internal System.Windows.Forms.Button btnContrats;
         internal System.Windows.Forms.Panel panelContrat;
         internal System.Windows.Forms.DataGridView dgContrats;
+        internal System.Windows.Forms.Button btnSupprimerContrat;
     }
 }
