@@ -56,10 +56,13 @@ namespace ABIenCouche
             leForm.panelAugmentation.Visible = false;
             leForm.cBxSituation.Items.AddRange(new String[]
    {"Célibataire","Marié","Divorcé"});
+            leForm.cBxSituation.Text = "cliquez-moi";
             leForm.cBxTypeContratColab.Items.AddRange(new String[]
                {"stage","cdd","interim","CDI"});
+            leForm.cBxTypeContratColab.Text = "cliquez-moi";
             leForm.cBxCivilite.Items.AddRange(new String[]
     {"Mr","Mme","Mlle"});
+            leForm.cBxCivilite.Text = "cliquez-moi";
             this.leForm.Text = "Ajouter un collaborateur au projet en cours";
             this.leForm.btnOKColab.Click += new EventHandler(this.btnOK_Click);
             this.leForm.btnAnnulerColab.Click += new EventHandler(this.btnAnnuler_Click);

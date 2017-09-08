@@ -62,7 +62,7 @@
             this.btnSupprimerContrat.Name = "btnSupprimerContrat";
             this.btnSupprimerContrat.Size = new System.Drawing.Size(131, 27);
             this.btnSupprimerContrat.TabIndex = 24;
-            this.btnSupprimerContrat.Text = "Supprimer contrat";
+            this.btnSupprimerContrat.Text = "&Supprimer contrat";
             this.btnSupprimerContrat.UseVisualStyleBackColor = true;
             // 
             // btnAjouterContrat
@@ -72,7 +72,7 @@
             this.btnAjouterContrat.Name = "btnAjouterContrat";
             this.btnAjouterContrat.Size = new System.Drawing.Size(113, 27);
             this.btnAjouterContrat.TabIndex = 23;
-            this.btnAjouterContrat.Text = "Ajouter Contrat";
+            this.btnAjouterContrat.Text = "A&jouter Contrat";
             this.btnAjouterContrat.UseVisualStyleBackColor = true;
             // 
             // panelContrat
