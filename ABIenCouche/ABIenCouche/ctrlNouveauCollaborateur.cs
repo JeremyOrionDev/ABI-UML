@@ -71,7 +71,7 @@ namespace ABIenCouche
             leForm.btnModifierPhoto.Visible = false;
             numColab = DictionnaireCollaborateur.nbCollab();
             leForm.txtBoxMatriculeCollab.Text = (numColab + 1).ToString();
-            
+            leForm.FormClosing += new FormClosingEventHandler(exit);
             leForm.ShowDialog();
             //leForm.cBxTypeContratColab.Enabled = leForm.chkBxContrat.Checked ? false : true;
         }
@@ -107,6 +107,10 @@ namespace ABIenCouche
             this.leForm.Close();
         }
 
+        private void    exit(object sender,EventArgs e)
+        {
+            leForm.Close();
+        }
         internal Boolean Controle(frmNouveauCollab unForm)
         {
 
@@ -116,50 +120,44 @@ namespace ABIenCouche
             if (!(Outils.CPControl(leForm.txtBxCP.Text)))
             {
                 i++;
-                leForm.warningCP.Visible = true;
+                
+                leForm.errorProviderCollab.SetError(leForm.txtBxCP, "erreur de code postale");
                 erreur += "\t\u2022 Le code postal n'est pas un entier de 5 caractères \r";
             }
             if (leForm.cBxSituation.SelectedItem==null)
             {
                 i++;
-                leForm.warningSituation.Visible = true;
                 erreur += "\t\u2022 La situation maritale n'a pas été sélectionnée \r";
             }
             if (!(Outils.controlTel(leForm.tBxTel.Text.ToString())))
             {
                 i++;
                 erreur += "\t\u2022 La valeur du telephone n'est pas un nombre composé de 10 chiffres \r";
-                leForm.warningTel.Visible = true;
             }
             if (leForm.cBxCivilite.SelectedText==null)
             {
                 i++;
                 erreur += "\t\u2022 La civilité du collaborateur enregistré n'à pas été sélectionnée\r";
-                leForm.warningCivilite.Visible = true;
             }
             if (leForm.txtBoxPrenomCollab.Text=="")
             {
                 i++;
                 erreur += "\t\u2022 Le prénom du collaborateur n'a pas été renseigné \r";
-                leForm.warningPrenom.Visible = true;
             }
             if (leForm.txtBoxNomCollab.Text == "")
             {
                 i++;
                 erreur += "\t\u2022 Le nom du collaborateur enregistré n'à pas été entré\r";
-                leForm.warningNom.Visible = true;
             }
             if (leForm.txtBoxRueCollab.Text=="")
             {
                 i++;
                 erreur += "\t\u2022 La rue du collaborateur n'a pas été renseigné\r";
-                leForm.warningRue.Visible = true; 
             }
             if (leForm.txtBxVille.Text=="")
             {
                 i++;
                 erreur += "\t\u2022 La ville n'a pas été renseignée";
-                leForm.warningVille.Visible = true;
             }
             if (i != 0)
             {

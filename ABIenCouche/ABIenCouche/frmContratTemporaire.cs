@@ -17,7 +17,6 @@ namespace ABIenCouche
         {
 
             InitializeComponent();
-            this.cBxTypeContrat.Text = typeContrat;
         }
     }
 }

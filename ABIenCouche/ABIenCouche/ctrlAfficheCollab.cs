@@ -116,12 +116,12 @@ namespace ABIenCouche
             formAffiche.btnModifier.Click += new EventHandler(btnModifier_Click);
             formAffiche.btnOKColab.Click += new EventHandler(btnOK_Click);
             formAffiche.btnSupprimerContrat.Click += new EventHandler(btnSupprimer_Click);
-            OpenFileDialog openPhoto = new OpenFileDialog();
-            openPhoto.Filter = "Images files jpeg | *.jpg";
-            openPhoto.Multiselect = false;
-            FileStream fs = new FileStream(leCollaborateur.LaPhoto, FileMode.Open, FileAccess.Read);
-            formAffiche.pictureBoxPhotoCollab.Image = Image.FromStream(fs);
-            fs.Close();
+            //OpenFileDialog openPhoto = new OpenFileDialog();
+            //openPhoto.Filter = "Images files jpeg | *.jpg";
+            //openPhoto.Multiselect = false;
+            //FileStream fs = new FileStream(leCollaborateur.LaPhoto, FileMode.Open, FileAccess.Read);
+            //formAffiche.pictureBoxPhotoCollab.Image = Image.FromStream(fs);
+            //fs.Close();
             formAffiche.ShowDialog();
         }
 

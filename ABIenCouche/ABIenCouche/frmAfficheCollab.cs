@@ -13,80 +13,16 @@ namespace ABIenCouche
 {
     public partial class frmAfficheCollab :  frmBaseCollab
     {
-        //private Boolean Modif=false;
-        //private Collaborateur leCollaborateur;
+
         public frmAfficheCollab(Collaborateur unCollab)
         {
-            //    this.leCollaborateur = unCollab;
             InitializeComponent();
-            //    //this.afficheCollabo(unCollab);
-            //    this.txtBoxRueCollab.Enabled = false;
-            //    this.txtBxVille.Enabled = false;
-            //    this.txtBxCP.Enabled = false;
-            //    this.txtBoxMatriculeCollab.Enabled = false;
-            //    this.txtBoxNomCollab.Enabled = false;
-            //    this.txtBoxPrenomCollab.Enabled = false;
-            
         }
        
         private void frmAfficheCollab_Load(object sender, EventArgs e)
         {
             
         }
-
-        //internal void afficheCollabo(Collaborateur unCollabo)
-        //{
-        //    this.cBxCivilite.Text = unCollabo.SituationMaritale;
-        //    this.txtBoxNomCollab.Text = unCollabo.NomCollaborateur;
-        //    this.txtBoxPrenomCollab.Text = unCollabo.PrenomCollaborateur;
-        //    this.txtBoxMatriculeCollab.Text = unCollabo.Matricule.ToString();
-        //    this.txtBoxRueCollab.Text = unCollabo.RueCollab;
-        //    this.txtBxCP.Text = unCollabo.CpCollab;
-        //    this.txtBxVille.Text= unCollabo.VilleCollab;
-
-        //}
-
-        //private void btnModifier_Click(object sender, EventArgs e)
-        //{
-        //    this.txtBoxRueCollab.Enabled = true;
-        //    this.txtBxVille.Enabled = true;
-        //    this.txtBxCP.Enabled = true;
-        //    //this.txtBoxMatriculeCollab.Enabled = true;
-        //    this.txtBoxNomCollab.Enabled = true;
-        //    this.txtBoxPrenomCollab.Enabled = true;
-        //    Modif = true;
-        //}
-
-        //private void btnAnnuler_Click(object sender, EventArgs e)
-        //{
-        //    this.Close();
-        //}
-
-
-        //private Collaborateur enregistreCollabo()
-        //{
-        //    Collaborateur unCollab = new Collaborateur(Convert.ToInt32( txtBoxMatriculeCollab.Text),txtBoxNomCollab.Text, txtBoxPrenomCollab.Text, txtBoxRueCollab.Text,txtBxVille.Text,txtBxCP.Text);
-        //    return unCollab;
-        //}
-
-
-        //private void btnOK_Click(object sender, EventArgs e)
-        //{
-        //    if (Modif==false)
-        //    {
-        //        this.Close(); 
-        //    }
-        //    else
-        //    {
-        //        Int32 numColab = Convert.ToInt32( txtBoxMatriculeCollab.Text);
-        //        DictionnaireCollaborateur.SupprimerCollab(numColab);
-        //    }
-
-        //    //Collaborateur leColab = enregistreCollabo();
-        //    //DictionnaireCollaborateur.listCollaborateur.Add(leColab.Matricule, leColab);
-        //    //afficheCollabo.dgC
-
-        //    //this.Close();
-        //}
+  
     }
 }

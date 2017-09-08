@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBaseCollab));
             this.txtBoxRueCollab = new System.Windows.Forms.TextBox();
             this.lblRue = new System.Windows.Forms.Label();
@@ -73,15 +74,8 @@
             this.btnModifier = new System.Windows.Forms.Button();
             this.btnAnnulerColab = new System.Windows.Forms.Button();
             this.btnOKColab = new System.Windows.Forms.Button();
-            this.warningCivilite = new System.Windows.Forms.PictureBox();
-            this.warningSituation = new System.Windows.Forms.PictureBox();
-            this.warningNom = new System.Windows.Forms.PictureBox();
-            this.warningPrenom = new System.Windows.Forms.PictureBox();
-            this.warningRue = new System.Windows.Forms.PictureBox();
-            this.warningCP = new System.Windows.Forms.PictureBox();
-            this.warningVille = new System.Windows.Forms.PictureBox();
-            this.warningTel = new System.Windows.Forms.PictureBox();
             this.pictureBoxPhotoCollab = new System.Windows.Forms.PictureBox();
+            this.errorProviderCollab = new System.Windows.Forms.ErrorProvider(this.components);
             this.flowLayoutPanel1.SuspendLayout();
             this.panelMatricule.SuspendLayout();
             this.panelCivilite.SuspendLayout();
@@ -97,22 +91,15 @@
             this.panelPhoto.SuspendLayout();
             this.panelAffichagePhoto.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.warningCivilite)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.warningSituation)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.warningNom)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.warningPrenom)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.warningRue)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.warningCP)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.warningVille)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.warningTel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhotoCollab)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderCollab)).BeginInit();
             this.SuspendLayout();
             // 
             // txtBoxRueCollab
             // 
             this.txtBoxRueCollab.Location = new System.Drawing.Point(94, 7);
             this.txtBoxRueCollab.Name = "txtBoxRueCollab";
-            this.txtBoxRueCollab.Size = new System.Drawing.Size(199, 20);
+            this.txtBoxRueCollab.Size = new System.Drawing.Size(224, 20);
             this.txtBoxRueCollab.TabIndex = 5;
             // 
             // lblRue
@@ -128,7 +115,7 @@
             // 
             this.txtBoxMatriculeCollab.Location = new System.Drawing.Point(94, 3);
             this.txtBoxMatriculeCollab.Name = "txtBoxMatriculeCollab";
-            this.txtBoxMatriculeCollab.Size = new System.Drawing.Size(199, 20);
+            this.txtBoxMatriculeCollab.Size = new System.Drawing.Size(224, 20);
             this.txtBoxMatriculeCollab.TabIndex = 0;
             // 
             // lblMatricule
@@ -144,7 +131,7 @@
             // 
             this.txtBoxPrenomCollab.Location = new System.Drawing.Point(94, 3);
             this.txtBoxPrenomCollab.Name = "txtBoxPrenomCollab";
-            this.txtBoxPrenomCollab.Size = new System.Drawing.Size(199, 20);
+            this.txtBoxPrenomCollab.Size = new System.Drawing.Size(224, 20);
             this.txtBoxPrenomCollab.TabIndex = 4;
             // 
             // lblPrenom
@@ -160,7 +147,7 @@
             // 
             this.txtBoxNomCollab.Location = new System.Drawing.Point(94, 4);
             this.txtBoxNomCollab.Name = "txtBoxNomCollab";
-            this.txtBoxNomCollab.Size = new System.Drawing.Size(199, 20);
+            this.txtBoxNomCollab.Size = new System.Drawing.Size(224, 20);
             this.txtBoxNomCollab.TabIndex = 3;
             // 
             // lblNom
@@ -185,7 +172,7 @@
             // 
             this.txtBxCP.Location = new System.Drawing.Point(94, 3);
             this.txtBxCP.Name = "txtBxCP";
-            this.txtBxCP.Size = new System.Drawing.Size(199, 20);
+            this.txtBxCP.Size = new System.Drawing.Size(224, 20);
             this.txtBxCP.TabIndex = 6;
             // 
             // lblVille
@@ -201,7 +188,7 @@
             // 
             this.txtBxVille.Location = new System.Drawing.Point(94, 3);
             this.txtBxVille.Name = "txtBxVille";
-            this.txtBxVille.Size = new System.Drawing.Size(199, 20);
+            this.txtBxVille.Size = new System.Drawing.Size(224, 20);
             this.txtBxVille.TabIndex = 7;
             // 
             // lblTypeContratCollab
@@ -251,7 +238,7 @@
             // 
             this.TbxAugmentation.Location = new System.Drawing.Point(94, 3);
             this.TbxAugmentation.Name = "TbxAugmentation";
-            this.TbxAugmentation.Size = new System.Drawing.Size(199, 20);
+            this.TbxAugmentation.Size = new System.Drawing.Size(224, 20);
             this.TbxAugmentation.TabIndex = 9;
             // 
             // lblTel
@@ -267,7 +254,7 @@
             // 
             this.tBxTel.Location = new System.Drawing.Point(94, 5);
             this.tBxTel.Name = "tBxTel";
-            this.tBxTel.Size = new System.Drawing.Size(199, 20);
+            this.tBxTel.Size = new System.Drawing.Size(224, 20);
             this.tBxTel.TabIndex = 8;
             // 
             // txtBxAdressePhoto
@@ -321,7 +308,6 @@
             // 
             // panelCivilite
             // 
-            this.panelCivilite.Controls.Add(this.warningCivilite);
             this.panelCivilite.Controls.Add(this.lblCivilite);
             this.panelCivilite.Controls.Add(this.cBxCivilite);
             this.panelCivilite.Location = new System.Drawing.Point(3, 39);
@@ -332,7 +318,6 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.cBxSituation);
-            this.panel1.Controls.Add(this.warningSituation);
             this.panel1.Controls.Add(this.lblSituationMaritale);
             this.panel1.Location = new System.Drawing.Point(3, 76);
             this.panel1.Name = "panel1";
@@ -358,7 +343,6 @@
             // 
             // panelNom
             // 
-            this.panelNom.Controls.Add(this.warningNom);
             this.panelNom.Controls.Add(this.txtBoxNomCollab);
             this.panelNom.Controls.Add(this.lblNom);
             this.panelNom.Location = new System.Drawing.Point(3, 110);
@@ -368,7 +352,6 @@
             // 
             // panelPrenom
             // 
-            this.panelPrenom.Controls.Add(this.warningPrenom);
             this.panelPrenom.Controls.Add(this.txtBoxPrenomCollab);
             this.panelPrenom.Controls.Add(this.lblPrenom);
             this.panelPrenom.Location = new System.Drawing.Point(3, 148);
@@ -378,7 +361,6 @@
             // 
             // panelRue
             // 
-            this.panelRue.Controls.Add(this.warningRue);
             this.panelRue.Controls.Add(this.txtBoxRueCollab);
             this.panelRue.Controls.Add(this.lblRue);
             this.panelRue.Location = new System.Drawing.Point(3, 185);
@@ -388,7 +370,6 @@
             // 
             // panelCP
             // 
-            this.panelCP.Controls.Add(this.warningCP);
             this.panelCP.Controls.Add(this.txtBxCP);
             this.panelCP.Controls.Add(this.lblCP);
             this.panelCP.Location = new System.Drawing.Point(3, 222);
@@ -398,7 +379,6 @@
             // 
             // panelVille
             // 
-            this.panelVille.Controls.Add(this.warningVille);
             this.panelVille.Controls.Add(this.txtBxVille);
             this.panelVille.Controls.Add(this.lblVille);
             this.panelVille.Location = new System.Drawing.Point(3, 255);
@@ -408,7 +388,6 @@
             // 
             // panelTelephone
             // 
-            this.panelTelephone.Controls.Add(this.warningTel);
             this.panelTelephone.Controls.Add(this.tBxTel);
             this.panelTelephone.Controls.Add(this.lblTel);
             this.panelTelephone.Location = new System.Drawing.Point(3, 291);
@@ -513,94 +492,6 @@
             this.btnOKColab.Text = "&OK";
             this.btnOKColab.UseVisualStyleBackColor = true;
             // 
-            // warningCivilite
-            // 
-            this.warningCivilite.Image = ((System.Drawing.Image)(resources.GetObject("warningCivilite.Image")));
-            this.warningCivilite.Location = new System.Drawing.Point(221, 3);
-            this.warningCivilite.Name = "warningCivilite";
-            this.warningCivilite.Size = new System.Drawing.Size(21, 21);
-            this.warningCivilite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.warningCivilite.TabIndex = 2;
-            this.warningCivilite.TabStop = false;
-            this.warningCivilite.Visible = false;
-            // 
-            // warningSituation
-            // 
-            this.warningSituation.Image = ((System.Drawing.Image)(resources.GetObject("warningSituation.Image")));
-            this.warningSituation.Location = new System.Drawing.Point(299, 3);
-            this.warningSituation.Name = "warningSituation";
-            this.warningSituation.Size = new System.Drawing.Size(21, 21);
-            this.warningSituation.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.warningSituation.TabIndex = 3;
-            this.warningSituation.TabStop = false;
-            this.warningSituation.Visible = false;
-            // 
-            // warningNom
-            // 
-            this.warningNom.Image = ((System.Drawing.Image)(resources.GetObject("warningNom.Image")));
-            this.warningNom.Location = new System.Drawing.Point(299, 3);
-            this.warningNom.Name = "warningNom";
-            this.warningNom.Size = new System.Drawing.Size(21, 21);
-            this.warningNom.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.warningNom.TabIndex = 3;
-            this.warningNom.TabStop = false;
-            this.warningNom.Visible = false;
-            // 
-            // warningPrenom
-            // 
-            this.warningPrenom.Image = ((System.Drawing.Image)(resources.GetObject("warningPrenom.Image")));
-            this.warningPrenom.Location = new System.Drawing.Point(299, 2);
-            this.warningPrenom.Name = "warningPrenom";
-            this.warningPrenom.Size = new System.Drawing.Size(21, 21);
-            this.warningPrenom.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.warningPrenom.TabIndex = 3;
-            this.warningPrenom.TabStop = false;
-            this.warningPrenom.Visible = false;
-            // 
-            // warningRue
-            // 
-            this.warningRue.Image = ((System.Drawing.Image)(resources.GetObject("warningRue.Image")));
-            this.warningRue.Location = new System.Drawing.Point(299, 6);
-            this.warningRue.Name = "warningRue";
-            this.warningRue.Size = new System.Drawing.Size(21, 21);
-            this.warningRue.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.warningRue.TabIndex = 3;
-            this.warningRue.TabStop = false;
-            this.warningRue.Visible = false;
-            // 
-            // warningCP
-            // 
-            this.warningCP.Image = ((System.Drawing.Image)(resources.GetObject("warningCP.Image")));
-            this.warningCP.Location = new System.Drawing.Point(299, 6);
-            this.warningCP.Name = "warningCP";
-            this.warningCP.Size = new System.Drawing.Size(21, 21);
-            this.warningCP.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.warningCP.TabIndex = 3;
-            this.warningCP.TabStop = false;
-            this.warningCP.Visible = false;
-            // 
-            // warningVille
-            // 
-            this.warningVille.Image = ((System.Drawing.Image)(resources.GetObject("warningVille.Image")));
-            this.warningVille.Location = new System.Drawing.Point(299, 0);
-            this.warningVille.Name = "warningVille";
-            this.warningVille.Size = new System.Drawing.Size(21, 21);
-            this.warningVille.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.warningVille.TabIndex = 3;
-            this.warningVille.TabStop = false;
-            this.warningVille.Visible = false;
-            // 
-            // warningTel
-            // 
-            this.warningTel.Image = ((System.Drawing.Image)(resources.GetObject("warningTel.Image")));
-            this.warningTel.Location = new System.Drawing.Point(299, 6);
-            this.warningTel.Name = "warningTel";
-            this.warningTel.Size = new System.Drawing.Size(21, 21);
-            this.warningTel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.warningTel.TabIndex = 3;
-            this.warningTel.TabStop = false;
-            this.warningTel.Visible = false;
-            // 
             // pictureBoxPhotoCollab
             // 
             this.pictureBoxPhotoCollab.Location = new System.Drawing.Point(21, 14);
@@ -610,6 +501,11 @@
             this.pictureBoxPhotoCollab.TabIndex = 2;
             this.pictureBoxPhotoCollab.TabStop = false;
             // 
+            // errorProviderCollab
+            // 
+            this.errorProviderCollab.ContainerControl = this;
+            this.errorProviderCollab.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProviderCollab.Icon")));
+            // 
             // frmBaseCollab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -618,6 +514,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(365, 747);
             this.Controls.Add(this.flowLayoutPanel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmBaseCollab";
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panelMatricule.ResumeLayout(false);
@@ -646,15 +543,8 @@
             this.panelPhoto.PerformLayout();
             this.panelAffichagePhoto.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.warningCivilite)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.warningSituation)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.warningNom)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.warningPrenom)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.warningRue)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.warningCP)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.warningVille)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.warningTel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhotoCollab)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderCollab)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -701,18 +591,11 @@
         internal System.Windows.Forms.Button btnModifier;
         internal System.Windows.Forms.Button btnOKColab;
         internal System.Windows.Forms.Button btnAnnulerColab;
-        internal System.Windows.Forms.PictureBox warningCivilite;
-        internal System.Windows.Forms.PictureBox warningNom;
-        internal System.Windows.Forms.PictureBox warningPrenom;
-        internal System.Windows.Forms.PictureBox warningRue;
-        internal System.Windows.Forms.PictureBox warningCP;
-        internal System.Windows.Forms.PictureBox warningVille;
-        internal System.Windows.Forms.PictureBox warningTel;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblSituationMaritale;
-        internal System.Windows.Forms.PictureBox warningSituation;
         internal System.Windows.Forms.ComboBox cBxSituation;
         private System.Windows.Forms.Panel panel2;
         internal System.Windows.Forms.Button btnContrats;
+        internal System.Windows.Forms.ErrorProvider errorProviderCollab;
     }
 }

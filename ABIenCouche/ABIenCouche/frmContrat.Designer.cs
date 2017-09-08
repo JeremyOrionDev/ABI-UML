@@ -171,7 +171,6 @@
             this.lblFonctionContrat.Size = new System.Drawing.Size(48, 13);
             this.lblFonctionContrat.TabIndex = 4;
             this.lblFonctionContrat.Text = "Fonction";
-            this.lblFonctionContrat.Click += new System.EventHandler(this.lblFonctionContrat_Click);
             // 
             // tBxFonctionContrat
             // 
@@ -179,7 +178,6 @@
             this.tBxFonctionContrat.Name = "tBxFonctionContrat";
             this.tBxFonctionContrat.Size = new System.Drawing.Size(216, 20);
             this.tBxFonctionContrat.TabIndex = 4;
-            this.tBxFonctionContrat.TextChanged += new System.EventHandler(this.tBxFonctionContrat_TextChanged);
             // 
             // lblQualificationContrat
             // 
@@ -241,7 +239,6 @@
             this.lblTypeContrat.Size = new System.Drawing.Size(68, 13);
             this.lblTypeContrat.TabIndex = 15;
             this.lblTypeContrat.Text = "Type Contrat";
-            this.lblTypeContrat.Click += new System.EventHandler(this.lblTypeContrat_Click);
             // 
             // cBxTypeContrat
             // 
@@ -251,7 +248,6 @@
             this.cBxTypeContrat.Name = "cBxTypeContrat";
             this.cBxTypeContrat.Size = new System.Drawing.Size(121, 21);
             this.cBxTypeContrat.TabIndex = 0;
-            this.cBxTypeContrat.SelectedIndexChanged += new System.EventHandler(this.cBxTypeContrat_SelectedIndexChanged);
             // 
             // panelDate
             // 
@@ -456,7 +452,6 @@
             this.tBxSalaire.Name = "tBxSalaire";
             this.tBxSalaire.Size = new System.Drawing.Size(216, 20);
             this.tBxSalaire.TabIndex = 8;
-            this.tBxSalaire.TextChanged += new System.EventHandler(this.tBxSalaire_TextChanged);
             // 
             // lblSalaire
             // 
