@@ -69,12 +69,12 @@
             this.panelPhoto = new System.Windows.Forms.Panel();
             this.panelAffichagePhoto = new System.Windows.Forms.Panel();
             this.btnModifierPhoto = new System.Windows.Forms.Button();
+            this.pictureBoxPhotoCollab = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnContrats = new System.Windows.Forms.Button();
             this.btnModifier = new System.Windows.Forms.Button();
             this.btnAnnulerColab = new System.Windows.Forms.Button();
             this.btnOKColab = new System.Windows.Forms.Button();
-            this.pictureBoxPhotoCollab = new System.Windows.Forms.PictureBox();
             this.errorProviderCollab = new System.Windows.Forms.ErrorProvider(this.components);
             this.flowLayoutPanel1.SuspendLayout();
             this.panelMatricule.SuspendLayout();
@@ -90,8 +90,8 @@
             this.panelTypeContrat.SuspendLayout();
             this.panelPhoto.SuspendLayout();
             this.panelAffichagePhoto.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhotoCollab)).BeginInit();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderCollab)).BeginInit();
             this.SuspendLayout();
             // 
@@ -441,6 +441,15 @@
             this.btnModifierPhoto.Text = "Modifier";
             this.btnModifierPhoto.UseVisualStyleBackColor = true;
             // 
+            // pictureBoxPhotoCollab
+            // 
+            this.pictureBoxPhotoCollab.Location = new System.Drawing.Point(21, 14);
+            this.pictureBoxPhotoCollab.Name = "pictureBoxPhotoCollab";
+            this.pictureBoxPhotoCollab.Size = new System.Drawing.Size(84, 72);
+            this.pictureBoxPhotoCollab.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxPhotoCollab.TabIndex = 2;
+            this.pictureBoxPhotoCollab.TabStop = false;
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.btnContrats);
@@ -475,7 +484,7 @@
             // btnAnnulerColab
             // 
             this.btnAnnulerColab.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAnnulerColab.Location = new System.Drawing.Point(165, 6);
+            this.btnAnnulerColab.Location = new System.Drawing.Point(165, 5);
             this.btnAnnulerColab.Name = "btnAnnulerColab";
             this.btnAnnulerColab.Size = new System.Drawing.Size(72, 23);
             this.btnAnnulerColab.TabIndex = 22;
@@ -485,21 +494,12 @@
             // btnOKColab
             // 
             this.btnOKColab.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOKColab.Location = new System.Drawing.Point(6, 5);
+            this.btnOKColab.Location = new System.Drawing.Point(6, 6);
             this.btnOKColab.Name = "btnOKColab";
             this.btnOKColab.Size = new System.Drawing.Size(72, 24);
             this.btnOKColab.TabIndex = 21;
             this.btnOKColab.Text = "&OK";
             this.btnOKColab.UseVisualStyleBackColor = true;
-            // 
-            // pictureBoxPhotoCollab
-            // 
-            this.pictureBoxPhotoCollab.Location = new System.Drawing.Point(21, 14);
-            this.pictureBoxPhotoCollab.Name = "pictureBoxPhotoCollab";
-            this.pictureBoxPhotoCollab.Size = new System.Drawing.Size(84, 72);
-            this.pictureBoxPhotoCollab.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxPhotoCollab.TabIndex = 2;
-            this.pictureBoxPhotoCollab.TabStop = false;
             // 
             // errorProviderCollab
             // 
@@ -512,7 +512,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(365, 747);
+            this.ClientSize = new System.Drawing.Size(371, 599);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmBaseCollab";
@@ -542,8 +542,8 @@
             this.panelPhoto.ResumeLayout(false);
             this.panelPhoto.PerformLayout();
             this.panelAffichagePhoto.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhotoCollab)).EndInit();
+            this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderCollab)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

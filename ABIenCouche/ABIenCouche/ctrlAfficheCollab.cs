@@ -73,9 +73,17 @@ namespace ABIenCouche
         }
         private void btnContrats_Click(object sender, EventArgs e)
         {
-            formAffiche.panelContrat.Visible = true;
+            if (formAffiche.panelContrat.Visible==false)
+            {
+                formAffiche.panelContrat.Visible = true;
+                formAffiche.btnContrats.Text = "<<Contrats";
+            }
+            else
+            {
+                formAffiche.panelContrat.Visible = false;
+                formAffiche.btnContrats.Text = "Contrats>>";
+            }
             init();
-
 
         }
         public ctrlAfficheCollab(Collaborateur unColab)
@@ -83,6 +91,7 @@ namespace ABIenCouche
             this.leCollaborateur = unColab;
             formAffiche = new frmAfficheCollab(leCollaborateur);
             init();
+
             formAffiche.txtBoxMatriculeCollab.Enabled = false;
             formAffiche.cBxCivilite.Enabled=false;
             formAffiche.txtBoxNomCollab.Enabled=false;
@@ -124,6 +133,7 @@ namespace ABIenCouche
             //fs.Close();
             formAffiche.ShowDialog();
         }
+
 
         private void btnSupprimer_Click(object sender, EventArgs e)
         {

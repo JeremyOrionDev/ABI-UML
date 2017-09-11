@@ -34,7 +34,8 @@ namespace ABIenCouche
         public   crtlListerCollabo()
         {
             init();
-            //formAfficheColab = new frmDspCollaborateur();
+            formAfficheColab.cBxRechercheCollab.Items.AddRange(new String[]{ "matricule","nom","telephone","ville"
+            });
             formAfficheColab.btnAnnulerRecherche.Click += new EventHandler(btnAnnulerRecherche_Click);
             formAfficheColab.btnAjouter.Click += new EventHandler(btnAjout_Click);
             formAfficheColab.btnSupprimer.Click += new EventHandler(btnSupprimer_Click);
@@ -60,22 +61,14 @@ namespace ABIenCouche
 
             if (formAfficheColab.tBxRechercher.Text!=null)
             {
-                if (formAfficheColab.cBxRechercheCollab.Text == "")
-                {
-                    ((DataView)(formAfficheColab.dgCollabo.DataSource)).RowFilter = string.Format(this.formAfficheColab.tBxRechercher.Text);
-                    formAfficheColab.dgCollabo.Refresh();
-                }
                 if (formAfficheColab.cBxRechercheCollab.SelectedItem.ToString()=="nom")
                 {
-                    //((DataView)(formAfficheColab.dgCollabo.DataSource)).RowFilter = string.Format("Nom like'%{0}%'", this.formAfficheColab.tBxRechercher.Text);
-                    //((DataView)(formAfficheColab.dgCollabo.DataSource)).RowFilter = string.Format("Nom like '%" + this.formAfficheColab.tBxRechercher.Text + "%'");
-                    //(formAfficheColab.dgCollabo.DataSource as DataTable).DefaultView.RowFilter = string.Format("Nom like '{0}%' OR nom LIKE '% {0}%'", formAfficheColab.tBxRechercher.Text);
-                    //DataTable nomColabDT = DictionnaireCollaborateur.ListNomCollab(formAfficheColab.tBxRechercher.Text);
-                    //formAfficheColab.dgCollabo.DataSource = nomColabDT;
-                    //formAfficheColab.dgCollabo.Refresh();
-
                     (formAfficheColab.dgCollabo.DataSource as DataTable).DefaultView.RowFilter = string.Format("Nom = '{0}'", formAfficheColab.tBxRechercher.Text);
                 }
+                //if (formAfficheColab.cBxRechercheCollab.SelectedItem.ToString()=="ville")
+                //{
+                //    (formAfficheColab.dgCollabo.DataSource as DataTable).DefaultView.RowFilter = string.Format("VilleCollab = '{0}'", formAfficheColab.tBxRechercher.Text);
+                //}
             }
 
 

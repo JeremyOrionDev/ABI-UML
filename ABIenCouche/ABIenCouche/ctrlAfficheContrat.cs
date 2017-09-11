@@ -12,15 +12,20 @@ namespace ABIenCouche
         private ContratCDD leCDD;
         private ContratCDI leCDI;
         private contratInterim lInterim;
-
+        private ContratStage leStage;
         private frmAfficheContrat leForm;
         private void btnValider_Click(object sender,EventArgs e)
         {
             leForm.Close();
         }
+
         public ctrlAfficheContrat(Contrat unContrat)
         {
+            leForm = new frmAfficheContrat(unContrat);
             this.leContrat = unContrat;
+            leForm.btnValiderContrat.Text = "&Fermer";
+            leForm.btnAnnuler.Visible = false;
+            leForm.cBxTypeContrat.Items.AddRange(new String[] { "CDI", "CDD", "interim","stage" });
             if (unContrat is ContratCDI)
             {
                 leCDI = (ContratCDI)unContrat;
@@ -46,14 +51,15 @@ namespace ABIenCouche
             {
                 if (unContrat is ContratCDD)
                 {
-                    leForm = new frmAfficheContrat(unContrat);
+                    //leForm = new frmAfficheContrat(unContrat);
+                    leCDD = (ContratCDD)unContrat;
                     leForm.btnValiderContrat.Click += new EventHandler(btnValider_Click);
                     leForm.panelAgence.Visible = false;
                     leForm.panelEcole.Visible = false;
+                    leForm.panelPhoto.Visible = false;
                     leForm.tBxLibelle.Enabled = false;
                     leForm.tBxLibelle.Text = leCDD.Libelle;
                     leForm.tBxSalaire.Enabled = false;
-                    leCDD = (ContratCDD)unContrat;
                     leForm.txBxNumeroContrat.Text = leCDD.NumContrat.ToString();
                     leForm.txBxNumeroContrat.Enabled = false;
                     leForm.tBxMotifContrat.Text = leCDD.MotifContrat;
@@ -97,8 +103,11 @@ namespace ABIenCouche
                 }
                 else if (unContrat is ContratStage)
                 {
-                    //TODO implémenter if contrat stage
-
+                    leStage = (ContratStage)unContrat;
+                    leForm.panelEcole.Visible = true;
+                    leForm.panelAgence.Visible = false;
+                    leForm.panelSalaire.Visible = false;
+                    leForm.btnValiderContrat.Click += new EventHandler(btnValider_Click);
 
                 }
 
