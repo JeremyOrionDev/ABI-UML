@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using ABIenCouche;
 
 namespace ABIenCouche
 {
     public class DictionnaireCollaborateur
     {
-        private static SortedDictionary<int, Collaborateur> listCollaborateur =new SortedDictionary<int, Collaborateur> ();
+        public static SortedDictionary<int, Collaborateur> listCollaborateur =new SortedDictionary<int, Collaborateur> ();
         private Collaborateur leColab;
-        
 
         public Collaborateur LeColab
         {
@@ -30,7 +30,7 @@ namespace ABIenCouche
         /// Ajout du collaborateur unColab en collection
         /// </summary>
         /// <param name="unColab">le collaborateur a ajouter en collection</param>
-        public static void Ajouter(Collaborateur unColab)
+        public void Ajouter(Collaborateur unColab)
         {
     
             if (!listCollaborateur.ContainsKey(unColab.Matricule))
@@ -104,6 +104,7 @@ namespace ABIenCouche
 
         public static DataTable ListCollab()
         {
+           
             DataTable dt = new DataTable();
             DataRow DR;
             dt.Columns.Add(new DataColumn("#", typeof(Int32)));
@@ -139,7 +140,8 @@ namespace ABIenCouche
             dt.Columns.Add(new DataColumn("fonction", typeof(String)));
             dt.Columns.Add(new DataColumn("avenant", typeof(Int32)));
 
-            foreach (KeyValuePair<Int32,Contrat> leContrat in unCollaborateur.lesContrats)
+
+            foreach (KeyValuePair<Int32,Contrat> leContrat in unCollaborateur.LesContrats)
             {
                 
                 DR = dt.NewRow();

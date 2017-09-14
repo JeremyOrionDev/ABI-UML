@@ -33,7 +33,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -149,6 +158,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -164,8 +174,12 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ABIclassesMetiers\ABIclassesMetiers.csproj">
-      <Project>{46c87214-4547-48b7-b07a-973c76198991}</Project>
+      <Project>{46C87214-4547-48B7-B07A-973C76198991}</Project>
       <Name>ABIclassesMetiers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ClassesDAO\ClassesDAO.csproj">
+      <Project>{5eab929c-8121-4112-b1f5-7b6e7c5e06a6}</Project>
+      <Name>ClassesDAO</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

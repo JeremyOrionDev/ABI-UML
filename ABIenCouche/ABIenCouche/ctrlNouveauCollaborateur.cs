@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace ABIenCouche
 {
     class ctrlNouveauCollaborateur
@@ -175,7 +176,7 @@ namespace ABIenCouche
 
                  this.uncolab = new Collaborateur(Convert.ToInt32(leForm.txtBoxMatriculeCollab.Text),leForm.cBxCivilite.SelectedItem.ToString(),leForm.cBxSituation.SelectedItem.ToString(), leForm.txtBoxNomCollab.Text, leForm.txtBoxPrenomCollab.Text, leForm.txtBoxRueCollab.Text,
                      leForm.txtBxVille.Text, leForm.txtBxCP.Text, 0, leForm.tBxTel.Text, "") ;
-                DictionnaireCollaborateur.Ajouter(this.uncolab);
+                DictionnaireCollaborateur.listCollaborateur.Add(uncolab.Matricule,uncolab);
 
                 return true;
             }

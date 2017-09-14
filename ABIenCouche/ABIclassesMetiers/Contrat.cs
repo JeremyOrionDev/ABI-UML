@@ -36,9 +36,9 @@ namespace ABIenCouche
         }
         public static Contrat retrouverContrat(Collaborateur unColab, Int32 numContrat)
         {
-            if (unColab.lesContrats.ContainsKey(numContrat))
+            if (unColab.LesContrats.ContainsKey(numContrat))
             {
-                return unColab.lesContrats[numContrat];
+                return unColab.LesContrats[numContrat];
             }
             else throw new Exception("le collaborateur ne possede pas de contrats");
         }

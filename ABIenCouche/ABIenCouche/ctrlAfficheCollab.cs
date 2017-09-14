@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ClassesDAO;
 using System.Windows.Forms;
 
 namespace ABIenCouche
@@ -39,16 +40,16 @@ namespace ABIenCouche
         {
             Contrat leContrat;
             Int32 numContrat;
-            Int32 nbContrat = this.leCollaborateur.lesContrats.Count();
+            Int32 nbContrat = this.leCollaborateur.LesContrats.Count();
 
             if (formAffiche.dgContrats.RowCount != 0)
             {
                 numContrat = Convert.ToInt32(formAffiche.dgContrats.CurrentRow.Cells[0].Value.ToString());
             }
             else numContrat = 0;
-            if (leCollaborateur.lesContrats.ContainsKey(numContrat))
+            if (leCollaborateur.LesContrats.ContainsKey(numContrat))
             {
-                leContrat = leCollaborateur.lesContrats[numContrat];
+                leContrat = leCollaborateur.LesContrats[numContrat];
             }
             else throw new Exception("erreur le contrat demandé n'existe pas");
             if (leContrat is ContratCDD)
@@ -103,7 +104,7 @@ namespace ABIenCouche
             formAffiche.panelAugmentation.Visible=true;
             formAffiche.cBxSituation.Enabled = false;
             formAffiche.panelContrat.Visible = false;
-            formAffiche.cBxCivilite.Items.AddRange(new String[] { "Mr", "Mme" });
+            formAffiche.cBxCivilite.Items.AddRange(new String[] { "Mr", "Mme","Mlle" });
             formAffiche.cBxSituation.Items.AddRange(new String[] { "célibataire", "marié","divorcé" });
             formAffiche.txtBoxMatriculeCollab.Text = unColab.Matricule.ToString();
             formAffiche.txtBoxNomCollab.Text = unColab.NomCollaborateur;
@@ -213,7 +214,17 @@ namespace ABIenCouche
                     leCollaborateur.RueCollab=formAffiche.txtBoxRueCollab.Text;
                     leCollaborateur.VilleCollab= formAffiche.txtBxVille.Text;
                     leCollaborateur.CpCollab=formAffiche.txtBxCP.Text;
-
+                    Collaborateurs lecolab = DonneesDAO.DbContextCollaborateurs.CollaborateursSet.Find(leCollaborateur.Matricule);
+                    lecolab.Civilite = formAffiche.cBxCivilite.SelectedItem.ToString();
+                    lecolab.SituationMaritale = formAffiche.cBxSituation.SelectedItem.ToString();
+                    lecolab.Nom = formAffiche.txtBoxNomCollab.Text;
+                    lecolab.Prenom = formAffiche.txtBoxPrenomCollab.Text;
+                    lecolab.Rue = formAffiche.txtBoxRueCollab.Text;
+                    lecolab.Ville = formAffiche.txtBxVille.Text;
+                    lecolab.CodePostal = formAffiche.txtBxCP.Text;
+                    lecolab.Telephone= formAffiche.tBxTel.Text;
+                    lecolab.Augmentation =Convert.ToInt32( formAffiche.TbxAugmentation.Text);
+                    DonneesDAO.DbContextCollaborateurs.SaveChanges();
                     //formAffiche.Close();
                 }
             }
@@ -243,7 +254,8 @@ namespace ABIenCouche
 
         internal void init()
         {
-            formAffiche.dgContrats.DataSource = DictionnaireCollaborateur.ListContrats(leCollaborateur);
+            //formAffiche.dgContrats.DataSource = DictionnaireCollaborateur.ListContrats(leCollaborateur);
+            formAffiche.dgContrats.DataSource = ClassesDAO.MCollaborateurDAOEFStatic.listerContratCollaborateurDAO(leCollaborateur);
             formAffiche.dgContrats.Refresh();
             
 

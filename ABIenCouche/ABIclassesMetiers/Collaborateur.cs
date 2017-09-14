@@ -16,8 +16,8 @@ namespace ABIenCouche
     
     public class Collaborateur
     {
-        public SortedDictionary<Int32, Contrat> lesContrats ;
-
+        private SortedDictionary<Int32, Contrat> lesContrats;
+        private SortedDictionary<DateTime, Contrat> lesContratsTriDate;
         private String nomCollaborateur;
         private String prenomCollaborateur;
         private String rueCollab;
@@ -29,6 +29,7 @@ namespace ABIenCouche
         private String civilite;
         private String telephone;
         private string laPhoto;
+        
         /// <summary>
         /// Constructeur pour les collaborateur
         /// </summary>
@@ -47,7 +48,8 @@ namespace ABIenCouche
             Augmentation = uneAugmentation;
             Telephone = unTel;
             SituationMaritale = situation;
-            lesContrats = new SortedDictionary<Int32, Contrat>();
+            LesContrats = new SortedDictionary<Int32, Contrat>();
+            LesContratsTriDate = new SortedDictionary<DateTime, Contrat>();
             laPhoto = unePhoto;
             
         }
@@ -63,9 +65,9 @@ namespace ABIenCouche
         /// <pdGenerated>default setter</pdGenerated>
         public void ajoutContrat(Contrat unContrat)
         {
-            if(!lesContrats.ContainsKey(unContrat.NumContrat))
+            if(!LesContrats.ContainsKey(unContrat.NumContrat))
             {
-                lesContrats.Add(unContrat.NumContrat, unContrat);
+                LesContrats.Add(unContrat.NumContrat, unContrat);
             }
             else
             {
@@ -80,16 +82,16 @@ namespace ABIenCouche
         {
             if (oldContrat == null)
                 throw new Exception("le contrat entré n'existe pas");
-            if (lesContrats.ContainsKey(oldContrat.NumContrat))
+            if (LesContrats.ContainsKey(oldContrat.NumContrat))
 
-                lesContrats.Remove(oldContrat.NumContrat);
+                LesContrats.Remove(oldContrat.NumContrat);
         }
 
         /// <pdGenerated>default removeAll</pdGenerated>
         public void RemoveAllContrat()
         {
-            if (lesContrats.Count != 0)
-                lesContrats.Clear();
+            if (LesContrats.Count != 0)
+                LesContrats.Clear();
         }
 
 
@@ -234,6 +236,33 @@ namespace ABIenCouche
             set
             {
                 laPhoto = value;
+            }
+        }
+
+        public SortedDictionary<int, Contrat> LesContrats
+        {
+            get
+            {
+                return lesContrats;
+            }
+
+            set
+            {
+                lesContrats = value;
+            }
+            
+        }
+
+        public SortedDictionary<DateTime, Contrat> LesContratsTriDate
+        {
+            get
+            {
+                return lesContratsTriDate;
+            }
+
+            set
+            {
+                lesContratsTriDate = value;
             }
         }
     }

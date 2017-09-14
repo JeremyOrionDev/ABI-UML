@@ -36,7 +36,7 @@ namespace ABIenCouche
                 formContratCDI.panelEcole.Visible = false;
                 formContratCDI.panelDate.Visible = false;
                 formContratCDI.panelPhoto.Visible = false;
-                if (leCollaborateur.lesContrats.Count==0)
+                if (leCollaborateur.LesContrats.Count==0)
                 {
                     formContratCDI.txBxNumeroContrat.Text = "1";
                 }
@@ -50,7 +50,7 @@ namespace ABIenCouche
                 formContratTemp.btnAnnuler.Hide();
                 if (DictionnaireCollaborateur.Exist(unCollaborateur))
                 {
-                    formContratTemp.txBxNumeroContrat.Text = (leCollaborateur.lesContrats.Count() + 1).ToString();
+                    formContratTemp.txBxNumeroContrat.Text = (leCollaborateur.LesContrats.Count() + 1).ToString();
 
                 }
                 else formContratTemp.txBxNumeroContrat.Text = "1";
