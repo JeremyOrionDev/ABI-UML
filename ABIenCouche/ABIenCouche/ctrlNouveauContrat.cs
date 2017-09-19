@@ -62,13 +62,20 @@ namespace ABIenCouche
         {
             if (formContrat.cBxTypeContrat.SelectedItem.ToString() == "CDI")
             {
-                formContrat.panelMotif.Visible = true;
-                formContrat.panelSalaire.Visible = true;
-                formContrat.panelLibelle.Visible = true;
-                formContrat.panelCadre.Visible = true;
-                formContrat.panelFonction.Visible = true;
-                formContrat.panelQualification.Visible = true;
-                formContrat.panelDebut.Visible = true;
+                formContrat.panelAgence.Enabled = false;
+                formContrat.txBxNumeroContrat.Enabled = false;
+                formContrat.panelAgence.Visible = false;
+                formContrat.panelEcole.Visible = false;
+                formContrat.panelAvenant.Visible = false;
+                formContrat.panelDate.Visible = false;
+                formContrat.panelEcole.Visible = false;
+                formContrat.panelMotif.Visible = false;
+                formContrat.panelSalaire.Visible = false;
+                formContrat.panelLibelle.Visible = false;
+                formContrat.panelCadre.Visible = false;
+                formContrat.panelFonction.Visible = false;
+                formContrat.panelQualification.Visible = false;
+                formContrat.panelDebut.Visible = false;
                 formContrat.txBxNumeroContrat.Enabled = false;
 
             }
