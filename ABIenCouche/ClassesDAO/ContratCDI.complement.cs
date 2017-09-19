@@ -8,6 +8,7 @@ namespace ClassesDAO
 {
     public partial class ContratCDI:Contrats
     {
+
         public ContratCDI(String unLibelle, Double unSalaire, Int32 unNumContrat, String uneFonction, String uneQualif, Boolean unStatut, DateTime leDebut) :
     base(unNumContrat, uneFonction, uneQualif, unLibelle, unStatut, leDebut)
         {
@@ -15,6 +16,9 @@ namespace ClassesDAO
             this.Libelle = unLibelle;
             this.Salaire = unSalaire;
 
+        }
+        public ContratCDI()
+        {
         }
     }
 }

@@ -14,11 +14,7 @@ namespace ClassesDAO
     
     public partial class Collaborateurs
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Collaborateurs()
-        {
-            this.Contrats = new HashSet<Contrats>();
-        }
+
 
         public int matricule { get; set; }
         public string Nom { get; set; }
@@ -27,12 +23,12 @@ namespace ClassesDAO
         public string Rue { get; set; }
         public string Ville { get; set; }
         public string CodePostal { get; set; }
-        public int Augmentation { get; set; }
         public string Telephone { get; set; }
         public string SituationMaritale { get; set; }
-        public string Photo { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Contrats> Contrats { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Augmentations> Augmentations { get; set; }
     }
 }

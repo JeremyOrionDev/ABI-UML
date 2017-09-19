@@ -8,6 +8,8 @@
   <EntityContainer Name="lesCollaborateursStoreContainer">
     <EntitySet Name="CollaborateursSet" EntityType="lesCollaborateurs.Store.CollaborateursSet" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="ContratsSet" EntityType="lesCollaborateurs.Store.ContratsSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AugmentationsSet" EntityType="lesCollaborateurs.Store.AugmentationsSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AvenantSet" EntityType="lesCollaborateurs.Store.AvenantSet" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="ContratsSet_ContratCDD" EntityType="lesCollaborateurs.Store.ContratsSet_ContratCDD" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="ContratsSet_ContratCDI" EntityType="lesCollaborateurs.Store.ContratsSet_ContratCDI" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="ContratsSet_ContratStage" EntityType="lesCollaborateurs.Store.ContratsSet_ContratStage" store:Type="Tables" Schema="dbo" />
@@ -15,6 +17,14 @@
     <AssociationSet Name="CollaborateursContrats" Association="lesCollaborateurs.Store.CollaborateursContrats">
       <End Role="Collaborateurs" EntitySet="CollaborateursSet" />
       <End Role="Contrats" EntitySet="ContratsSet" />
+    </AssociationSet>
+    <AssociationSet Name="CollaborateursAugmentations" Association="lesCollaborateurs.Store.CollaborateursAugmentations">
+      <End Role="Collaborateurs" EntitySet="CollaborateursSet" />
+      <End Role="Augmentations" EntitySet="AugmentationsSet" />
+    </AssociationSet>
+    <AssociationSet Name="ContratsAvenant" Association="lesCollaborateurs.Store.ContratsAvenant">
+      <End Role="Contrats" EntitySet="ContratsSet" />
+      <End Role="Avenant" EntitySet="AvenantSet" />
     </AssociationSet>
     <AssociationSet Name="FK_ContratCDD_inherits_Contrats" Association="lesCollaborateurs.Store.FK_ContratCDD_inherits_Contrats">
       <End Role="Contrats" EntitySet="ContratsSet" />
@@ -44,14 +54,12 @@
     <Property Name="Rue" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Ville" Type="nvarchar(max)" Nullable="false" />
     <Property Name="CodePostal" Type="nchar" Nullable="false" MaxLength="5" />
-    <Property Name="Augmentation" Type="int" Nullable="false" />
     <Property Name="Telephone" Type="nchar" Nullable="false" MaxLength="10" />
     <Property Name="SituationMaritale" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Photo" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="ContratsSet">
     <Key>
-      <PropertyRef Name="NumContrat" />
+      <PropertyRef Name="idContrat" />
     </Key>
     <Property Name="NumContrat" Type="int" Nullable="false" />
     <Property Name="Statut" Type="bit" Nullable="false" />
@@ -59,44 +67,63 @@
     <Property Name="Libelle" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Fonction" Type="nvarchar(max)" Nullable="false" />
     <Property Name="DateDebut" Type="datetime" Nullable="false" />
+    <Property Name="idContrat" Type="int" Nullable="false" />
     <Property Name="Collaborateurs_matricule" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AugmentationsSet">
+    <Key>
+      <PropertyRef Name="Date" />
+    </Key>
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="Valeur" Type="decimal" Nullable="false" />
+    <Property Name="Collaborateurs_matricule" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AvenantSet">
+    <Key>
+      <PropertyRef Name="idAvenant" />
+    </Key>
+    <Property Name="idAvenant" Type="int" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="MotifAvenant" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="numeroAvenant" Type="int" Nullable="false" />
+    <Property Name="Contrats_idContrat" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="ContratsSet_ContratCDD">
     <Key>
-      <PropertyRef Name="NumContrat" />
+      <PropertyRef Name="idContrat" />
     </Key>
     <Property Name="DateFin" Type="datetime" Nullable="false" />
     <Property Name="Motif" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Salaire" Type="float" Nullable="false" />
-    <Property Name="NumContrat" Type="int" Nullable="false" />
+    <Property Name="idContrat" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="ContratsSet_ContratCDI">
     <Key>
-      <PropertyRef Name="NumContrat" />
+      <PropertyRef Name="idContrat" />
     </Key>
     <Property Name="Salaire" Type="float" Nullable="false" />
-    <Property Name="NumContrat" Type="int" Nullable="false" />
+    <Property Name="idContrat" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="ContratsSet_ContratStage">
     <Key>
-      <PropertyRef Name="NumContrat" />
+      <PropertyRef Name="idContrat" />
     </Key>
     <Property Name="Ecole" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Motif" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Tuteur" Type="nvarchar(max)" Nullable="false" />
     <Property Name="DateFin" Type="datetime" Nullable="false" />
     <Property Name="Mission" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="NumContrat" Type="int" Nullable="false" />
+    <Property Name="idContrat" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="ContratsSet_ContratInterim">
     <Key>
-      <PropertyRef Name="NumContrat" />
+      <PropertyRef Name="idContrat" />
     </Key>
     <Property Name="Agence" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Salaire" Type="float" Nullable="false" />
     <Property Name="DateFin" Type="datetime" Nullable="false" />
     <Property Name="Motif" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="NumContrat" Type="int" Nullable="false" />
+    <Property Name="idContrat" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="CollaborateursContrats">
     <End Role="Collaborateurs" Type="lesCollaborateurs.Store.CollaborateursSet" Multiplicity="1" />
@@ -110,6 +137,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="CollaborateursAugmentations">
+    <End Role="Collaborateurs" Type="lesCollaborateurs.Store.CollaborateursSet" Multiplicity="1" />
+    <End Role="Augmentations" Type="lesCollaborateurs.Store.AugmentationsSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Collaborateurs">
+        <PropertyRef Name="matricule" />
+      </Principal>
+      <Dependent Role="Augmentations">
+        <PropertyRef Name="Collaborateurs_matricule" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ContratsAvenant">
+    <End Role="Contrats" Type="lesCollaborateurs.Store.ContratsSet" Multiplicity="1" />
+    <End Role="Avenant" Type="lesCollaborateurs.Store.AvenantSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contrats">
+        <PropertyRef Name="idContrat" />
+      </Principal>
+      <Dependent Role="Avenant">
+        <PropertyRef Name="Contrats_idContrat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_ContratCDD_inherits_Contrats">
     <End Role="Contrats" Type="lesCollaborateurs.Store.ContratsSet" Multiplicity="1">
       <OnDelete Action="Cascade" />
@@ -117,10 +168,10 @@
     <End Role="ContratCDD" Type="lesCollaborateurs.Store.ContratsSet_ContratCDD" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="Contrats">
-        <PropertyRef Name="NumContrat" />
+        <PropertyRef Name="idContrat" />
       </Principal>
       <Dependent Role="ContratCDD">
-        <PropertyRef Name="NumContrat" />
+        <PropertyRef Name="idContrat" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -131,10 +182,10 @@
     <End Role="ContratCDI" Type="lesCollaborateurs.Store.ContratsSet_ContratCDI" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="Contrats">
-        <PropertyRef Name="NumContrat" />
+        <PropertyRef Name="idContrat" />
       </Principal>
       <Dependent Role="ContratCDI">
-        <PropertyRef Name="NumContrat" />
+        <PropertyRef Name="idContrat" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -145,10 +196,10 @@
     <End Role="ContratStage" Type="lesCollaborateurs.Store.ContratsSet_ContratStage" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="Contrats">
-        <PropertyRef Name="NumContrat" />
+        <PropertyRef Name="idContrat" />
       </Principal>
       <Dependent Role="ContratStage">
-        <PropertyRef Name="NumContrat" />
+        <PropertyRef Name="idContrat" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -159,10 +210,10 @@
     <End Role="ContratInterim" Type="lesCollaborateurs.Store.ContratsSet_ContratInterim" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="Contrats">
-        <PropertyRef Name="NumContrat" />
+        <PropertyRef Name="idContrat" />
       </Principal>
       <Dependent Role="ContratInterim">
-        <PropertyRef Name="NumContrat" />
+        <PropertyRef Name="idContrat" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -177,6 +228,16 @@
             <End Role="Collaborateurs" EntitySet="CollaborateursSet" />
             <End Role="Contrats" EntitySet="ContratsSet" />
           </AssociationSet>
+          <EntitySet Name="AugmentationsSet" EntityType="lesCollaborateurs.Augmentations" />
+          <AssociationSet Name="CollaborateursAugmentations" Association="lesCollaborateurs.CollaborateursAugmentations">
+            <End Role="Collaborateurs" EntitySet="CollaborateursSet" />
+            <End Role="Augmentations" EntitySet="AugmentationsSet" />
+          </AssociationSet>
+          <EntitySet Name="AvenantSet" EntityType="lesCollaborateurs.Avenant" />
+          <AssociationSet Name="ContratsAvenant" Association="lesCollaborateurs.ContratsAvenant">
+            <End Role="Contrats" EntitySet="ContratsSet" />
+            <End Role="Avenant" EntitySet="AvenantSet" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Collaborateurs" >
           <Key>
@@ -189,15 +250,14 @@
           <Property Name="Rue" Type="String" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
           <Property Name="Ville" Type="String" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
           <Property Name="CodePostal" Type="String" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" FixedLength="true" MaxLength="5" />
-          <Property Name="Augmentation" Type="Int32" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
           <Property Name="Telephone" Type="String" Nullable="false" FixedLength="true" MaxLength="10" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
           <Property Name="SituationMaritale" Type="String" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
-          <Property Name="Photo" Type="String" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
           <NavigationProperty Name="Contrats" Relationship="lesCollaborateurs.CollaborateursContrats" FromRole="Collaborateurs" ToRole="Contrats" />
+          <NavigationProperty Name="Augmentations" Relationship="lesCollaborateurs.CollaborateursAugmentations" FromRole="Collaborateurs" ToRole="Augmentations" />
         </EntityType>
         <EntityType Name="Contrats" >
           <Key>
-            <PropertyRef Name="NumContrat" />
+            <PropertyRef Name="idContrat" />
           </Key>
           <Property Name="NumContrat" Type="Int32" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
           <Property Name="Statut" Type="Boolean" Nullable="false" cg:SetterAccess="Internal" cg:GetterAccess="Internal" />
@@ -206,6 +266,8 @@
           <Property Name="Fonction" Type="String" Nullable="false" cg:SetterAccess="Internal" cg:GetterAccess="Internal" />
           <Property Name="DateDebut" Type="DateTime" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
           <NavigationProperty Name="Collaborateurs" Relationship="lesCollaborateurs.CollaborateursContrats" FromRole="Contrats" ToRole="Collaborateurs" />
+          <Property Name="idContrat" Type="Int32" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
+          <NavigationProperty Name="Avenant" Relationship="lesCollaborateurs.ContratsAvenant" FromRole="Contrats" ToRole="Avenant" />
         </EntityType>
         <EntityType Name="ContratCDD" BaseType="lesCollaborateurs.Contrats" >
           <Property Name="DateFin" Type="DateTime" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
@@ -232,6 +294,32 @@
           <End Type="lesCollaborateurs.Collaborateurs" Role="Collaborateurs" Multiplicity="1" />
           <End Type="lesCollaborateurs.Contrats" Role="Contrats" Multiplicity="*" />
         </Association>
+        <EntityType Name="Augmentations" >
+          <Key>
+            <PropertyRef Name="Date" />
+          </Key>
+          <Property Name="Date" Type="DateTime" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
+          <Property Name="Valeur" Type="Decimal" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
+          <NavigationProperty Name="Collaborateurs" Relationship="lesCollaborateurs.CollaborateursAugmentations" FromRole="Augmentations" ToRole="Collaborateurs" />
+        </EntityType>
+        <Association Name="CollaborateursAugmentations">
+          <End Type="lesCollaborateurs.Collaborateurs" Role="Collaborateurs" Multiplicity="1" />
+          <End Type="lesCollaborateurs.Augmentations" Role="Augmentations" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Avenant" >
+          <Key>
+            <PropertyRef Name="idAvenant" />
+          </Key>
+          <Property Name="idAvenant" Type="Int32" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
+          <Property Name="Date" Type="DateTime" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
+          <Property Name="MotifAvenant" Type="String" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
+          <NavigationProperty Name="Contrats" Relationship="lesCollaborateurs.ContratsAvenant" FromRole="Avenant" ToRole="Contrats" />
+          <Property Name="numeroAvenant" Type="Int32" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
+        </EntityType>
+        <Association Name="ContratsAvenant">
+          <End Type="lesCollaborateurs.Contrats" Role="Contrats" Multiplicity="1" />
+          <End Type="lesCollaborateurs.Avenant" Role="Avenant" Multiplicity="*" />
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -248,16 +336,15 @@
           <ScalarProperty Name="Rue" ColumnName="Rue" />
           <ScalarProperty Name="Ville" ColumnName="Ville" />
           <ScalarProperty Name="CodePostal" ColumnName="CodePostal" />
-          <ScalarProperty Name="Augmentation" ColumnName="Augmentation" />
           <ScalarProperty Name="Telephone" ColumnName="Telephone" />
           <ScalarProperty Name="SituationMaritale" ColumnName="SituationMaritale" />
-          <ScalarProperty Name="Photo" ColumnName="Photo" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ContratsSet">
       <EntityTypeMapping TypeName="IsTypeOf(lesCollaborateurs.Contrats)">
         <MappingFragment StoreEntitySet="ContratsSet">
+          <ScalarProperty Name="idContrat" ColumnName="idContrat" />
           <ScalarProperty Name="NumContrat" ColumnName="NumContrat" />
           <ScalarProperty Name="Statut" ColumnName="Statut" />
           <ScalarProperty Name="Qualification" ColumnName="Qualification" />
@@ -268,7 +355,7 @@
       </EntityTypeMapping>
       <EntityTypeMapping TypeName="IsTypeOf(lesCollaborateurs.ContratCDD)">
         <MappingFragment StoreEntitySet="ContratsSet_ContratCDD">
-          <ScalarProperty Name="NumContrat" ColumnName="NumContrat" />
+          <ScalarProperty Name="idContrat" ColumnName="idContrat" />
           <ScalarProperty Name="DateFin" ColumnName="DateFin" />
           <ScalarProperty Name="Motif" ColumnName="Motif" />
           <ScalarProperty Name="Salaire" ColumnName="Salaire" />
@@ -276,13 +363,13 @@
       </EntityTypeMapping>
       <EntityTypeMapping TypeName="IsTypeOf(lesCollaborateurs.ContratCDI)">
         <MappingFragment StoreEntitySet="ContratsSet_ContratCDI">
-          <ScalarProperty Name="NumContrat" ColumnName="NumContrat" />
+          <ScalarProperty Name="idContrat" ColumnName="idContrat" />
           <ScalarProperty Name="Salaire" ColumnName="Salaire" />
         </MappingFragment>
       </EntityTypeMapping>
       <EntityTypeMapping TypeName="IsTypeOf(lesCollaborateurs.ContratStage)">
         <MappingFragment StoreEntitySet="ContratsSet_ContratStage">
-          <ScalarProperty Name="NumContrat" ColumnName="NumContrat" />
+          <ScalarProperty Name="idContrat" ColumnName="idContrat" />
           <ScalarProperty Name="Ecole" ColumnName="Ecole" />
           <ScalarProperty Name="Motif" ColumnName="Motif" />
           <ScalarProperty Name="Tuteur" ColumnName="Tuteur" />
@@ -292,11 +379,29 @@
       </EntityTypeMapping>
       <EntityTypeMapping TypeName="IsTypeOf(lesCollaborateurs.ContratInterim)">
         <MappingFragment StoreEntitySet="ContratsSet_ContratInterim">
-          <ScalarProperty Name="NumContrat" ColumnName="NumContrat" />
+          <ScalarProperty Name="idContrat" ColumnName="idContrat" />
           <ScalarProperty Name="Agence" ColumnName="Agence" />
           <ScalarProperty Name="Salaire" ColumnName="Salaire" />
           <ScalarProperty Name="DateFin" ColumnName="DateFin" />
           <ScalarProperty Name="Motif" ColumnName="Motif" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AugmentationsSet">
+      <EntityTypeMapping TypeName="IsTypeOf(lesCollaborateurs.Augmentations)">
+        <MappingFragment StoreEntitySet="AugmentationsSet">
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Valeur" ColumnName="Valeur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AvenantSet">
+      <EntityTypeMapping TypeName="IsTypeOf(lesCollaborateurs.Avenant)">
+        <MappingFragment StoreEntitySet="AvenantSet">
+          <ScalarProperty Name="idAvenant" ColumnName="idAvenant" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="MotifAvenant" ColumnName="MotifAvenant" />
+          <ScalarProperty Name="numeroAvenant" ColumnName="numeroAvenant" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -305,7 +410,23 @@
         <ScalarProperty Name="matricule" ColumnName="Collaborateurs_matricule" />
       </EndProperty>
       <EndProperty Name="Contrats">
-        <ScalarProperty Name="NumContrat" ColumnName="NumContrat" />
+        <ScalarProperty Name="idContrat" ColumnName="idContrat" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CollaborateursAugmentations" TypeName="lesCollaborateurs.CollaborateursAugmentations" StoreEntitySet="AugmentationsSet">
+      <EndProperty Name="Collaborateurs">
+        <ScalarProperty Name="matricule" ColumnName="Collaborateurs_matricule" />
+      </EndProperty>
+      <EndProperty Name="Augmentations">
+        <ScalarProperty Name="Date" ColumnName="Date" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ContratsAvenant" TypeName="lesCollaborateurs.ContratsAvenant" StoreEntitySet="AvenantSet">
+      <EndProperty Name="Contrats">
+        <ScalarProperty Name="idContrat" ColumnName="Contrats_idContrat" />
+      </EndProperty>
+      <EndProperty Name="Avenant">
+        <ScalarProperty Name="idAvenant" ColumnName="idAvenant" />
       </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>

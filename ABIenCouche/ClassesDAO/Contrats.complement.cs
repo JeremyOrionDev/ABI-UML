@@ -18,5 +18,6 @@ namespace ClassesDAO
             this.NumContrat = unNumContrat;
             this.Fonction = uneFonction;
         }
+        public Contrats() { }
     }
 }

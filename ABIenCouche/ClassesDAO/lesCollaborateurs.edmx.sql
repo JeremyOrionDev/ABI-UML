@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 09/14/2017 11:22:44
--- Generated from EDMX file: C:\Users\DL-CDI\Documents\C#\ABIcouche\ABI-UML\ABIenCouche\ClassesDAO\lesCollaborateurs.edmx
+-- Date Created: 09/19/2017 14:19:19
+-- Generated from EDMX file: C:\Users\CDI14\Documents\Dev\ABIenCouche\ClassesDAO\lesCollaborateurs.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -19,6 +19,12 @@ GO
 
 IF OBJECT_ID(N'[dbo].[FK_CollaborateursContrats]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[ContratsSet] DROP CONSTRAINT [FK_CollaborateursContrats];
+GO
+IF OBJECT_ID(N'[dbo].[FK_CollaborateursAugmentations]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[AugmentationsSet] DROP CONSTRAINT [FK_CollaborateursAugmentations];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ContratsAvenant]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[AvenantSet] DROP CONSTRAINT [FK_ContratsAvenant];
 GO
 IF OBJECT_ID(N'[dbo].[FK_ContratCDD_inherits_Contrats]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[ContratsSet_ContratCDD] DROP CONSTRAINT [FK_ContratCDD_inherits_Contrats];
@@ -42,6 +48,12 @@ IF OBJECT_ID(N'[dbo].[CollaborateursSet]', 'U') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[ContratsSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[ContratsSet];
+GO
+IF OBJECT_ID(N'[dbo].[AugmentationsSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[AugmentationsSet];
+GO
+IF OBJECT_ID(N'[dbo].[AvenantSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[AvenantSet];
 GO
 IF OBJECT_ID(N'[dbo].[ContratsSet_ContratCDD]', 'U') IS NOT NULL
     DROP TABLE [dbo].[ContratsSet_ContratCDD];
@@ -69,10 +81,8 @@ CREATE TABLE [dbo].[CollaborateursSet] (
     [Rue] nvarchar(max)  NOT NULL,
     [Ville] nvarchar(max)  NOT NULL,
     [CodePostal] nchar(5)  NOT NULL,
-    [Augmentation] int  NOT NULL,
     [Telephone] nchar(10)  NOT NULL,
-    [SituationMaritale] nvarchar(max)  NOT NULL,
-    [Photo] nvarchar(max)  NOT NULL
+    [SituationMaritale] nvarchar(max)  NOT NULL
 );
 GO
 
@@ -84,7 +94,26 @@ CREATE TABLE [dbo].[ContratsSet] (
     [Libelle] nvarchar(max)  NOT NULL,
     [Fonction] nvarchar(max)  NOT NULL,
     [DateDebut] datetime  NOT NULL,
+    [idContrat] int  NOT NULL,
     [Collaborateurs_matricule] int  NOT NULL
+);
+GO
+
+-- Creating table 'AugmentationsSet'
+CREATE TABLE [dbo].[AugmentationsSet] (
+    [Date] datetime  NOT NULL,
+    [Valeur] decimal(18,0)  NOT NULL,
+    [Collaborateurs_matricule] int  NOT NULL
+);
+GO
+
+-- Creating table 'AvenantSet'
+CREATE TABLE [dbo].[AvenantSet] (
+    [idAvenant] int  NOT NULL,
+    [Date] datetime  NOT NULL,
+    [MotifAvenant] nvarchar(max)  NOT NULL,
+    [numeroAvenant] int  NOT NULL,
+    [Contrats_idContrat] int  NOT NULL
 );
 GO
 
@@ -93,14 +122,14 @@ CREATE TABLE [dbo].[ContratsSet_ContratCDD] (
     [DateFin] datetime  NOT NULL,
     [Motif] nvarchar(max)  NOT NULL,
     [Salaire] float  NOT NULL,
-    [NumContrat] int  NOT NULL
+    [idContrat] int  NOT NULL
 );
 GO
 
 -- Creating table 'ContratsSet_ContratCDI'
 CREATE TABLE [dbo].[ContratsSet_ContratCDI] (
     [Salaire] float  NOT NULL,
-    [NumContrat] int  NOT NULL
+    [idContrat] int  NOT NULL
 );
 GO
 
@@ -111,7 +140,7 @@ CREATE TABLE [dbo].[ContratsSet_ContratStage] (
     [Tuteur] nvarchar(max)  NOT NULL,
     [DateFin] datetime  NOT NULL,
     [Mission] nvarchar(max)  NOT NULL,
-    [NumContrat] int  NOT NULL
+    [idContrat] int  NOT NULL
 );
 GO
 
@@ -121,7 +150,7 @@ CREATE TABLE [dbo].[ContratsSet_ContratInterim] (
     [Salaire] float  NOT NULL,
     [DateFin] datetime  NOT NULL,
     [Motif] nvarchar(max)  NOT NULL,
-    [NumContrat] int  NOT NULL
+    [idContrat] int  NOT NULL
 );
 GO
 
@@ -135,34 +164,46 @@ ADD CONSTRAINT [PK_CollaborateursSet]
     PRIMARY KEY CLUSTERED ([matricule] ASC);
 GO
 
--- Creating primary key on [NumContrat] in table 'ContratsSet'
+-- Creating primary key on [idContrat] in table 'ContratsSet'
 ALTER TABLE [dbo].[ContratsSet]
 ADD CONSTRAINT [PK_ContratsSet]
-    PRIMARY KEY CLUSTERED ([NumContrat] ASC);
+    PRIMARY KEY CLUSTERED ([idContrat] ASC);
 GO
 
--- Creating primary key on [NumContrat] in table 'ContratsSet_ContratCDD'
+-- Creating primary key on [Date] in table 'AugmentationsSet'
+ALTER TABLE [dbo].[AugmentationsSet]
+ADD CONSTRAINT [PK_AugmentationsSet]
+    PRIMARY KEY CLUSTERED ([Date] ASC);
+GO
+
+-- Creating primary key on [idAvenant] in table 'AvenantSet'
+ALTER TABLE [dbo].[AvenantSet]
+ADD CONSTRAINT [PK_AvenantSet]
+    PRIMARY KEY CLUSTERED ([idAvenant] ASC);
+GO
+
+-- Creating primary key on [idContrat] in table 'ContratsSet_ContratCDD'
 ALTER TABLE [dbo].[ContratsSet_ContratCDD]
 ADD CONSTRAINT [PK_ContratsSet_ContratCDD]
-    PRIMARY KEY CLUSTERED ([NumContrat] ASC);
+    PRIMARY KEY CLUSTERED ([idContrat] ASC);
 GO
 
--- Creating primary key on [NumContrat] in table 'ContratsSet_ContratCDI'
+-- Creating primary key on [idContrat] in table 'ContratsSet_ContratCDI'
 ALTER TABLE [dbo].[ContratsSet_ContratCDI]
 ADD CONSTRAINT [PK_ContratsSet_ContratCDI]
-    PRIMARY KEY CLUSTERED ([NumContrat] ASC);
+    PRIMARY KEY CLUSTERED ([idContrat] ASC);
 GO
 
--- Creating primary key on [NumContrat] in table 'ContratsSet_ContratStage'
+-- Creating primary key on [idContrat] in table 'ContratsSet_ContratStage'
 ALTER TABLE [dbo].[ContratsSet_ContratStage]
 ADD CONSTRAINT [PK_ContratsSet_ContratStage]
-    PRIMARY KEY CLUSTERED ([NumContrat] ASC);
+    PRIMARY KEY CLUSTERED ([idContrat] ASC);
 GO
 
--- Creating primary key on [NumContrat] in table 'ContratsSet_ContratInterim'
+-- Creating primary key on [idContrat] in table 'ContratsSet_ContratInterim'
 ALTER TABLE [dbo].[ContratsSet_ContratInterim]
 ADD CONSTRAINT [PK_ContratsSet_ContratInterim]
-    PRIMARY KEY CLUSTERED ([NumContrat] ASC);
+    PRIMARY KEY CLUSTERED ([idContrat] ASC);
 GO
 
 -- --------------------------------------------------
@@ -184,39 +225,69 @@ ON [dbo].[ContratsSet]
     ([Collaborateurs_matricule]);
 GO
 
--- Creating foreign key on [NumContrat] in table 'ContratsSet_ContratCDD'
+-- Creating foreign key on [Collaborateurs_matricule] in table 'AugmentationsSet'
+ALTER TABLE [dbo].[AugmentationsSet]
+ADD CONSTRAINT [FK_CollaborateursAugmentations]
+    FOREIGN KEY ([Collaborateurs_matricule])
+    REFERENCES [dbo].[CollaborateursSet]
+        ([matricule])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_CollaborateursAugmentations'
+CREATE INDEX [IX_FK_CollaborateursAugmentations]
+ON [dbo].[AugmentationsSet]
+    ([Collaborateurs_matricule]);
+GO
+
+-- Creating foreign key on [Contrats_idContrat] in table 'AvenantSet'
+ALTER TABLE [dbo].[AvenantSet]
+ADD CONSTRAINT [FK_ContratsAvenant]
+    FOREIGN KEY ([Contrats_idContrat])
+    REFERENCES [dbo].[ContratsSet]
+        ([idContrat])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_ContratsAvenant'
+CREATE INDEX [IX_FK_ContratsAvenant]
+ON [dbo].[AvenantSet]
+    ([Contrats_idContrat]);
+GO
+
+-- Creating foreign key on [idContrat] in table 'ContratsSet_ContratCDD'
 ALTER TABLE [dbo].[ContratsSet_ContratCDD]
 ADD CONSTRAINT [FK_ContratCDD_inherits_Contrats]
-    FOREIGN KEY ([NumContrat])
+    FOREIGN KEY ([idContrat])
     REFERENCES [dbo].[ContratsSet]
-        ([NumContrat])
+        ([idContrat])
     ON DELETE CASCADE ON UPDATE NO ACTION;
 GO
 
--- Creating foreign key on [NumContrat] in table 'ContratsSet_ContratCDI'
+-- Creating foreign key on [idContrat] in table 'ContratsSet_ContratCDI'
 ALTER TABLE [dbo].[ContratsSet_ContratCDI]
 ADD CONSTRAINT [FK_ContratCDI_inherits_Contrats]
-    FOREIGN KEY ([NumContrat])
+    FOREIGN KEY ([idContrat])
     REFERENCES [dbo].[ContratsSet]
-        ([NumContrat])
+        ([idContrat])
     ON DELETE CASCADE ON UPDATE NO ACTION;
 GO
 
--- Creating foreign key on [NumContrat] in table 'ContratsSet_ContratStage'
+-- Creating foreign key on [idContrat] in table 'ContratsSet_ContratStage'
 ALTER TABLE [dbo].[ContratsSet_ContratStage]
 ADD CONSTRAINT [FK_ContratStage_inherits_Contrats]
-    FOREIGN KEY ([NumContrat])
+    FOREIGN KEY ([idContrat])
     REFERENCES [dbo].[ContratsSet]
-        ([NumContrat])
+        ([idContrat])
     ON DELETE CASCADE ON UPDATE NO ACTION;
 GO
 
--- Creating foreign key on [NumContrat] in table 'ContratsSet_ContratInterim'
+-- Creating foreign key on [idContrat] in table 'ContratsSet_ContratInterim'
 ALTER TABLE [dbo].[ContratsSet_ContratInterim]
 ADD CONSTRAINT [FK_ContratInterim_inherits_Contrats]
-    FOREIGN KEY ([NumContrat])
+    FOREIGN KEY ([idContrat])
     REFERENCES [dbo].[ContratsSet]
-        ([NumContrat])
+        ([idContrat])
     ON DELETE CASCADE ON UPDATE NO ACTION;
 GO
 

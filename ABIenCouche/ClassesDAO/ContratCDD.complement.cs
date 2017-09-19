@@ -8,6 +8,10 @@ namespace ClassesDAO
 {
     public partial class ContratCDD:Contrats
     {
+        public ContratCDD()
+        {
+        }
+
         public ContratCDD(String unLibelle, DateTime uneDateFin, String unMotif, Int32 unNumContrat, String uneFonction,
     String uneQualif, Boolean unStatut, DateTime leDebut) : base(unNumContrat, uneFonction, uneQualif, unLibelle, unStatut, leDebut)
         {

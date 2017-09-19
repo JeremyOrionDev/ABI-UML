@@ -50,7 +50,7 @@
             this.panelContratNumero = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panelTypeContrat = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.panelLibelle = new System.Windows.Forms.Panel();
             this.tBxLibelle = new System.Windows.Forms.TextBox();
             this.lblLibelleContrat = new System.Windows.Forms.Label();
             this.panelCadre = new System.Windows.Forms.Panel();
@@ -68,24 +68,20 @@
             this.panelSalaire = new System.Windows.Forms.Panel();
             this.tBxSalaire = new System.Windows.Forms.TextBox();
             this.lblSalaire = new System.Windows.Forms.Label();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.panelPhoto = new System.Windows.Forms.Panel();
-            this.gBxContratPhoto = new System.Windows.Forms.GroupBox();
-            this.Modifier = new System.Windows.Forms.Button();
-            this.pictureBoxPhotoContrat = new System.Windows.Forms.PictureBox();
-            this.txtBxAdressePhotoContrat = new System.Windows.Forms.TextBox();
-            this.btnContratParcourir = new System.Windows.Forms.Button();
+            this.panelDebut = new System.Windows.Forms.Panel();
+            this.panelAvenant = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnValiderContrat = new System.Windows.Forms.Button();
             this.btnAnnuler = new System.Windows.Forms.Button();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.errorProviderContrat = new System.Windows.Forms.ErrorProvider(this.components);
+            this.dgAvenant = new System.Windows.Forms.DataGridView();
             this.gBxCadre.SuspendLayout();
             this.panelDate.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.panelContratNumero.SuspendLayout();
             this.panelTypeContrat.SuspendLayout();
-            this.panel4.SuspendLayout();
+            this.panelLibelle.SuspendLayout();
             this.panelCadre.SuspendLayout();
             this.panelMotif.SuspendLayout();
             this.panelFonction.SuspendLayout();
@@ -93,12 +89,11 @@
             this.panelEcole.SuspendLayout();
             this.panelAgence.SuspendLayout();
             this.panelSalaire.SuspendLayout();
-            this.panel9.SuspendLayout();
-            this.panelPhoto.SuspendLayout();
-            this.gBxContratPhoto.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhotoContrat)).BeginInit();
+            this.panelDebut.SuspendLayout();
+            this.panelAvenant.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderContrat)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgAvenant)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNumContrat
@@ -242,7 +237,6 @@
             // 
             // cBxTypeContrat
             // 
-            this.cBxTypeContrat.Enabled = false;
             this.cBxTypeContrat.FormattingEnabled = true;
             this.cBxTypeContrat.Location = new System.Drawing.Point(100, 3);
             this.cBxTypeContrat.Name = "cBxTypeContrat";
@@ -266,7 +260,7 @@
             this.flowLayoutPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanel2.Controls.Add(this.panelContratNumero);
             this.flowLayoutPanel2.Controls.Add(this.panelTypeContrat);
-            this.flowLayoutPanel2.Controls.Add(this.panel4);
+            this.flowLayoutPanel2.Controls.Add(this.panelLibelle);
             this.flowLayoutPanel2.Controls.Add(this.panelCadre);
             this.flowLayoutPanel2.Controls.Add(this.panelMotif);
             this.flowLayoutPanel2.Controls.Add(this.panelFonction);
@@ -274,9 +268,9 @@
             this.flowLayoutPanel2.Controls.Add(this.panelEcole);
             this.flowLayoutPanel2.Controls.Add(this.panelAgence);
             this.flowLayoutPanel2.Controls.Add(this.panelSalaire);
-            this.flowLayoutPanel2.Controls.Add(this.panel9);
+            this.flowLayoutPanel2.Controls.Add(this.panelDebut);
             this.flowLayoutPanel2.Controls.Add(this.panelDate);
-            this.flowLayoutPanel2.Controls.Add(this.panelPhoto);
+            this.flowLayoutPanel2.Controls.Add(this.panelAvenant);
             this.flowLayoutPanel2.Controls.Add(this.panel3);
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(12, 12);
@@ -310,14 +304,14 @@
             this.panelTypeContrat.Size = new System.Drawing.Size(351, 28);
             this.panelTypeContrat.TabIndex = 1;
             // 
-            // panel4
+            // panelLibelle
             // 
-            this.panel4.Controls.Add(this.tBxLibelle);
-            this.panel4.Controls.Add(this.lblLibelleContrat);
-            this.panel4.Location = new System.Drawing.Point(3, 69);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(348, 28);
-            this.panel4.TabIndex = 28;
+            this.panelLibelle.Controls.Add(this.tBxLibelle);
+            this.panelLibelle.Controls.Add(this.lblLibelleContrat);
+            this.panelLibelle.Location = new System.Drawing.Point(3, 69);
+            this.panelLibelle.Name = "panelLibelle";
+            this.panelLibelle.Size = new System.Drawing.Size(348, 28);
+            this.panelLibelle.TabIndex = 28;
             // 
             // tBxLibelle
             // 
@@ -462,74 +456,22 @@
             this.lblSalaire.TabIndex = 0;
             this.lblSalaire.Text = "Salaire";
             // 
-            // panel9
+            // panelDebut
             // 
-            this.panel9.Controls.Add(this.label1);
-            this.panel9.Controls.Add(this.choixDateDebutContrat);
-            this.panel9.Location = new System.Drawing.Point(3, 342);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(351, 27);
-            this.panel9.TabIndex = 18;
+            this.panelDebut.Controls.Add(this.label1);
+            this.panelDebut.Controls.Add(this.choixDateDebutContrat);
+            this.panelDebut.Location = new System.Drawing.Point(3, 342);
+            this.panelDebut.Name = "panelDebut";
+            this.panelDebut.Size = new System.Drawing.Size(351, 27);
+            this.panelDebut.TabIndex = 18;
             // 
-            // panelPhoto
+            // panelAvenant
             // 
-            this.panelPhoto.Controls.Add(this.gBxContratPhoto);
-            this.panelPhoto.Location = new System.Drawing.Point(3, 409);
-            this.panelPhoto.Name = "panelPhoto";
-            this.panelPhoto.Size = new System.Drawing.Size(351, 154);
-            this.panelPhoto.TabIndex = 26;
-            // 
-            // gBxContratPhoto
-            // 
-            this.gBxContratPhoto.Controls.Add(this.Modifier);
-            this.gBxContratPhoto.Controls.Add(this.pictureBoxPhotoContrat);
-            this.gBxContratPhoto.Controls.Add(this.txtBxAdressePhotoContrat);
-            this.gBxContratPhoto.Controls.Add(this.btnContratParcourir);
-            this.gBxContratPhoto.Enabled = false;
-            this.gBxContratPhoto.Location = new System.Drawing.Point(3, 3);
-            this.gBxContratPhoto.Name = "gBxContratPhoto";
-            this.gBxContratPhoto.Size = new System.Drawing.Size(294, 145);
-            this.gBxContratPhoto.TabIndex = 20;
-            this.gBxContratPhoto.TabStop = false;
-            this.gBxContratPhoto.Text = "Photo";
-            // 
-            // Modifier
-            // 
-            this.Modifier.Enabled = false;
-            this.Modifier.Location = new System.Drawing.Point(176, 92);
-            this.Modifier.Name = "Modifier";
-            this.Modifier.Size = new System.Drawing.Size(75, 23);
-            this.Modifier.TabIndex = 3;
-            this.Modifier.Text = "Modifier";
-            this.Modifier.UseVisualStyleBackColor = true;
-            this.Modifier.Visible = false;
-            // 
-            // pictureBoxPhotoContrat
-            // 
-            this.pictureBoxPhotoContrat.Enabled = false;
-            this.pictureBoxPhotoContrat.Location = new System.Drawing.Point(39, 61);
-            this.pictureBoxPhotoContrat.Name = "pictureBoxPhotoContrat";
-            this.pictureBoxPhotoContrat.Size = new System.Drawing.Size(84, 72);
-            this.pictureBoxPhotoContrat.TabIndex = 2;
-            this.pictureBoxPhotoContrat.TabStop = false;
-            // 
-            // txtBxAdressePhotoContrat
-            // 
-            this.txtBxAdressePhotoContrat.Enabled = false;
-            this.txtBxAdressePhotoContrat.Location = new System.Drawing.Point(29, 22);
-            this.txtBxAdressePhotoContrat.Name = "txtBxAdressePhotoContrat";
-            this.txtBxAdressePhotoContrat.Size = new System.Drawing.Size(179, 20);
-            this.txtBxAdressePhotoContrat.TabIndex = 1;
-            // 
-            // btnContratParcourir
-            // 
-            this.btnContratParcourir.Enabled = false;
-            this.btnContratParcourir.Location = new System.Drawing.Point(213, 19);
-            this.btnContratParcourir.Name = "btnContratParcourir";
-            this.btnContratParcourir.Size = new System.Drawing.Size(75, 23);
-            this.btnContratParcourir.TabIndex = 0;
-            this.btnContratParcourir.Text = "Parcourir";
-            this.btnContratParcourir.UseVisualStyleBackColor = true;
+            this.panelAvenant.Controls.Add(this.dgAvenant);
+            this.panelAvenant.Location = new System.Drawing.Point(3, 409);
+            this.panelAvenant.Name = "panelAvenant";
+            this.panelAvenant.Size = new System.Drawing.Size(351, 154);
+            this.panelAvenant.TabIndex = 26;
             // 
             // panel3
             // 
@@ -564,6 +506,14 @@
             // 
             this.errorProviderContrat.ContainerControl = this;
             // 
+            // dgAvenant
+            // 
+            this.dgAvenant.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgAvenant.Location = new System.Drawing.Point(3, 5);
+            this.dgAvenant.Name = "dgAvenant";
+            this.dgAvenant.Size = new System.Drawing.Size(345, 146);
+            this.dgAvenant.TabIndex = 0;
+            // 
             // frmContrat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -571,7 +521,7 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(387, 746);
+            this.ClientSize = new System.Drawing.Size(377, 633);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Name = "frmContrat";
             this.Text = "frmContrat";
@@ -584,8 +534,8 @@
             this.panelContratNumero.PerformLayout();
             this.panelTypeContrat.ResumeLayout(false);
             this.panelTypeContrat.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
+            this.panelLibelle.ResumeLayout(false);
+            this.panelLibelle.PerformLayout();
             this.panelCadre.ResumeLayout(false);
             this.panelCadre.PerformLayout();
             this.panelMotif.ResumeLayout(false);
@@ -600,14 +550,12 @@
             this.panelAgence.PerformLayout();
             this.panelSalaire.ResumeLayout(false);
             this.panelSalaire.PerformLayout();
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
-            this.panelPhoto.ResumeLayout(false);
-            this.gBxContratPhoto.ResumeLayout(false);
-            this.gBxContratPhoto.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhotoContrat)).EndInit();
+            this.panelDebut.ResumeLayout(false);
+            this.panelDebut.PerformLayout();
+            this.panelAvenant.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderContrat)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgAvenant)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -629,10 +577,6 @@
         private System.Windows.Forms.Panel panelContratNumero;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panelTypeContrat;
-        private System.Windows.Forms.Panel panelCadre;
-        private System.Windows.Forms.Panel panelFonction;
-        private System.Windows.Forms.Panel panelQualification;
-        private System.Windows.Forms.Panel panel9;
         internal System.Windows.Forms.TextBox txBxNumeroContrat;
         internal System.Windows.Forms.GroupBox gBxCadre;
         internal System.Windows.Forms.TextBox tBxFonctionContrat;
@@ -642,10 +586,6 @@
         internal System.Windows.Forms.RadioButton rbtCadreOui;
         internal System.Windows.Forms.TextBox tBxMotifContrat;
         private System.Windows.Forms.Label lblMotifContrat;
-        internal System.Windows.Forms.Button Modifier;
-        internal System.Windows.Forms.PictureBox pictureBoxPhotoContrat;
-        internal System.Windows.Forms.TextBox txtBxAdressePhotoContrat;
-        internal System.Windows.Forms.Button btnContratParcourir;
         internal System.Windows.Forms.Panel panelMotif;
         internal System.Windows.Forms.Panel panelEcole;
         internal System.Windows.Forms.TextBox tBxEcole;
@@ -658,13 +598,17 @@
         internal System.Windows.Forms.Button btnValiderContrat;
         internal System.Windows.Forms.Button btnAnnuler;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
-        internal System.Windows.Forms.GroupBox gBxContratPhoto;
-        internal System.Windows.Forms.Panel panelPhoto;
+        internal System.Windows.Forms.Panel panelAvenant;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel4;
         internal System.Windows.Forms.TextBox tBxLibelle;
         private System.Windows.Forms.Label lblLibelleContrat;
         internal System.Windows.Forms.Panel panelSalaire;
         internal System.Windows.Forms.ErrorProvider errorProviderContrat;
+        internal System.Windows.Forms.DataGridView dgAvenant;
+        internal System.Windows.Forms.Panel panelCadre;
+        internal System.Windows.Forms.Panel panelFonction;
+        internal System.Windows.Forms.Panel panelQualification;
+        internal System.Windows.Forms.Panel panelLibelle;
+        internal System.Windows.Forms.Panel panelDebut;
     }
 }

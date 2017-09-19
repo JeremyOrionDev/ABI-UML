@@ -34,11 +34,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(387, 580);
+            this.ClientSize = new System.Drawing.Size(372, 628);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmAfficheContrat";
             this.Text = "frmAfficheContrat";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

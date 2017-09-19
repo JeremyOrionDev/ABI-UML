@@ -12,11 +12,13 @@ namespace ClassesDAO
     using System;
     using System.Collections.Generic;
     
-    public partial class ContratInterim : Contrats
+    public partial class Avenant
     {
-        internal string Agence { get; set; }
-        internal double Salaire { get; set; }
-        internal System.DateTime DateFin { get; set; }
-        internal string Motif { get; set; }
+        internal int idAvenant { get; set; }
+        internal System.DateTime Date { get; set; }
+        internal string MotifAvenant { get; set; }
+        internal int numeroAvenant { get; set; }
+    
+        public virtual Contrats Contrats { get; set; }
     }
 }

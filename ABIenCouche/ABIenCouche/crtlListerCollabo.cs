@@ -55,9 +55,7 @@ namespace ABIenCouche
 
         private void init2()
         {
-            Donnees.lesCollaborateurs=new DictionnaireCollaborateur();
-            this.leColab = new Collaborateur(5, "Mr", "Célibataire", "machin", "truc", "la rue", "une ville", "12300", 0, "0123456789", "");
-            Donnees.lesCollaborateurs.Ajouter(leColab);
+
             
         }
 
@@ -157,6 +155,7 @@ namespace ABIenCouche
         internal void afficheCollabo()
         {
             MCollaborateurDAOEFStatic.instancieCollaborateurs();
+           
 
             this.formAfficheColab.dgCollabo.DataSource =DictionnaireCollaborateur.ListCollab() ;
             this.formAfficheColab.dgCollabo.Refresh();
@@ -165,26 +164,11 @@ namespace ABIenCouche
 
         internal void init()
         {
-            //Collaborateur leCol = new Collaborateur(1, "Mr", "célibataire", "nom", "prenom", "la rue", "la ville", "12345", 0, "0123456789", "‪‪C:\\Users\\DL-CDI\\Documents\\photos\\photo1.jpg");
-            //Collaborateur jeremy = new Collaborateur(3, "Mr", "marié", "orion", "jeremy", "la rue", "la ville", "12345", 0, "0123456789", "C:\\Users\\DL-CDI\\Documents\\photos\\photo2.jpg");
-            //DictionnaireCollaborateur.Ajouter(jeremy);
-            //contratInterim jeremInterim = new contratInterim("manpower", "remplacement", 10, new DateTime(2017, 12, 10), 1, "sans", "aucune", "sert a rien", true, new DateTime(2010, 01, 01));
-            //jeremy.ajoutContrat(jeremInterim);
-            //DictionnaireCollaborateur.Ajouter(leCol);
-            //ContratCDD leContrat = new ContratCDD("libelle contrat", new DateTime(2017, 10, 01), "motif contrat", 1, "ma fonction", "ma qualif", true, new DateTime(2017, 01, 01));
-            //avenantContrat lavenant = new avenantContrat(1, "mon avenant", new DateTime(2017, 01, 01));
-            //DictionnaireCDD.AjouterCDD(leContrat);
-            //leCol.ajoutContrat(leContrat);
-            //ContratCDD unCDD = new ContratCDD("le libelle", new DateTime(2017, 04, 01), "le motif", 3, "lafonction", "sans qualif", true, new DateTime(2017, 01, 01));
-            //leCol.lesContrats.Add(unCDD.NumContrat, unCDD);
-            //leContrat.ListAvenant.Add(lavenant.NumeroAvenant, lavenant);
-            //Collaborateur unCollab = new Collaborateur(2, "Mme", "Divorcé", "nom", "prenom", "244 route de turin", "nice", "06300", 2, "0541236587", "‪C:\\Users\\DL-CDI\\Documents\\photos\\photo3.jpg");
-            //DictionnaireCollaborateur.Ajouter(unCollab);
+
             this.afficheCollabo();
             formAfficheColab.dgCollabo.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
             formAfficheColab.dgCollabo.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             formAfficheColab.dgCollabo.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            //formAfficheColab.dgCollabo.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
         }
     }

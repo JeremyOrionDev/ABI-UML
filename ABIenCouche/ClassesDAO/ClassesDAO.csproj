@@ -52,6 +52,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Augmentations.cs">
+      <DependentUpon>lesCollaborateurs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Avenant.complement.cs" />
+    <Compile Include="Avenant.cs">
+      <DependentUpon>lesCollaborateurs.tt</DependentUpon>
+    </Compile>
     <Compile Include="Collaborateurs.complement.cs" />
     <Compile Include="Collaborateurs.cs">
       <DependentUpon>lesCollaborateurs.tt</DependentUpon>

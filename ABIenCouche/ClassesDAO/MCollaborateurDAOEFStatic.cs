@@ -26,10 +26,14 @@ namespace ClassesDAO
                         select C;
 
             Collaborateur leCollaborateur;
-
+            ABIenCouche.ContratCDD leCDD;
+            ABIenCouche.ContratCDI leCDI;
+            contratInterim unInterim;
+            ABIenCouche.ContratStage leStage;
             foreach (Collaborateurs item in query)
             {
-                leCollaborateur = new Collaborateur(item.matricule, item.Civilite, item.SituationMaritale, item.Nom, item.Prenom, item.Rue, item.Ville, item.CodePostal, item.Augmentation, item.Telephone, item.Photo);
+                leCollaborateur = new Collaborateur(item.matricule, item.Civilite, item.SituationMaritale,
+                    item.Nom, item.Prenom, item.Rue, item.Ville, item.CodePostal, item.Telephone);
                 if (DictionnaireCollaborateur.listCollaborateur.ContainsKey(leCollaborateur.Matricule))
                 {
                     Int32 refColab = leCollaborateur.Matricule - 1;
@@ -40,14 +44,96 @@ namespace ClassesDAO
                     DictionnaireCollaborateur.listCollaborateur.Values.ElementAt(refColab).CpCollab = item.CodePostal;
                     DictionnaireCollaborateur.listCollaborateur.Values.ElementAt(refColab).Civilite = item.Civilite;
                     DictionnaireCollaborateur.listCollaborateur.Values.ElementAt(refColab).SituationMaritale = item.SituationMaritale;
-                    DictionnaireCollaborateur.listCollaborateur.Values.ElementAt(refColab).Augmentation = item.Augmentation;
                     DictionnaireCollaborateur.listCollaborateur.Values.ElementAt(refColab).Telephone = item.Telephone;
-                    DictionnaireCollaborateur.listCollaborateur.Values.ElementAt(refColab).LaPhoto = item.Photo;
                 }
-                else DictionnaireCollaborateur.listCollaborateur.Add(leCollaborateur.Matricule,leCollaborateur);
+                else DictionnaireCollaborateur.listCollaborateur.Add(leCollaborateur.Matricule, leCollaborateur);
+
+
+                    var query2 = from D in DonneesDAO.DbContextCollaborateurs.ContratsSet
+                                 where D.Collaborateurs.matricule == item.matricule
+                                 select D;
+                    foreach (Contrats leContrat in query2)
+                    {
+                        if (leContrat is ContratCDD)
+                        {
+                            ContratCDD unCDD = (ContratCDD)leContrat;
+                            leCDD = new ABIenCouche.ContratCDD(unCDD.Libelle, unCDD.DateFin, unCDD.Motif, unCDD.NumContrat, unCDD.Fonction, unCDD.Qualification, unCDD.Statut, unCDD.DateDebut);
+                            leCollaborateur.ajoutContrat(leCDD);
+                        }
+                        else if (leContrat is ContratCDI)
+                        {
+                            ContratCDI unCDI = (ContratCDI)leContrat;
+                            leCDI = new ABIenCouche.ContratCDI(unCDI.Libelle, unCDI.Salaire, unCDI.NumContrat, unCDI.Fonction, unCDI.Qualification, unCDI.Statut, unCDI.DateDebut);
+                            leCollaborateur.ajoutContrat(leCDI);
+                        }
+                        else if (leContrat is ContratInterim)
+                        {
+                            ContratInterim lInterim = (ContratInterim)leContrat;
+                            unInterim = new contratInterim(lInterim.Agence, lInterim.Motif, lInterim.Salaire, lInterim.DateFin, lInterim.NumContrat, lInterim.Fonction, lInterim.Qualification, lInterim.Libelle, lInterim.Statut, lInterim.DateDebut);
+                            leCollaborateur.ajoutContrat(unInterim);
+                        }
+                        else if (leContrat is ContratStage)
+                        {
+                            ContratStage unStage = (ContratStage)leContrat;
+                            leStage = new ABIenCouche.ContratStage(unStage.Ecole, unStage.Motif, unStage.DateFin, unStage.Mission, unStage.Tuteur, unStage.NumContrat, unStage.Fonction, unStage.Qualification, unStage.Libelle, unStage.Statut, unStage.DateDebut);
+                            leCollaborateur.ajoutContrat(leStage);
+                        }
+                        var query3 = from A in DonneesDAO.DbContextCollaborateurs.AvenantSet
+                                     where A.Contrats.Collaborateurs.matricule == leCollaborateur.Matricule
+                                     select A;
+                        foreach (Avenant unAvenant in query3)
+                        {
+                            avenantContrat avenantContrat = new avenantContrat(unAvenant.numeroAvenant, unAvenant.MotifAvenant, unAvenant.Date);
+                            
+                        }
+                    }
             }
+
         }
 
+        public static DataTable ListerAvenant(Contrat unContrat)
+        {
+            DataTable dt = new DataTable();
+            DataRow DR;
+            dt.Columns.Add(new DataColumn("#", typeof(Int32)));
+            dt.Columns.Add(new DataColumn("Date", typeof(DateTime)));
+            dt.Columns.Add(new DataColumn("Motif", typeof(String)));
+
+            var query = from C in DonneesDAO.DbContextCollaborateurs.AvenantSet
+                        where C.Contrats.NumContrat == unContrat.NumContrat
+                        select C;
+            foreach (Avenant item in query)
+            {
+                DR = dt.NewRow();
+                DR[0] = item.numeroAvenant;
+                DR[1] = item.Date;
+                DR[2] = item.MotifAvenant;
+                dt.Rows.Add(DR);
+            }
+
+            return dt;
+        }
+
+        public static DataTable ListerAugmentation(Collaborateur unColab)
+        {
+            DataTable dt = new DataTable();
+            DataRow DR;
+            dt.Columns.Add(new DataColumn("Date", typeof(DateTime)));
+            dt.Columns.Add(new DataColumn("Valeur", typeof(Double)));
+
+            var query = from C in DonneesDAO.DbContextCollaborateurs.AugmentationsSet
+                        where C.Collaborateurs.matricule == unColab.Matricule
+                        select C;
+            foreach (Augmentations item in query)
+            {
+                DR = dt.NewRow();
+                DR[0] = item.Date;
+                DR[1] = item.Valeur;
+                dt.Rows.Add(DR);
+            }
+
+            return dt;
+        }
         public static DataTable listerContratCollaborateurDAO(Collaborateur unColab)
         {
             DataTable dt = new DataTable();
@@ -93,6 +179,24 @@ namespace ClassesDAO
             }
 
             return dt;
+        }
+
+        public static Collaborateurs retrouverCollaborateur(Int32 unNum)
+        {
+            if (DonneesDAO.DbContextCollaborateurs.CollaborateursSet.Find(unNum) != null)
+            {
+                return DonneesDAO.DbContextCollaborateurs.CollaborateursSet.Find(unNum);
+            }
+            else throw new Exception("erreur le Collaborateur n'existe pas");
+        }
+
+        public Boolean retrouverContrat(Collaborateurs unColab,Int32 numContrat)
+        {
+            if (unColab.Contrats.ElementAt(numContrat) != null)
+            {
+                return true;
+            }
+            else return false;
         }
 
     }

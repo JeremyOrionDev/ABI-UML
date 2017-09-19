@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClassesDAO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,7 +26,8 @@ namespace ABIenCouche
             this.leContrat = unContrat;
             leForm.btnValiderContrat.Text = "&Fermer";
             leForm.btnAnnuler.Visible = false;
-            leForm.cBxTypeContrat.Items.AddRange(new String[] { "CDI", "CDD", "interim","stage" });
+            leForm.cBxTypeContrat.Items.AddRange(new String[] { "CDI", "CDD", "INTERIM","STAGE" });
+                leForm.panelAvenant.Visible = true;
             if (unContrat is ContratCDI)
             {
                 leCDI = (ContratCDI)unContrat;
@@ -44,7 +46,6 @@ namespace ABIenCouche
                 leForm.tBxFonctionContrat.Text = leCDI.FonctionCollaborateur;
                 leForm.tBxQualification.Text = leCDI.QualificationCollaborateur;
                 leForm.choixDateDebutContrat.Text = leCDI.DateDebutContrat.ToString();
-                leForm.pictureBoxPhotoContrat.ImageLocation = leCDI.LaPhoto;
                 leForm.tBxSalaire.Text = leCDI.SalaireBrut.ToString();
             }
             else
@@ -56,7 +57,6 @@ namespace ABIenCouche
                     leForm.btnValiderContrat.Click += new EventHandler(btnValider_Click);
                     leForm.panelAgence.Visible = false;
                     leForm.panelEcole.Visible = false;
-                    leForm.panelPhoto.Visible = false;
                     leForm.tBxLibelle.Enabled = false;
                     leForm.tBxLibelle.Text = leCDD.Libelle;
                     leForm.tBxSalaire.Enabled = false;
@@ -88,7 +88,7 @@ namespace ABIenCouche
                     leForm.btnValiderContrat.Click += new EventHandler(btnValider_Click);
                     leForm.txBxNumeroContrat.Text = lInterim.NumContrat.ToString();
                     leForm.tBxMotifContrat.Text = lInterim.MotifContrat;
-                    leForm.cBxTypeContrat.SelectedItem = "interim";
+                    leForm.cBxTypeContrat.SelectedItem = "INTERIM";
                     if (lInterim.LeStatut == true)
                     {
                         leForm.rbtCadreOui.Checked = true;
@@ -110,7 +110,7 @@ namespace ABIenCouche
                     leForm.btnValiderContrat.Click += new EventHandler(btnValider_Click);
 
                 }
-
+                leForm.dgAvenant.DataSource = MCollaborateurDAOEFStatic.ListerAvenant(unContrat);
             } 
             leForm.ShowDialog();
       

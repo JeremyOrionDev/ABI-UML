@@ -12,11 +12,11 @@ namespace ClassesDAO
     using System;
     using System.Collections.Generic;
     
-    public partial class ContratInterim : Contrats
+    public partial class Augmentations
     {
-        internal string Agence { get; set; }
-        internal double Salaire { get; set; }
-        internal System.DateTime DateFin { get; set; }
-        internal string Motif { get; set; }
+        internal System.DateTime Date { get; set; }
+        internal decimal Valeur { get; set; }
+    
+        public virtual Collaborateurs Collaborateurs { get; set; }
     }
 }

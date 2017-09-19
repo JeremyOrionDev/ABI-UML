@@ -39,10 +39,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(377, 579);
+            this.ClientSize = new System.Drawing.Size(372, 628);
             this.Name = "frmContratCDI";
             this.Text = "frmContratCDI";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

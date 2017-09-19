@@ -15,9 +15,7 @@ namespace ABIenCouche
 
     public abstract class Contrat
     {
-        public SortedDictionary<Int32, avenantContrat> ListAvenant;
-        private Collaborateur leCollaborateur;
-        private Contrat leContrat;
+
         public override String ToString()
         {
             return "le contrat ";
@@ -32,7 +30,7 @@ namespace ABIenCouche
             this.LibelleContrat = unLibelle;
             this.NumContrat = unNumContrat;
             this.FonctionCollaborateur = uneFonction;
-            ListAvenant = new SortedDictionary<int, ABIenCouche.avenantContrat>();
+            
         }
         public static Contrat retrouverContrat(Collaborateur unColab, Int32 numContrat)
         {

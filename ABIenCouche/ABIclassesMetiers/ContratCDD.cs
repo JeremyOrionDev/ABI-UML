@@ -8,7 +8,8 @@ namespace ABIenCouche
 {
     public class ContratCDD:Contrat
     {
-        
+        public SortedDictionary<Int32, avenantContrat> ListAvenant;
+
         public ContratCDD(String unLibelle,DateTime uneDateFin,String unMotif, Int32 unNumContrat, String uneFonction,
             String uneQualif,Boolean unStatut,DateTime leDebut ) :base(unNumContrat,uneFonction, uneQualif,unLibelle, unStatut, leDebut)
         {
@@ -16,7 +17,7 @@ namespace ABIenCouche
      
             this.dateFinContrat = uneDateFin;
             this.motifContrat = unMotif;
-        
+            ListAvenant = new SortedDictionary<int, ABIenCouche.avenantContrat>();
         }
         public static Contrat retrouverCDD(Collaborateur unColab, Int32 numContrat)
         {

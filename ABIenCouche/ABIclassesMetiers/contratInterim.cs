@@ -8,12 +8,14 @@ namespace ABIenCouche
 {
     public class contratInterim:Contrat
     {
+        public SortedDictionary<Int32,avenantContrat> lesAvenant;
         public contratInterim(String uneAgence,String unMotif,Double leSalaire,DateTime uneDateFin, Int32 unNumContrat, String uneFonction, String uneQualif, String unLibelle, Boolean unStatut, DateTime leDebut) : base(unNumContrat, uneFonction, uneQualif, unLibelle, unStatut, leDebut)
         {
             this.Agence = uneAgence;
             this.Salaire = leSalaire;
             this.LaDateFin = uneDateFin;
             this.MotifContrat = unMotif;
+            lesAvenant = new SortedDictionary<int, avenantContrat>();
         }
 
         private String agence;

@@ -175,7 +175,7 @@ namespace ABIenCouche
             {
 
                  this.uncolab = new Collaborateur(Convert.ToInt32(leForm.txtBoxMatriculeCollab.Text),leForm.cBxCivilite.SelectedItem.ToString(),leForm.cBxSituation.SelectedItem.ToString(), leForm.txtBoxNomCollab.Text, leForm.txtBoxPrenomCollab.Text, leForm.txtBoxRueCollab.Text,
-                     leForm.txtBxVille.Text, leForm.txtBxCP.Text, 0, leForm.tBxTel.Text, "") ;
+                     leForm.txtBxVille.Text, leForm.txtBxCP.Text, leForm.tBxTel.Text) ;
                 DictionnaireCollaborateur.listCollaborateur.Add(uncolab.Matricule,uncolab);
 
                 return true;

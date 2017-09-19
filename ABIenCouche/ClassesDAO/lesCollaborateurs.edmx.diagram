@@ -4,18 +4,22 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="c5200749100e4fdfbae8d0a7bfe9302d" Name="Diagram1" >
-        <EntityTypeShape EntityType="lesCollaborateurs.Collaborateurs" Width="1.5" PointX="1.875" PointY="1.125" FillColor="Red" />
-        <EntityTypeShape EntityType="lesCollaborateurs.Contrats" Width="1.5" PointX="5.5" PointY="1.875" FillColor="Yellow" />
-        <EntityTypeShape EntityType="lesCollaborateurs.ContratCDD" Width="1.5" PointX="5.5" PointY="5.25" />
-        <EntityTypeShape EntityType="lesCollaborateurs.ContratCDI" Width="1.5" PointX="8.125" PointY="5.375" FillColor="Fuchsia" />
-        <EntityTypeShape EntityType="lesCollaborateurs.ContratStage" Width="1.5" PointX="8.875" PointY="2.875" />
-        <EntityTypeShape EntityType="lesCollaborateurs.ContratInterim" Width="1.5" PointX="8.125" PointY="0.875" FillColor="Lime" />
+      <Diagram DiagramId="c5200749100e4fdfbae8d0a7bfe9302d" Name="Diagram1" ZoomLevel="92" >
+        <EntityTypeShape EntityType="lesCollaborateurs.Collaborateurs" Width="1.5" PointX="1.875" PointY="2.375" FillColor="Red" />
+        <EntityTypeShape EntityType="lesCollaborateurs.Contrats" Width="1.5" PointX="5.5" PointY="3.125" FillColor="Yellow" />
+        <EntityTypeShape EntityType="lesCollaborateurs.ContratCDD" Width="1.5" PointX="5.5" PointY="6.5" />
+        <EntityTypeShape EntityType="lesCollaborateurs.ContratCDI" Width="1.5" PointX="8.125" PointY="6.625" FillColor="Fuchsia" />
+        <EntityTypeShape EntityType="lesCollaborateurs.ContratStage" Width="1.5" PointX="8.875" PointY="4.125" />
+        <EntityTypeShape EntityType="lesCollaborateurs.ContratInterim" Width="1.5" PointX="8.125" PointY="2.125" FillColor="Lime" />
         <AssociationConnector Association="lesCollaborateurs.CollaborateursContrats" />
         <InheritanceConnector EntityType="lesCollaborateurs.ContratCDD" />
         <InheritanceConnector EntityType="lesCollaborateurs.ContratCDI" />
         <InheritanceConnector EntityType="lesCollaborateurs.ContratStage" />
         <InheritanceConnector EntityType="lesCollaborateurs.ContratInterim" />
+        <EntityTypeShape EntityType="lesCollaborateurs.Augmentations" Width="1.5" PointX="2.125" PointY="6.625" />
+        <AssociationConnector Association="lesCollaborateurs.CollaborateursAugmentations" />
+        <EntityTypeShape EntityType="lesCollaborateurs.Avenant" Width="1.5" PointX="5.625" PointY="0.5" />
+        <AssociationConnector Association="lesCollaborateurs.ContratsAvenant" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

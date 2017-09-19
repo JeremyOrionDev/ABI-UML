@@ -149,17 +149,27 @@ namespace ABIenCouche
                 if (leContrat.Value is ContratCDD)
                 {
                     DR[1] = "CDD";
+                    ContratCDD leCDD = (ContratCDD)leContrat.Value;
+                    DR[5] = leCDD.ListAvenant.Count();
                 }
                 else if (leContrat.Value is ContratCDI)
                 {
                     DR[1] = "CDI";
+                    ContratCDI leCDD = (ContratCDI)leContrat.Value;
+                    DR[5] = leCDD.lesAvenants.Count();
                 }
                 else if (leContrat.Value is contratInterim)
                 {
                     DR[1] = "interim";
+                    contratInterim leCDD = (contratInterim)leContrat.Value;
+                    DR[5] = leCDD.lesAvenant.Count();
                 }
-                else DR[1] = "stage";
-                //DR[2] = leContrat.Value.LeStatut;
+                else
+                {
+                    DR[1] = "stage";
+                    ContratStage leStage = (ContratStage)leContrat.Value;
+                    DR[5] = leStage.lesAvenant.Count();
+                }
                 if (leContrat.Value.LeStatut == true)
                 {
                     DR[2] = "cadre";
@@ -167,7 +177,6 @@ namespace ABIenCouche
                 else DR[2] = "non cadre";
                 DR[3] = leContrat.Value.QualificationCollaborateur;
                 DR[4] = leContrat.Value.FonctionCollaborateur;
-                DR[5] = leContrat.Value.ListAvenant.Count;
                 dt.Rows.Add(DR);
             }
             return dt;

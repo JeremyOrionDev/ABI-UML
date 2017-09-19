@@ -22,6 +22,7 @@ namespace ABIenCouche
         private Collaborateur leCollaborateur;
         private DialogResult formResult;
         private Boolean Modifier = false;
+        private MCollaborateurDAOEFStatic leCollabBDD;
 
         internal DialogResult FormResult
         {
@@ -41,12 +42,12 @@ namespace ABIenCouche
             Contrat leContrat;
             Int32 numContrat;
             Int32 nbContrat = this.leCollaborateur.LesContrats.Count();
-
             if (formAffiche.dgContrats.RowCount != 0)
             {
                 numContrat = Convert.ToInt32(formAffiche.dgContrats.CurrentRow.Cells[0].Value.ToString());
             }
             else numContrat = 0;
+            Collaborateurs unColab =DonneesDAO.DbContextCollaborateurs.CollaborateursSet.Find(leCollaborateur.Matricule);
             if (leCollaborateur.LesContrats.ContainsKey(numContrat))
             {
                 leContrat = leCollaborateur.LesContrats[numContrat];
@@ -78,10 +79,12 @@ namespace ABIenCouche
             {
                 formAffiche.panelContrat.Visible = true;
                 formAffiche.btnContrats.Text = "<<Contrats";
+                formAffiche.panelDGAugmentation.Visible = true;
             }
             else
             {
                 formAffiche.panelContrat.Visible = false;
+                formAffiche.panelDGAugmentation.Visible = false;
                 formAffiche.btnContrats.Text = "Contrats>>";
             }
             init();
@@ -92,7 +95,7 @@ namespace ABIenCouche
             this.leCollaborateur = unColab;
             formAffiche = new frmAfficheCollab(leCollaborateur);
             init();
-
+            formAffiche.panelDGAugmentation.Visible = false;
             formAffiche.txtBoxMatriculeCollab.Enabled = false;
             formAffiche.cBxCivilite.Enabled=false;
             formAffiche.txtBoxNomCollab.Enabled=false;
@@ -105,7 +108,7 @@ namespace ABIenCouche
             formAffiche.cBxSituation.Enabled = false;
             formAffiche.panelContrat.Visible = false;
             formAffiche.cBxCivilite.Items.AddRange(new String[] { "Mr", "Mme","Mlle" });
-            formAffiche.cBxSituation.Items.AddRange(new String[] { "célibataire", "marié","divorcé" });
+            formAffiche.cBxSituation.Items.AddRange(new String[] { "Célibataire", "Marié","Divorcé" });
             formAffiche.txtBoxMatriculeCollab.Text = unColab.Matricule.ToString();
             formAffiche.txtBoxNomCollab.Text = unColab.NomCollaborateur;
             formAffiche.txtBoxPrenomCollab.Text = unColab.PrenomCollaborateur;
@@ -124,6 +127,7 @@ namespace ABIenCouche
             formAffiche.btnContrats.Click += new EventHandler(this.btnContrats_Click);
             formAffiche.dgContrats.DoubleClick += new EventHandler(dgContrat_DoubleClick);
             formAffiche.btnModifier.Click += new EventHandler(btnModifier_Click);
+            formAffiche.btnAjouterContrat.Click += new EventHandler(btnAjoutContrat_Click);
             formAffiche.btnOKColab.Click += new EventHandler(btnOK_Click);
             formAffiche.btnSupprimerContrat.Click += new EventHandler(btnSupprimer_Click);
             //OpenFileDialog openPhoto = new OpenFileDialog();
@@ -135,6 +139,14 @@ namespace ABIenCouche
             formAffiche.ShowDialog();
         }
 
+        private void btnAjoutContrat_Click(object sender, EventArgs e)
+        {
+            ctrlNouveauContrat leNouveauContrat = new ctrlNouveauContrat(this.leCollaborateur, "");
+            if (leNouveauContrat.contratOK)
+            {
+                init();
+            }
+        }
 
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
@@ -223,7 +235,6 @@ namespace ABIenCouche
                     lecolab.Ville = formAffiche.txtBxVille.Text;
                     lecolab.CodePostal = formAffiche.txtBxCP.Text;
                     lecolab.Telephone= formAffiche.tBxTel.Text;
-                    lecolab.Augmentation =Convert.ToInt32( formAffiche.TbxAugmentation.Text);
                     DonneesDAO.DbContextCollaborateurs.SaveChanges();
                     //formAffiche.Close();
                 }
@@ -255,8 +266,16 @@ namespace ABIenCouche
         internal void init()
         {
             //formAffiche.dgContrats.DataSource = DictionnaireCollaborateur.ListContrats(leCollaborateur);
-            formAffiche.dgContrats.DataSource = ClassesDAO.MCollaborateurDAOEFStatic.listerContratCollaborateurDAO(leCollaborateur);
+            formAffiche.dgContrats.DataSource = MCollaborateurDAOEFStatic.listerContratCollaborateurDAO(leCollaborateur);
+            formAffiche.dgContrats.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            formAffiche.dgContrats.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            formAffiche.dgContrats.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            formAffiche.dgContrats.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            formAffiche.dgContrats.Columns[formAffiche.dgContrats.Columns.Count - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            formAffiche.dgContrats.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            formAffiche.dgAugmentation.DataSource = MCollaborateurDAOEFStatic.ListerAugmentation(leCollaborateur);
             formAffiche.dgContrats.Refresh();
+
             
 
         }

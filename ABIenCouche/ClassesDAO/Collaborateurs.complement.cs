@@ -8,7 +8,7 @@ namespace ClassesDAO
 {
     public partial class Collaborateurs
     {
-        public Collaborateurs(Int32 unMatricule, String uneCivilite, String situation, String unNom, String unPrenom, String uneRue, String uneVille, String unCP, Int32 uneAugmentation, String unTel, string unePhoto)
+        public Collaborateurs(Int32 unMatricule, String uneCivilite, String situation, String unNom, String unPrenom, String uneRue, String uneVille, String unCP, Int32 uneAugmentation, String unTel)
         {
             
             Civilite = uneCivilite;
@@ -19,10 +19,9 @@ namespace ClassesDAO
             CodePostal = unCP;
             Ville = uneVille;
             Telephone = unTel;
-            Augmentation = uneAugmentation;
-            Photo = unePhoto;
             SortedDictionary<Int32,Contrats> lesContrats = new SortedDictionary<Int32, Contrats>();
 
         }
+        public Collaborateurs() { }
     }
 }

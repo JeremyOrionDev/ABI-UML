@@ -27,5 +27,7 @@ namespace ClassesDAO
     
         public virtual DbSet<Collaborateurs> CollaborateursSet { get; set; }
         public virtual DbSet<Contrats> ContratsSet { get; set; }
+        public virtual DbSet<Augmentations> AugmentationsSet { get; set; }
+        public virtual DbSet<Avenant> AvenantSet { get; set; }
     }
 }

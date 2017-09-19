@@ -28,7 +28,6 @@ namespace ABIenCouche
         private String situationMaritale;
         private String civilite;
         private String telephone;
-        private string laPhoto;
         
         /// <summary>
         /// Constructeur pour les collaborateur
@@ -36,7 +35,7 @@ namespace ABIenCouche
         /// <param name="unNom">le nom du collaborateur</param>
         /// <param name="unPrenom">le prenom du collaborateur</param>
         /// <param name="unMatricule">le matricule du collaborateur</param>
-        public Collaborateur(Int32 unMatricule,String uneCivilite,String situation, String unNom, String unPrenom, String uneRue, String uneVille, String unCP,Int32 uneAugmentation,String unTel,string unePhoto)
+        public Collaborateur(Int32 unMatricule,String uneCivilite,String situation, String unNom, String unPrenom, String uneRue, String uneVille, String unCP,String unTel)
         {
             Matricule = unMatricule;
             Civilite = uneCivilite;
@@ -45,12 +44,10 @@ namespace ABIenCouche
             rueCollab = uneRue;
             villeCollab = uneVille;
             cpCollab = unCP;
-            Augmentation = uneAugmentation;
             Telephone = unTel;
             SituationMaritale = situation;
             LesContrats = new SortedDictionary<Int32, Contrat>();
             LesContratsTriDate = new SortedDictionary<DateTime, Contrat>();
-            laPhoto = unePhoto;
             
         }
 
@@ -226,18 +223,6 @@ namespace ABIenCouche
             }
         }
 
-        public string LaPhoto
-        {
-            get
-            {
-                return laPhoto;
-            }
-
-            set
-            {
-                laPhoto = value;
-            }
-        }
 
         public SortedDictionary<int, Contrat> LesContrats
         {

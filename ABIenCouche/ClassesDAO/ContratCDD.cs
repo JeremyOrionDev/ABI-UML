@@ -17,9 +17,5 @@ namespace ClassesDAO
         internal System.DateTime DateFin { get; set; }
         internal string Motif { get; set; }
         internal double Salaire { get; set; }
-        public ContratCDD()
-        {
-
-        }
     }
 }

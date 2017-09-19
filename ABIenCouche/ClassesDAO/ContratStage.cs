@@ -19,10 +19,5 @@ namespace ClassesDAO
         internal string Tuteur { get; set; }
         internal System.DateTime DateFin { get; set; }
         internal string Mission { get; set; }
-    public ContratStage()
-    {
-
     }
 }
-    }
-
