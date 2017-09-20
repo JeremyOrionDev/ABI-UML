@@ -14,9 +14,9 @@ namespace ClassesDAO
     
     public partial class ContratInterim : Contrats
     {
-        internal string Agence { get; set; }
-        internal double Salaire { get; set; }
-        internal System.DateTime DateFin { get; set; }
-        internal string Motif { get; set; }
+        public string Agence { get; set; }
+        public double Salaire { get; set; }
+        public System.DateTime DateFin { get; set; }
+        public string Motif { get; set; }
     }
 }

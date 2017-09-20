@@ -64,6 +64,11 @@
             this.btnAnnulerColab = new System.Windows.Forms.Button();
             this.btnOKColab = new System.Windows.Forms.Button();
             this.errorProviderCollab = new System.Windows.Forms.ErrorProvider(this.components);
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rbtnArchiverOui = new System.Windows.Forms.RadioButton();
+            this.rbtnArchiverNon = new System.Windows.Forms.RadioButton();
             this.flowLayoutPanel1.SuspendLayout();
             this.panelMatricule.SuspendLayout();
             this.panelCivilite.SuspendLayout();
@@ -76,6 +81,8 @@
             this.panelTelephone.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderCollab)).BeginInit();
+            this.panel3.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtBoxRueCollab
@@ -221,11 +228,12 @@
             this.flowLayoutPanel1.Controls.Add(this.panelCP);
             this.flowLayoutPanel1.Controls.Add(this.panelVille);
             this.flowLayoutPanel1.Controls.Add(this.panelTelephone);
+            this.flowLayoutPanel1.Controls.Add(this.panel3);
             this.flowLayoutPanel1.Controls.Add(this.panel2);
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 12);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(355, 361);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(355, 406);
             this.flowLayoutPanel1.TabIndex = 20;
             // 
             // panelMatricule
@@ -332,7 +340,7 @@
             this.panel2.Controls.Add(this.btnModifier);
             this.panel2.Controls.Add(this.btnAnnulerColab);
             this.panel2.Controls.Add(this.btnOKColab);
-            this.panel2.Location = new System.Drawing.Point(3, 327);
+            this.panel2.Location = new System.Drawing.Point(3, 372);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(349, 31);
             this.panel2.TabIndex = 21;
@@ -362,7 +370,7 @@
             this.btnAnnulerColab.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAnnulerColab.CausesValidation = false;
             this.btnAnnulerColab.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnAnnulerColab.Location = new System.Drawing.Point(183, 5);
+            this.btnAnnulerColab.Location = new System.Drawing.Point(165, 6);
             this.btnAnnulerColab.Name = "btnAnnulerColab";
             this.btnAnnulerColab.Size = new System.Drawing.Size(72, 23);
             this.btnAnnulerColab.TabIndex = 22;
@@ -372,7 +380,7 @@
             // btnOKColab
             // 
             this.btnOKColab.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOKColab.Location = new System.Drawing.Point(24, 6);
+            this.btnOKColab.Location = new System.Drawing.Point(3, 5);
             this.btnOKColab.Name = "btnOKColab";
             this.btnOKColab.Size = new System.Drawing.Size(72, 24);
             this.btnOKColab.TabIndex = 9;
@@ -384,13 +392,63 @@
             this.errorProviderCollab.ContainerControl = this;
             this.errorProviderCollab.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProviderCollab.Icon")));
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.groupBox1);
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Location = new System.Drawing.Point(3, 327);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(349, 39);
+            this.panel3.TabIndex = 24;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 11);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Archiver";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.rbtnArchiverNon);
+            this.groupBox1.Controls.Add(this.rbtnArchiverOui);
+            this.groupBox1.Location = new System.Drawing.Point(94, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(236, 33);
+            this.groupBox1.TabIndex = 1;
+            this.groupBox1.TabStop = false;
+            // 
+            // rbtnArchiverOui
+            // 
+            this.rbtnArchiverOui.AutoSize = true;
+            this.rbtnArchiverOui.Location = new System.Drawing.Point(6, 10);
+            this.rbtnArchiverOui.Name = "rbtnArchiverOui";
+            this.rbtnArchiverOui.Size = new System.Drawing.Size(41, 17);
+            this.rbtnArchiverOui.TabIndex = 0;
+            this.rbtnArchiverOui.TabStop = true;
+            this.rbtnArchiverOui.Text = "Oui";
+            this.rbtnArchiverOui.UseVisualStyleBackColor = true;
+            // 
+            // rbtnArchiverNon
+            // 
+            this.rbtnArchiverNon.AutoSize = true;
+            this.rbtnArchiverNon.Location = new System.Drawing.Point(107, 10);
+            this.rbtnArchiverNon.Name = "rbtnArchiverNon";
+            this.rbtnArchiverNon.Size = new System.Drawing.Size(45, 17);
+            this.rbtnArchiverNon.TabIndex = 1;
+            this.rbtnArchiverNon.TabStop = true;
+            this.rbtnArchiverNon.Text = "Non";
+            this.rbtnArchiverNon.UseVisualStyleBackColor = true;
+            // 
             // frmBaseCollab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(376, 386);
+            this.ClientSize = new System.Drawing.Size(376, 509);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmBaseCollab";
@@ -415,6 +473,10 @@
             this.panelTelephone.PerformLayout();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderCollab)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -455,5 +517,10 @@
         private System.Windows.Forms.Panel panel2;
         internal System.Windows.Forms.Button btnContrats;
         internal System.Windows.Forms.ErrorProvider errorProviderCollab;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.GroupBox groupBox1;
+        internal System.Windows.Forms.RadioButton rbtnArchiverNon;
+        internal System.Windows.Forms.RadioButton rbtnArchiverOui;
+        private System.Windows.Forms.Label label1;
     }
 }

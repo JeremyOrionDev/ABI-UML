@@ -19,10 +19,9 @@ namespace ABIenCouche
         /// <summary>
         /// ref au collaborateur à afficher
         /// </summary>
-        private Collaborateur leCollaborateur;
+        private Collaborateurs leCollaborateur;
         private DialogResult formResult;
         private Boolean Modifier = false;
-        private MCollaborateurDAOEFStatic leCollabBDD;
 
         internal DialogResult FormResult
         {
@@ -39,35 +38,35 @@ namespace ABIenCouche
 
         private void dgContrat_DoubleClick(object sender, EventArgs e)
         {
-            Contrat leContrat;
+            Contrats leContrat;
             Int32 numContrat;
-            Int32 nbContrat = this.leCollaborateur.LesContrats.Count();
+            Int32 nbContrat = this.leCollaborateur.Contrats.Count();
             if (formAffiche.dgContrats.RowCount != 0)
             {
                 numContrat = Convert.ToInt32(formAffiche.dgContrats.CurrentRow.Cells[0].Value.ToString());
             }
             else numContrat = 0;
-            Collaborateurs unColab =DonneesDAO.DbContextCollaborateurs.CollaborateursSet.Find(leCollaborateur.Matricule);
-            if (leCollaborateur.LesContrats.ContainsKey(numContrat))
+            Collaborateurs unColab =DonneesDAO.DbContextCollaborateurs.CollaborateursSet.Find(leCollaborateur.matricule);
+            if (leCollaborateur.Contrats.ElementAt(numContrat)!=null)
             {
-                leContrat = leCollaborateur.LesContrats[numContrat];
+                leContrat = DonneesDAO.DbContextCollaborateurs.ContratsSet.Find(numContrat);
             }
             else throw new Exception("erreur le contrat demandé n'existe pas");
-            if (leContrat is ContratCDD)
+            if (leContrat is ClassesDAO.ContratCDD)
             {
-                leContrat = (ContratCDD)leContrat;
+                leContrat = (ClassesDAO.ContratCDD)leContrat;
             }
-            else if (leContrat is ContratCDI)
+            else if (leContrat is ClassesDAO.ContratCDI)
             {
-                leContrat = (ContratCDI)leContrat;
+                leContrat = (ClassesDAO.ContratCDI)leContrat;
             }
-            else if (leContrat is contratInterim)
+            else if (leContrat is ClassesDAO.ContratInterim)
             {
-                leContrat = (contratInterim)leContrat;
+                leContrat = (ClassesDAO.ContratInterim)leContrat;
             }
-            else if (leContrat is ContratStage)
+            else if (leContrat is ClassesDAO.ContratStage)
             {
-                leContrat = (ContratStage)leContrat;
+                leContrat = (ClassesDAO.ContratStage)leContrat;
             }
             else throw new ArgumentOutOfRangeException("le contrat n'est pas défini sur un type de contrat précis (stage,interim,CDD ou CDI)");
             ctrlAfficheContrat affichecontrat = new ctrlAfficheContrat(leContrat);
@@ -90,7 +89,7 @@ namespace ABIenCouche
             init();
 
         }
-        public ctrlAfficheCollab(Collaborateur unColab)
+        public ctrlAfficheCollab(Collaborateurs unColab)
         {
             this.leCollaborateur = unColab;
             formAffiche = new frmAfficheCollab(leCollaborateur);
@@ -108,12 +107,12 @@ namespace ABIenCouche
             formAffiche.panelContrat.Visible = false;
             formAffiche.cBxCivilite.Items.AddRange(new String[] { "Mr", "Mme","Mlle" });
             formAffiche.cBxSituation.Items.AddRange(new String[] { "Célibataire", "Marié","Divorcé" });
-            formAffiche.txtBoxMatriculeCollab.Text = unColab.Matricule.ToString();
-            formAffiche.txtBoxNomCollab.Text = unColab.NomCollaborateur;
-            formAffiche.txtBoxPrenomCollab.Text = unColab.PrenomCollaborateur;
-            formAffiche.txtBoxRueCollab.Text = unColab.RueCollab;
-            formAffiche.txtBxVille.Text = unColab.VilleCollab;
-            formAffiche.txtBxCP.Text = unColab.CpCollab;
+            formAffiche.txtBoxMatriculeCollab.Text = unColab.matricule.ToString();
+            formAffiche.txtBoxNomCollab.Text = unColab.Nom;
+            formAffiche.txtBoxPrenomCollab.Text = unColab.Prenom;
+            formAffiche.txtBoxRueCollab.Text = unColab.Rue;
+            formAffiche.txtBxVille.Text = unColab.Ville;
+            formAffiche.txtBxCP.Text = unColab.CodePostal;
             formAffiche.tBxTel.Text = unColab.Telephone;
             formAffiche.cBxSituation.SelectedItem = unColab.SituationMaritale;
             formAffiche.cBxCivilite.SelectedItem = unColab.Civilite;
@@ -123,7 +122,6 @@ namespace ABIenCouche
             formAffiche.btnModifier.Click += new EventHandler(btnModifier_Click);
             formAffiche.btnAjouterContrat.Click += new EventHandler(btnAjoutContrat_Click);
             formAffiche.btnOKColab.Click += new EventHandler(btnOK_Click);
-            formAffiche.btnSupprimerContrat.Click += new EventHandler(btnSupprimer_Click);
             //OpenFileDialog openPhoto = new OpenFileDialog();
             //openPhoto.Filter = "Images files jpeg | *.jpg";
             //openPhoto.Multiselect = false;
@@ -142,18 +140,7 @@ namespace ABIenCouche
             }
         }
 
-        private void btnSupprimer_Click(object sender, EventArgs e)
-        {
-            int numContrat = Convert.ToInt32(formAffiche.dgContrats.CurrentRow.Cells[0].Value.ToString());
-            Contrat leContrat = Contrat.retrouverContrat(leCollaborateur, numContrat);
-            DialogResult DR = MessageBox.Show("Voulez vous supprimer le contrat n°" + leContrat.NumContrat + " du collaborateur: " + leCollaborateur.NomCollaborateur + " " + leCollaborateur.PrenomCollaborateur + " ?", "Suppresion de contrat", MessageBoxButtons.OKCancel);
-            if (DR==DialogResult.OK)
-            {
-                leCollaborateur.supprimeContrat(leContrat);
-                init();
-            }
 
-        }
         private void btnOK_Click(object sender, EventArgs e)
         {
             if (Modifier)
@@ -172,15 +159,15 @@ namespace ABIenCouche
                     Modif += "\t\u2022 la situation maritale: " + leCollaborateur.SituationMaritale + " deviendra: " + formAffiche.cBxSituation.Text + "\r";
 
                 }
-                if (formAffiche.txtBoxNomCollab.Text!=leCollaborateur.NomCollaborateur)
+                if (formAffiche.txtBoxNomCollab.Text!=leCollaborateur.Nom)
                 {
                     i++;
-                    Modif += "\t\u2022 le nom du Collaborateur: " + leCollaborateur.NomCollaborateur + " va être modifié en: " + formAffiche.txtBoxNomCollab.Text + "\r";
+                    Modif += "\t\u2022 le nom du Collaborateur: " + leCollaborateur.Nom + " va être modifié en: " + formAffiche.txtBoxNomCollab.Text + "\r";
                 }
-                if (formAffiche.txtBoxPrenomCollab.Text != leCollaborateur.PrenomCollaborateur)
+                if (formAffiche.txtBoxPrenomCollab.Text != leCollaborateur.Prenom)
                 {
                     i++;
-                    Modif += "\t\u2022 le prénom du Collaborateur: " + leCollaborateur.PrenomCollaborateur + " va être modifié en: " + formAffiche.txtBoxPrenomCollab.Text + "\r";
+                    Modif += "\t\u2022 le prénom du Collaborateur: " + leCollaborateur.Prenom + " va être modifié en: " + formAffiche.txtBoxPrenomCollab.Text + "\r";
                 if (formAffiche.tBxTel.Text!=leCollaborateur.Telephone)
                 {
                     i++;
@@ -188,20 +175,20 @@ namespace ABIenCouche
                     
                 }
                 }
-                if (formAffiche.txtBoxRueCollab.Text != leCollaborateur.RueCollab)
+                if (formAffiche.txtBoxRueCollab.Text != leCollaborateur.Rue)
                 {
                     i++;
-                    Modif += "\t\u2022 la rue du Collaborateur: " + leCollaborateur.RueCollab + " va être modifié en: " + formAffiche.txtBoxRueCollab.Text + "\r";
+                    Modif += "\t\u2022 la rue du Collaborateur: " + leCollaborateur.Rue + " va être modifié en: " + formAffiche.txtBoxRueCollab.Text + "\r";
                 }
-                if (formAffiche.txtBxVille.Text != leCollaborateur.VilleCollab)
+                if (formAffiche.txtBxVille.Text != leCollaborateur.Ville)
                 {
                     i++;
-                    Modif += "\t\u2022 la ville du Collaborateur: " + leCollaborateur.VilleCollab + " va être modifié en: " + formAffiche.txtBxVille.Text + "\r";
+                    Modif += "\t\u2022 la ville du Collaborateur: " + leCollaborateur.Ville + " va être modifié en: " + formAffiche.txtBxVille.Text + "\r";
                 }
-                if (formAffiche.txtBxCP.Text != leCollaborateur.CpCollab)
+                if (formAffiche.txtBxCP.Text != leCollaborateur.CodePostal)
                 {
                     i++;
-                    Modif += "\t\u2022 le code postal du Collaborateur: " + leCollaborateur.CpCollab + " va être modifié en: " + formAffiche.txtBxCP.Text + "\r";
+                    Modif += "\t\u2022 le code postal du Collaborateur: " + leCollaborateur.CodePostal + " va être modifié en: " + formAffiche.txtBxCP.Text + "\r";
                 }
 
                 Modif ="Vous avez fait "+i+" modifications: \r"+Modif;
@@ -211,12 +198,12 @@ namespace ABIenCouche
                     leCollaborateur.Telephone = formAffiche.tBxTel.Text;
                     leCollaborateur.Civilite=formAffiche.cBxCivilite.SelectedItem.ToString();
                     leCollaborateur.SituationMaritale=formAffiche.cBxSituation.SelectedItem.ToString();
-                    leCollaborateur.NomCollaborateur= formAffiche.txtBoxNomCollab.Text;
-                    leCollaborateur.PrenomCollaborateur=formAffiche.txtBoxPrenomCollab.Text;
-                    leCollaborateur.RueCollab=formAffiche.txtBoxRueCollab.Text;
-                    leCollaborateur.VilleCollab= formAffiche.txtBxVille.Text;
-                    leCollaborateur.CpCollab=formAffiche.txtBxCP.Text;
-                    Collaborateurs lecolab = DonneesDAO.DbContextCollaborateurs.CollaborateursSet.Find(leCollaborateur.Matricule);
+                    leCollaborateur.Nom= formAffiche.txtBoxNomCollab.Text;
+                    leCollaborateur.Prenom=formAffiche.txtBoxPrenomCollab.Text;
+                    leCollaborateur.Rue=formAffiche.txtBoxRueCollab.Text;
+                    leCollaborateur.Ville= formAffiche.txtBxVille.Text;
+                    leCollaborateur.CodePostal=formAffiche.txtBxCP.Text;
+                    Collaborateurs lecolab = DonneesDAO.DbContextCollaborateurs.CollaborateursSet.Find(leCollaborateur.matricule);
                     lecolab.Civilite = formAffiche.cBxCivilite.SelectedItem.ToString();
                     lecolab.SituationMaritale = formAffiche.cBxSituation.SelectedItem.ToString();
                     lecolab.Nom = formAffiche.txtBoxNomCollab.Text;

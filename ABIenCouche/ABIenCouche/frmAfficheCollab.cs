@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClassesDAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,7 +15,7 @@ namespace ABIenCouche
     public partial class frmAfficheCollab :  frmBaseCollab
     {
 
-        public frmAfficheCollab(Collaborateur unCollab)
+        public frmAfficheCollab(Collaborateurs unCollab)
         {
             InitializeComponent();
         }

@@ -33,7 +33,7 @@ namespace ClassesDAO
             foreach (Collaborateurs item in query)
             {
                 leCollaborateur = new Collaborateur(item.matricule, item.Civilite, item.SituationMaritale,
-                    item.Nom, item.Prenom, item.Rue, item.Ville, item.CodePostal, item.Telephone);
+                    item.Nom, item.Prenom, item.Rue, item.Ville, item.CodePostal, item.Telephone,item.Archive);
                 if (DictionnaireCollaborateur.listCollaborateur.ContainsKey(leCollaborateur.Matricule))
                 {
                     Int32 refColab = leCollaborateur.Matricule ;
@@ -45,6 +45,7 @@ namespace ClassesDAO
                     DictionnaireCollaborateur.listCollaborateur.Values.ElementAt(refColab).Civilite = item.Civilite;
                     DictionnaireCollaborateur.listCollaborateur.Values.ElementAt(refColab).SituationMaritale = item.SituationMaritale;
                     DictionnaireCollaborateur.listCollaborateur.Values.ElementAt(refColab).Telephone = item.Telephone;
+                    DictionnaireCollaborateur.listCollaborateur.Values.ElementAt(refColab).Archive = item.Archive;
                 }
                 else DictionnaireCollaborateur.listCollaborateur.Add(leCollaborateur.Matricule, leCollaborateur);
 
@@ -91,7 +92,7 @@ namespace ClassesDAO
 
         }
 
-        public static DataTable ListerAvenant(Contrat unContrat)
+        public static DataTable ListerAvenant(Contrats unContrat)
         {
             DataTable dt = new DataTable();
             DataRow DR;
@@ -114,7 +115,7 @@ namespace ClassesDAO
             return dt;
         }
 
-        public static DataTable ListerAugmentation(Collaborateur unColab)
+        public static DataTable ListerAugmentation(Collaborateurs unColab)
         {
             DataTable dt = new DataTable();
             DataRow DR;
@@ -122,7 +123,7 @@ namespace ClassesDAO
             dt.Columns.Add(new DataColumn("Valeur", typeof(Double)));
 
             var query = from C in DonneesDAO.DbContextCollaborateurs.AugmentationsSet
-                        where C.Collaborateurs.matricule == unColab.Matricule
+                        where C.Collaborateurs.matricule == unColab.matricule
                         select C;
             foreach (Augmentations item in query)
             {
@@ -134,7 +135,7 @@ namespace ClassesDAO
 
             return dt;
         }
-        public static DataTable listerContratCollaborateurDAO(Collaborateur unColab)
+        public static DataTable listerContratCollaborateurDAO(Collaborateurs unColab)
         {
             DataTable dt = new DataTable();
             DataRow DR;
@@ -146,7 +147,7 @@ namespace ClassesDAO
             dt.Columns.Add(new DataColumn("Date début", typeof(DateTime)));
 
             var query = from C in DonneesDAO.DbContextCollaborateurs.ContratsSet
-                        where C.Collaborateurs.matricule == unColab.Matricule
+                        where C.Collaborateurs.matricule == unColab.matricule
                         select C;
 
             foreach (Contrats item in query)

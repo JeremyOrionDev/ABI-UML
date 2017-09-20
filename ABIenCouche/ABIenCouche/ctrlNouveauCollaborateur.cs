@@ -21,18 +21,8 @@ namespace ABIenCouche
         /// <summary>
         /// ref au collaborateur à créer
         /// </summary>
-        internal Collaborateur uncolab;
-        internal String resultatForm;
+        internal Collaborateurs uncolab;
         private Boolean resultat = false;
-        public Collaborateur LeColab
-        {
-            get
-            {
-                return uncolab;
-            }
-        }
-
-
 
         public Boolean Resultat
         {
@@ -150,12 +140,17 @@ namespace ABIenCouche
             
             try
             {
-
-                uncolab = new Collaborateur(Convert.ToInt32(leForm.txtBoxMatriculeCollab.Text),leForm.cBxCivilite.SelectedItem.ToString(),leForm.cBxSituation.SelectedItem.ToString(), leForm.txtBoxNomCollab.Text, leForm.txtBoxPrenomCollab.Text, leForm.txtBoxRueCollab.Text,
-                     leForm.txtBxVille.Text, leForm.txtBxCP.Text, leForm.tBxTel.Text) ;
-                DictionnaireCollaborateur.Ajouter(uncolab);
-                Collaborateurs E = new Collaborateurs(uncolab.Matricule, uncolab.Civilite, uncolab.SituationMaritale, uncolab.NomCollaborateur, uncolab.PrenomCollaborateur, uncolab.RueCollab, uncolab.VilleCollab, uncolab.CpCollab, uncolab.Telephone);
-                DonneesDAO.DbContextCollaborateurs.CollaborateursSet.Add(E);
+                Boolean Archiver;
+                if (leForm.rbtnArchiverOui.Checked == true)
+                {
+                    Archiver = true;
+                }
+                else Archiver = false;
+                 Collaborateur E = new Collaborateur(Convert.ToInt32(leForm.txtBoxMatriculeCollab.Text),leForm.cBxCivilite.SelectedItem.ToString(),leForm.cBxSituation.SelectedItem.ToString(), leForm.txtBoxNomCollab.Text, leForm.txtBoxPrenomCollab.Text, leForm.txtBoxRueCollab.Text,
+                     leForm.txtBxVille.Text, leForm.txtBxCP.Text, leForm.tBxTel.Text,Archiver) ;
+                DictionnaireCollaborateur.Ajouter(E);
+                uncolab = new Collaborateurs(uncolab.matricule, uncolab.Civilite, uncolab.SituationMaritale, uncolab.Nom, uncolab.Prenom, uncolab.Rue, uncolab.Ville, uncolab.CodePostal, uncolab.Telephone,uncolab.Archive);
+                DonneesDAO.DbContextCollaborateurs.CollaborateursSet.Add(uncolab);
                 DonneesDAO.DbContextCollaborateurs.SaveChanges();
                 return true;
             }

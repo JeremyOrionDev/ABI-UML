@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClassesDAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,7 +13,7 @@ namespace ABIenCouche
 {
     public partial class frmAfficheContrat : frmContrat
     {
-        public frmAfficheContrat(Contrat unContrat)
+        public frmAfficheContrat(Contrats unContrat)
         {
             InitializeComponent();
         }

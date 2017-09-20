@@ -28,15 +28,16 @@ namespace ABIenCouche
         private String situationMaritale;
         private String civilite;
         private String telephone;
-        
+        private Boolean archive;
         /// <summary>
         /// Constructeur pour les collaborateur
         /// </summary>
         /// <param name="unNom">le nom du collaborateur</param>
         /// <param name="unPrenom">le prenom du collaborateur</param>
         /// <param name="unMatricule">le matricule du collaborateur</param>
-        public Collaborateur(Int32 unMatricule,String uneCivilite,String situation, String unNom, String unPrenom, String uneRue, String uneVille, String unCP,String unTel)
+        public Collaborateur(Int32 unMatricule,String uneCivilite,String situation, String unNom, String unPrenom, String uneRue, String uneVille, String unCP,String unTel,Boolean estArchive)
         {
+            Archive = estArchive;
             Matricule = unMatricule;
             Civilite = uneCivilite;
             NomCollaborateur = unNom;
@@ -250,5 +251,7 @@ namespace ABIenCouche
                 lesContratsTriDate = value;
             }
         }
+
+        public bool Archive { get => archive; set => archive = value; }
     }
 }

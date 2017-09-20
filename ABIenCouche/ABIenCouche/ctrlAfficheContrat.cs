@@ -10,18 +10,18 @@ namespace ABIenCouche
 {
     class ctrlAfficheContrat
     {
-        private Contrat leContrat;
-        private ContratCDD leCDD;
-        private ContratCDI leCDI;
-        private contratInterim lInterim;
-        private ContratStage leStage;
+        private Contrats leContrat;
+        private ClassesDAO.ContratCDD leCDD;
+        private ClassesDAO.ContratCDI leCDI;
+        private ContratInterim lInterim;
+        private ClassesDAO.ContratStage leStage;
         private frmAfficheContrat leForm;
         private void btnValider_Click(object sender,EventArgs e)
         {
             leForm.Close();
         }
 
-        public ctrlAfficheContrat(Contrat unContrat)
+        public ctrlAfficheContrat(Contrats unContrat)
         {
             leForm = new frmAfficheContrat(unContrat);
             this.leContrat = unContrat;
@@ -29,13 +29,13 @@ namespace ABIenCouche
             leForm.btnAnnuler.Visible = false;
             leForm.cBxTypeContrat.Items.AddRange(new String[] { "CDI", "CDD", "INTERIM","STAGE" });
                 leForm.panelAvenant.Visible = true;
-            if (unContrat is ContratCDI)
+            if (unContrat is ClassesDAO.ContratCDI)
             {
-                leCDI = (ContratCDI)unContrat;
+                leCDI = (ClassesDAO.ContratCDI)unContrat;
                 leForm.btnValiderContrat.Click += new EventHandler(btnValider_Click);
                 leForm.txBxNumeroContrat.Text = leCDI.NumContrat.ToString();
                 leForm.cBxTypeContrat.SelectedItem = "CDI";
-                if (leCDI.LeStatut == true)
+                if (leCDI.Statut == true)
                 {
                     leForm.rbtCadreOui.Checked = true;
                 }
@@ -44,17 +44,17 @@ namespace ABIenCouche
                 leForm.panelDate.Visible = false;
                 leForm.panelAgence.Visible = false;
                 leForm.panelEcole.Visible = false;
-                leForm.tBxFonctionContrat.Text = leCDI.FonctionCollaborateur;
-                leForm.tBxQualification.Text = leCDI.QualificationCollaborateur;
-                leForm.choixDateDebutContrat.Text = leCDI.DateDebutContrat.ToString();
-                leForm.tBxSalaire.Text = leCDI.SalaireBrut.ToString();
+                leForm.tBxFonctionContrat.Text = leCDI.Fonction;
+                leForm.tBxQualification.Text = leCDI.Qualification;
+                leForm.choixDateDebutContrat.Text = leCDI.DateDebut.ToString();
+                leForm.tBxSalaire.Text = leCDI.Salaire.ToString();
             }
             else
             {
-                if (unContrat is ContratCDD)
+                if (unContrat is ClassesDAO.ContratCDD)
                 {
                     //leForm = new frmAfficheContrat(unContrat);
-                    leCDD = (ContratCDD)unContrat;
+                    leCDD = (ClassesDAO.ContratCDD)unContrat;
                     leForm.btnValiderContrat.Click += new EventHandler(btnValider_Click);
                     leForm.panelAgence.Visible = false;
                     leForm.panelEcole.Visible = false;
@@ -63,48 +63,48 @@ namespace ABIenCouche
                     leForm.tBxSalaire.Enabled = false;
                     leForm.txBxNumeroContrat.Text = leCDD.NumContrat.ToString();
                     leForm.txBxNumeroContrat.Enabled = false;
-                    leForm.tBxMotifContrat.Text = leCDD.MotifContrat;
+                    leForm.tBxMotifContrat.Text = leCDD.Motif;
                     leForm.tBxMotifContrat.Enabled = false;
                     leForm.cBxTypeContrat.SelectedItem = "CDD";
-                    if (leCDD.LeStatut == true)
+                    if (leCDD.Statut == true)
                     {
                         leForm.rbtCadreOui.Checked = true;
                     }
                     else leForm.rbtCadreNon.Checked = true;
                     leForm.gBxCadre.Enabled = false;
-                    leForm.tBxFonctionContrat.Text = leCDD.FonctionCollaborateur;
+                    leForm.tBxFonctionContrat.Text = leCDD.Fonction;
                     leForm.tBxFonctionContrat.Enabled = false;
-                    leForm.tBxQualification.Text = leCDD.QualificationCollaborateur;
+                    leForm.tBxQualification.Text = leCDD.Qualification;
                     leForm.tBxQualification.Enabled = false;
-                    leForm.choixDateDebutContrat.Value= leCDD.DateDebutContrat;
+                    leForm.choixDateDebutContrat.Value= leCDD.DateDebut;
                     leForm.choixDateDebutContrat.Enabled = false;
-                    leForm.ChoixDateFinContrat.Value = leCDD.DateFinContrat;
+                    leForm.ChoixDateFinContrat.Value = leCDD.DateFin;
                     leForm.ChoixDateFinContrat.Enabled = false;
                     leForm.btnAnnuler.Visible = false;
                     leForm.btnValiderContrat.Text = "Fermer";
                 }
-                else if (unContrat is contratInterim )
+                else if (unContrat is ContratInterim)
                 {
-                    lInterim = (contratInterim)unContrat;
+                    lInterim = (ContratInterim)unContrat;
                     leForm.btnValiderContrat.Click += new EventHandler(btnValider_Click);
                     leForm.txBxNumeroContrat.Text = lInterim.NumContrat.ToString();
-                    leForm.tBxMotifContrat.Text = lInterim.MotifContrat;
+                    leForm.tBxMotifContrat.Text = lInterim.Motif;
                     leForm.cBxTypeContrat.SelectedItem = "INTERIM";
-                    if (lInterim.LeStatut == true)
+                    if (lInterim.Statut == true)
                     {
                         leForm.rbtCadreOui.Checked = true;
                     }
                     else leForm.rbtCadreNon.Checked = true;
                     leForm.panelEcole.Visible = false;
-                    leForm.tBxFonctionContrat.Text = lInterim.FonctionCollaborateur;
-                    leForm.tBxQualification.Text = lInterim.QualificationCollaborateur;
-                    leForm.choixDateDebutContrat.Text = lInterim.DateDebutContrat.ToString();
-                    leForm.ChoixDateFinContrat.Text = lInterim.LaDateFin.ToString();
+                    leForm.tBxFonctionContrat.Text = lInterim.Fonction;
+                    leForm.tBxQualification.Text = lInterim.Qualification;
+                    leForm.choixDateDebutContrat.Text = lInterim.DateFin.ToString();
+                    leForm.ChoixDateFinContrat.Text = lInterim.DateFin.ToString();
 
                 }
-                else if (unContrat is ContratStage)
+                else if (unContrat is ClassesDAO.ContratStage)
                 {
-                    leStage = (ContratStage)unContrat;
+                    leStage = (ClassesDAO.ContratStage)unContrat;
                     leForm.panelEcole.Visible = true;
                     leForm.panelAgence.Visible = false;
                     leForm.panelSalaire.Visible = false;

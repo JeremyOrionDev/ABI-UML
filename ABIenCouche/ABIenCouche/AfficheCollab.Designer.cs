@@ -81,6 +81,7 @@
             this.cBxRechercheCollab = new System.Windows.Forms.ComboBox();
             this.btnRechercher = new System.Windows.Forms.Button();
             this.btnAnnulerRecherche = new System.Windows.Forms.Button();
+            this.btnVoirArchive = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgCollabo)).BeginInit();
@@ -515,11 +516,22 @@
             this.btnAnnulerRecherche.Text = "A&nnuler";
             this.btnAnnulerRecherche.UseVisualStyleBackColor = true;
             // 
+            // btnVoirArchive
+            // 
+            this.btnVoirArchive.AutoSize = true;
+            this.btnVoirArchive.Location = new System.Drawing.Point(32, 371);
+            this.btnVoirArchive.Name = "btnVoirArchive";
+            this.btnVoirArchive.Size = new System.Drawing.Size(79, 23);
+            this.btnVoirArchive.TabIndex = 13;
+            this.btnVoirArchive.Text = "&Voir Archives";
+            this.btnVoirArchive.UseVisualStyleBackColor = true;
+            // 
             // frmDspCollaborateur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(476, 406);
+            this.Controls.Add(this.btnVoirArchive);
             this.Controls.Add(this.btnAnnulerRecherche);
             this.Controls.Add(this.btnRechercher);
             this.Controls.Add(this.cBxRechercheCollab);
@@ -596,6 +608,7 @@
         internal System.Windows.Forms.ComboBox cBxRechercheCollab;
         internal System.Windows.Forms.Button btnRechercher;
         internal System.Windows.Forms.Button btnAnnulerRecherche;
+        public System.Windows.Forms.Button btnVoirArchive;
     }
 }
 

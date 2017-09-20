@@ -14,8 +14,8 @@ namespace ClassesDAO
     
     public partial class ContratCDD : Contrats
     {
-        internal System.DateTime DateFin { get; set; }
-        internal string Motif { get; set; }
-        internal double Salaire { get; set; }
+        public System.DateTime DateFin { get; set; }
+        public string Motif { get; set; }
+        public double Salaire { get; set; }
     }
 }

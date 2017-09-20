@@ -56,6 +56,7 @@
     <Property Name="CodePostal" Type="nchar" Nullable="false" MaxLength="5" />
     <Property Name="Telephone" Type="nchar" Nullable="false" MaxLength="10" />
     <Property Name="SituationMaritale" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Archive" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="ContratsSet">
     <Key>
@@ -254,6 +255,7 @@
           <Property Name="SituationMaritale" Type="String" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
           <NavigationProperty Name="Contrats" Relationship="lesCollaborateurs.CollaborateursContrats" FromRole="Collaborateurs" ToRole="Contrats" />
           <NavigationProperty Name="Augmentations" Relationship="lesCollaborateurs.CollaborateursAugmentations" FromRole="Collaborateurs" ToRole="Augmentations" />
+          <Property Name="Archive" Type="Boolean" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
         </EntityType>
         <EntityType Name="Contrats" >
           <Key>
@@ -338,6 +340,7 @@
           <ScalarProperty Name="CodePostal" ColumnName="CodePostal" />
           <ScalarProperty Name="Telephone" ColumnName="Telephone" />
           <ScalarProperty Name="SituationMaritale" ColumnName="SituationMaritale" />
+          <ScalarProperty Name="Archive" ColumnName="Archive" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

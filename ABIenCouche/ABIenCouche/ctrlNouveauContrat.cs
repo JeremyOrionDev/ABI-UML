@@ -14,7 +14,7 @@ namespace ABIenCouche
         /// <summary>
         /// ref au collaborateur à qui ajouter le collaborateur
         /// </summary>
-        private Collaborateur leCollaborateur;
+        private Collaborateurs leCollaborateur;
         internal Boolean contratOK=false;
 
         private frmContrat formContrat;
@@ -23,7 +23,7 @@ namespace ABIenCouche
         /// </summary>
         //private frmContratTemporaire formContratTemp;
 
-        public ctrlNouveauContrat(Collaborateur unCollaborateur )
+        public ctrlNouveauContrat(Collaborateurs unCollaborateur )
         {
 
             this.leCollaborateur = unCollaborateur;
@@ -44,11 +44,11 @@ namespace ABIenCouche
             formContrat.panelQualification.Visible = false;
             formContrat.panelDebut.Visible = false;
             formContrat.txBxNumeroContrat.Visible = true;
-            if (leCollaborateur.LesContrats.Count == 0)
+            if (leCollaborateur.Contrats.Count == 0)
             {
                 formContrat.txBxNumeroContrat.Text = "1";
             }
-            else formContrat.txBxNumeroContrat.Text = ((leCollaborateur.LesContrats.Count) + 1).ToString();
+            else formContrat.txBxNumeroContrat.Text = ((leCollaborateur.Contrats.Count) + 1).ToString();
             formContrat.cBxTypeContrat.SelectedValueChanged += new EventHandler(cBxTypeContrat_SelectedIndexChanged);
                 formContrat.btnValiderContrat.Click += new EventHandler(btnValiderContrat_click);
             formContrat.btnAnnuler.Click += new EventHandler(btnAnnucler_Click);
@@ -59,14 +59,14 @@ namespace ABIenCouche
         private void btnAnnucler_Click(object sender, EventArgs e)
         {
             formContrat.Close();
-            Collaborateurs leColab = DonneesDAO.DbContextCollaborateurs.CollaborateursSet.Find(leCollaborateur.Matricule);
+            Collaborateurs leColab = DonneesDAO.DbContextCollaborateurs.CollaborateursSet.Find(leCollaborateur.matricule);
             DonneesDAO.DbContextCollaborateurs.CollaborateursSet.Remove(leColab);
             DonneesDAO.DbContextCollaborateurs.SaveChanges();
         }
 
         private void cBxTypeContrat_SelectedIndexChanged(object sender,EventArgs e)
         {
-                Collaborateurs unColab = DonneesDAO.DbContextCollaborateurs.CollaborateursSet.Find(leCollaborateur.Matricule);
+                Collaborateurs unColab = DonneesDAO.DbContextCollaborateurs.CollaborateursSet.Find(leCollaborateur.matricule);
                 if (unColab.Contrats!=null)
                 {
                 if (unColab.Contrats.FirstOrDefault().Avenant.Count != 0)
@@ -192,6 +192,7 @@ namespace ABIenCouche
             {
                 if (Instancie())
                 {
+                    DonneesDAO.DbContextCollaborateurs.SaveChanges();
                     formContrat.DialogResult = DialogResult.OK;
                     contratOK = true;
                     formContrat.Close();
@@ -210,13 +211,13 @@ namespace ABIenCouche
                     cadre = true;
                 }
                 else cadre = false;
-                ContratCDI leContrat = new ContratCDI(formContrat.tBxLibelle.Text, Convert.ToDouble(formContrat.tBxSalaire.Text), Convert.ToInt32(formContrat.txBxNumeroContrat.Text), formContrat.tBxFonctionContrat.Text, formContrat.tBxQualification.Text, cadre, formContrat.choixDateDebutContrat.Value);
-                leCollaborateur.ajoutContrat(leContrat);
-                Collaborateurs unCollaborateur = DonneesDAO.DbContextCollaborateurs.CollaborateursSet.Find(leCollaborateur.Matricule);
-                ClassesDAO.ContratCDI leCDI = new ClassesDAO.ContratCDI(leContrat.LibelleContrat, leContrat.SalaireBrut, leContrat.NumContrat, leContrat.FonctionCollaborateur, leContrat.QualificationCollaborateur, leContrat.LeStatut, leContrat.DateDebutContrat);
+                ClassesDAO.ContratCDI leContrat = new ClassesDAO.ContratCDI(formContrat.tBxLibelle.Text, Convert.ToDouble(formContrat.tBxSalaire.Text), Convert.ToInt32(formContrat.txBxNumeroContrat.Text), formContrat.tBxFonctionContrat.Text, formContrat.tBxQualification.Text, cadre, formContrat.choixDateDebutContrat.Value);
+                leCollaborateur.Contrats.Add(leContrat);
+                Collaborateurs unCollaborateur = DonneesDAO.DbContextCollaborateurs.CollaborateursSet.Find(leCollaborateur.matricule);
+                ClassesDAO.ContratCDI leCDI = new ClassesDAO.ContratCDI(leContrat.Libelle, leContrat.Salaire, leContrat.NumContrat, leContrat.Fonction, leContrat.Qualification, leContrat.Statut, leContrat.DateDebut);
 
                 unCollaborateur.Contrats.Add(leCDI);
-                DonneesDAO.DbContextCollaborateurs.SaveChanges();
+               
                 return true;
             }
             catch (Exception)

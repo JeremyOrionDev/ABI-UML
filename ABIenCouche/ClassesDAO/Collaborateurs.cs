@@ -25,7 +25,9 @@ namespace ClassesDAO
         public string CodePostal { get; set; }
         public string Telephone { get; set; }
         public string SituationMaritale { get; set; }
+        public bool Archive { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Contrats> Contrats { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Augmentations> Augmentations { get; set; }

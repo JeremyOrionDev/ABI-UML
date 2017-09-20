@@ -15,24 +15,12 @@ namespace ABIenCouche
     {
         internal DialogResult DR;
         /// <summary>
-        /// ref au colaborateur pour les modifications/suppresions
-        /// </summary>
-        private Collaborateur leColab;
-        /// <summary>
         /// ref au form d'affichage des collaborateurs
         /// </summary>
-        public frmDspCollaborateur formAfficheColab=new frmDspCollaborateur ();
-        
-        /// <summary>
-        /// obtient la réference du collaborateur
-        /// </summary>
-        public Collaborateur LeColab
-        {
-            get
-            {
-                return leColab;
-            }
-        }
+        public frmDspCollaborateur formAfficheColab=new frmDspCollaborateur();
+        private Boolean Clic;
+
+
 
         public   crtlListerCollabo()
         {
@@ -45,7 +33,7 @@ namespace ABIenCouche
             formAfficheColab.btnQuitter.Click += new EventHandler(btnQuitter_Click);
             formAfficheColab.dgCollabo.DoubleClick += new EventHandler(dgCollabo_CellContentDoubleClick);
             formAfficheColab.btnRechercher.Click += new EventHandler(btnRecherche_Click);
-            
+            formAfficheColab.btnVoirArchive.Click += new EventHandler(btnVoirArchive_Click);
             formAfficheColab.ShowDialog();
             if (formAfficheColab.DialogResult==DialogResult.OK)
             {
@@ -53,10 +41,20 @@ namespace ABIenCouche
             }
         }
 
-        private void init2()
+        private void btnVoirArchive_Click(object sender, EventArgs e)
         {
-
-            
+            if (formAfficheColab.dgCollabo.Columns.Count == 6)
+            {
+                formAfficheColab.dgCollabo.DataSource = DictionnaireCollaborateur.listArchive();
+                formAfficheColab.dgCollabo.Columns[6].Visible = false;
+                formAfficheColab.btnVoirArchive.Text = "Sortir Archives";
+                Clic = true;
+            }
+            else
+            {
+                formAfficheColab.btnVoirArchive.Text = "Voir Archives";
+                afficheCollabo();
+            }
         }
 
         internal void btnAnnulerRecherche_Click(object sender,EventArgs e)
@@ -69,17 +67,7 @@ namespace ABIenCouche
         internal void btnRecherche_Click(object sender,EventArgs e)
         {
 
-            //if (formAfficheColab.tBxRechercher.Text!=null)
-            //{
-            //    if (formAfficheColab.cBxRechercheCollab.SelectedItem.ToString()=="nom")
-            //    {
-            //        (formAfficheColab.dgCollabo.DataSource as DataTable).DefaultView.RowFilter = string.Format("Nom = '{0}'", formAfficheColab.tBxRechercher.Text);
-            //    }
-            //    //if (formAfficheColab.cBxRechercheCollab.SelectedItem.ToString()=="ville")
-            //    //{
-            //    //    (formAfficheColab.dgCollabo.DataSource as DataTable).DefaultView.RowFilter = string.Format("VilleCollab = '{0}'", formAfficheColab.tBxRechercher.Text);
-            //    //}
-            //}
+
             if (formAfficheColab.tBxRechercher.Text!=null)
             {
                 String cibleRecherche = formAfficheColab.cBxRechercheCollab.SelectedItem.ToString();
@@ -219,7 +207,7 @@ namespace ABIenCouche
         {
 
             Int32 numColab = Convert.ToInt32(formAfficheColab.dgCollabo.CurrentRow.Cells[0].Value.ToString());
-            leColab = DictionnaireCollaborateur.retrouverCollaborateur(numColab);
+            Collaborateur leColab = DictionnaireCollaborateur.retrouverCollaborateur(numColab);
             DialogResult MB = MessageBox.Show(leColab.NomCollaborateur + " " + leColab.PrenomCollaborateur, "Supprimer le contact", MessageBoxButtons.OKCancel);
             if (MB == DialogResult.OK)
             {
@@ -234,7 +222,7 @@ namespace ABIenCouche
             //instancie le controleur lister collabo
             //this.ctrlListerCollabo ctrl = new ctrlListerCollabo();
             //Console.WriteLine("coucou");
-            Collaborateur leCollabo;
+            Collaborateurs leCollabo;
             Int32 numcolab;
 
             if (formAfficheColab.dgCollabo.RowCount != 0)
@@ -243,7 +231,7 @@ namespace ABIenCouche
             }
             else numcolab = 0;
 
-            leCollabo = DictionnaireCollaborateur.retrouverCollaborateur(numcolab);
+            leCollabo = DonneesDAO.DbContextCollaborateurs.CollaborateursSet.Find(numcolab);
             ctrlAfficheCollab leCtrlAffiche = new ctrlAfficheCollab(leCollabo);
            
             if (leCtrlAffiche.FormResult==DialogResult.OK)

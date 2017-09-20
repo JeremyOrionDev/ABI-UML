@@ -102,6 +102,36 @@ namespace ABIenCouche
             else throw new Exception("le matricule renseigné ne correspond à aucun collaborateur, merci de vérifier votre saisie");
         }
 
+        public static DataTable listArchive()
+        {
+            DataTable dt = new DataTable();
+            DataRow DR;
+            dt.Columns.Add(new DataColumn("#", typeof(Int32)));
+            dt.Columns.Add(new DataColumn("Civ", typeof(String)));
+            dt.Columns.Add(new DataColumn("Nom", typeof(String)));
+            dt.Columns.Add(new DataColumn("Prénom", typeof(String)));
+            dt.Columns.Add(new DataColumn("Adresse", typeof(String)));
+            dt.Columns.Add(new DataColumn("Telephone", typeof(String)));
+            dt.Columns.Add(new DataColumn("Archive", typeof(Boolean)));
+            foreach (KeyValuePair<Int32, Collaborateur> colab in listCollaborateur)
+            {
+                if (colab.Value.Archive)
+                {
+                    DR = dt.NewRow();
+                    DR[0] = colab.Value.Matricule;
+                    DR[1] = colab.Value.Civilite;
+                    DR[2] = colab.Value.NomCollaborateur;
+                    DR[3] = colab.Value.PrenomCollaborateur;
+                    DR[4] = colab.Value.RueCollab + " " + colab.Value.CpCollab + " " + colab.Value.VilleCollab;
+                    DR[5] = colab.Value.Telephone;
+                    DR[6] = colab.Value.Archive;
+                    dt.Rows.Add(DR);
+                }
+
+            }
+            return dt;
+        }
+
         public static DataTable ListCollab()
         {
            
@@ -116,14 +146,17 @@ namespace ABIenCouche
             
             foreach (KeyValuePair<Int32, Collaborateur> colab in listCollaborateur)
             {
-                DR = dt.NewRow();
-                DR[0] = colab.Value.Matricule;
-                DR[1] = colab.Value.Civilite;
-                DR[2] = colab.Value.NomCollaborateur;
-                DR[3] = colab.Value.PrenomCollaborateur;
-                DR[4] = colab.Value.RueCollab+" "+colab.Value.CpCollab+" "+colab.Value.VilleCollab;
-                DR[5] = colab.Value.Telephone;
-                dt.Rows.Add(DR);
+                if (!colab.Value.Archive)
+                {
+                    DR = dt.NewRow();
+                    DR[0] = colab.Value.Matricule;
+                    DR[1] = colab.Value.Civilite;
+                    DR[2] = colab.Value.NomCollaborateur;
+                    DR[3] = colab.Value.PrenomCollaborateur;
+                    DR[4] = colab.Value.RueCollab+" "+colab.Value.CpCollab+" "+colab.Value.VilleCollab;
+                    DR[5] = colab.Value.Telephone;
+                    dt.Rows.Add(DR);
+                }
 
             }
             return dt;

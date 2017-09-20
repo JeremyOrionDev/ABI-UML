@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.dgContrats = new System.Windows.Forms.DataGridView();
-            this.btnSupprimerContrat = new System.Windows.Forms.Button();
             this.btnAjouterContrat = new System.Windows.Forms.Button();
             this.panelContrat = new System.Windows.Forms.Panel();
             this.panelDGAugmentation = new System.Windows.Forms.Panel();
@@ -60,16 +59,6 @@
             this.dgContrats.Size = new System.Drawing.Size(377, 243);
             this.dgContrats.TabIndex = 22;
             // 
-            // btnSupprimerContrat
-            // 
-            this.btnSupprimerContrat.AutoSize = true;
-            this.btnSupprimerContrat.Location = new System.Drawing.Point(122, 255);
-            this.btnSupprimerContrat.Name = "btnSupprimerContrat";
-            this.btnSupprimerContrat.Size = new System.Drawing.Size(131, 27);
-            this.btnSupprimerContrat.TabIndex = 24;
-            this.btnSupprimerContrat.Text = "&Supprimer contrat";
-            this.btnSupprimerContrat.UseVisualStyleBackColor = true;
-            // 
             // btnAjouterContrat
             // 
             this.btnAjouterContrat.AutoSize = true;
@@ -84,7 +73,6 @@
             // 
             this.panelContrat.AutoSize = true;
             this.panelContrat.Controls.Add(this.dgContrats);
-            this.panelContrat.Controls.Add(this.btnSupprimerContrat);
             this.panelContrat.Controls.Add(this.btnAjouterContrat);
             this.panelContrat.Location = new System.Drawing.Point(362, 12);
             this.panelContrat.Name = "panelContrat";
@@ -121,7 +109,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(748, 587);
+            this.ClientSize = new System.Drawing.Size(748, 445);
             this.Controls.Add(this.panelDGAugmentation);
             this.Controls.Add(this.panelContrat);
             this.Margin = new System.Windows.Forms.Padding(5);
@@ -143,7 +131,6 @@
         internal System.Windows.Forms.Button btnAjouterContrat;
         internal System.Windows.Forms.Panel panelContrat;
         internal System.Windows.Forms.DataGridView dgContrats;
-        internal System.Windows.Forms.Button btnSupprimerContrat;
         internal System.Windows.Forms.Panel panelDGAugmentation;
         internal System.Windows.Forms.DataGridView dgAugmentation;
         internal System.Windows.Forms.Button btnAjouterAugmentation;
