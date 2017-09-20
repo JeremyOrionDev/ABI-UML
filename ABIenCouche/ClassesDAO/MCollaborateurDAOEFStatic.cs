@@ -36,7 +36,7 @@ namespace ClassesDAO
                     item.Nom, item.Prenom, item.Rue, item.Ville, item.CodePostal, item.Telephone);
                 if (DictionnaireCollaborateur.listCollaborateur.ContainsKey(leCollaborateur.Matricule))
                 {
-                    Int32 refColab = leCollaborateur.Matricule - 1;
+                    Int32 refColab = leCollaborateur.Matricule ;
                     DictionnaireCollaborateur.listCollaborateur.Values.ElementAt(refColab).NomCollaborateur = item.Nom;
                     DictionnaireCollaborateur.listCollaborateur.Values.ElementAt(refColab).PrenomCollaborateur = item.Prenom;
                     DictionnaireCollaborateur.listCollaborateur.Values.ElementAt(refColab).RueCollab = item.Rue;

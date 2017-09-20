@@ -1,6 +1,6 @@
 ﻿namespace ABIenCouche
 {
-    partial class frmAfficheContrat
+    partial class frmAfficheAvenant
     {
         /// <summary>
         /// Required designer variable.
@@ -28,19 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // frmAfficheContrat
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(300, 620);
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "frmAfficheContrat";
-            this.Text = "frmAfficheContrat";
-            this.ResumeLayout(false);
-
+            this.Text = "frmAfficheAvenant";
         }
 
         #endregion

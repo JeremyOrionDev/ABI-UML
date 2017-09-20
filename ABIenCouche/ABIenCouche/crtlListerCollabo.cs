@@ -37,7 +37,7 @@ namespace ABIenCouche
         public   crtlListerCollabo()
         {
             init();
-            formAfficheColab.cBxRechercheCollab.Items.AddRange(new String[]{ "matricule","nom","telephone","ville"
+            formAfficheColab.cBxRechercheCollab.Items.AddRange(new String[]{ "matricule","nom","telephone","ville","cadre","non-cadre"
             });
             formAfficheColab.btnAnnulerRecherche.Click += new EventHandler(btnAnnulerRecherche_Click);
             formAfficheColab.btnAjouter.Click += new EventHandler(btnAjout_Click);
@@ -61,34 +61,150 @@ namespace ABIenCouche
 
         internal void btnAnnulerRecherche_Click(object sender,EventArgs e)
         {
-            (formAfficheColab.dgCollabo.DataSource as DataTable).DefaultView.RowFilter = null;
+            this.formAfficheColab.dgCollabo.DataSource = DictionnaireCollaborateur.ListCollab();
+            //(formAfficheColab.dgCollabo.DataSource as DataTable).DefaultView.RowFilter = null;
 
         }
 
         internal void btnRecherche_Click(object sender,EventArgs e)
         {
 
+            //if (formAfficheColab.tBxRechercher.Text!=null)
+            //{
+            //    if (formAfficheColab.cBxRechercheCollab.SelectedItem.ToString()=="nom")
+            //    {
+            //        (formAfficheColab.dgCollabo.DataSource as DataTable).DefaultView.RowFilter = string.Format("Nom = '{0}'", formAfficheColab.tBxRechercher.Text);
+            //    }
+            //    //if (formAfficheColab.cBxRechercheCollab.SelectedItem.ToString()=="ville")
+            //    //{
+            //    //    (formAfficheColab.dgCollabo.DataSource as DataTable).DefaultView.RowFilter = string.Format("VilleCollab = '{0}'", formAfficheColab.tBxRechercher.Text);
+            //    //}
+            //}
             if (formAfficheColab.tBxRechercher.Text!=null)
             {
-                if (formAfficheColab.cBxRechercheCollab.SelectedItem.ToString()=="nom")
-                {
-                    (formAfficheColab.dgCollabo.DataSource as DataTable).DefaultView.RowFilter = string.Format("Nom = '{0}'", formAfficheColab.tBxRechercher.Text);
-                }
-                //if (formAfficheColab.cBxRechercheCollab.SelectedItem.ToString()=="ville")
-                //{
-                //    (formAfficheColab.dgCollabo.DataSource as DataTable).DefaultView.RowFilter = string.Format("VilleCollab = '{0}'", formAfficheColab.tBxRechercher.Text);
-                //}
-            }
+                String cibleRecherche = formAfficheColab.cBxRechercheCollab.SelectedItem.ToString();
 
+                DataTable dt = new DataTable();
+                if (cibleRecherche=="nom")
+                {
+
+                    var query = from  c in DonneesDAO.DbContextCollaborateurs.CollaborateursSet
+                                where c.Nom==formAfficheColab.tBxRechercher.Text
+                                select c;
+                    DataRow DR = dt.NewRow();
+                    dt.Columns.Add(new DataColumn("#", typeof(Int32)));
+                    dt.Columns.Add(new DataColumn("Civ", typeof(String)));
+                    dt.Columns.Add(new DataColumn("Nom", typeof(String)));
+                    dt.Columns.Add(new DataColumn("Prénom", typeof(String)));
+                    dt.Columns.Add(new DataColumn("Adresse", typeof(String)));
+                    dt.Columns.Add(new DataColumn("Telephone", typeof(String)));
+
+                        foreach (Collaborateurs D in query)
+                        {
+                            DR = dt.NewRow();
+                            DR[0] = D.matricule;
+                            DR[1] = D.Civilite;
+                            DR[2] = D.Nom;
+                            DR[3] = D.Prenom;
+                            DR[4] = D.Rue + " " + D.CodePostal + " " + D.Ville;
+                            DR[5] = D.Telephone;
+                            dt.Rows.Add(DR);
+
+                        }
+                    
+                }
+                else if(cibleRecherche=="prenom")
+                {
+                    var query = from c in DonneesDAO.DbContextCollaborateurs.CollaborateursSet
+                                where c.Prenom == formAfficheColab.tBxRechercher.Text
+                                select c;
+                    DataRow DR = dt.NewRow();
+                    dt.Columns.Add(new DataColumn("#", typeof(Int32)));
+                    dt.Columns.Add(new DataColumn("Civ", typeof(String)));
+                    dt.Columns.Add(new DataColumn("Nom", typeof(String)));
+                    dt.Columns.Add(new DataColumn("Prénom", typeof(String)));
+                    dt.Columns.Add(new DataColumn("Adresse", typeof(String)));
+                    dt.Columns.Add(new DataColumn("Telephone", typeof(String)));
+
+                    foreach (Collaborateurs D in query)
+                    {
+                        DR = dt.NewRow();
+                        DR[0] = D.matricule;
+                        DR[1] = D.Civilite;
+                        DR[2] = D.Nom;
+                        DR[3] = D.Prenom;
+                        DR[4] = D.Rue + " " + D.CodePostal + " " + D.Ville;
+                        DR[5] = D.Telephone;
+                        dt.Rows.Add(DR);
+
+                    }
+                }
+                else if(cibleRecherche=="ville")
+                {
+                    var query = from c in DonneesDAO.DbContextCollaborateurs.CollaborateursSet
+                                where c.Ville == formAfficheColab.tBxRechercher.Text
+                                select c;
+                    DataRow DR = dt.NewRow();
+                    dt.Columns.Add(new DataColumn("#", typeof(Int32)));
+                    dt.Columns.Add(new DataColumn("Civ", typeof(String)));
+                    dt.Columns.Add(new DataColumn("Nom", typeof(String)));
+                    dt.Columns.Add(new DataColumn("Prénom", typeof(String)));
+                    dt.Columns.Add(new DataColumn("Adresse", typeof(String)));
+                    dt.Columns.Add(new DataColumn("Telephone", typeof(String)));
+
+                    foreach (Collaborateurs D in query)
+                    {
+                        DR = dt.NewRow();
+                        DR[0] = D.matricule;
+                        DR[1] = D.Civilite;
+                        DR[2] = D.Nom;
+                        DR[3] = D.Prenom;
+                        DR[4] = D.Rue + " " + D.CodePostal + " " + D.Ville;
+                        DR[5] = D.Telephone;
+                        dt.Rows.Add(DR);
+
+                    }
+                }
+                else if(cibleRecherche=="cadre")
+                {
+                    var query = from c in DonneesDAO.DbContextCollaborateurs.ContratsSet.Include("CollaborateursSet")
+                                where c.Statut == true
+                                select c.Collaborateurs;
+
+                    var t = DonneesDAO.DbContextCollaborateurs.ContratsSet.Include("CollaborateursSet").Where(c => c.Statut == true).Select(c => c.Collaborateurs);
+                    DataRow DR = dt.NewRow();
+                    dt.Columns.Add(new DataColumn("#", typeof(Int32)));
+                    dt.Columns.Add(new DataColumn("Civ", typeof(String)));
+                    dt.Columns.Add(new DataColumn("Nom", typeof(String)));
+                    dt.Columns.Add(new DataColumn("Prénom", typeof(String)));
+                    dt.Columns.Add(new DataColumn("Adresse", typeof(String)));
+                    dt.Columns.Add(new DataColumn("Telephone", typeof(String)));
+
+                    foreach (Collaborateurs D in query)
+                    {
+                        DR = dt.NewRow();
+                        DR[0] = D.matricule;
+                        DR[1] = D.Civilite;
+                        DR[2] = D.Nom;
+                        DR[3] = D.Prenom;
+                        DR[4] = D.Rue + " " + D.CodePostal + " " + D.Ville;
+                        DR[5] = D.Telephone;
+                        dt.Rows.Add(DR);
+
+                    }
+                }
+                        formAfficheColab.dgCollabo.DataSource=dt;
+                    formAfficheColab.dgCollabo.Refresh();
+            }
 
         }
 
         internal void btnAjout_Click(object sender, EventArgs e)
         {
             ctrlNouveauCollaborateur ctrl = new ctrlNouveauCollaborateur();
-            if (ctrl.resultatForm!="")
+            if (ctrl.Resultat)
             {
-                ctrlNouveauContrat leContrat = new ctrlNouveauContrat(ctrl.uncolab, ctrl.resultatForm);
+                ctrlNouveauContrat leContrat = new ctrlNouveauContrat(ctrl.uncolab);
                 if (leContrat.contratOK)
                 {
                     this.afficheCollabo();
@@ -169,6 +285,7 @@ namespace ABIenCouche
             formAfficheColab.dgCollabo.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
             formAfficheColab.dgCollabo.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             formAfficheColab.dgCollabo.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            formAfficheColab.dgCollabo.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
         }
     }

@@ -34,10 +34,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(359, 521);
+            this.ClientSize = new System.Drawing.Size(352, 376);
             this.Name = "frmNouveauCollab";
             this.Text = "frmNouveauCollab";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

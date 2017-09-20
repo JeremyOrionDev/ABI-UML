@@ -67,6 +67,12 @@
     <Compile Include="AfficheCollab.Designer.cs">
       <DependentUpon>AfficheCollab.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAfficheAvenant.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAfficheAvenant.Designer.cs">
+      <DependentUpon>frmAfficheAvenant.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAfficheCollab.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,11 +129,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="WaterMarkTextBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <EmbeddedResource Include="AfficheCollab.resx">
       <DependentUpon>AfficheCollab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAfficheAvenant.resx">
+      <DependentUpon>frmAfficheAvenant.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAfficheCollab.resx">
       <DependentUpon>frmAfficheCollab.cs</DependentUpon>

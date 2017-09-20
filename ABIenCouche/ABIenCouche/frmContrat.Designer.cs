@@ -70,12 +70,12 @@
             this.lblSalaire = new System.Windows.Forms.Label();
             this.panelDebut = new System.Windows.Forms.Panel();
             this.panelAvenant = new System.Windows.Forms.Panel();
+            this.dgAvenant = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnValiderContrat = new System.Windows.Forms.Button();
             this.btnAnnuler = new System.Windows.Forms.Button();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.errorProviderContrat = new System.Windows.Forms.ErrorProvider(this.components);
-            this.dgAvenant = new System.Windows.Forms.DataGridView();
             this.gBxCadre.SuspendLayout();
             this.panelDate.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -91,9 +91,9 @@
             this.panelSalaire.SuspendLayout();
             this.panelDebut.SuspendLayout();
             this.panelAvenant.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgAvenant)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderContrat)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgAvenant)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNumContrat
@@ -111,7 +111,7 @@
             this.txBxNumeroContrat.Enabled = false;
             this.txBxNumeroContrat.Location = new System.Drawing.Point(100, 3);
             this.txBxNumeroContrat.Name = "txBxNumeroContrat";
-            this.txBxNumeroContrat.Size = new System.Drawing.Size(216, 20);
+            this.txBxNumeroContrat.Size = new System.Drawing.Size(174, 20);
             this.txBxNumeroContrat.TabIndex = 0;
             // 
             // lblCadre
@@ -171,7 +171,7 @@
             // 
             this.tBxFonctionContrat.Location = new System.Drawing.Point(100, 3);
             this.tBxFonctionContrat.Name = "tBxFonctionContrat";
-            this.tBxFonctionContrat.Size = new System.Drawing.Size(216, 20);
+            this.tBxFonctionContrat.Size = new System.Drawing.Size(174, 20);
             this.tBxFonctionContrat.TabIndex = 4;
             // 
             // lblQualificationContrat
@@ -188,7 +188,7 @@
             // 
             this.tBxQualification.Location = new System.Drawing.Point(100, 2);
             this.tBxQualification.Name = "tBxQualification";
-            this.tBxQualification.Size = new System.Drawing.Size(216, 20);
+            this.tBxQualification.Size = new System.Drawing.Size(174, 20);
             this.tBxQualification.TabIndex = 5;
             // 
             // choixDateDebutContrat
@@ -237,6 +237,7 @@
             // 
             // cBxTypeContrat
             // 
+            this.cBxTypeContrat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBxTypeContrat.FormattingEnabled = true;
             this.cBxTypeContrat.Location = new System.Drawing.Point(100, 3);
             this.cBxTypeContrat.Name = "cBxTypeContrat";
@@ -275,7 +276,7 @@
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(12, 12);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(357, 613);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(357, 601);
             this.flowLayoutPanel2.TabIndex = 20;
             // 
             // panelContratNumero
@@ -317,7 +318,7 @@
             // 
             this.tBxLibelle.Location = new System.Drawing.Point(100, 5);
             this.tBxLibelle.Name = "tBxLibelle";
-            this.tBxLibelle.Size = new System.Drawing.Size(216, 20);
+            this.tBxLibelle.Size = new System.Drawing.Size(174, 20);
             this.tBxLibelle.TabIndex = 1;
             // 
             // lblLibelleContrat
@@ -351,7 +352,7 @@
             // 
             this.tBxMotifContrat.Location = new System.Drawing.Point(100, 3);
             this.tBxMotifContrat.Name = "tBxMotifContrat";
-            this.tBxMotifContrat.Size = new System.Drawing.Size(216, 20);
+            this.tBxMotifContrat.Size = new System.Drawing.Size(174, 20);
             this.tBxMotifContrat.TabIndex = 3;
             // 
             // lblMotifContrat
@@ -394,7 +395,7 @@
             // 
             this.tBxEcole.Location = new System.Drawing.Point(100, 3);
             this.tBxEcole.Name = "tBxEcole";
-            this.tBxEcole.Size = new System.Drawing.Size(216, 20);
+            this.tBxEcole.Size = new System.Drawing.Size(174, 20);
             this.tBxEcole.TabIndex = 6;
             // 
             // lblEcole
@@ -419,7 +420,7 @@
             // 
             this.tBxAgence.Location = new System.Drawing.Point(100, 3);
             this.tBxAgence.Name = "tBxAgence";
-            this.tBxAgence.Size = new System.Drawing.Size(216, 20);
+            this.tBxAgence.Size = new System.Drawing.Size(174, 20);
             this.tBxAgence.TabIndex = 7;
             // 
             // lblAgence
@@ -444,7 +445,7 @@
             // 
             this.tBxSalaire.Location = new System.Drawing.Point(100, 4);
             this.tBxSalaire.Name = "tBxSalaire";
-            this.tBxSalaire.Size = new System.Drawing.Size(216, 20);
+            this.tBxSalaire.Size = new System.Drawing.Size(174, 20);
             this.tBxSalaire.TabIndex = 8;
             // 
             // lblSalaire
@@ -473,19 +474,27 @@
             this.panelAvenant.Size = new System.Drawing.Size(351, 154);
             this.panelAvenant.TabIndex = 26;
             // 
+            // dgAvenant
+            // 
+            this.dgAvenant.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgAvenant.Location = new System.Drawing.Point(3, 5);
+            this.dgAvenant.Name = "dgAvenant";
+            this.dgAvenant.Size = new System.Drawing.Size(271, 146);
+            this.dgAvenant.TabIndex = 0;
+            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.btnValiderContrat);
             this.panel3.Controls.Add(this.btnAnnuler);
             this.panel3.Location = new System.Drawing.Point(3, 569);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(348, 41);
+            this.panel3.Size = new System.Drawing.Size(282, 29);
             this.panel3.TabIndex = 27;
             // 
             // btnValiderContrat
             // 
             this.btnValiderContrat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnValiderContrat.Location = new System.Drawing.Point(3, 1);
+            this.btnValiderContrat.Location = new System.Drawing.Point(6, 3);
             this.btnValiderContrat.Name = "btnValiderContrat";
             this.btnValiderContrat.Size = new System.Drawing.Size(75, 23);
             this.btnValiderContrat.TabIndex = 11;
@@ -495,7 +504,7 @@
             // btnAnnuler
             // 
             this.btnAnnuler.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAnnuler.Location = new System.Drawing.Point(84, 1);
+            this.btnAnnuler.Location = new System.Drawing.Point(96, 3);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(75, 23);
             this.btnAnnuler.TabIndex = 25;
@@ -506,14 +515,6 @@
             // 
             this.errorProviderContrat.ContainerControl = this;
             // 
-            // dgAvenant
-            // 
-            this.dgAvenant.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgAvenant.Location = new System.Drawing.Point(3, 5);
-            this.dgAvenant.Name = "dgAvenant";
-            this.dgAvenant.Size = new System.Drawing.Size(345, 146);
-            this.dgAvenant.TabIndex = 0;
-            // 
             // frmContrat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -521,7 +522,7 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(377, 633);
+            this.ClientSize = new System.Drawing.Size(306, 614);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Name = "frmContrat";
             this.Text = "frmContrat";
@@ -553,9 +554,9 @@
             this.panelDebut.ResumeLayout(false);
             this.panelDebut.PerformLayout();
             this.panelAvenant.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgAvenant)).EndInit();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderContrat)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgAvenant)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

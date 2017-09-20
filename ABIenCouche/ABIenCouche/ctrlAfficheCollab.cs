@@ -104,7 +104,6 @@ namespace ABIenCouche
             formAffiche.txtBxVille.Enabled = false;
             formAffiche.txtBxCP.Enabled = false;
             formAffiche.tBxTel.Enabled = false;
-            formAffiche.panelAugmentation.Visible=true;
             formAffiche.cBxSituation.Enabled = false;
             formAffiche.panelContrat.Visible = false;
             formAffiche.cBxCivilite.Items.AddRange(new String[] { "Mr", "Mme","Mlle" });
@@ -118,11 +117,6 @@ namespace ABIenCouche
             formAffiche.tBxTel.Text = unColab.Telephone;
             formAffiche.cBxSituation.SelectedItem = unColab.SituationMaritale;
             formAffiche.cBxCivilite.SelectedItem = unColab.Civilite;
-            formAffiche.TbxAugmentation.Text = unColab.Augmentation.ToString();
-            formAffiche.panelPhoto.Visible = false;
-            formAffiche.panelAffichagePhoto.Visible = false;
-            formAffiche.panelTypeContrat.Visible = false;
-            formAffiche.TbxAugmentation.Enabled = false;
             formAffiche.btnAnnulerColab.Click += new EventHandler(btnAnnuler_Click);
             formAffiche.btnContrats.Click += new EventHandler(this.btnContrats_Click);
             formAffiche.dgContrats.DoubleClick += new EventHandler(dgContrat_DoubleClick);
@@ -141,7 +135,7 @@ namespace ABIenCouche
 
         private void btnAjoutContrat_Click(object sender, EventArgs e)
         {
-            ctrlNouveauContrat leNouveauContrat = new ctrlNouveauContrat(this.leCollaborateur, "");
+            ctrlNouveauContrat leNouveauContrat = new ctrlNouveauContrat(this.leCollaborateur);
             if (leNouveauContrat.contratOK)
             {
                 init();
@@ -209,11 +203,7 @@ namespace ABIenCouche
                     i++;
                     Modif += "\t\u2022 le code postal du Collaborateur: " + leCollaborateur.CpCollab + " va être modifié en: " + formAffiche.txtBxCP.Text + "\r";
                 }
-                if (formAffiche.TbxAugmentation.Text != leCollaborateur.Augmentation.ToString())
-                {
-                    i++;
-                    Modif += "\t\u2022 le Collaborateur va être augmenté de : " + leCollaborateur.Augmentation + " va être modifié en: " + formAffiche.TbxAugmentation.Text + "\r";
-                }
+
                 Modif ="Vous avez fait "+i+" modifications: \r"+Modif;
                 DialogResult DR = MessageBox.Show(Modif, "Valider les modifications ?", MessageBoxButtons.OKCancel);
                 if (DR==DialogResult.OK)
@@ -257,7 +247,6 @@ namespace ABIenCouche
             formAffiche.txtBxCP.Enabled = true;
             formAffiche.tBxTel.Enabled = true;
             formAffiche.cBxSituation.Enabled = true;
-            formAffiche.TbxAugmentation.Enabled = true;
             formAffiche.btnOKColab.Text = "Enregistrer";
         }
 

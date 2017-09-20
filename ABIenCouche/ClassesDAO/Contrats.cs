@@ -15,14 +15,14 @@ namespace ClassesDAO
     public partial class Contrats
     {
 
-    
-        internal int NumContrat { get; set; }
-        internal bool Statut { get; set; }
-        internal string Qualification { get; set; }
-        internal string Libelle { get; set; }
-        internal string Fonction { get; set; }
-        internal System.DateTime DateDebut { get; set; }
-        internal int idContrat { get; set; }
+
+        public int NumContrat { get; set; }
+        public bool Statut { get; set; }
+        public string Qualification { get; set; }
+        public string Libelle { get; set; }
+        public string Fonction { get; set; }
+        public System.DateTime DateDebut { get; set; }
+        public int idContrat { get; set; }
     
         public virtual Collaborateurs Collaborateurs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

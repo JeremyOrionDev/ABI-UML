@@ -8,9 +8,9 @@ namespace ClassesDAO
 {
     public partial class Collaborateurs
     {
-        public Collaborateurs(Int32 unMatricule, String uneCivilite, String situation, String unNom, String unPrenom, String uneRue, String uneVille, String unCP, Int32 uneAugmentation, String unTel)
+        public Collaborateurs(Int32 unMatricule, String uneCivilite, String situation, String unNom, String unPrenom, String uneRue, String uneVille, String unCP, String unTel)
         {
-            
+            matricule = unMatricule;
             Civilite = uneCivilite;
             SituationMaritale = situation;
             Nom = unNom;

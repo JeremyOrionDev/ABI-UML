@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ABIenCouche
 {
@@ -111,6 +112,12 @@ namespace ABIenCouche
 
                 }
                 leForm.dgAvenant.DataSource = MCollaborateurDAOEFStatic.ListerAvenant(unContrat);
+                leForm.dgAvenant.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+                leForm.dgAvenant.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+                leForm.dgAvenant.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+                leForm.dgAvenant.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                            //formAfficheColab.dgCollabo.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+
             } 
             leForm.ShowDialog();
       

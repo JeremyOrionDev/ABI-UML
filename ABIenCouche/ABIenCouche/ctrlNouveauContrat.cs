@@ -15,11 +15,7 @@ namespace ABIenCouche
         /// ref au collaborateur à qui ajouter le collaborateur
         /// </summary>
         private Collaborateur leCollaborateur;
-        private frmContratTemporaire formContratTemp;
         internal Boolean contratOK=false;
-        /// ref au form de nouveau contrat CDI
-        /// </summary>
-        private frmContratCDI formContratCDI;
 
         private frmContrat formContrat;
         /// <summary>
@@ -27,7 +23,7 @@ namespace ABIenCouche
         /// </summary>
         //private frmContratTemporaire formContratTemp;
 
-        public ctrlNouveauContrat(Collaborateur unCollaborateur,String unType)
+        public ctrlNouveauContrat(Collaborateur unCollaborateur )
         {
 
             this.leCollaborateur = unCollaborateur;
@@ -47,123 +43,187 @@ namespace ABIenCouche
             formContrat.panelFonction.Visible = false;
             formContrat.panelQualification.Visible = false;
             formContrat.panelDebut.Visible = false;
-            formContrat.txBxNumeroContrat.Enabled = false;
+            formContrat.txBxNumeroContrat.Visible = true;
             if (leCollaborateur.LesContrats.Count == 0)
             {
                 formContrat.txBxNumeroContrat.Text = "1";
             }
             else formContrat.txBxNumeroContrat.Text = ((leCollaborateur.LesContrats.Count) + 1).ToString();
             formContrat.cBxTypeContrat.SelectedValueChanged += new EventHandler(cBxTypeContrat_SelectedIndexChanged);
-                formContrat.btnValiderContrat.Click += new EventHandler(btnValiderContrat_Click);
+                formContrat.btnValiderContrat.Click += new EventHandler(btnValiderContrat_click);
+            formContrat.btnAnnuler.Click += new EventHandler(btnAnnucler_Click);
             formContrat.ShowDialog();
 
         }
+
+        private void btnAnnucler_Click(object sender, EventArgs e)
+        {
+            formContrat.Close();
+            Collaborateurs leColab = DonneesDAO.DbContextCollaborateurs.CollaborateursSet.Find(leCollaborateur.Matricule);
+            DonneesDAO.DbContextCollaborateurs.CollaborateursSet.Remove(leColab);
+            DonneesDAO.DbContextCollaborateurs.SaveChanges();
+        }
+
         private void cBxTypeContrat_SelectedIndexChanged(object sender,EventArgs e)
         {
+                Collaborateurs unColab = DonneesDAO.DbContextCollaborateurs.CollaborateursSet.Find(leCollaborateur.Matricule);
+                if (unColab.Contrats!=null)
+                {
+                if (unColab.Contrats.FirstOrDefault().Avenant.Count != 0)
+                {
+
+                    formContrat.panelAvenant.Visible = true;
+                }
+                }
+                else formContrat.panelAvenant.Visible = false;
             if (formContrat.cBxTypeContrat.SelectedItem.ToString() == "CDI")
             {
                 formContrat.panelAgence.Enabled = false;
-                formContrat.txBxNumeroContrat.Enabled = false;
                 formContrat.panelAgence.Visible = false;
-                formContrat.panelEcole.Visible = false;
-                formContrat.panelAvenant.Visible = false;
                 formContrat.panelDate.Visible = false;
                 formContrat.panelEcole.Visible = false;
-                formContrat.panelMotif.Visible = false;
-                formContrat.panelSalaire.Visible = false;
-                formContrat.panelLibelle.Visible = false;
-                formContrat.panelCadre.Visible = false;
-                formContrat.panelFonction.Visible = false;
-                formContrat.panelQualification.Visible = false;
-                formContrat.panelDebut.Visible = false;
-                formContrat.txBxNumeroContrat.Enabled = false;
+                formContrat.panelMotif.Visible = true;
+                formContrat.panelSalaire.Visible = true;
+                formContrat.panelLibelle.Visible = true;
+                formContrat.panelCadre.Visible = true;
+                formContrat.panelFonction.Visible = true;
+                formContrat.panelQualification.Visible = true;
+                formContrat.panelDebut.Visible = true;
 
             }
             else if (formContrat.cBxTypeContrat.SelectedItem.ToString() == "CDD")
             {
 
-                formContrat.txBxNumeroContrat.Enabled = false;
                 formContrat.panelDate.Visible = true;
-                
-                if (DictionnaireCollaborateur.Exist(leCollaborateur))
-                {
-                    formContrat.txBxNumeroContrat.Text = (leCollaborateur.LesContrats.Count() + 1).ToString();
+                formContrat.panelAgence.Visible = false;
+                formContrat.panelEcole.Visible = false;
+                formContrat.panelDate.Visible = true;
+                formContrat.panelMotif.Visible = true;
+                formContrat.panelSalaire.Visible = true;
+                formContrat.panelLibelle.Visible = true;
+                formContrat.panelCadre.Visible = true;
+                formContrat.panelFonction.Visible = true;
+                formContrat.panelQualification.Visible = true;
+                formContrat.panelDebut.Visible = true;
 
-                }
-                else formContrat.txBxNumeroContrat.Text = "1";
                 
             }
             else if (formContrat.cBxTypeContrat.SelectedItem.ToString() == "STAGE")
             {
 
-
-
+                formContrat.panelAgence.Visible = false;
+                formContrat.panelEcole.Visible = true;
+                formContrat.panelDate.Visible = true;
+                formContrat.panelMotif.Visible = true;
+                formContrat.panelSalaire.Visible = false;
+                formContrat.panelLibelle.Visible = true;
+                formContrat.panelCadre.Visible = true;
+                formContrat.panelFonction.Visible = true;
+                formContrat.panelQualification.Visible = true;
+                formContrat.panelDebut.Visible = true;
             }
+            else if(formContrat.cBxTypeContrat.SelectedItem.ToString()=="INTERIM")
+            {
+                formContrat.panelAgence.Visible = true;
+                formContrat.panelEcole.Visible = false;
+                formContrat.panelDate.Visible = true;
+                formContrat.panelMotif.Visible = true;
+                formContrat.panelSalaire.Visible = true;
+                formContrat.panelLibelle.Visible = true;
+                formContrat.panelCadre.Visible = true;
+                formContrat.panelFonction.Visible = true;
+                formContrat.panelQualification.Visible = true;
+                formContrat.panelDebut.Visible = true;
+            }
+        }
+        private Boolean Controle(frmContrat leForm)
+        {
+            Boolean test = true;
+            if (leForm.tBxEcole.Text == "" && leForm.panelEcole.Visible == true)
+            {
+                test = false;
+                leForm.errorProviderContrat.SetError(leForm.tBxEcole, "Veuillez entrer l'école du stagiaire");
+            }
+            if (leForm.tBxFonctionContrat.Text == "")
+            {
+                test = false;
+                leForm.errorProviderContrat.SetError(leForm.tBxFonctionContrat, "Veuillez entrer la fonction du collaborateur");
+            }
+            if (leForm.tBxAgence.Text == "" && leForm.panelAgence.Visible == true)
+            {
+                test = false;
+                leForm.errorProviderContrat.SetError(leForm.tBxAgence, "Veuillez entrer l'agence interim du collaborateur interimaire");
+            }
+            if (leForm.tBxSalaire.Text == "" && leForm.panelSalaire.Visible == true)
+            {
+                test = false;
+                leForm.errorProviderContrat.SetError(leForm.tBxSalaire, "Veuillez entrer le salaire du collaborateur");
+            }
+            if (leForm.tBxLibelle.Text == "")
+            {
+                test = false;
+                leForm.errorProviderContrat.SetError(leForm.tBxLibelle, "Veuillez entrer le libellé du contrat");
+            }
+            if (leForm.tBxMotifContrat.Text == "")
+            {
+                test = false;
+                leForm.errorProviderContrat.SetError(leForm.tBxMotifContrat, "Veuillez entrer le motif du contrat temporaire");
+            }
+            if (leForm.tBxQualification.Text == "")
+            {
+                test = false;
+                leForm.errorProviderContrat.SetError(leForm.tBxQualification, "Veuillez entrer la qualification du collaborateur");
+            }
+            if (leForm.ChoixDateFinContrat.Text == leForm.choixDateDebutContrat.Text && formContrat.panelDate.Visible == true)
+            {
+                test = false;
+                leForm.errorProviderContrat.SetError(leForm.ChoixDateFinContrat, "Veuillez entrer la date de fin de contrat du contrat temporaire");
+            }
+            if (test)
+            {
+                return true;
+            }
+            else return false;
         }
 
         private void btnValiderContrat_click(object sender,EventArgs e)
         {
-            Boolean test=true;
-            if (formContrat.tBxEcole.Text=="" && formContrat.panelEcole.Visible == true)
+            if (Controle(formContrat))
             {
-                test = false;
-                formContratTemp.errorProviderContrat.SetError(formContratTemp.tBxEcole, "merci de renseigner le champ");
+                if (Instancie())
+                {
+                    formContrat.DialogResult = DialogResult.OK;
+                    contratOK = true;
+                    formContrat.Close();
+                }
             }
-            if (formContratTemp.tBxFonctionContrat.Text=="")
-            {
-                test = false;
-                formContratTemp.errorProviderContrat.SetError(formContratTemp.tBxFonctionContrat, "merci de renseigner le champ");
-            }
-            if (formContratTemp.tBxAgence.Text == ""&&formContratTemp.panelAgence.Visible==true)
-            {
-                test = false;
-                formContratTemp.errorProviderContrat.SetError(formContratTemp.tBxAgence, "merci de renseigner le champ");
-            }
-            if (formContratTemp.tBxSalaire.Text == "" && formContratTemp.panelSalaire.Visible == true)
-            {
-                test = false;
-                formContratTemp.errorProviderContrat.SetError(formContratTemp.tBxSalaire, "merci de renseigner le champ");
-            }
-            if (formContratTemp.tBxLibelle.Text == "" )
-            {
-                test = false;
-                formContratTemp.errorProviderContrat.SetError(formContratTemp.tBxLibelle, "merci de renseigner le champ");
-            }
-            if (formContratTemp.tBxMotifContrat.Text == "")
-            {
-                test = false;
-                formContratTemp.errorProviderContrat.SetError(formContratTemp.tBxMotifContrat, "merci de renseigner le champ");
-            }
-            if (formContratTemp.tBxQualification.Text == "")
-            {
-                test = false;
-                formContratTemp.errorProviderContrat.SetError(formContratTemp.tBxQualification, "merci de renseigner le champ");
-            }
-            if (formContratTemp.ChoixDateFinContrat.Text == formContratTemp.choixDateDebutContrat.Text&&formContratTemp.panelDate.Visible==true)
-            {
-                test = false;
-                formContratTemp.errorProviderContrat.SetError(formContratTemp.ChoixDateFinContrat, "merci de renseigner le champ");
-            }
+            
         }
 
-        private void btnValiderContrat_Click(object sender,EventArgs e)
+        private bool Instancie()
         {
-            Boolean cadre;
-            if (formContratCDI.rbtCadreOui.Checked)
+            try
             {
-                cadre = true;
-            } else cadre = false;
-            ContratCDI leContrat = new ContratCDI(formContratCDI.tBxLibelle.Text,Convert.ToDouble( formContratCDI.tBxSalaire.Text), Convert.ToInt32( formContratCDI.txBxNumeroContrat.Text), formContratCDI.tBxFonctionContrat.Text, formContratCDI.tBxQualification.Text,cadre, formContratCDI.choixDateDebutContrat.Value);
-            leCollaborateur.ajoutContrat(leContrat);
-            Collaborateurs unCollaborateur = DonneesDAO.DbContextCollaborateurs.CollaborateursSet.Find(leCollaborateur.Matricule);
-            ClassesDAO.ContratCDI leCDI = new ClassesDAO.ContratCDI(leContrat.LibelleContrat, leContrat.SalaireBrut, leContrat.NumContrat, leContrat.FonctionCollaborateur, leContrat.QualificationCollaborateur, leContrat.LeStatut, leContrat.DateDebutContrat);
-            unCollaborateur.Contrats.Add(leCDI);
-            DonneesDAO.DbContextCollaborateurs.SaveChanges();
-            formContratCDI.DialogResult = DialogResult.OK;
-            contratOK = true;
-            formContratCDI.Close();
+                Boolean cadre;
+                if (formContrat.rbtCadreOui.Checked)
+                {
+                    cadre = true;
+                }
+                else cadre = false;
+                ContratCDI leContrat = new ContratCDI(formContrat.tBxLibelle.Text, Convert.ToDouble(formContrat.tBxSalaire.Text), Convert.ToInt32(formContrat.txBxNumeroContrat.Text), formContrat.tBxFonctionContrat.Text, formContrat.tBxQualification.Text, cadre, formContrat.choixDateDebutContrat.Value);
+                leCollaborateur.ajoutContrat(leContrat);
+                Collaborateurs unCollaborateur = DonneesDAO.DbContextCollaborateurs.CollaborateursSet.Find(leCollaborateur.Matricule);
+                ClassesDAO.ContratCDI leCDI = new ClassesDAO.ContratCDI(leContrat.LibelleContrat, leContrat.SalaireBrut, leContrat.NumContrat, leContrat.FonctionCollaborateur, leContrat.QualificationCollaborateur, leContrat.LeStatut, leContrat.DateDebutContrat);
+
+                unCollaborateur.Contrats.Add(leCDI);
+                DonneesDAO.DbContextCollaborateurs.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("erreur");
+            }
         }
-
-
     }
 }

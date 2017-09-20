@@ -30,7 +30,7 @@ namespace ABIenCouche
         /// Ajout du collaborateur unColab en collection
         /// </summary>
         /// <param name="unColab">le collaborateur a ajouter en collection</param>
-        public void Ajouter(Collaborateur unColab)
+        public static void Ajouter(Collaborateur unColab)
         {
     
             if (!listCollaborateur.ContainsKey(unColab.Matricule))

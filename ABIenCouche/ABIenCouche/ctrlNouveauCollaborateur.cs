@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClassesDAO;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -49,69 +50,39 @@ namespace ABIenCouche
         public ctrlNouveauCollaborateur()
         {
             this.leForm = new frmNouveauCollab();
+            leForm.btnAnnulerColab.Click += new EventHandler(btnAnnuler_Click);
             leForm.txtBoxMatriculeCollab.Enabled = false;
-            leForm.panelAffichagePhoto.Visible = true;
-            leForm.panelPhoto.Visible = true;
             leForm.btnContrats.Visible = false;
             leForm.btnModifier.Visible = false;
-            leForm.panelAugmentation.Visible = false;
             leForm.cBxSituation.Items.AddRange(new String[]
    {"Célibataire","Marié","Divorcé"});
             leForm.cBxSituation.Text = "cliquez-moi";
-            leForm.cBxTypeContratColab.Items.AddRange(new String[]
-               {"stage","cdd","interim","CDI"});
-            leForm.cBxTypeContratColab.Text = "cliquez-moi";
+              
             leForm.cBxCivilite.Items.AddRange(new String[]
     {"Mr","Mme","Mlle"});
             leForm.cBxCivilite.Text = "cliquez-moi";
             this.leForm.Text = "Ajouter un collaborateur au projet en cours";
             this.leForm.btnOKColab.Click += new EventHandler(this.btnOK_Click);
-            this.leForm.btnAnnulerColab.Click += new EventHandler(this.btnAnnuler_Click);
-            this.leForm.btnParcourircollab.Click += new EventHandler(btnParcourirCollab_Click);
             Int32 numColab;
-            leForm.btnModifierPhoto.Visible = false;
             numColab = DictionnaireCollaborateur.nbCollab();
-            leForm.txtBoxMatriculeCollab.Text = (numColab + 1).ToString();
-            leForm.FormClosing += new FormClosingEventHandler(exit);
+            leForm.txtBoxMatriculeCollab.Text = (DictionnaireCollaborateur.listCollaborateur.Count).ToString();
             leForm.ShowDialog();
+         
             //leForm.cBxTypeContratColab.Enabled = leForm.chkBxContrat.Checked ? false : true;
         }
-        String path;
-        private void btnParcourirCollab_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                OpenFileDialog openPhoto = new OpenFileDialog();
-                openPhoto.Filter = "Images files jpeg | *.jpg";
-                openPhoto.Multiselect = false;
-                if (openPhoto.ShowDialog() == DialogResult.OK)
-                {
-                    path = openPhoto.FileName;
-                    leForm.txtBxAdressePhoto.Enabled = false;
-                    leForm.txtBxAdressePhoto.Text = path;
-                    FileStream fs = new FileStream(@path, FileMode.Open);
-                    leForm.pictureBoxPhotoCollab.Image = Image.FromStream(fs);
-                    fs.Close();
-                    using (StreamReader reader = new StreamReader(new FileStream(path, FileMode.Open), new UTF8Encoding()));
-                }
-            }
-            catch (Exception)
-            {
 
-                throw new Exception(" erreur rencontrée:" + e);
-            }
-
-        }
 
         private void btnAnnuler_Click(object sender, EventArgs e)
         {
-            this.leForm.Close();
+            leForm.DialogResult = DialogResult.Cancel;
+            resultat = false;
+            if (leForm.DialogResult==DialogResult.Cancel)
+            {
+                leForm.Close();
+            }
+            
         }
 
-        private void    exit(object sender,EventArgs e)
-        {
-            leForm.Close();
-        }
         internal Boolean Controle(frmNouveauCollab unForm)
         {
 
@@ -120,8 +91,7 @@ namespace ABIenCouche
             Int32 i = 0;
             if (!(Outils.CPControl(leForm.txtBxCP.Text)))
             {
-                i++;
-                
+                i++;                
                 leForm.errorProviderCollab.SetError(leForm.txtBxCP, "erreur de code postale");
                 erreur += "\t\u2022 Le code postal n'est pas un entier de 5 caractères \r";
             }
@@ -129,36 +99,43 @@ namespace ABIenCouche
             {
                 i++;
                 erreur += "\t\u2022 La situation maritale n'a pas été sélectionnée \r";
+                leForm.errorProviderCollab.SetError(leForm.cBxSituation, "Veuillez sélectionner la situation maritale du collaborateur");
             }
             if (!(Outils.controlTel(leForm.tBxTel.Text.ToString())))
             {
                 i++;
                 erreur += "\t\u2022 La valeur du telephone n'est pas un nombre composé de 10 chiffres \r";
+                leForm.errorProviderCollab.SetError(leForm.tBxTel, "erreur de telephone");
             }
-            if (leForm.cBxCivilite.SelectedText==null)
+            if (leForm.cBxCivilite.SelectedItem==null)
             {
                 i++;
                 erreur += "\t\u2022 La civilité du collaborateur enregistré n'à pas été sélectionnée\r";
+                leForm.errorProviderCollab.SetError(leForm.cBxCivilite, "Veuillez sélectionner la civilité du collaborateur");
             }
             if (leForm.txtBoxPrenomCollab.Text=="")
             {
                 i++;
                 erreur += "\t\u2022 Le prénom du collaborateur n'a pas été renseigné \r";
+                leForm.errorProviderCollab.SetError(leForm.txtBoxPrenomCollab, "Veuillez entrer le prénom du collaborateur");
             }
             if (leForm.txtBoxNomCollab.Text == "")
             {
                 i++;
                 erreur += "\t\u2022 Le nom du collaborateur enregistré n'à pas été entré\r";
+                leForm.errorProviderCollab.SetError(leForm.txtBoxNomCollab, "Veuillez entrer le nom du collaborateur");
             }
             if (leForm.txtBoxRueCollab.Text=="")
             {
                 i++;
                 erreur += "\t\u2022 La rue du collaborateur n'a pas été renseigné\r";
+                leForm.errorProviderCollab.SetError(leForm.txtBoxRueCollab, "Veuillez entrer la rue du collaborateur");
             }
             if (leForm.txtBxVille.Text=="")
             {
                 i++;
                 erreur += "\t\u2022 La ville n'a pas été renseignée";
+                leForm.errorProviderCollab.SetError(leForm.txtBxVille, "Veuillez entrer la ville du collaborateur");
             }
             if (i != 0)
             {
@@ -167,17 +144,19 @@ namespace ABIenCouche
             }
             else return true;
         }
-        internal Boolean Instancie(Collaborateur uncolab)
+        internal Boolean Instancie()
         {
 
             
             try
             {
 
-                 this.uncolab = new Collaborateur(Convert.ToInt32(leForm.txtBoxMatriculeCollab.Text),leForm.cBxCivilite.SelectedItem.ToString(),leForm.cBxSituation.SelectedItem.ToString(), leForm.txtBoxNomCollab.Text, leForm.txtBoxPrenomCollab.Text, leForm.txtBoxRueCollab.Text,
+                uncolab = new Collaborateur(Convert.ToInt32(leForm.txtBoxMatriculeCollab.Text),leForm.cBxCivilite.SelectedItem.ToString(),leForm.cBxSituation.SelectedItem.ToString(), leForm.txtBoxNomCollab.Text, leForm.txtBoxPrenomCollab.Text, leForm.txtBoxRueCollab.Text,
                      leForm.txtBxVille.Text, leForm.txtBxCP.Text, leForm.tBxTel.Text) ;
-                DictionnaireCollaborateur.listCollaborateur.Add(uncolab.Matricule,uncolab);
-
+                DictionnaireCollaborateur.Ajouter(uncolab);
+                Collaborateurs E = new Collaborateurs(uncolab.Matricule, uncolab.Civilite, uncolab.SituationMaritale, uncolab.NomCollaborateur, uncolab.PrenomCollaborateur, uncolab.RueCollab, uncolab.VilleCollab, uncolab.CpCollab, uncolab.Telephone);
+                DonneesDAO.DbContextCollaborateurs.CollaborateursSet.Add(E);
+                DonneesDAO.DbContextCollaborateurs.SaveChanges();
                 return true;
             }
             catch (Exception ex)
@@ -191,37 +170,16 @@ namespace ABIenCouche
         private void btnOK_Click(object sender, EventArgs e)
         {
 
-        
+            
             if (Controle(leForm))
             {
-                if (Instancie(uncolab))
+                if (Instancie())
                 {
-                    resultatForm = leForm.cBxTypeContratColab.SelectedItem.ToString();
                     leForm.DialogResult = DialogResult.OK;
+                    ctrlNouveauContrat leNouveauContrat = new ctrlNouveauContrat(uncolab);
                 }
                 
             } 
-
-           
-
-
-            //frmContratCDI leCDI = new frmContratCDI();
-            //frmContratTemporaire contratTemp = new frmContratTemporaire();
-            //if (leForm.cBxTypeContratColab.Text == "CDI")
-            //{
-
-            //    leCDI.ShowDialog();
-            //}
-            //else
-            //{
-            //    contratTemp.ShowDialog();
-            //}
-            //if (leCDI.DialogResult==DialogResult.OK)
-            //{
-            //    DictionnaireCollaborateur.Ajouter(leColab);
-
-            //}
-
 
         }
     }
