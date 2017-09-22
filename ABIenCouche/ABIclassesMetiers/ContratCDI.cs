@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace ABIenCouche
 {
+    /// <summary>
+    /// Classe publique de contrat de type CDI
+    /// </summary>
     public class ContratCDI:Contrat
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public SortedDictionary<Int32, avenantContrat> lesAvenants = new SortedDictionary<int, avenantContrat>();
 
         public ContratCDI( String unLibelle, Double unSalaire, Int32 unNumContrat, String uneFonction, String uneQualif, Boolean unStatut, DateTime leDebut) :

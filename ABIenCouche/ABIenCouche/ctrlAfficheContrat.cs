@@ -8,19 +8,48 @@ using System.Windows.Forms;
 
 namespace ABIenCouche
 {
+    /// <summary>
+    /// Classe du controleur d'affichage du contrat
+    /// </summary>
     class ctrlAfficheContrat
     {
+        /// <summary>
+        /// Attribut privé référençant le contrat du collaborateur à afficher
+        /// </summary>
         private Contrats leContrat;
+        /// <summary>
+        /// Attribut privé de la Classe DAO du contrat de type CDD pour accès au attributs du CDD
+        /// </summary>
         private ClassesDAO.ContratCDD leCDD;
+        /// <summary>
+        /// Attribut privé de la ClasseDAO de contrat de type CDI pour accès aux attribut de la classe ContratCDI
+        /// </summary>
         private ClassesDAO.ContratCDI leCDI;
+        /// <summary>
+        /// Attribut privé de type ClasseDAO Contrat interim pour accès aux attribut de cette classe
+        /// </summary>
         private ContratInterim lInterim;
+        /// <summary>
+        /// Attribut privé de type classeDAO contrat stage pour accès aux attributs de cette classe
+        /// </summary>
         private ClassesDAO.ContratStage leStage;
+        /// <summary>
+        /// Attribut privé de type formAfficheContrat pour l'ouverture du form
+        /// </summary>
         private frmAfficheContrat leForm;
+        /// <summary>
+        /// Méthode privé appellée au clic sur le bouton valider
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnValider_Click(object sender,EventArgs e)
         {
             leForm.Close();
         }
-
+        /// <summary>
+        /// Constructeur de la classe Controleur d'affichage du contrat mettant en forme le formulaire d'affichage du contrat et entrant les données depuis la BDD dans les champs adéquats
+        /// </summary>
+        /// <param name="unContrat">Contrat à afficher</param>
         public ctrlAfficheContrat(Contrats unContrat)
         {
             leForm = new frmAfficheContrat(unContrat);
@@ -122,7 +151,6 @@ namespace ABIenCouche
             leForm.ShowDialog();
       
         }
-
 
     }
 }

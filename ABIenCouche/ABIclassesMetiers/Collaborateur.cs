@@ -13,21 +13,58 @@ using System.Text;
 
 namespace ABIenCouche
 {
-    
+    /// <summary>
+    /// Classe publique de Collaborateur
+    /// </summary>
     public class Collaborateur
     {
+        /// <summary>
+        /// Dictionnaire des contrats associé au collaborateur
+        /// </summary>
         private SortedDictionary<Int32, Contrat> lesContrats;
+        /// <summary>
+        /// Dictionnaire de contrat basé sur la date de Contrat afin de récupérer le premier contrat(initial)
+        /// </summary>
         private SortedDictionary<DateTime, Contrat> lesContratsTriDate;
+        /// <summary>
+        /// nom du collaborateur
+        /// </summary>
         private String nomCollaborateur;
+        /// <summary>
+        /// prénom du collaborateur
+        /// </summary>
         private String prenomCollaborateur;
+        /// <summary>
+        /// rue du collaborateur
+        /// </summary>
         private String rueCollab;
+        /// <summary>
+        /// ville du collaborateur
+        /// </summary>
         private String villeCollab;
+        /// <summary>
+        /// code postal de la ville du collaborateur
+        /// </summary>
         private String cpCollab;
+        /// <summary>
+        /// matricule du collaborateur(ref)
+        /// </summary>
         private Int32 matricule;
-        private Int32 augmentation;
+        /// <summary>
+        /// Situation maritale du collaborateur
+        /// </summary>
         private String situationMaritale;
+        /// <summary>
+        /// Etat civil du collaborateur
+        /// </summary>
         private String civilite;
+        /// <summary>
+        /// Numéro de téléphone du collaborateur
+        /// </summary>
         private String telephone;
+        /// <summary>
+        /// Etat d'archivage du collaborateur
+        /// </summary>
         private Boolean archive;
         /// <summary>
         /// Constructeur pour les collaborateur
@@ -51,7 +88,10 @@ namespace ABIenCouche
             LesContratsTriDate = new SortedDictionary<DateTime, Contrat>();
             
         }
-
+        /// <summary>
+        /// Méthode surchage de la méthode toString permettant de formatter la sortie
+        /// </summary>
+        /// <returns></returns>
         public override String ToString()
         {
             return "collaborateur matricule: " + this.Matricule + " nom: " + this.NomCollaborateur + " prenom: " + this.PrenomCollaborateur + " à l'adresse: " + this.RueCollab + " " + this.CpCollab + " " + this.VilleCollab;
@@ -60,7 +100,10 @@ namespace ABIenCouche
 
 
 
-        /// <pdGenerated>default setter</pdGenerated>
+        /// <summary>
+        /// Méthode d'ajout de contrat au dictionnaire du collaborateur
+        /// </summary>
+        /// <param name="unContrat"></param>
         public void ajoutContrat(Contrat unContrat)
         {
             if(!LesContrats.ContainsKey(unContrat.NumContrat))
@@ -75,7 +118,10 @@ namespace ABIenCouche
 
 
 
-        /// <pdGenerated>default Remove</pdGenerated>
+        /// <summary>
+        /// Méthode de suppression de contrat du dictionnaire
+        /// </summary>
+        /// <param name="oldContrat"></param>
         public void supprimeContrat(Contrat oldContrat)
         {
             if (oldContrat == null)
@@ -85,7 +131,9 @@ namespace ABIenCouche
                 LesContrats.Remove(oldContrat.NumContrat);
         }
 
-        /// <pdGenerated>default removeAll</pdGenerated>
+        /// <summary>
+        /// méthode de vidage du dictionnaire
+        /// </summary>
         public void RemoveAllContrat()
         {
             if (LesContrats.Count != 0)
@@ -186,18 +234,6 @@ namespace ABIenCouche
             }
         }
 
-        public int Augmentation
-        {
-            get
-            {
-                return augmentation;
-            }
-
-            set
-            {
-                augmentation = value;
-            }
-        }
 
         public String Civilite
         {

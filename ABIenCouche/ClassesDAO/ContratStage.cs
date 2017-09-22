@@ -14,10 +14,25 @@ namespace ClassesDAO
     
     public partial class ContratStage : Contrats
     {
+        /// <summary>
+        /// école du stagiaire
+        /// </summary>
         internal string Ecole { get; set; }
+        /// <summary>
+        /// motif pour ce contrat
+        /// </summary>
         internal string Motif { get; set; }
+        /// <summary>
+        /// tuteut du stagiaire
+        /// </summary>
         internal string Tuteur { get; set; }
+        /// <summary>
+        /// date de fin du stage
+        /// </summary>
         internal System.DateTime DateFin { get; set; }
+        /// <summary>
+        /// mission attribuée au stagiaire
+        /// </summary>
         internal string Mission { get; set; }
     }
 }

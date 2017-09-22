@@ -11,11 +11,22 @@ namespace ClassesDAO
 {
     using System;
     using System.Collections.Generic;
-    
+    /// <summary>
+    /// classe publique de contrat CDD
+    /// </summary>
     public partial class ContratCDD : Contrats
     {
+        /// <summary>
+        /// référence de la date de fin du contrat
+        /// </summary>
         public System.DateTime DateFin { get; set; }
+        /// <summary>
+        /// référence du motif du contrat
+        /// </summary>
         public string Motif { get; set; }
+        /// <summary>
+        /// référence du salaire du collaborateur
+        /// </summary>
         public double Salaire { get; set; }
     }
 }

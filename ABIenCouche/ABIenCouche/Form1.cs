@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ABIenCouche
 {
-    public partial class frmAfficheAvenant : Form
+    public partial class Form1 : Form
     {
-        public frmAfficheAvenant()
+        public Form1()
         {
             InitializeComponent();
         }

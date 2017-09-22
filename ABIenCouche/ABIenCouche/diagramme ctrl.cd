@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ABIenCouche.frmDspCollaborateur" Collapsed="true">
+    <Position X="17" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQYHQ/0JkCAYACDAAEGDoBBCwIAFEIlAYAQwAoAAAEA=</HashCode>
+      <FileName>AfficheCollab.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ABIenCouche.crtlListerCollabo" Collapsed="true">
+    <Position X="11.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAIAgAAAAMAAAAAAAAAAAAEAIEAAAIgABAAEA=</HashCode>
+      <FileName>crtlListerCollabo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ABIenCouche.ctrlAfficheCollab" Collapsed="true">
+    <Position X="13.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABgAAAAEAAAQAEAAAgIAAAAAIAAIAAABCAAAAQAA=</HashCode>
+      <FileName>ctrlAfficheCollab.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ABIenCouche.ctrlAfficheContrat" Collapsed="true">
+    <Position X="15.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAgBAAAAAgAAAAAAAAAAAAAAAAAEAwAAAAAAAAA=</HashCode>
+      <FileName>ctrlAfficheContrat.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ABIenCouche.ctrlNouveauCollaborateur" Collapsed="true">
+    <Position X="17" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQQCCAAAAAgAAAAAAAAAgIAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>ctrlNouveauCollaborateur.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ABIenCouche.ctrlNouveauContrat" Collapsed="true">
+    <Position X="11.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAQCAAAAAAAAQAQAAAAAAAAAIAAAAAAAACAAAAAAAAI=</HashCode>
+      <FileName>ctrlNouveauContrat.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ABIenCouche.Donnees" Collapsed="true">
+    <Position X="13.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>Donnees.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ABIenCouche.Form1" Collapsed="true">
+    <Position X="15.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAACAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Form1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ABIenCouche.frmAfficheCollab" Collapsed="true">
+    <Position X="7" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAEAAAAACBAAACQIAAAAAAAAABQAAAAAE=</HashCode>
+      <FileName>frmAfficheCollab.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ABIenCouche.frmAfficheContrat" Collapsed="true">
+    <Position X="7" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAACAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>frmAfficheContrat.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ABIenCouche.frmBaseCollab" Collapsed="true">
+    <Position X="8.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>hAECIIBACXWAYRAAAACCAgCiYIwiBAAAACQQAQgCAAA=</HashCode>
+      <FileName>frmBaseCollab.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ABIenCouche.frmContrat" Collapsed="true">
+    <Position X="7" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AKgBAIgQgCSpoBEIAKTQDACiAAABAIBgCCEAUQAKYCE=</HashCode>
+      <FileName>frmContrat.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ABIenCouche.frmMDI" Collapsed="true">
+    <Position X="11.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BJCgCv0AhCEAAAAIDiCywIdSDABAAMgBCkwQRzAAQEc=</HashCode>
+      <FileName>frmMDI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ABIenCouche.frmNouveauCollab" Collapsed="true">
+    <Position X="9.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAACAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>frmNouveauCollab.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ABIenCouche.Outils" Collapsed="true">
+    <Position X="13.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Outils.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ABIenCouche.Program" Collapsed="true">
+    <Position X="15.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ABIenCouche.Properties.Resources" Collapsed="true">
+    <Position X="17" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ABIenCouche.Properties.Settings" Collapsed="true">
+    <Position X="11.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

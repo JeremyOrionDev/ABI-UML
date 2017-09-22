@@ -20,7 +20,13 @@ namespace ABIenCouche
         /// ref au collaborateur à afficher
         /// </summary>
         private Collaborateurs leCollaborateur;
+        /// <summary>
+        /// Attribut privé de DialogResult pour le transmettre au contrôleur appelant
+        /// </summary>
         private DialogResult formResult;
+        /// <summary>
+        /// Attribut privé de type booléen pour connaitre l'état de modification du collaborateur
+        /// </summary>
         private Boolean Modifier = false;
 
         internal DialogResult FormResult
@@ -35,7 +41,11 @@ namespace ABIenCouche
                 formResult = value;
             }
         }
-
+        /// <summary>
+        /// Méthode appelée au double clic sur un contrat du collaborateur permettant son affichage
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dgContrat_DoubleClick(object sender, EventArgs e)
         {
             Contrats leContrat;
@@ -46,12 +56,19 @@ namespace ABIenCouche
                 numContrat = Convert.ToInt32(formAffiche.dgContrats.CurrentRow.Cells[0].Value.ToString());
             }
             else numContrat = 0;
-            Collaborateurs unColab =DonneesDAO.DbContextCollaborateurs.CollaborateursSet.Find(leCollaborateur.matricule);
-            if (leCollaborateur.Contrats.ElementAt(numContrat)!=null)
+            Collaborateurs unColab = DonneesDAO.DbContextCollaborateurs.CollaborateursSet.Find(leCollaborateur.matricule);
+            try
             {
                 leContrat = DonneesDAO.DbContextCollaborateurs.ContratsSet.Find(numContrat);
+
             }
-            else throw new Exception("erreur le contrat demandé n'existe pas");
+            catch (Exception)
+            {
+
+                throw new Exception("Erreur le contrat n'existe pas");
+            }
+
+
             if (leContrat is ClassesDAO.ContratCDD)
             {
                 leContrat = (ClassesDAO.ContratCDD)leContrat;
@@ -72,9 +89,14 @@ namespace ABIenCouche
             ctrlAfficheContrat affichecontrat = new ctrlAfficheContrat(leContrat);
             //MessageBox.Show("test", "test", MessageBoxButtons.OK);
         }
+        /// <summary>
+        /// Méthode appelée lors du clic sur le bouton Contrats>> développant le form sur la droite afin d'afficher en DataGrid les contrats possédés par le collaborateur
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnContrats_Click(object sender, EventArgs e)
         {
-            if (formAffiche.panelContrat.Visible==false)
+            if (formAffiche.panelContrat.Visible == false)
             {
                 formAffiche.panelContrat.Visible = true;
                 formAffiche.btnContrats.Text = "<<Contrats";
@@ -89,6 +111,10 @@ namespace ABIenCouche
             init();
 
         }
+        /// <summary>
+        /// Constructeur du controleur d'affichage des données d'un collaborateur prenant en paramètre un objet collaborateur avec ses données
+        /// </summary>
+        /// <param name="unColab">Collaborateur à afficher</param>
         public ctrlAfficheCollab(Collaborateurs unColab)
         {
             this.leCollaborateur = unColab;
@@ -122,15 +148,13 @@ namespace ABIenCouche
             formAffiche.btnModifier.Click += new EventHandler(btnModifier_Click);
             formAffiche.btnAjouterContrat.Click += new EventHandler(btnAjoutContrat_Click);
             formAffiche.btnOKColab.Click += new EventHandler(btnOK_Click);
-            //OpenFileDialog openPhoto = new OpenFileDialog();
-            //openPhoto.Filter = "Images files jpeg | *.jpg";
-            //openPhoto.Multiselect = false;
-            //FileStream fs = new FileStream(leCollaborateur.LaPhoto, FileMode.Open, FileAccess.Read);
-            //formAffiche.pictureBoxPhotoCollab.Image = Image.FromStream(fs);
-            //fs.Close();
             formAffiche.ShowDialog();
         }
-
+        /// <summary>
+        /// Méthode appelée lors du clic sur le bouton ajout contrat permettant d'ouvrir le form d'ajout de contrat
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAjoutContrat_Click(object sender, EventArgs e)
         {
             ctrlNouveauContrat leNouveauContrat = new ctrlNouveauContrat(this.leCollaborateur);
@@ -140,26 +164,30 @@ namespace ABIenCouche
             }
         }
 
-
+        /// <summary>
+        /// Méthode privée appelée lors de l'enregistrement
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnOK_Click(object sender, EventArgs e)
         {
             if (Modifier)
             {
-                String Modif="";
-                int i=0;
-                if (formAffiche.cBxCivilite.SelectedItem.ToString()!=leCollaborateur.Civilite)
+                String Modif = "";
+                int i = 0;
+                if (formAffiche.cBxCivilite.SelectedItem.ToString() != leCollaborateur.Civilite)
                 {
                     i++;
                     Modif += "\t\u2022 la civilité: " + leCollaborateur.Civilite + " deviendra: " + formAffiche.cBxCivilite.Text + "\r";
 
                 }
-                if (formAffiche.cBxSituation.SelectedItem.ToString()!=leCollaborateur.SituationMaritale)
+                if (formAffiche.cBxSituation.SelectedItem.ToString() != leCollaborateur.SituationMaritale)
                 {
                     i++;
                     Modif += "\t\u2022 la situation maritale: " + leCollaborateur.SituationMaritale + " deviendra: " + formAffiche.cBxSituation.Text + "\r";
 
                 }
-                if (formAffiche.txtBoxNomCollab.Text!=leCollaborateur.Nom)
+                if (formAffiche.txtBoxNomCollab.Text != leCollaborateur.Nom)
                 {
                     i++;
                     Modif += "\t\u2022 le nom du Collaborateur: " + leCollaborateur.Nom + " va être modifié en: " + formAffiche.txtBoxNomCollab.Text + "\r";
@@ -168,12 +196,12 @@ namespace ABIenCouche
                 {
                     i++;
                     Modif += "\t\u2022 le prénom du Collaborateur: " + leCollaborateur.Prenom + " va être modifié en: " + formAffiche.txtBoxPrenomCollab.Text + "\r";
-                if (formAffiche.tBxTel.Text!=leCollaborateur.Telephone)
-                {
-                    i++;
-                    Modif += "\t\u2022 le téléphone: " + leCollaborateur.Telephone + " deviendra: " + formAffiche.tBxTel.Text+"\r";
-                    
-                }
+                    if (formAffiche.tBxTel.Text != leCollaborateur.Telephone)
+                    {
+                        i++;
+                        Modif += "\t\u2022 le téléphone: " + leCollaborateur.Telephone + " deviendra: " + formAffiche.tBxTel.Text + "\r";
+
+                    }
                 }
                 if (formAffiche.txtBoxRueCollab.Text != leCollaborateur.Rue)
                 {
@@ -191,18 +219,18 @@ namespace ABIenCouche
                     Modif += "\t\u2022 le code postal du Collaborateur: " + leCollaborateur.CodePostal + " va être modifié en: " + formAffiche.txtBxCP.Text + "\r";
                 }
 
-                Modif ="Vous avez fait "+i+" modifications: \r"+Modif;
+                Modif = "Vous avez fait " + i + " modifications: \r" + Modif;
                 DialogResult DR = MessageBox.Show(Modif, "Valider les modifications ?", MessageBoxButtons.OKCancel);
-                if (DR==DialogResult.OK)
+                if (DR == DialogResult.OK)
                 {
                     leCollaborateur.Telephone = formAffiche.tBxTel.Text;
-                    leCollaborateur.Civilite=formAffiche.cBxCivilite.SelectedItem.ToString();
-                    leCollaborateur.SituationMaritale=formAffiche.cBxSituation.SelectedItem.ToString();
-                    leCollaborateur.Nom= formAffiche.txtBoxNomCollab.Text;
-                    leCollaborateur.Prenom=formAffiche.txtBoxPrenomCollab.Text;
-                    leCollaborateur.Rue=formAffiche.txtBoxRueCollab.Text;
-                    leCollaborateur.Ville= formAffiche.txtBxVille.Text;
-                    leCollaborateur.CodePostal=formAffiche.txtBxCP.Text;
+                    leCollaborateur.Civilite = formAffiche.cBxCivilite.SelectedItem.ToString();
+                    leCollaborateur.SituationMaritale = formAffiche.cBxSituation.SelectedItem.ToString();
+                    leCollaborateur.Nom = formAffiche.txtBoxNomCollab.Text;
+                    leCollaborateur.Prenom = formAffiche.txtBoxPrenomCollab.Text;
+                    leCollaborateur.Rue = formAffiche.txtBoxRueCollab.Text;
+                    leCollaborateur.Ville = formAffiche.txtBxVille.Text;
+                    leCollaborateur.CodePostal = formAffiche.txtBxCP.Text;
                     Collaborateurs lecolab = DonneesDAO.DbContextCollaborateurs.CollaborateursSet.Find(leCollaborateur.matricule);
                     lecolab.Civilite = formAffiche.cBxCivilite.SelectedItem.ToString();
                     lecolab.SituationMaritale = formAffiche.cBxSituation.SelectedItem.ToString();
@@ -211,7 +239,7 @@ namespace ABIenCouche
                     lecolab.Rue = formAffiche.txtBoxRueCollab.Text;
                     lecolab.Ville = formAffiche.txtBxVille.Text;
                     lecolab.CodePostal = formAffiche.txtBxCP.Text;
-                    lecolab.Telephone= formAffiche.tBxTel.Text;
+                    lecolab.Telephone = formAffiche.tBxTel.Text;
                     DonneesDAO.DbContextCollaborateurs.SaveChanges();
                     //formAffiche.Close();
                 }
@@ -219,10 +247,20 @@ namespace ABIenCouche
             formAffiche.DialogResult = DialogResult.OK;
             FormResult = DialogResult.OK;
         }
+        /// <summary>
+        /// Méthode appelée au clic sur le bouton Annuler fermant le form sans enregistrer les données saisies
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAnnuler_Click(object sender, EventArgs e)
         {
             formAffiche.Close();
         }
+        /// <summary>
+        /// Méthode appelée lors du clic sur le bouton modifier débloquant les accès des textBox en modification
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
          private void btnModifier_Click(object sender,EventArgs e)
         {
             Modifier = true;
@@ -238,7 +276,9 @@ namespace ABIenCouche
         }
 
 
-
+        /// <summary>
+        /// Méthode appelée à l'initialisation du form qui appelle la méthode lister les contrats du collaborateur et retournant une DataTable
+        /// </summary>
         internal void init()
         {
             //formAffiche.dgContrats.DataSource = DictionnaireCollaborateur.ListContrats(leCollaborateur);
@@ -255,8 +295,5 @@ namespace ABIenCouche
             
 
         }
-
-
-
-    }
+        }
 }

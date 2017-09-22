@@ -8,6 +8,9 @@ using System.Windows.Forms;
 
 namespace ABIenCouche
 {
+    /// <summary>
+    /// Classe du contrôleur de création de contrat
+    /// </summary>
     class ctrlNouveauContrat
     {
 
@@ -15,14 +18,19 @@ namespace ABIenCouche
         /// ref au collaborateur à qui ajouter le collaborateur
         /// </summary>
         private Collaborateurs leCollaborateur;
-        internal Boolean contratOK=false;
-
-        private frmContrat formContrat;
         /// <summary>
-        /// ref au form non CDI
+        /// variable Booléen de controle valide pour la réponse au controleur appelant
         /// </summary>
-        //private frmContratTemporaire formContratTemp;
-
+        internal Boolean contratOK=false;
+        /// <summary>
+        /// ref au form de création de contrat
+        /// </summary>
+        private frmContrat formContrat;
+ 
+        /// <summary>
+        /// Constructeur du controleur prenant en paramètre un objet collaborateur pour instancier le contrat
+        /// </summary>
+        /// <param name="unCollaborateur">Le collaborateur utilisé à qui sera associé le contrat</param>
         public ctrlNouveauContrat(Collaborateurs unCollaborateur )
         {
 
@@ -55,15 +63,20 @@ namespace ABIenCouche
             formContrat.ShowDialog();
 
         }
-
+        /// <summary>
+        /// fonction appelée au clic sur le bouton annuler
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAnnucler_Click(object sender, EventArgs e)
         {
             formContrat.Close();
-            Collaborateurs leColab = DonneesDAO.DbContextCollaborateurs.CollaborateursSet.Find(leCollaborateur.matricule);
-            DonneesDAO.DbContextCollaborateurs.CollaborateursSet.Remove(leColab);
-            DonneesDAO.DbContextCollaborateurs.SaveChanges();
         }
-
+        /// <summary>
+        /// fonction de modification du form en fonction du type de contrat choisi
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cBxTypeContrat_SelectedIndexChanged(object sender,EventArgs e)
         {
                 Collaborateurs unColab = DonneesDAO.DbContextCollaborateurs.CollaborateursSet.Find(leCollaborateur.matricule);
@@ -71,14 +84,13 @@ namespace ABIenCouche
                 {
                 if (unColab.Contrats.FirstOrDefault().Avenant.Count != 0)
                 {
-
                     formContrat.panelAvenant.Visible = true;
                 }
                 }
                 else formContrat.panelAvenant.Visible = false;
             if (formContrat.cBxTypeContrat.SelectedItem.ToString() == "CDI")
             {
-                formContrat.panelAgence.Enabled = false;
+                
                 formContrat.panelAgence.Visible = false;
                 formContrat.panelDate.Visible = false;
                 formContrat.panelEcole.Visible = false;
@@ -125,6 +137,7 @@ namespace ABIenCouche
             else if(formContrat.cBxTypeContrat.SelectedItem.ToString()=="INTERIM")
             {
                 formContrat.panelAgence.Visible = true;
+                formContrat.panelAgence.Enabled = false;
                 formContrat.panelEcole.Visible = false;
                 formContrat.panelDate.Visible = true;
                 formContrat.panelMotif.Visible = true;
@@ -136,6 +149,11 @@ namespace ABIenCouche
                 formContrat.panelDebut.Visible = true;
             }
         }
+        /// <summary>
+        /// Méthode de contrôle des champs de saisie, appelée lors de la validation du form
+        /// </summary>
+        /// <param name="leForm">ref au form a contrôler</param>
+        /// <returns></returns>
         private Boolean Controle(frmContrat leForm)
         {
             Boolean test = true;
@@ -185,7 +203,11 @@ namespace ABIenCouche
             }
             else return false;
         }
-
+        /// <summary>
+        /// méthode appelée lors de la validation du form, appelle les méthode contrôle du form et instanciation du contrat si valide
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnValiderContrat_click(object sender,EventArgs e)
         {
             if (Controle(formContrat))
@@ -200,7 +222,12 @@ namespace ABIenCouche
             }
             
         }
-
+        /// <summary>
+        /// méthode d'instanciation du contrat après validation par les contrôles
+        /// Ajoute le contrat au collaborateur reçu dans l'appel du form
+        /// et enregistre en BDD
+        /// </summary>
+        /// <returns></returns>
         private bool Instancie()
         {
             try

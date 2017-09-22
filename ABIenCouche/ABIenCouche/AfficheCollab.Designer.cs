@@ -75,7 +75,7 @@
             this.ToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.dgCollabo = new System.Windows.Forms.DataGridView();
             this.btnAjouter = new System.Windows.Forms.Button();
-            this.btnSupprimer = new System.Windows.Forms.Button();
+            this.btnArchiver = new System.Windows.Forms.Button();
             this.btnQuitter = new System.Windows.Forms.Button();
             this.tBxRechercher = new System.Windows.Forms.TextBox();
             this.cBxRechercheCollab = new System.Windows.Forms.ComboBox();
@@ -464,15 +464,15 @@
             this.btnAjouter.Text = "&Ajouter";
             this.btnAjouter.UseVisualStyleBackColor = true;
             // 
-            // btnSupprimer
+            // btnArchiver
             // 
-            this.btnSupprimer.Enabled = false;
-            this.btnSupprimer.Location = new System.Drawing.Point(265, 371);
-            this.btnSupprimer.Name = "btnSupprimer";
-            this.btnSupprimer.Size = new System.Drawing.Size(75, 23);
-            this.btnSupprimer.TabIndex = 7;
-            this.btnSupprimer.Text = "&Supprimer";
-            this.btnSupprimer.UseVisualStyleBackColor = true;
+            this.btnArchiver.Enabled = false;
+            this.btnArchiver.Location = new System.Drawing.Point(265, 371);
+            this.btnArchiver.Name = "btnArchiver";
+            this.btnArchiver.Size = new System.Drawing.Size(75, 23);
+            this.btnArchiver.TabIndex = 7;
+            this.btnArchiver.Text = "Ar&chiver";
+            this.btnArchiver.UseVisualStyleBackColor = true;
             // 
             // btnQuitter
             // 
@@ -537,7 +537,7 @@
             this.Controls.Add(this.cBxRechercheCollab);
             this.Controls.Add(this.tBxRechercher);
             this.Controls.Add(this.btnQuitter);
-            this.Controls.Add(this.btnSupprimer);
+            this.Controls.Add(this.btnArchiver);
             this.Controls.Add(this.btnAjouter);
             this.Controls.Add(this.dgCollabo);
             this.Controls.Add(this.toolStrip1);
@@ -602,7 +602,7 @@
         private System.Windows.Forms.ToolStripButton ToolStripButton;
         internal System.Windows.Forms.DataGridView dgCollabo;
         internal System.Windows.Forms.Button btnAjouter;
-        internal System.Windows.Forms.Button btnSupprimer;
+        internal System.Windows.Forms.Button btnArchiver;
         internal System.Windows.Forms.Button btnQuitter;
         internal System.Windows.Forms.TextBox tBxRechercher;
         internal System.Windows.Forms.ComboBox cBxRechercheCollab;

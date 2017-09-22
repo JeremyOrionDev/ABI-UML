@@ -14,6 +14,9 @@ namespace ClassesDAO
     
     public partial class ContratCDI : Contrats
     {
+        /// <summary>
+        /// réféence du salaire 
+        /// </summary>
         public double Salaire { get; set; }
     }
 }

@@ -67,11 +67,11 @@
     <Compile Include="AfficheCollab.Designer.cs">
       <DependentUpon>AfficheCollab.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmAfficheAvenant.cs">
+    <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAfficheAvenant.Designer.cs">
-      <DependentUpon>frmAfficheAvenant.cs</DependentUpon>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAfficheCollab.cs">
       <SubType>Form</SubType>
@@ -97,18 +97,6 @@
     <Compile Include="frmContrat.Designer.cs">
       <DependentUpon>frmContrat.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmContratCDI.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmContratCDI.Designer.cs">
-      <DependentUpon>frmContratCDI.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmContratTemporaire.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmContratTemporaire.Designer.cs">
-      <DependentUpon>frmContratTemporaire.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmMDI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,9 +120,6 @@
     <EmbeddedResource Include="AfficheCollab.resx">
       <DependentUpon>AfficheCollab.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAfficheAvenant.resx">
-      <DependentUpon>frmAfficheAvenant.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmAfficheCollab.resx">
       <DependentUpon>frmAfficheCollab.cs</DependentUpon>
     </EmbeddedResource>
@@ -147,12 +132,6 @@
     <EmbeddedResource Include="frmContrat.resx">
       <DependentUpon>frmContrat.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmContratCDI.resx">
-      <DependentUpon>frmContratCDI.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmContratTemporaire.resx">
-      <DependentUpon>frmContratTemporaire.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmMDI.resx">
       <DependentUpon>frmMDI.cs</DependentUpon>
     </EmbeddedResource>
@@ -164,6 +143,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="diagramme ctrl.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

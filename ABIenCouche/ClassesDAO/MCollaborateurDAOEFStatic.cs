@@ -91,7 +91,11 @@ namespace ClassesDAO
             }
 
         }
-
+        /// <summary>
+        /// méthode publique statique générant la DataTable des avenant du contrat
+        /// </summary>
+        /// <param name="unContrat"></param>
+        /// <returns></returns>
         public static DataTable ListerAvenant(Contrats unContrat)
         {
             DataTable dt = new DataTable();
@@ -114,7 +118,11 @@ namespace ClassesDAO
 
             return dt;
         }
-
+        /// <summary>
+        /// méthode publique statique générant la DataTable des augmentations du collaborateur
+        /// </summary>
+        /// <param name="unColab"></param>
+        /// <returns></returns>
         public static DataTable ListerAugmentation(Collaborateurs unColab)
         {
             DataTable dt = new DataTable();
@@ -135,6 +143,11 @@ namespace ClassesDAO
 
             return dt;
         }
+        /// <summary>
+        /// méthode publique statique générant une DataTable de collaborateurs
+        /// </summary>
+        /// <param name="unColab"></param>
+        /// <returns></returns>
         public static DataTable listerContratCollaborateurDAO(Collaborateurs unColab)
         {
             DataTable dt = new DataTable();
@@ -181,7 +194,11 @@ namespace ClassesDAO
 
             return dt;
         }
-
+        /// <summary>
+        /// méthode publique statique pour retrouver un collaborateur à partir de son matricule
+        /// </summary>
+        /// <param name="unNum"></param>
+        /// <returns></returns>
         public static Collaborateurs retrouverCollaborateur(Int32 unNum)
         {
             if (DonneesDAO.DbContextCollaborateurs.CollaborateursSet.Find(unNum) != null)
@@ -191,14 +208,7 @@ namespace ClassesDAO
             else throw new Exception("erreur le Collaborateur n'existe pas");
         }
 
-        public Boolean retrouverContrat(Collaborateurs unColab,Int32 numContrat)
-        {
-            if (unColab.Contrats.ElementAt(numContrat) != null)
-            {
-                return true;
-            }
-            else return false;
-        }
+
 
     }
 }

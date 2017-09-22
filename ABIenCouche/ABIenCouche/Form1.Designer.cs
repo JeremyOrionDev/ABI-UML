@@ -1,6 +1,6 @@
 ﻿namespace ABIenCouche
 {
-    partial class frmContratCDI
+    partial class Form1
     {
         /// <summary>
         /// Required designer variable.
@@ -28,26 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.openFileDialogPhotoContrat = new System.Windows.Forms.OpenFileDialog();
-            this.SuspendLayout();
-            // 
-            // openFileDialogPhotoContrat
-            // 
-            this.openFileDialogPhotoContrat.FileName = "openFileDialogPhotoContrat";
-            // 
-            // frmContratCDI
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(372, 628);
-            this.Name = "frmContratCDI";
-            this.Text = "frmContratCDI";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            this.Text = "Form1";
         }
 
         #endregion
-        private System.Windows.Forms.OpenFileDialog openFileDialogPhotoContrat;
     }
 }

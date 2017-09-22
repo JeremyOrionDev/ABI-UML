@@ -22,8 +22,13 @@ namespace ABIenCouche
         /// ref au collaborateur à créer
         /// </summary>
         internal Collaborateurs uncolab;
+        /// <summary>
+        /// Attribut booléen permettant la communication au controleur appelant
+        /// </summary>
         private Boolean resultat = false;
-
+        /// <summary>
+        /// getteur setteur de cet attribut
+        /// </summary>
         public Boolean Resultat
         {
             get
@@ -36,7 +41,11 @@ namespace ABIenCouche
                 resultat = value;
             }
         }
-
+        /// <summary>
+        /// Constructeur de la classe Nouveau Collaborateur mettant en forme le formulaire de création de contrat
+        /// et adaptant celui ci en fonction du type de contrat choisi
+        /// les champs apparaissent afin de créer un contrat avec tous les paramètres requis par les différents constructeurs
+        /// </summary>
         public ctrlNouveauCollaborateur()
         {
             this.leForm = new frmNouveauCollab();
@@ -60,8 +69,11 @@ namespace ABIenCouche
          
             //leForm.cBxTypeContratColab.Enabled = leForm.chkBxContrat.Checked ? false : true;
         }
-
-
+        /// <summary>
+        /// Méthode appelée lors du clic sur le bouton annuler fermant ce form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAnnuler_Click(object sender, EventArgs e)
         {
             leForm.DialogResult = DialogResult.Cancel;
@@ -72,7 +84,11 @@ namespace ABIenCouche
             }
             
         }
-
+        /// <summary>
+        /// Méthode interne permettant le contrôle des champs de saisies et générant un errorProvider en cas d'erreur avec un texte adapté a chaque champs
+        /// </summary>
+        /// <param name="unForm">le form a contrôler</param>
+        /// <returns></returns>
         internal Boolean Controle(frmNouveauCollab unForm)
         {
 
@@ -134,6 +150,10 @@ namespace ABIenCouche
             }
             else return true;
         }
+        /// <summary>
+        /// Méthode interne d'instanciation du collaborateur si les contrôles précédents sont passés avec succès
+        /// </summary>
+        /// <returns>true ou false en fonction de la réussite ou non de l'instanciation</returns>
         internal Boolean Instancie()
         {
 
@@ -162,6 +182,12 @@ namespace ABIenCouche
             }
 
         }
+        /// <summary>
+        /// Méthode privée appelée lors du clic sur le bouton OK appelant les méthodes contrôle et instancie citées précédemment
+        /// et renvoyant le résultat pour le contrôleur appelant
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnOK_Click(object sender, EventArgs e)
         {
 

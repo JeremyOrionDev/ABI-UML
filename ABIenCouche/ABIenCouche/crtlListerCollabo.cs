@@ -11,17 +11,24 @@ using ClassesDAO;
 
 namespace ABIenCouche
 {
+    /// <summary>
+    /// Controleur d'affichage du form de visualisation des collaborateurs en Datagrid
+    /// </summary>
     public class crtlListerCollabo
     {
+        /// <summary>
+        /// variable interne de resultat pour envoi au controleur suivant
+        /// </summary>
         internal DialogResult DR;
         /// <summary>
         /// ref au form d'affichage des collaborateurs
         /// </summary>
         public frmDspCollaborateur formAfficheColab=new frmDspCollaborateur();
+
+        /// <summary>
+        /// attribut interne pour modification de la datasource de la DataGrid afin de visualiser les collaborateurs archivés ou non
+        /// </summary>
         private Boolean Clic;
-
-
-
         public   crtlListerCollabo()
         {
             init();
@@ -29,7 +36,7 @@ namespace ABIenCouche
             });
             formAfficheColab.btnAnnulerRecherche.Click += new EventHandler(btnAnnulerRecherche_Click);
             formAfficheColab.btnAjouter.Click += new EventHandler(btnAjout_Click);
-            formAfficheColab.btnSupprimer.Click += new EventHandler(btnSupprimer_Click);
+            formAfficheColab.btnArchiver.Click += new EventHandler(btnArchiver_Click);
             formAfficheColab.btnQuitter.Click += new EventHandler(btnQuitter_Click);
             formAfficheColab.dgCollabo.DoubleClick += new EventHandler(dgCollabo_CellContentDoubleClick);
             formAfficheColab.btnRechercher.Click += new EventHandler(btnRecherche_Click);
@@ -40,7 +47,11 @@ namespace ABIenCouche
                 this.afficheCollabo();
             }
         }
-
+        /// <summary>
+        /// Méthode appelée au clic sur le bouton de visualisation des archives
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnVoirArchive_Click(object sender, EventArgs e)
         {
             if (formAfficheColab.dgCollabo.Columns.Count == 6)
@@ -56,14 +67,21 @@ namespace ABIenCouche
                 afficheCollabo();
             }
         }
-
+        /// <summary>
+        /// Méthode appelée lors du clic sur le bouton annuler la recherche qui annule le filtre de recherche sur la datagrid
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         internal void btnAnnulerRecherche_Click(object sender,EventArgs e)
         {
             this.formAfficheColab.dgCollabo.DataSource = DictionnaireCollaborateur.ListCollab();
-            //(formAfficheColab.dgCollabo.DataSource as DataTable).DefaultView.RowFilter = null;
-
+           
         }
-
+        /// <summary>
+        /// Méthode appelée lors du clic sur le bouton recherche qui récupère en BDD les collaborateurs correspondants au filtre de recherche
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         internal void btnRecherche_Click(object sender,EventArgs e)
         {
 
@@ -186,7 +204,11 @@ namespace ABIenCouche
             }
 
         }
-
+        /// <summary>
+        /// Méthode appelée lors du clic sur le bouton ajout de collaborateur, qui appelle les méthode Controle du form et instanciation du collaborateur
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         internal void btnAjout_Click(object sender, EventArgs e)
         {
             ctrlNouveauCollaborateur ctrl = new ctrlNouveauCollaborateur();
@@ -198,30 +220,32 @@ namespace ABIenCouche
                     this.afficheCollabo();
                 }
             }
-
-            
-
         }
-
-        internal void btnSupprimer_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Méthode appelée lors du clic sur le bouton archiver
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        internal void btnArchiver_Click(object sender, EventArgs e)
         {
 
             Int32 numColab = Convert.ToInt32(formAfficheColab.dgCollabo.CurrentRow.Cells[0].Value.ToString());
-            Collaborateur leColab = DictionnaireCollaborateur.retrouverCollaborateur(numColab);
-            DialogResult MB = MessageBox.Show(leColab.NomCollaborateur + " " + leColab.PrenomCollaborateur, "Supprimer le contact", MessageBoxButtons.OKCancel);
+            Collaborateurs C = DonneesDAO.DbContextCollaborateurs.CollaborateursSet.Find(numColab);
+            DialogResult MB = MessageBox.Show(C.Nom + " " + C.Prenom, "Archiver le collaborateur", MessageBoxButtons.OKCancel);
             if (MB == DialogResult.OK)
             {
-                DictionnaireCollaborateur.SupprimerCollab(leColab);
-                MessageBox.Show("le collaborateur viens d'être supprimé", "suppression confirmée", MessageBoxButtons.OK);
+                C.Archive = true;
+                MessageBox.Show("le collaborateur viens d'être archivé", "Archivage confirmé", MessageBoxButtons.OK);
                 this.afficheCollabo();
             }
         }
-
+        /// <summary>
+        /// Méthode appelée lors du double clic sur un collaborateur dans la DataGrid
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         internal void dgCollabo_CellContentDoubleClick(object sender, EventArgs e)
         {
-            //instancie le controleur lister collabo
-            //this.ctrlListerCollabo ctrl = new ctrlListerCollabo();
-            //Console.WriteLine("coucou");
             Collaborateurs leCollabo;
             Int32 numcolab;
 
@@ -238,9 +262,6 @@ namespace ABIenCouche
             {
                 this.afficheCollabo();
             }
-            //frmColab.Text = leCollabo.NomCollaborateur.ToString() + " "; leCollabo.PrenomCollaborateur.ToString();
-
-            //frmColab.Show();
         }
 
 
@@ -255,7 +276,9 @@ namespace ABIenCouche
             
             formAfficheColab.Close();
         }
-
+        /// <summary>
+        /// Méthode interne instanciant les collaborateurs enregistrés en BDD et remplissant la DataGrid en créant une DataTable avec les données reçues de la base
+        /// </summary>
         internal void afficheCollabo()
         {
             MCollaborateurDAOEFStatic.instancieCollaborateurs();
@@ -263,9 +286,11 @@ namespace ABIenCouche
 
             this.formAfficheColab.dgCollabo.DataSource =DictionnaireCollaborateur.ListCollab() ;
             this.formAfficheColab.dgCollabo.Refresh();
-            this.formAfficheColab.btnSupprimer.Enabled = (formAfficheColab.dgCollabo.SelectedRows == null ? false : true);
+            this.formAfficheColab.btnArchiver.Enabled = (formAfficheColab.dgCollabo.SelectedRows == null ? false : true);
         }
-
+        /// <summary>
+        /// Méthode d'initialisation appelée a l'ouverture du form
+        /// </summary>
         internal void init()
         {
 
