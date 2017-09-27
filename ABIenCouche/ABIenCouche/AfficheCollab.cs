@@ -20,5 +20,13 @@ namespace ABIenCouche
             InitializeComponent();
 
         }
+
+        internal ctrlAfficheCollab ctrlAfficheCollab
+        {
+            get => default(ctrlAfficheCollab);
+            set
+            {
+            }
+        }
     }
 }

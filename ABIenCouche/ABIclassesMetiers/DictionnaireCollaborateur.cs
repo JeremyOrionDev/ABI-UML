@@ -101,7 +101,10 @@ namespace ABIenCouche
             }
             else throw new Exception("le matricule renseigné ne correspond à aucun collaborateur, merci de vérifier votre saisie");
         }
-
+        /// <summary>
+        /// Retourne une DataTable contenant tous kles collaborateurs archivés
+        /// </summary>
+        /// <returns></returns>
         public static DataTable listArchive()
         {
             DataTable dt = new DataTable();
@@ -131,7 +134,10 @@ namespace ABIenCouche
             }
             return dt;
         }
-
+        /// <summary>
+        /// Méthode retournant la liste des collaborateurs en DataTable pour remplir la DataGrid
+        /// </summary>
+        /// <returns></returns>
         public static DataTable ListCollab()
         {
            
@@ -161,6 +167,11 @@ namespace ABIenCouche
             }
             return dt;
         }
+        /// <summary>
+        /// Méthode retournant les contrats d'un collaborateur sous forme de DataTable pour remplir la dgContrats
+        /// </summary>
+        /// <param name="unCollaborateur"></param>
+        /// <returns></returns>
         public static DataTable ListContrats(Collaborateur unCollaborateur)
         {
             
@@ -214,14 +225,7 @@ namespace ABIenCouche
             }
             return dt;
         }
-        public static Boolean Exist(Collaborateur unCollaborateur)
-        {
-            if (listCollaborateur.ContainsKey(unCollaborateur.Matricule))
-            {
-                return true;
-            }
-            else return false;
-        }
+
         public static Int32 nbCollab()
         {
             return listCollaborateur.Count();

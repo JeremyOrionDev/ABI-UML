@@ -63,6 +63,15 @@ namespace ABIenCouche
             formContrat.ShowDialog();
 
         }
+
+        public frmContrat frmContrat
+        {
+            get => default(frmContrat);
+            set
+            {
+            }
+        }
+
         /// <summary>
         /// fonction appelée au clic sur le bouton annuler
         /// </summary>

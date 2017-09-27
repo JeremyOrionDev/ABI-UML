@@ -76,6 +76,7 @@
             this.btnAnnuler = new System.Windows.Forms.Button();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.errorProviderContrat = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnAjoutAvenant = new System.Windows.Forms.Button();
             this.gBxCadre.SuspendLayout();
             this.panelDate.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -484,6 +485,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.btnAjoutAvenant);
             this.panel3.Controls.Add(this.btnValiderContrat);
             this.panel3.Controls.Add(this.btnAnnuler);
             this.panel3.Location = new System.Drawing.Point(3, 569);
@@ -514,6 +516,15 @@
             // errorProviderContrat
             // 
             this.errorProviderContrat.ContainerControl = this;
+            // 
+            // btnAjoutAvenant
+            // 
+            this.btnAjoutAvenant.Location = new System.Drawing.Point(199, 3);
+            this.btnAjoutAvenant.Name = "btnAjoutAvenant";
+            this.btnAjoutAvenant.Size = new System.Drawing.Size(75, 23);
+            this.btnAjoutAvenant.TabIndex = 26;
+            this.btnAjoutAvenant.Text = "+ Avenant";
+            this.btnAjoutAvenant.UseVisualStyleBackColor = true;
             // 
             // frmContrat
             // 
@@ -611,5 +622,6 @@
         internal System.Windows.Forms.Panel panelQualification;
         internal System.Windows.Forms.Panel panelLibelle;
         internal System.Windows.Forms.Panel panelDebut;
+        internal System.Windows.Forms.Button btnAjoutAvenant;
     }
 }

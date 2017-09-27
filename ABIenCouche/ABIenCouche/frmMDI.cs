@@ -19,6 +19,14 @@ namespace ABIenCouche
             InitializeComponent();
         }
 
+        public crtlListerCollabo crtlListerCollabo
+        {
+            get => default(crtlListerCollabo);
+            set
+            {
+            }
+        }
+
         private void OpenFile(object sender, EventArgs e)
         {
             crtlListerCollabo ctrl = new crtlListerCollabo();

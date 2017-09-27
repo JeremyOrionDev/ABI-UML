@@ -40,5 +40,13 @@ namespace ClassesDAO
 
         }
         public Collaborateurs() { }
+
+        public Contrats Contrats1
+        {
+            get => default(Contrats);
+            set
+            {
+            }
+        }
     }
 }

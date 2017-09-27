@@ -34,5 +34,21 @@ namespace ClassesDAO
         /// Le constrcuteur vide des contrats nécessaire à la classe DAO
         /// </summary>
         public Contrats() { }
+
+        public Augmentations Augmentations
+        {
+            get => default(Augmentations);
+            set
+            {
+            }
+        }
+
+        public Avenant Avenant1
+        {
+            get => default(Avenant);
+            set
+            {
+            }
+        }
     }
 }

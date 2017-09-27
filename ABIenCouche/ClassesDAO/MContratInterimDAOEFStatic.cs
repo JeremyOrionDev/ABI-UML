@@ -8,6 +8,14 @@ namespace ClassesDAO
 {
     public class MContratInterimDAOEFStatic
     {
+        public ContratInterim ContratInterim
+        {
+            get => default(ContratInterim);
+            set
+            {
+            }
+        }
+
         public static void instancieContratsInterim(Collaborateurs leCollaborateur)
         {
             if (DonneesDAO.DbContextCollaborateurs == null) DonneesDAO.DbContextCollaborateurs = new lesCollaborateursContainer();
