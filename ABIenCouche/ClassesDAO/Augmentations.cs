@@ -11,22 +11,12 @@ namespace ClassesDAO
 {
     using System;
     using System.Collections.Generic;
-    /// <summary>
-    /// Classe publique des Augmentations pour entity framework
-    /// </summary>
+    
     public partial class Augmentations
     {
-        /// <summary>
-        /// référence interne de la date de l'augmentation
-        /// </summary>
         internal System.DateTime Date { get; set; }
-        /// <summary>
-        /// référence interne de la valeur de l'augmentation
-        /// </summary>
         internal decimal Valeur { get; set; }
-        /// <summary>
-        /// référence publique du collaborateur à qui attribuer l'augmentation
-        /// </summary>
+    
         public virtual Collaborateurs Collaborateurs { get; set; }
     }
 }
