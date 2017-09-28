@@ -10,6 +10,14 @@ namespace ClassesDAO
 {
     public class MContratStageDAOEFStatic
     {
+        public ContratStage ContratStage
+        {
+            get => default(ContratStage);
+            set
+            {
+            }
+        }
+
         public static void instancieContratsStage(Collaborateur leCollaborateur)
         {
             if (DonneesDAO.DbContextCollaborateurs == null) DonneesDAO.DbContextCollaborateurs = new lesCollaborateursContainer();

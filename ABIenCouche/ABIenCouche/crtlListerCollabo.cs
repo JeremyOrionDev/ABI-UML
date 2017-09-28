@@ -47,6 +47,15 @@ namespace ABIenCouche
                 this.afficheCollabo();
             }
         }
+
+        public frmDspCollaborateur frmDspCollaborateur
+        {
+            get => default(frmDspCollaborateur);
+            set
+            {
+            }
+        }
+
         /// <summary>
         /// Méthode appelée au clic sur le bouton de visualisation des archives
         /// </summary>

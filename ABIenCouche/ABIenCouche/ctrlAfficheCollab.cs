@@ -53,7 +53,7 @@ namespace ABIenCouche
             Int32 nbContrat = this.leCollaborateur.Contrats.Count();
             if (formAffiche.dgContrats.RowCount != 0)
             {
-                numContrat = Convert.ToInt32(formAffiche.dgContrats.CurrentRow.Cells[0].Value.ToString());
+                numContrat = Convert.ToInt32(formAffiche.dgContrats.CurrentRow.Cells[6].Value.ToString());
             }
             else numContrat = 0;
             Collaborateurs unColab = DonneesDAO.DbContextCollaborateurs.CollaborateursSet.Find(leCollaborateur.matricule);
@@ -289,11 +289,28 @@ namespace ABIenCouche
             formAffiche.dgContrats.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
             formAffiche.dgContrats.Columns[formAffiche.dgContrats.Columns.Count - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             formAffiche.dgContrats.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            formAffiche.dgContrats.Columns[6].Visible = false;
             formAffiche.dgAugmentation.DataSource = MCollaborateurDAOEFStatic.ListerAugmentation(leCollaborateur);
             formAffiche.dgContrats.Refresh();
 
             
 
         }
+
+        public frmBaseCollab frmBaseCollab
+        {
+            get => default(frmBaseCollab);
+            set
+            {
+            }
         }
+
+        internal ctrlNouveauCollaborateur ctrlNouveauCollaborateur
+        {
+            get => default(ctrlNouveauCollaborateur);
+            set
+            {
+            }
+        }
+    }
 }

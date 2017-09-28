@@ -11,6 +11,14 @@ namespace ClassesDAO
 {
     public class MCollaborateurDAOEFStatic
     {
+        public Collaborateurs Collaborateurs
+        {
+            get => default(Collaborateurs);
+            set
+            {
+            }
+        }
+
         /// <summary>
         /// instancie les objets MCollaborateurs spécialisés correspondants aux entités du dbSet
         /// </summary>
@@ -104,10 +112,15 @@ namespace ClassesDAO
             dt.Columns.Add(new DataColumn("Date", typeof(DateTime)));
             dt.Columns.Add(new DataColumn("Motif", typeof(String)));
 
-            var query = from C in DonneesDAO.DbContextCollaborateurs.AvenantSet
-                        where C.Contrats.NumContrat == unContrat.NumContrat
-                        select C;
-            foreach (Avenant item in query)
+            var t = DonneesDAO.DbContextCollaborateurs.ContratsSet.Include("AvenantSet").Where(c => c.NumContrat == unContrat.NumContrat).Select(c => c.Avenant);
+
+
+            var query = from c in DonneesDAO.DbContextCollaborateurs.AvenantSet
+                        where c.Contrats.idContrat==unContrat.idContrat
+                        select c;
+
+
+            foreach (ClassesDAO.Avenant item in query)
             {
                 DR = dt.NewRow();
                 DR[0] = item.numeroAvenant;
@@ -158,6 +171,7 @@ namespace ClassesDAO
             dt.Columns.Add(new DataColumn("Cadre", typeof(String)));
             dt.Columns.Add(new DataColumn("Fonction", typeof(String)));
             dt.Columns.Add(new DataColumn("Date début", typeof(DateTime)));
+            dt.Columns.Add(new DataColumn("id", typeof(Int32)));
 
             var query = from C in DonneesDAO.DbContextCollaborateurs.ContratsSet
                         where C.Collaborateurs.matricule == unColab.matricule
@@ -187,6 +201,7 @@ namespace ClassesDAO
                 DR[3] = item.Statut;
                 DR[4] = item.Fonction;
                 DR[5] = item.DateDebut;
+                DR[6] = item.idContrat;
                 dt.Rows.Add(DR);
            
 

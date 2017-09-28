@@ -37,6 +37,7 @@ namespace ABIenCouche
         /// Attribut privé de type formAfficheContrat pour l'ouverture du form
         /// </summary>
         private frmAfficheContrat leForm;
+        private frmAvenant nouvelAvenant;
         /// <summary>
         /// Méthode privé appellée au clic sur le bouton valider
         /// </summary>
@@ -55,6 +56,7 @@ namespace ABIenCouche
             leForm = new frmAfficheContrat(unContrat);
             this.leContrat = unContrat;
             leForm.btnValiderContrat.Text = "&Fermer";
+            leForm.btnAjoutAvenant.Click += new EventHandler(btnAjoutAvenant_Click);
             leForm.btnAnnuler.Visible = false;
             leForm.cBxTypeContrat.Items.AddRange(new String[] { "CDI", "CDD", "INTERIM","STAGE" });
                 leForm.panelAvenant.Visible = true;
@@ -151,6 +153,39 @@ namespace ABIenCouche
             leForm.ShowDialog();
       
         }
-
+        /// <summary>
+        /// Méthode appelée lors de l'ajout d'un avenant au contrat
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnAjoutAvenant_Click(object sender, EventArgs e)
+        {
+            nouvelAvenant= new frmAvenant(leContrat);
+            nouvelAvenant.txBxIdAvenant.Enabled = false;
+            nouvelAvenant.btnValiderAvenant.Click += new EventHandler(btnValiderAvenant_click);
+            if (leContrat.Avenant.Count != 0)
+            {
+                nouvelAvenant.txBxIdAvenant.Text = leContrat.Avenant.Count.ToString();
+            }
+            else nouvelAvenant.txBxIdAvenant.Text = "1";
+            if (nouvelAvenant.ShowDialog()==DialogResult.OK)
+            {
+                ClassesDAO.Avenant lavenant = new Avenant((DonneesDAO.DbContextCollaborateurs.AvenantSet.Count() + 1), nouvelAvenant.dateAvenant.Value, nouvelAvenant.txBxMotifAvenant.Text,Convert.ToInt32( nouvelAvenant.txBxIdAvenant.Text));
+                leContrat.Avenant.Add(lavenant);
+                DonneesDAO.DbContextCollaborateurs.SaveChanges();
+                nouvelAvenant.Close();
+                leForm.dgAvenant.DataSource = MCollaborateurDAOEFStatic.ListerAvenant(leContrat);
+                leForm.dgAvenant.Refresh();
+            }
+        }
+        /// <summary>
+        /// Méthode appelée au clic sur le bouton de validation de l'avenant
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnValiderAvenant_click(object sender, EventArgs e)
+        {
+            nouvelAvenant.DialogResult = DialogResult.OK;
+        }
     }
 }

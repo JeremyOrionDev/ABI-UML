@@ -41,6 +41,15 @@ namespace ABIenCouche
                 resultat = value;
             }
         }
+
+        internal ctrlNouveauContrat ctrlNouveauContrat
+        {
+            get => default(ctrlNouveauContrat);
+            set
+            {
+            }
+        }
+
         /// <summary>
         /// Constructeur de la classe Nouveau Collaborateur mettant en forme le formulaire de création de contrat
         /// et adaptant celui ci en fonction du type de contrat choisi

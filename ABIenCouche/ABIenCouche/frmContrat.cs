@@ -17,6 +17,12 @@ namespace ABIenCouche
             InitializeComponent();
         }
 
-
+        public frmAvenant frmAvenant
+        {
+            get => default(frmAvenant);
+            set
+            {
+            }
+        }
     }
 }

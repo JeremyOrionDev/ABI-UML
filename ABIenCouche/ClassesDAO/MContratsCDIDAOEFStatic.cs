@@ -8,6 +8,14 @@ namespace ClassesDAO
 {
     public class MContratsCDIDAOEFStatic
     {
+        public ContratCDI ContratCDI
+        {
+            get => default(ContratCDI);
+            set
+            {
+            }
+        }
+
         public static void instancieContratsCDI(Collaborateurs leCollaborateur)
         {
             if (DonneesDAO.DbContextCollaborateurs == null) DonneesDAO.DbContextCollaborateurs = new lesCollaborateursContainer();
