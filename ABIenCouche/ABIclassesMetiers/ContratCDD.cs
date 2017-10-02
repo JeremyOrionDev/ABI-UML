@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace ABIenCouche
 {
     /// <summary>
     /// Classe de contrat de type CDD
     /// </summary>
+    [DataContract]
     public class ContratCDD:Contrat
     {
         /// <summary>
@@ -60,43 +62,40 @@ namespace ABIenCouche
         /// motif de création du contrat
         /// </summary>
         private String motifContrat;
-
+        [DataMember]
         public DateTime DateFinContrat
         {
             get
             {
                 return dateFinContrat;
             }
-
-            set
+            private set
             {
                 dateFinContrat = value;
             }
         }
-
+        [DataMember]
         public string Libelle
         {
             get
             {
                 return libelle;
             }
-
-            set
+            private set
             {
                 libelle = value;
             }
         }
 
 
-
+        [DataMember]
         public string MotifContrat
         {
             get
             {
                 return motifContrat;
             }
-
-            set
+            private set
             {
                 motifContrat = value;
             }
