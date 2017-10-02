@@ -147,9 +147,9 @@ namespace ABIenCouche
             {
                 return libelleContrat;
             }
-            private set
+            internal set
             {
-                libelleContrat = value;
+                this.libelleContrat = value;
             }
         }
         [DataMember]
