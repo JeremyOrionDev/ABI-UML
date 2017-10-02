@@ -10,6 +10,7 @@ namespace ABIenCouche
     /// <summary>
     /// Classe des avenant associés au contrat
     /// </summary>
+    [Serializable]
     [DataContract]
     public  class avenantContrat
     {

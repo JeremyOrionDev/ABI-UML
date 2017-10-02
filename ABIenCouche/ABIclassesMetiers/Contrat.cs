@@ -9,12 +9,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace ABIenCouche
 {
     /// <summary>
     /// Classe Abstraite de contrat de base dont les contrats(CDI,CDD,Stage et interim) dérivent
     /// </summary>
+    [Serializable]
+    [DataContract]
     public abstract class Contrat
     {
         /// <summary>
@@ -83,86 +86,76 @@ namespace ABIenCouche
         /// Libellé complet du contrat
         /// </summary>
         private String libelleContrat;
-
-
-
-
-
-
+        [DataMember]
         public DateTime DateDebutContrat
         {
             get
             {
                 return dateDebutContrat;
             }
-            set
+            private set
             {
                 if (this.dateDebutContrat != value)
                     this.dateDebutContrat = value;
             }
         }
-
+        [DataMember]
         public string QualificationCollaborateur
         {
             get
             {
                 return qualificationCollaborateur;
             }
-
-            set
+            private set
             {
                 qualificationCollaborateur = value;
             }
         }
-
+        [DataMember]
         public string FonctionCollaborateur
         {
             get
             {
                 return fonctionCollaborateur;
             }
-
-            set
+            private set
             {
                 fonctionCollaborateur = value;
             }
         }
-
+        [DataMember]
         public bool LeStatut
         {
             get
             {
                 return leStatut;
             }
-
-            set
+            private set
             {
                 leStatut = value;
             }
         }
 
-       
+       [DataMember]
         public string LibelleContrat
         {
             get
             {
                 return libelleContrat;
             }
-
-            set
+            private set
             {
                 libelleContrat = value;
             }
         }
-
+        [DataMember]
         public int NumContrat
         {
             get
             {
                 return numContrat;
             }
-
-            set
+            private set
             {
                 numContrat = value;
             }
