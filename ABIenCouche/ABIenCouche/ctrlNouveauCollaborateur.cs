@@ -170,11 +170,7 @@ namespace ABIenCouche
             try
             {
                 Boolean Archiver;
-                if (leForm.rbtnArchiverOui.Checked == true)
-                {
-                    Archiver = true;
-                }
-                else Archiver = false;
+                Archiver = false;
                  Collaborateur E = new Collaborateur(Convert.ToInt32(leForm.txtBoxMatriculeCollab.Text),leForm.cBxCivilite.SelectedItem.ToString(),leForm.cBxSituation.SelectedItem.ToString(), leForm.txtBoxNomCollab.Text, leForm.txtBoxPrenomCollab.Text, leForm.txtBoxRueCollab.Text,
                      leForm.txtBxVille.Text, leForm.txtBxCP.Text, leForm.tBxTel.Text,Archiver) ;
                 DictionnaireCollaborateur.Ajouter(E);

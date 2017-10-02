@@ -14,10 +14,10 @@ namespace ClassesDAO
     
     public partial class Avenant
     {
-        internal int idAvenant { get; set; }
-        internal System.DateTime Date { get; set; }
-        internal string MotifAvenant { get; set; }
-        internal int numeroAvenant { get; set; }
+        public int idAvenant { get; set; }
+        public System.DateTime Date { get; set; }
+        public string MotifAvenant { get; set; }
+        public int numeroAvenant { get; set; }
     
         public virtual Contrats Contrats { get; set; }
     }

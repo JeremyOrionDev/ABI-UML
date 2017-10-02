@@ -5,6 +5,8 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using ABIenCouche;
+using ClassesDAO;
 
 namespace ABIService
 {
@@ -12,22 +14,32 @@ namespace ABIService
     // REMARQUE : pour lancer le client test WCF afin de tester ce service, sélectionnez Service1.svc ou Service1.svc.cs dans l'Explorateur de solutions et démarrez le débogage.
     public class Service1 : IService1
     {
-        public string GetData(int value)
+        public string AddCollaborateur(Collaborateurs leCollaborateur)
         {
-            return string.Format("You entered: {0}", value);
+            try
+            {
+                DonneesDAO.DbContextCollaborateurs.CollaborateursSet.Add(leCollaborateur);
+             
+                    return "le collaborateur à été ajouté";
+              
+            
+                
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
-        public CompositeType GetDataUsingDataContract(CompositeType composite)
+        public Collaborateur GetCollaborateur(int numColab)
         {
-            if (composite == null)
-            {
-                throw new ArgumentNullException("composite");
-            }
-            if (composite.BoolValue)
-            {
-                composite.StringValue += "Suffix";
-            }
-            return composite;
+            throw new NotImplementedException();
+        }
+
+        public Contrat GetContrat(Collaborateur leCollaborateur, Contrat leContrat)
+        {
+            throw new NotImplementedException();
         }
     }
 }

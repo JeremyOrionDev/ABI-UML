@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace ABIenCouche
 {
     /// <summary>
     /// Classe publique De contrats de type stage hérite de la classe contrat
     /// </summary>
+    [DataContract]
     public class ContratStage:Contrat
     {
         /// <summary>
@@ -58,67 +60,62 @@ namespace ABIenCouche
         /// Attribut privé référençant le maitre de stage du stagiaire
         /// </summary>
         private String unMaitre;
-
+        [DataMember]
         public string Ecole
         {
             get
             {
                 return ecole;
             }
-
-            set
+            private set
             {
                 ecole = value;
             }
         }
-
+        [DataMember]
         public string Motif
         {
             get
             {
                 return motif;
             }
-
-            set
+            private set
             {
                 motif = value;
             }
         }
-
+        [DataMember]
         public DateTime DateDeFin
         {
             get
             {
                 return dateDeFin;
             }
-
-            set
+            private set
             {
                 dateDeFin = value;
             }
         }
-
+        [DataMember]
         public string UneMission
         {
             get
             {
                 return uneMission;
             }
-
-            set
+            private set
             {
                 uneMission = value;
             }
         }
-
+        [DataMember]
         public string UnMaitre
         {
             get
             {
                 return unMaitre;
             }
-
-            set
+            private set
             {
                 unMaitre = value;
             }

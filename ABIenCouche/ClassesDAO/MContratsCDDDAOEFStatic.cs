@@ -1,5 +1,4 @@
-﻿using ABIenCouche;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,8 +26,8 @@ namespace ClassesDAO
                         select C;
 
             ContratCDD leContrat;
-            Collaborateur monColab = DictionnaireCollaborateur.retrouverCollaborateur(leCollaborateur.matricule);
-            
+            Collaborateurs monColab = DonneesDAO.DbContextCollaborateurs.CollaborateursSet.Find(leCollaborateur.matricule);
+
             foreach (ContratCDD item in query)
             {
                 leContrat = new ContratCDD(item.Libelle,item.DateFin,item.Motif,item.NumContrat, item.Fonction, item.Qualification, item.Statut, item.DateDebut);

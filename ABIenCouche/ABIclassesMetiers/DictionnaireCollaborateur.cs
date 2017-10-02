@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using ABIenCouche;
+using ClassesDAO;
+
 
 namespace ABIenCouche
 {
@@ -93,47 +95,16 @@ namespace ABIenCouche
         /// </summary>
         /// <param name="unMatricule">le numéro de matricule du collaborateur à retrouver</param>
         /// <returns></returns>
-        public static Collaborateur retrouverCollaborateur(Int32 unMatricule)
+        public static Collaborateurs retrouverCollaborateur(Int32 unMatricule)
         {
             if (listCollaborateur.ContainsKey(unMatricule))
             {
-                return listCollaborateur[unMatricule];
+                Collaborateurs C= DonneesDAO.DbContextCollaborateurs.CollaborateursSet.Find(unMatricule);
+                return C;
             }
             else throw new Exception("le matricule renseigné ne correspond à aucun collaborateur, merci de vérifier votre saisie");
         }
-        /// <summary>
-        /// Retourne une DataTable contenant tous kles collaborateurs archivés
-        /// </summary>
-        /// <returns></returns>
-        public static DataTable listArchive()
-        {
-            DataTable dt = new DataTable();
-            DataRow DR;
-            dt.Columns.Add(new DataColumn("#", typeof(Int32)));
-            dt.Columns.Add(new DataColumn("Civ", typeof(String)));
-            dt.Columns.Add(new DataColumn("Nom", typeof(String)));
-            dt.Columns.Add(new DataColumn("Prénom", typeof(String)));
-            dt.Columns.Add(new DataColumn("Adresse", typeof(String)));
-            dt.Columns.Add(new DataColumn("Telephone", typeof(String)));
-            dt.Columns.Add(new DataColumn("Archive", typeof(Boolean)));
-            foreach (KeyValuePair<Int32, Collaborateur> colab in listCollaborateur)
-            {
-                if (colab.Value.Archive)
-                {
-                    DR = dt.NewRow();
-                    DR[0] = colab.Value.Matricule;
-                    DR[1] = colab.Value.Civilite;
-                    DR[2] = colab.Value.NomCollaborateur;
-                    DR[3] = colab.Value.PrenomCollaborateur;
-                    DR[4] = colab.Value.RueCollab + " " + colab.Value.CpCollab + " " + colab.Value.VilleCollab;
-                    DR[5] = colab.Value.Telephone;
-                    DR[6] = colab.Value.Archive;
-                    dt.Rows.Add(DR);
-                }
-
-            }
-            return dt;
-        }
+        
         /// <summary>
         /// Méthode retournant la liste des collaborateurs en DataTable pour remplir la DataGrid
         /// </summary>
@@ -149,7 +120,9 @@ namespace ABIenCouche
             dt.Columns.Add(new DataColumn("Prénom", typeof(String)));
             dt.Columns.Add(new DataColumn("Adresse", typeof(String)));
             dt.Columns.Add(new DataColumn("Telephone", typeof(String)));
-            
+            dt.Columns.Add(new DataColumn("id", typeof(bool)));
+            dt.Columns.Add(new DataColumn("Situation Maritale", typeof(string)));
+
             foreach (KeyValuePair<Int32, Collaborateur> colab in listCollaborateur)
             {
                 if (!colab.Value.Archive)
@@ -161,6 +134,8 @@ namespace ABIenCouche
                     DR[3] = colab.Value.PrenomCollaborateur;
                     DR[4] = colab.Value.RueCollab+" "+colab.Value.CpCollab+" "+colab.Value.VilleCollab;
                     DR[5] = colab.Value.Telephone;
+                    DR[6] = colab.Value.Archive;
+                    DR[7] = colab.Value.SituationMaritale;
                     dt.Rows.Add(DR);
                 }
 
@@ -225,7 +200,7 @@ namespace ABIenCouche
             }
             return dt;
         }
-
+       
         public static Int32 nbCollab()
         {
             return listCollaborateur.Count();

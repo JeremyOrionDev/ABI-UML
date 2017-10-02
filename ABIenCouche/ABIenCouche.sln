@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassesDAO", "ClassesDAO\Cl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ABIService", "ABIService\ABIService.csproj", "{D5029F05-DA8F-4173-9C8C-B221FB3811E7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfService1", "WcfService1\WcfService1.csproj", "{62B94944-99E0-407A-BB62-974E5F50FFE0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{D5029F05-DA8F-4173-9C8C-B221FB3811E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5029F05-DA8F-4173-9C8C-B221FB3811E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5029F05-DA8F-4173-9C8C-B221FB3811E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62B94944-99E0-407A-BB62-974E5F50FFE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62B94944-99E0-407A-BB62-974E5F50FFE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62B94944-99E0-407A-BB62-974E5F50FFE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62B94944-99E0-407A-BB62-974E5F50FFE0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

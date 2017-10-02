@@ -108,7 +108,7 @@ namespace ABIenCouche
                 formAffiche.panelDGAugmentation.Visible = false;
                 formAffiche.btnContrats.Text = "Contrats>>";
             }
-            init();
+            //init();
 
         }
         /// <summary>

@@ -12,12 +12,6 @@ namespace ClassesDAO
     public partial class Avenant
     {
         /// <summary>
-        /// Constructeur vide d'avenant nécessaire à la classe DAO
-        /// </summary>
-        public Avenant()
-        {
-        }
-        /// <summary>
         /// Constructeur d'avenant prenant en paramètre l'id, la Date, le Motif, et le Numéro .
         /// </summary>
         /// <param name="unId"></param>
@@ -30,6 +24,12 @@ namespace ClassesDAO
             this.Date = laDate;
             this.idAvenant = unId;
             this.numeroAvenant = leNumero;
+        }
+        /// <summary>
+        /// Constructeur vide d'avenant nécessaire à la classe DAO
+        /// </summary>
+        public Avenant()
+        {
         }
     }
 }

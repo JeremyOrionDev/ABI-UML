@@ -34,6 +34,9 @@
             this.panelDGAugmentation = new System.Windows.Forms.Panel();
             this.btnAjouterAugmentation = new System.Windows.Forms.Button();
             this.dgAugmentation = new System.Windows.Forms.DataGridView();
+            this.lblAugmentations = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.splitter1 = new System.Windows.Forms.Splitter();
             ((System.ComponentModel.ISupportInitialize)(this.dgContrats)).BeginInit();
             this.panelContrat.SuspendLayout();
             this.panelDGAugmentation.SuspendLayout();
@@ -56,13 +59,13 @@
             this.dgContrats.RowTemplate.Height = 24;
             this.dgContrats.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgContrats.ShowEditingIcon = false;
-            this.dgContrats.Size = new System.Drawing.Size(377, 243);
+            this.dgContrats.Size = new System.Drawing.Size(377, 209);
             this.dgContrats.TabIndex = 22;
             // 
             // btnAjouterContrat
             // 
             this.btnAjouterContrat.AutoSize = true;
-            this.btnAjouterContrat.Location = new System.Drawing.Point(3, 255);
+            this.btnAjouterContrat.Location = new System.Drawing.Point(0, 221);
             this.btnAjouterContrat.Name = "btnAjouterContrat";
             this.btnAjouterContrat.Size = new System.Drawing.Size(113, 27);
             this.btnAjouterContrat.TabIndex = 23;
@@ -72,25 +75,27 @@
             // panelContrat
             // 
             this.panelContrat.AutoSize = true;
+            this.panelContrat.Controls.Add(this.label1);
             this.panelContrat.Controls.Add(this.dgContrats);
             this.panelContrat.Controls.Add(this.btnAjouterContrat);
-            this.panelContrat.Location = new System.Drawing.Point(362, 12);
+            this.panelContrat.Location = new System.Drawing.Point(422, 5);
             this.panelContrat.Name = "panelContrat";
-            this.panelContrat.Size = new System.Drawing.Size(383, 285);
+            this.panelContrat.Size = new System.Drawing.Size(383, 399);
             this.panelContrat.TabIndex = 25;
             // 
             // panelDGAugmentation
             // 
+            this.panelDGAugmentation.Controls.Add(this.lblAugmentations);
             this.panelDGAugmentation.Controls.Add(this.btnAjouterAugmentation);
             this.panelDGAugmentation.Controls.Add(this.dgAugmentation);
-            this.panelDGAugmentation.Location = new System.Drawing.Point(362, 303);
+            this.panelDGAugmentation.Location = new System.Drawing.Point(419, 259);
             this.panelDGAugmentation.Name = "panelDGAugmentation";
-            this.panelDGAugmentation.Size = new System.Drawing.Size(380, 139);
+            this.panelDGAugmentation.Size = new System.Drawing.Size(383, 145);
             this.panelDGAugmentation.TabIndex = 26;
             // 
             // btnAjouterAugmentation
             // 
-            this.btnAjouterAugmentation.Location = new System.Drawing.Point(3, 103);
+            this.btnAjouterAugmentation.Location = new System.Drawing.Point(3, 122);
             this.btnAjouterAugmentation.Name = "btnAjouterAugmentation";
             this.btnAjouterAugmentation.Size = new System.Drawing.Size(75, 23);
             this.btnAjouterAugmentation.TabIndex = 1;
@@ -100,16 +105,42 @@
             // dgAugmentation
             // 
             this.dgAugmentation.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgAugmentation.Location = new System.Drawing.Point(3, 0);
+            this.dgAugmentation.Location = new System.Drawing.Point(6, 19);
             this.dgAugmentation.Name = "dgAugmentation";
             this.dgAugmentation.Size = new System.Drawing.Size(374, 97);
             this.dgAugmentation.TabIndex = 0;
+            // 
+            // lblAugmentations
+            // 
+            this.lblAugmentations.AutoSize = true;
+            this.lblAugmentations.Location = new System.Drawing.Point(3, 3);
+            this.lblAugmentations.Name = "lblAugmentations";
+            this.lblAugmentations.Size = new System.Drawing.Size(102, 13);
+            this.lblAugmentations.TabIndex = 2;
+            this.lblAugmentations.Text = "Liste Augmentations";
+            // 
+            // label1
+            // 
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label1.Location = new System.Drawing.Point(-19, 7);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(10, 392);
+            this.label1.TabIndex = 28;
+            // 
+            // splitter1
+            // 
+            this.splitter1.Location = new System.Drawing.Point(0, 0);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(13, 407);
+            this.splitter1.TabIndex = 27;
+            this.splitter1.TabStop = false;
             // 
             // frmAfficheCollab
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(748, 445);
+            this.ClientSize = new System.Drawing.Size(808, 407);
+            this.Controls.Add(this.splitter1);
             this.Controls.Add(this.panelDGAugmentation);
             this.Controls.Add(this.panelContrat);
             this.Margin = new System.Windows.Forms.Padding(5);
@@ -117,10 +148,12 @@
             this.Text = "frmAfficheCollab";
             this.Controls.SetChildIndex(this.panelContrat, 0);
             this.Controls.SetChildIndex(this.panelDGAugmentation, 0);
+            this.Controls.SetChildIndex(this.splitter1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dgContrats)).EndInit();
             this.panelContrat.ResumeLayout(false);
             this.panelContrat.PerformLayout();
             this.panelDGAugmentation.ResumeLayout(false);
+            this.panelDGAugmentation.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgAugmentation)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -134,5 +167,8 @@
         internal System.Windows.Forms.Panel panelDGAugmentation;
         internal System.Windows.Forms.DataGridView dgAugmentation;
         internal System.Windows.Forms.Button btnAjouterAugmentation;
+        private System.Windows.Forms.Label lblAugmentations;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Splitter splitter1;
     }
 }

@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace ABIenCouche
 {
     /// <summary>
     /// Classe publique de contrats de type Interim dérivée de la classe Contrat
     /// </summary>
+    [DataContract]
     public class contratInterim:Contrat
     {
         /// <summary>
@@ -53,54 +55,50 @@ namespace ABIenCouche
         /// </summary>
         private String motifContrat;
 
-
+        [DataMember]
         public string Agence
         {
             get
             {
                 return agence;
             }
-
-            set
+            internal set
             {
                 agence = value;
             }
         }
-
+        [DataMember]
         public double Salaire
         {
             get
             {
                 return salaire;
             }
-
-            set
+            private set
             {
                 salaire = value;
             }
         }
-
+        [DataMember]
         public DateTime? LaDateFin
         {
             get
             {
                 return laDateFin;
             }
-
-            set
+            private set
             {
                 laDateFin = value;
             }
         }
-
+        [DataMember]
         public string MotifContrat
         {
             get
             {
                 return motifContrat;
             }
-
-            set
+            private set
             {
                 motifContrat = value;
             }

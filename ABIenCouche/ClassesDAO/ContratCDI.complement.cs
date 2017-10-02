@@ -32,6 +32,6 @@ namespace ClassesDAO
         /// <summary>
         /// Constructeur vide des contrat CDI nécessaire à la classe DAO
         /// </summary>
-  
+        public ContratCDI() { }
     }
 }

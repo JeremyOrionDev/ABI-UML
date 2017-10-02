@@ -14,11 +14,6 @@ namespace ClassesDAO
     
     public partial class Contrats
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Contrats()
-        {
-            this.Avenant = new HashSet<Avenant>();
-        }
 
         public int NumContrat { get; set; }
         public bool Statut { get; set; }

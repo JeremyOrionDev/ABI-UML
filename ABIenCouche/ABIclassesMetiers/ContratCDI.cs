@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace ABIenCouche
 {
     /// <summary>
     /// Classe publique de contrat de type CDI
     /// </summary>
+    [DataContract]
     public class ContratCDI:Contrat
     {
         /// <summary>
@@ -28,15 +30,14 @@ namespace ABIenCouche
         private double salaireBrut;
 
 
-
+        [DataMember]
         public double SalaireBrut
         {
             get
             {
                 return salaireBrut;
             }
-
-            set
+            private set
             {
                 salaireBrut = value;
             }

@@ -20,17 +20,20 @@ namespace ABIenCouche
         /// variable interne de resultat pour envoi au controleur suivant
         /// </summary>
         internal DialogResult DR;
+
+        private Form leForm;
         /// <summary>
         /// ref au form d'affichage des collaborateurs
         /// </summary>
         public frmDspCollaborateur formAfficheColab=new frmDspCollaborateur();
-
+        private frmMDI MDI;
         /// <summary>
         /// attribut interne pour modification de la datasource de la DataGrid afin de visualiser les collaborateurs archivés ou non
         /// </summary>
         private Boolean Clic;
-        public   crtlListerCollabo()
+        public   crtlListerCollabo(frmMDI parent)
         {
+            this.leForm = parent;
             init();
             formAfficheColab.cBxRechercheCollab.Items.AddRange(new String[]{ "matricule","nom","telephone","ville","cadre","non-cadre"
             });
@@ -41,7 +44,10 @@ namespace ABIenCouche
             formAfficheColab.dgCollabo.DoubleClick += new EventHandler(dgCollabo_CellContentDoubleClick);
             formAfficheColab.btnRechercher.Click += new EventHandler(btnRecherche_Click);
             formAfficheColab.btnVoirArchive.Click += new EventHandler(btnVoirArchive_Click);
-            formAfficheColab.ShowDialog();
+            formAfficheColab.MdiParent = parent;
+            formAfficheColab.Dock = DockStyle.Fill;
+            parent.ClientSize = formAfficheColab.Size;
+            formAfficheColab.Show();
             if (formAfficheColab.DialogResult==DialogResult.OK)
             {
                 this.afficheCollabo();
@@ -63,17 +69,21 @@ namespace ABIenCouche
         /// <param name="e"></param>
         private void btnVoirArchive_Click(object sender, EventArgs e)
         {
-            if (formAfficheColab.dgCollabo.Columns.Count == 6)
+            if (!Clic)
             {
-                formAfficheColab.dgCollabo.DataSource = DictionnaireCollaborateur.listArchive();
+                formAfficheColab.dgCollabo.DataSource = listArchive();
                 formAfficheColab.dgCollabo.Columns[6].Visible = false;
+                formAfficheColab.dgCollabo.Columns[7].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 formAfficheColab.btnVoirArchive.Text = "Sortir Archives";
+                formAfficheColab.btnArchiver.Visible = false;
                 Clic = true;
             }
             else
             {
                 formAfficheColab.btnVoirArchive.Text = "Voir Archives";
-                afficheCollabo();
+                formAfficheColab.btnArchiver.Visible = true;
+                init();
+                Clic = false;
             }
         }
         /// <summary>
@@ -248,6 +258,44 @@ namespace ABIenCouche
                 this.afficheCollabo();
             }
         }
+
+        /// <summary>
+        /// Retourne une DataTable contenant tous kles collaborateurs archivés
+        /// </summary>
+        /// <returns></returns>
+        public DataTable listArchive()
+        {
+            DataTable dt = new DataTable();
+            DataRow DR;
+            dt.Columns.Add(new DataColumn("#", typeof(Int32)));
+            dt.Columns.Add(new DataColumn("Civ", typeof(String)));
+            dt.Columns.Add(new DataColumn("Nom", typeof(String)));
+            dt.Columns.Add(new DataColumn("Prénom", typeof(String)));
+            dt.Columns.Add(new DataColumn("Adresse", typeof(String)));
+            dt.Columns.Add(new DataColumn("Telephone", typeof(String)));
+            dt.Columns.Add(new DataColumn("Archive", typeof(Boolean)));
+            dt.Columns.Add(new DataColumn("Situation Maritale", typeof(string)));
+            var query = from c in DonneesDAO.DbContextCollaborateurs.CollaborateursSet
+                        select c;
+            foreach (Collaborateurs colab in query)
+            {
+                if (colab.Archive)
+                {
+                    DR = dt.NewRow();
+                    DR[0] = colab.matricule;
+                    DR[1] = colab.Civilite;
+                    DR[2] = colab.Nom;
+                    DR[3] = colab.Prenom;
+                    DR[4] = colab.Rue+ " " + colab.CodePostal + " " + colab.Ville;
+                    DR[5] = colab.Telephone;
+                    DR[6] = colab.Archive;
+                    DR[7] = colab.SituationMaritale;
+                    dt.Rows.Add(DR);
+                }
+
+            }
+            return dt;
+        }
         /// <summary>
         /// Méthode appelée lors du double clic sur un collaborateur dans la DataGrid
         /// </summary>
@@ -284,6 +332,7 @@ namespace ABIenCouche
             DR = DialogResult.OK;
             
             formAfficheColab.Close();
+            leForm.Close();
         }
         /// <summary>
         /// Méthode interne instanciant les collaborateurs enregistrés en BDD et remplissant la DataGrid en créant une DataTable avec les données reçues de la base
@@ -304,11 +353,12 @@ namespace ABIenCouche
         {
 
             this.afficheCollabo();
-            formAfficheColab.dgCollabo.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            
+            formAfficheColab.dgCollabo.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             formAfficheColab.dgCollabo.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             formAfficheColab.dgCollabo.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            formAfficheColab.dgCollabo.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-
+            formAfficheColab.dgCollabo.Columns[6].Visible = false;
+            formAfficheColab.dgCollabo.Columns[7].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
     }
 }

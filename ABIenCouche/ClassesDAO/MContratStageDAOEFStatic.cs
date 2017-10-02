@@ -1,5 +1,4 @@
-﻿using ABIenCouche;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,16 +17,16 @@ namespace ClassesDAO
             }
         }
 
-        public static void instancieContratsStage(Collaborateur leCollaborateur)
+        public static void instancieContratsStage(Collaborateurs leCollaborateur)
         {
             if (DonneesDAO.DbContextCollaborateurs == null) DonneesDAO.DbContextCollaborateurs = new lesCollaborateursContainer();
 
             var query = from C in DonneesDAO.DbContextCollaborateurs.ContratsSet
-                        where C.Collaborateurs.matricule == leCollaborateur.Matricule
+                        where C.Collaborateurs.matricule == leCollaborateur.matricule
                         select C;
 
             ContratStage leContratStageDAO;
-            Collaborateurs leCollaborateurDAO = DonneesDAO.DbContextCollaborateurs.CollaborateursSet.Find(leCollaborateur.Matricule);
+            Collaborateurs leCollaborateurDAO = DonneesDAO.DbContextCollaborateurs.CollaborateursSet.Find(leCollaborateur.matricule);
 
             foreach (ContratStage item in query)
             {

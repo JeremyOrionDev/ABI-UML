@@ -6,12 +6,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{D5029F05-DA8F-4173-9C8C-B221FB3811E7}</ProjectGuid>
+    <ProjectGuid>{62B94944-99E0-407A-BB62-974E5F50FFE0}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ABIService</RootNamespace>
-    <AssemblyName>ABIService</AssemblyName>
+    <RootNamespace>WcfService1</RootNamespace>
+    <AssemblyName>WcfService1</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -69,7 +69,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Service1.svc" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Service1.svc.cs">
@@ -95,10 +97,6 @@
       <Project>{46c87214-4547-48b7-b07a-973c76198991}</Project>
       <Name>ABIclassesMetiers</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ABIenCouche\ABIenCouche.csproj">
-      <Project>{523df486-4ce1-4ccd-8d79-08adae97f771}</Project>
-      <Name>ABIenCouche</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ClassesDAO\ClassesDAO.csproj">
       <Project>{5eab929c-8121-4112-b1f5-7b6e7c5e06a6}</Project>
       <Name>ClassesDAO</Name>
@@ -117,9 +115,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>14913</DevelopmentServerPort>
+          <DevelopmentServerPort>26014</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:14913/</IISUrl>
+          <IISUrl>http://localhost:26014/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

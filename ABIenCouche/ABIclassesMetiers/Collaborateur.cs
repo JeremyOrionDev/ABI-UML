@@ -7,6 +7,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Runtime.Serialization;
 using System.Data;
 using System.Drawing;
 using System.Text;
@@ -16,6 +17,8 @@ namespace ABIenCouche
     /// <summary>
     /// Classe publique de Collaborateur
     /// </summary>
+    [DataContract]
+    [Serializable]
     public class Collaborateur
     {
         /// <summary>
@@ -140,40 +143,40 @@ namespace ABIenCouche
                 LesContrats.Clear();
         }
 
-
+        [DataMember]
         public string NomCollaborateur
         {
             get
             {
                 return nomCollaborateur;
             }
-            set
+            private set
             {
                 if (this.nomCollaborateur != value)
                     this.nomCollaborateur = value;
             }
         }
-
+        [DataMember]
         public string PrenomCollaborateur
         {
             get
             {
                 return prenomCollaborateur;
             }
-            set
+            private set
             {
                 if (this.prenomCollaborateur != value)
                     this.prenomCollaborateur = value;
             }
         }
-
+        [DataMember]
         public int Matricule
         {
             get
             {
                 return matricule;
             }
-            set
+            private set
             {
                 if (this.matricule != value)
                     this.matricule = value;
@@ -181,20 +184,20 @@ namespace ABIenCouche
         }
 
 
-
+        [DataMember]
         public String SituationMaritale
         {
             get
             {
                 return situationMaritale;
             }
-            set
+            private set
             {
                 if (this.situationMaritale != value)
                     this.situationMaritale = value;
             }
         }
-
+        [DataMember]
         public string RueCollab
         {
             get
@@ -202,12 +205,12 @@ namespace ABIenCouche
                 return rueCollab;
             }
 
-            set
+            private set
             {
                 rueCollab = value;
             }
         }
-
+        [DataMember]
         public string VilleCollab
         {
             get
@@ -215,12 +218,12 @@ namespace ABIenCouche
                 return villeCollab;
             }
 
-            set
+            private set
             {
                 villeCollab = value;
             }
         }
-
+        [DataMember]
         public string CpCollab
         {
             get
@@ -228,66 +231,63 @@ namespace ABIenCouche
                 return cpCollab;
             }
 
-            set
+            private set
             {
                 cpCollab = value;
             }
         }
 
-
+        [DataMember]
         public String Civilite
         {
             get
             {
                 return civilite;
             }
-            set
+            private set
             {
                 civilite = value;
             }
         }
-
+        [DataMember]
         public string Telephone
         {
             get
             {
                 return telephone;
             }
-
-            set
+            private set
             {
                 telephone = value;
             }
         }
 
-
+        [DataMember]
         public SortedDictionary<int, Contrat> LesContrats
         {
             get
             {
                 return lesContrats;
             }
-
-            set
+            private set
             {
                 lesContrats = value;
             }
             
         }
-
+        [DataMember]
         public SortedDictionary<DateTime, Contrat> LesContratsTriDate
         {
             get
             {
                 return lesContratsTriDate;
             }
-
-            set
+            private set
             {
                 lesContratsTriDate = value;
             }
         }
-
-        public bool Archive { get => archive; set => archive = value; }
+        [DataMember]
+        public bool Archive { get => archive; private set => archive = value; }
     }
 }

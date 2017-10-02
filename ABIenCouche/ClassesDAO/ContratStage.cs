@@ -14,10 +14,10 @@ namespace ClassesDAO
     
     public partial class ContratStage : Contrats
     {
-        internal string Ecole { get; set; }
-        internal string Motif { get; set; }
-        internal string Tuteur { get; set; }
-        internal System.DateTime DateFin { get; set; }
-        internal string Mission { get; set; }
+        public string Ecole { get; set; }
+        public string Motif { get; set; }
+        public string Tuteur { get; set; }
+        public System.DateTime DateFin { get; set; }
+        public string Mission { get; set; }
     }
 }

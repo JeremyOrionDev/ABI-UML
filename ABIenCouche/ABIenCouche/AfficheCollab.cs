@@ -12,11 +12,11 @@ using System.Windows.Forms;
 namespace ABIenCouche
 {
     public partial class frmDspCollaborateur : Form
-    {        
+    {
+        
 
         public frmDspCollaborateur()
         {
-          
             InitializeComponent();
 
         }

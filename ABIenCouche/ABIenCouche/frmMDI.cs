@@ -13,23 +13,20 @@ namespace ABIenCouche
     public partial class frmMDI : Form
     {
         //private int childFormNumber = 0;
-
+        private frmDspCollaborateur Affich =new frmDspCollaborateur();
         public frmMDI()
         {
             InitializeComponent();
+            this.IsMdiContainer = true;
+            
+           
         }
 
-        public crtlListerCollabo crtlListerCollabo
-        {
-            get => default(crtlListerCollabo);
-            set
-            {
-            }
-        }
 
         private void OpenFile(object sender, EventArgs e)
         {
-            crtlListerCollabo ctrl = new crtlListerCollabo();
+            crtlListerCollabo ctrl = new crtlListerCollabo(this);
+          
             if (ctrl.DR==DialogResult.OK)
             {
                 this.Close();
@@ -81,7 +78,7 @@ namespace ABIenCouche
 
         private void btnAfficheColab_Click(object sender, EventArgs e)
         {
-            crtlListerCollabo ctrl = new crtlListerCollabo();
+            crtlListerCollabo ctrl = new crtlListerCollabo(this);
             if (ctrl.DR == DialogResult.OK)
             {
                 this.Close();

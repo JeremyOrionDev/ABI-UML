@@ -14,8 +14,8 @@ namespace ClassesDAO
     
     public partial class Augmentations
     {
-        internal System.DateTime Date { get; set; }
-        internal decimal Valeur { get; set; }
+        public System.DateTime Date { get; set; }
+        public decimal Valeur { get; set; }
     
         public virtual Collaborateurs Collaborateurs { get; set; }
     }
