@@ -216,6 +216,10 @@ namespace ClassesDAO
         /// <returns></returns>
         public static Collaborateurs retrouverCollaborateur(Int32 unNum)
         {
+            if (DonneesDAO.DbContextCollaborateurs == null)
+            {
+                DonneesDAO.DbContextCollaborateurs = new lesCollaborateursContainer();
+            }
             if (DonneesDAO.DbContextCollaborateurs.CollaborateursSet.Find(unNum) != null)
             {
                 return DonneesDAO.DbContextCollaborateurs.CollaborateursSet.Find(unNum);
@@ -223,7 +227,47 @@ namespace ClassesDAO
             else throw new Exception("erreur le Collaborateur n'existe pas");
         }
 
+        public static string ajoutCollaborateurDB(Collaborateurs unCollaborateur)
+        {
+            if (DonneesDAO.DbContextCollaborateurs== null)
+            {
+                DonneesDAO.DbContextCollaborateurs=new lesCollaborateursContainer();
+            }
+            Collaborateurs C = unCollaborateur;
+            try
+            {
 
+            DonneesDAO.DbContextCollaborateurs.CollaborateursSet.Add(C);
+                DonneesDAO.DbContextCollaborateurs.SaveChanges();
+                return "le collaborateur "+ C.Nom+C.Prenom+" à été crée";
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+
+        public static List<Collaborateurs> GetColabs(bool Archive)
+        {
+            if (DonneesDAO.DbContextCollaborateurs == null)
+            {
+                DonneesDAO.DbContextCollaborateurs = new lesCollaborateursContainer();
+            }
+            List<Collaborateurs> laListCollab = new List<Collaborateurs>();
+            var query = from C in DonneesDAO.DbContextCollaborateurs.CollaborateursSet
+                        where C.Archive == Archive
+                        select C;
+            foreach (Collaborateurs item in query)
+            {
+                Collaborateurs D;
+                D=item;
+                laListCollab.Add(D);
+            }
+
+            return laListCollab;
+        }
 
     }
 }

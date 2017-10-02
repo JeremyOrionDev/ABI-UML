@@ -11,12 +11,15 @@ namespace ClassesDAO
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Runtime.Serialization;
+        
+    [DataContract]
     public partial class ContratCDI : Contrats
     {
         /// <summary>
         /// réféence du salaire 
         /// </summary>
+        [DataMember]
         public double Salaire { get; set; }
     }
 }

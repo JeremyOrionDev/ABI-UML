@@ -11,28 +11,35 @@ namespace ClassesDAO
 {
     using System;
     using System.Collections.Generic;
+    using System.Runtime.Serialization;
     
+    [DataContract]
     public partial class ContratStage : Contrats
     {
         /// <summary>
         /// école du stagiaire
         /// </summary>
+        [DataMember]
         internal string Ecole { get; set; }
         /// <summary>
         /// motif pour ce contrat
         /// </summary>
+        [DataMember]
         internal string Motif { get; set; }
         /// <summary>
         /// tuteut du stagiaire
         /// </summary>
+        [DataMember]
         internal string Tuteur { get; set; }
         /// <summary>
         /// date de fin du stage
         /// </summary>
+        [DataMember]
         internal System.DateTime DateFin { get; set; }
         /// <summary>
         /// mission attribuée au stagiaire
         /// </summary>
+        [DataMember]
         internal string Mission { get; set; }
     }
 }

@@ -18,6 +18,7 @@ namespace ClassesDAO
         public lesCollaborateursContainer()
             : base("name=lesCollaborateursContainer")
         {
+            this.Configuration.ProxyCreationEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

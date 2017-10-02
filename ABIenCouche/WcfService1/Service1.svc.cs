@@ -5,10 +5,9 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
-using ABIenCouche;
 using ClassesDAO;
 
-namespace WCFService
+namespace WcfService1
 {
     // REMARQUE : vous pouvez utiliser la commande Renommer du menu Refactoriser pour changer le nom de classe "Service1" dans le code, le fichier svc et le fichier de configuration.
     // REMARQUE : pour lancer le client test WCF afin de tester ce service, sélectionnez Service1.svc ou Service1.svc.cs dans l'Explorateur de solutions et démarrez le débogage.
@@ -16,7 +15,7 @@ namespace WCFService
     {
         public string AddCollaborateur(Collaborateurs unCollaborateur)
         {
-            if (DonneesDAO.DbContextCollaborateurs.Collaborateurs==null)
+            if (DonneesDAO.DbContextCollaborateurs.Collaborateurs == null)
             {
                 DonneesDAO.DbContextCollaborateurs = new lesCollaborateursContainer();
             }

@@ -6,12 +6,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{1C1E204B-4DBB-4039-A0BE-80B63FE21042}</ProjectGuid>
+    <ProjectGuid>{B34E81E1-6805-415A-AD15-59979553EA1B}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WCFService</RootNamespace>
-    <AssemblyName>WCFService</AssemblyName>
+    <RootNamespace>WcfService1</RootNamespace>
+    <AssemblyName>WcfService1</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -91,10 +91,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ABIclassesMetiers\ABIclassesMetiers.csproj">
-      <Project>{46c87214-4547-48b7-b07a-973c76198991}</Project>
-      <Name>ABIclassesMetiers</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ClassesDAO\ClassesDAO.csproj">
       <Project>{5eab929c-8121-4112-b1f5-7b6e7c5e06a6}</Project>
       <Name>ClassesDAO</Name>
@@ -113,9 +109,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>28966</DevelopmentServerPort>
+          <DevelopmentServerPort>30086</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:28966/</IISUrl>
+          <IISUrl>http://localhost:30086/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

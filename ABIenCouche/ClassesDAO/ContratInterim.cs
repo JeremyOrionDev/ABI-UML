@@ -11,24 +11,30 @@ namespace ClassesDAO
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Runtime.Serialization;
+
+    [DataContract]
     public partial class ContratInterim : Contrats
     {
         /// <summary>
         /// référence de l'agence d'interim envoyant le collaborateur
         /// </summary>
+        [DataMember]
         public string Agence { get; set; }
         /// <summary>
         /// référence du salaire
         /// </summary>
+        [DataMember]
         public double Salaire { get; set; }
         /// <summary>
         /// référence a la date de fin
         /// </summary>
+        [DataMember]
         public System.DateTime DateFin { get; set; }
         /// <summary>
         /// référence au motif
         /// </summary>
+        [DataMember]
         public string Motif { get; set; }
     }
 }

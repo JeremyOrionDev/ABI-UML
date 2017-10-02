@@ -11,43 +11,59 @@ namespace ClassesDAO
 {
     using System;
     using System.Collections.Generic;
+    using System.Runtime.Serialization;
     
+    [KnownType(typeof(ContratInterim))]
+    [KnownType(typeof(ContratStage))]
+    [KnownType(typeof(ContratCDI))]
+    [KnownType(typeof(ContratCDD))]
+    [Serializable]
+    [DataContract]
     public partial class Contrats
     {
         /// <summary>
         /// Référence du numéro du contrat
         /// </summary>
+        [DataMember]
         public int NumContrat { get; set; }
         /// <summary>
         /// référence du statut cadre
         /// </summary>
+        [DataMember]
         public bool Statut { get; set; }
         /// <summary>
         /// référence à la qualification
         /// </summary>
+        [DataMember]
         public string Qualification { get; set; }
         /// <summary>
         /// référence au libellé du contrat
         /// </summary>
+        [DataMember]
         public string Libelle { get; set; }
         /// <summary>
         /// référence a la fonction
         /// </summary>
+        [DataMember]
         public string Fonction { get; set; }
         /// <summary>
         /// référence a la date de début du contrat
         /// </summary>
+        [DataMember]
         public System.DateTime DateDebut { get; set; }
         /// <summary>
         /// référence a l'id du contrat
         /// </summary>
+        [DataMember]
         public int idContrat { get; set; }
         /// <summary>
         /// collection des collaborateur
         /// </summary>
+        [DataMember]
         public virtual Collaborateurs Collaborateurs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         ///collection des avenants
+        [DataMember]
         public virtual ICollection<Avenant> Avenant { get; set; }
     }
 }

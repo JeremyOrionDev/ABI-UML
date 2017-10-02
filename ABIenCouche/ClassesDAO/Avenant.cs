@@ -11,30 +11,38 @@ namespace ClassesDAO
 {
     using System;
     using System.Collections.Generic;
+    using System.Runtime.Serialization;
     /// <summary>
     /// classe publique partielle des avenant de contrats
     /// </summary>
+    [DataContract]
+    [Serializable]
     public partial class Avenant
     {
         /// <summary>
         /// référence interne des id d'avenants
         /// </summary>
+        [DataMember]
         internal int idAvenant { get; set; }
         /// <summary>
         /// référence interne de la date de l'avenant
         /// </summary>
+        [DataMember]
         internal System.DateTime Date { get; set; }
         /// <summary>
         /// référence interne du motif de l'avenant du contrat
         /// </summary>
+        [DataMember]
         internal string MotifAvenant { get; set; }
         /// <summary>
         /// référence interne du numéro de l'avenant
         /// </summary>
+        [DataMember]
         internal int numeroAvenant { get; set; }
         /// <summary>
         /// référence au contrat pour l'ajout de l'avenant
         /// </summary>
+        [DataMember]
         public virtual Contrats Contrats { get; set; }
     }
 }
