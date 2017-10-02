@@ -6,6 +6,7 @@ using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
 using ClassesDAO;
+using ABIenCouche;
 
 namespace WCFService
 {
@@ -15,22 +16,33 @@ namespace WCFService
     {
 
         [OperationContract]
-        Collaborateurs GetCollaborateurs(int numColab);
+        [WebGet(UriTemplate="Collaborateurs/{numColab}")]
+        Collaborateur GetCollaborateur(string numColab);
 
         [OperationContract]
-        Collaborateurs AjoutCollaborateur(Collaborateurs leColab);
+        [WebInvoke(Method = "POST", UriTemplate = "Collaborateurs/", RequestFormat =WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.WrappedRequest)]
+        Collaborateur AjoutCollaborateur(Collaborateurs leColab);
 
         [OperationContract]
-        IList<Collaborateurs> GetAllCollaborateurs(bool Archive);
+        IList<Collaborateur> GetAllCollaborateurs(bool Archive);
 
         [OperationContract]
+        [WebInvoke(Method = "POST", UriTemplate = "Collaborateurs/", RequestFormat =WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.WrappedRequest)]
         string AddCollaborateur(Collaborateurs unCollaborateur);
 
         [OperationContract]
-        string UpdateCollaborateur(Collaborateurs unCollaborateur);
+        [WebInvoke(Method ="PUT",UriTemplate ="Collaborateurs/")]
+        string UpdateCollaborateur(Collaborateur unCollaborateur);
 
         [OperationContract]
-        bool DeleteCollaborateur(Collaborateurs unCollaborateur);
+        [WebInvoke(Method ="DELETE",UriTemplate ="Collaborateurs/{unMatricule}")]
+        string DeleteCollaborateur(int unMatricule);
+
+        [OperationContract]
+        Contrat GetContrat(Collaborateur unCollaborateur,int unNum);
+
+        [OperationContract]
+        IList<Contrat> getAllContrats();
     }
 
 

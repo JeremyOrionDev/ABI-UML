@@ -29,7 +29,7 @@ namespace ABIenCouche
         /// <param name="unStatut">Etat du statut cadre</param>
         /// <param name="leDebut">Date de début du contrat </param>
         public ContratCDD(String unLibelle,DateTime uneDateFin,String unMotif, Int32 unNumContrat, String uneFonction,
-            String uneQualif,Boolean unStatut,DateTime leDebut ) :base(unNumContrat,uneFonction, uneQualif,unLibelle, unStatut, leDebut)
+            String uneQualif,Boolean unStatut,DateTime leDebut,int unId ) :base(unNumContrat,uneFonction, uneQualif,unLibelle, unStatut, leDebut,unId)
         {
             this.dateFinContrat = uneDateFin;
             this.motifContrat = unMotif;

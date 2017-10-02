@@ -87,7 +87,14 @@ namespace ABIenCouche
             else throw new Exception("le collaborateur ne peut pas être remplacé car il n'existe pas, il faut le créer");
         }
 
-
+        public static bool estPresent(Int32 matricule)
+        {
+            if (listCollaborateur.ContainsKey(matricule))
+            {
+                return true;
+            }
+            else return false;
+        }
         /// <summary>
         /// Fonction de récupération d'un collaborateur à partir de son matricule
         /// </summary>

@@ -20,6 +20,7 @@ namespace ABIenCouche
         /// ref au collaborateur à afficher
         /// </summary>
         private Collaborateurs leCollaborateur;
+        private Collaborateur unCollab;
         /// <summary>
         /// Attribut privé de DialogResult pour le transmettre au contrôleur appelant
         /// </summary>
@@ -157,7 +158,8 @@ namespace ABIenCouche
         /// <param name="e"></param>
         private void btnAjoutContrat_Click(object sender, EventArgs e)
         {
-            ctrlNouveauContrat leNouveauContrat = new ctrlNouveauContrat(this.leCollaborateur);
+            unCollab = DictionnaireCollaborateur.retrouverCollaborateur(leCollaborateur.matricule);
+            ctrlNouveauContrat leNouveauContrat = new ctrlNouveauContrat(unCollab);
             if (leNouveauContrat.contratOK)
             {
                 init();

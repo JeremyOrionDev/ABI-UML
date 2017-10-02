@@ -21,8 +21,8 @@ namespace ClassesDAO
         /// <param name="uneQualif">Qualification du collaborateur</param>
         /// <param name="unStatut">Etat du statut cadre</param>
         /// <param name="leDebut">Date de début du contrat</param>
-        public ContratCDI(String unLibelle, Double unSalaire, Int32 unNumContrat, String uneFonction, String uneQualif, Boolean unStatut, DateTime leDebut) :
-    base(unNumContrat, uneFonction, uneQualif, unLibelle, unStatut, leDebut)
+        public ContratCDI(String unLibelle, Double unSalaire, Int32 unNumContrat, String uneFonction, String uneQualif, Boolean unStatut, DateTime leDebut,int unId) :
+    base(unNumContrat, uneFonction, uneQualif, unLibelle, unStatut, leDebut,unId)
         {
 
             this.Libelle = unLibelle;

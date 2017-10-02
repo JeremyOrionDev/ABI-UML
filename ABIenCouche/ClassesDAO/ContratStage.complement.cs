@@ -31,7 +31,7 @@ namespace ClassesDAO
         /// <param name="unLibelle">le libellé du contrat</param>
         /// <param name="unStatut">l'état du statut cadre</param>
         /// <param name="leDebut">la date début du contrat</param>
-        public ContratStage(String uneEcole, String unMotif, DateTime uneDateDeFin, String laMission, String leTuteur, Int32 unNumContrat, String uneFonction, String uneQualif, String unLibelle, Boolean unStatut, DateTime leDebut) : base(unNumContrat, uneFonction, uneQualif, unLibelle, unStatut, leDebut)
+        public ContratStage(String uneEcole, String unMotif, DateTime uneDateDeFin, String laMission, String leTuteur, Int32 unNumContrat, String uneFonction, String uneQualif, String unLibelle, Boolean unStatut, DateTime leDebut,int unId) : base(unNumContrat, uneFonction, uneQualif, unLibelle, unStatut, leDebut,unId)
         {
             this.Ecole = uneEcole;
             this.Motif = unMotif;

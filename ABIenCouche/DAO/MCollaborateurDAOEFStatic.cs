@@ -66,25 +66,25 @@ namespace ClassesDAO
                         if (leContrat is ContratCDD)
                         {
                             ContratCDD unCDD = (ContratCDD)leContrat;
-                            leCDD = new ABIenCouche.ContratCDD(unCDD.Libelle, unCDD.DateFin, unCDD.Motif, unCDD.NumContrat, unCDD.Fonction, unCDD.Qualification, unCDD.Statut, unCDD.DateDebut,unCDD.idContrat);
+                            leCDD = new ABIenCouche.ContratCDD(unCDD.Libelle, unCDD.DateFin, unCDD.Motif, unCDD.NumContrat, unCDD.Fonction, unCDD.Qualification, unCDD.Statut, unCDD.DateDebut);
                             leCollaborateur.ajoutContrat(leCDD);
                         }
                         else if (leContrat is ContratCDI)
                         {
                             ContratCDI unCDI = (ContratCDI)leContrat;
-                            leCDI = new ABIenCouche.ContratCDI(unCDI.Libelle, unCDI.Salaire, unCDI.NumContrat, unCDI.Fonction, unCDI.Qualification, unCDI.Statut, unCDI.DateDebut,unCDI.idContrat);
+                            leCDI = new ABIenCouche.ContratCDI(unCDI.Libelle, unCDI.Salaire, unCDI.NumContrat, unCDI.Fonction, unCDI.Qualification, unCDI.Statut, unCDI.DateDebut);
                             leCollaborateur.ajoutContrat(leCDI);
                         }
                         else if (leContrat is ContratInterim)
                         {
                             ContratInterim lInterim = (ContratInterim)leContrat;
-                            unInterim = new contratInterim(lInterim.Agence, lInterim.Motif, lInterim.Salaire, lInterim.DateFin, lInterim.NumContrat, lInterim.Fonction, lInterim.Qualification, lInterim.Libelle, lInterim.Statut, lInterim.DateDebut,lInterim.idContrat);
+                            unInterim = new contratInterim(lInterim.Agence, lInterim.Motif, lInterim.Salaire, lInterim.DateFin, lInterim.NumContrat, lInterim.Fonction, lInterim.Qualification, lInterim.Libelle, lInterim.Statut, lInterim.DateDebut);
                             leCollaborateur.ajoutContrat(unInterim);
                         }
                         else if (leContrat is ContratStage)
                         {
                             ContratStage unStage = (ContratStage)leContrat;
-                            leStage = new ABIenCouche.ContratStage(unStage.Ecole, unStage.Motif, unStage.DateFin, unStage.Mission, unStage.Tuteur, unStage.NumContrat, unStage.Fonction, unStage.Qualification, unStage.Libelle, unStage.Statut, unStage.DateDebut,unStage.idContrat);
+                            leStage = new ABIenCouche.ContratStage(unStage.Ecole, unStage.Motif, unStage.DateFin, unStage.Mission, unStage.Tuteur, unStage.NumContrat, unStage.Fonction, unStage.Qualification, unStage.Libelle, unStage.Statut, unStage.DateDebut);
                             leCollaborateur.ajoutContrat(leStage);
                         }
                         var query3 = from A in DonneesDAO.DbContextCollaborateurs.AvenantSet
@@ -214,108 +214,16 @@ namespace ClassesDAO
         /// </summary>
         /// <param name="unNum"></param>
         /// <returns></returns>
-        public static Collaborateurs retrouverCollaborateurDB(Int32 unNum)
+        public static Collaborateurs retrouverCollaborateur(Int32 unNum)
         {
-            if (DonneesDAO.DbContextCollaborateurs == null)
-            {
-                DonneesDAO.DbContextCollaborateurs = new lesCollaborateursContainer();
-            }
             if (DonneesDAO.DbContextCollaborateurs.CollaborateursSet.Find(unNum) != null)
             {
-
                 return DonneesDAO.DbContextCollaborateurs.CollaborateursSet.Find(unNum);
             }
             else throw new Exception("erreur le Collaborateur n'existe pas");
         }
 
-        public static Collaborateur retrouverCollaborateur(int unNum)
-        {
-            if (DictionnaireCollaborateur.estPresent(unNum))
-            {
-                return DictionnaireCollaborateur.retrouverCollaborateur(unNum);
-            }
-            else throw new Exception("le collaborateur n'existe pas");
-        }
-        public static string ajoutCollaborateurDB(Collaborateurs unCollaborateur)
-        {
-            if (DonneesDAO.DbContextCollaborateurs== null)
-            {
-                DonneesDAO.DbContextCollaborateurs=new lesCollaborateursContainer();
-            }
-            Collaborateurs C = unCollaborateur;
-            try
-            {
 
-            DonneesDAO.DbContextCollaborateurs.CollaborateursSet.Add(C);
-                DonneesDAO.DbContextCollaborateurs.SaveChanges();
-                return "le collaborateur "+ C.Nom+C.Prenom+" à été crée";
-            }
-            catch (Exception)
-            {
 
-                throw;
-            }
-
-        }
-
-        public static string ajoutCollaborateur(Collaborateur unCollaborateur)
-        {
-            Collaborateur C = new Collaborateur(unCollaborateur.Matricule, unCollaborateur.Civilite, unCollaborateur.SituationMaritale, unCollaborateur.NomCollaborateur, unCollaborateur.PrenomCollaborateur, unCollaborateur.RueCollab, unCollaborateur.VilleCollab, unCollaborateur.CpCollab, unCollaborateur.Telephone, false);
-            if (!DictionnaireCollaborateur.estPresent(unCollaborateur.Matricule))
-            {
-                DictionnaireCollaborateur.Ajouter(C);
-                return "le collaborateur " + unCollaborateur.NomCollaborateur + " " + unCollaborateur.PrenomCollaborateur + " a bien été ajouté";
-            }
-            else
-            {
-                Collaborateur D = DictionnaireCollaborateur.retrouverCollaborateur(unCollaborateur.Matricule);
-                return "le matricule " + unCollaborateur.Matricule + " existe déja il appartient au collaborateur nommé: " + D.NomCollaborateur + " " + D.PrenomCollaborateur;
-            }
-           
-        }
-
-        public static List<Collaborateurs> GetColabs(bool Archive)
-        {
-            if (DonneesDAO.DbContextCollaborateurs == null)
-            {
-                DonneesDAO.DbContextCollaborateurs = new lesCollaborateursContainer();
-            }
-            List<Collaborateurs> laListCollab = new List<Collaborateurs>();
-            var query = from C in DonneesDAO.DbContextCollaborateurs.CollaborateursSet
-                        where C.Archive == Archive
-                        select C;
-            foreach (Collaborateurs item in query)
-            {
-                Collaborateurs D;
-                D=item;
-                laListCollab.Add(D);
-            }
-
-            return laListCollab;
-        }
-         public static List<Contrat> ContratToList(Collaborateur unColab)
-        {
-            Collaborateur C = unColab;
-            List<Contrat> laListe = new List<Contrat>();
-            //var query = from C in 
-            //foreach (Contrat item in C.LesContrats)
-            //{
-            //    laListe.Add(item);
-            //}
-            //TODO: Liste des Contrats à implémenter depuis la classe métier
-            return laListe;
-        }
-        public static List<Contrats> tousLesContrats()
-        {
-            //TODO: liste de tous les contrats à partir de la classe métier
-            List<Contrats> lesContrats = new List<Contrats>();
-            var query = from C in DonneesDAO.DbContextCollaborateurs.ContratsSet
-                        select C;
-            foreach (Contrats item in query)
-            {
-                lesContrats.Add(item);
-            }
-            return lesContrats;
-        }
     }
 }

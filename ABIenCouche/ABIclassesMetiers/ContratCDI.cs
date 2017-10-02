@@ -18,8 +18,8 @@ namespace ABIenCouche
         /// </summary>
         public SortedDictionary<Int32, avenantContrat> lesAvenants = new SortedDictionary<int, avenantContrat>();
 
-        public ContratCDI( String unLibelle, Double unSalaire, Int32 unNumContrat, String uneFonction, String uneQualif, Boolean unStatut, DateTime leDebut) :
-            base( unNumContrat,uneFonction, uneQualif,unLibelle, unStatut, leDebut)
+        public ContratCDI( String unLibelle, Double unSalaire, Int32 unNumContrat, String uneFonction, String uneQualif, Boolean unStatut, DateTime leDebut,int unId) :
+            base( unNumContrat,uneFonction, uneQualif,unLibelle, unStatut, leDebut,unId)
         {
 
             LibelleContrat = unLibelle;

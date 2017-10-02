@@ -1,16 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{46C87214-4547-48B7-B07A-973C76198991}</ProjectGuid>
+    <ProjectGuid>{40B63708-4C21-4842-8E7C-C2A2D6C431A6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ABIenCouche</RootNamespace>
-    <AssemblyName>ABIclassesMetiers</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <RootNamespace>DAO</RootNamespace>
+    <AssemblyName>DAO</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -32,9 +33,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,30 +41,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="avenantContrat.cs" />
-    <Compile Include="ContratCDD.cs" />
-    <Compile Include="ContratCDI.cs" />
-    <Compile Include="contratInterim.cs" />
-    <Compile Include="contratStage.cs" />
-    <Compile Include="DictionnaireCDD.cs" />
-    <Compile Include="DictionnaireCDI.cs" />
-    <Compile Include="DictionnaireCollaborateur.cs" />
-    <Compile Include="Collaborateur.cs" />
-    <Compile Include="Contrat.cs" />
-    <Compile Include="DictionnaireContrats.cs" />
+    <Compile Include="DonneesDAO.cs" />
+    <Compile Include="MCollaborateurDAOEFStatic.cs" />
+    <Compile Include="MContratInterimDAOEFStatic.cs" />
+    <Compile Include="MContratsCDDDAOEFStatic.cs" />
+    <Compile Include="MContratsCDIDAOEFStatic.cs" />
+    <Compile Include="MContratStageDAOEFStatic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram1.cd" />
-    <None Include="ClassDiagram2.cd" />
-    <None Include="packages.config" />
+    <ProjectReference Include="..\ABIclassesMetiers\ABIclassesMetiers.csproj">
+      <Project>{46c87214-4547-48b7-b07a-973c76198991}</Project>
+      <Name>ABIclassesMetiers</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>

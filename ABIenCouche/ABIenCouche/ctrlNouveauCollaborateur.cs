@@ -22,6 +22,8 @@ namespace ABIenCouche
         /// ref au collaborateur à créer
         /// </summary>
         internal Collaborateurs uncolab;
+
+        internal Collaborateur leCollab;
         /// <summary>
         /// Attribut booléen permettant la communication au controleur appelant
         /// </summary>
@@ -175,9 +177,9 @@ namespace ABIenCouche
                     Archiver = true;
                 }
                 else Archiver = false;
-                 Collaborateur E = new Collaborateur(Convert.ToInt32(leForm.txtBoxMatriculeCollab.Text),leForm.cBxCivilite.SelectedItem.ToString(),leForm.cBxSituation.SelectedItem.ToString(), leForm.txtBoxNomCollab.Text, leForm.txtBoxPrenomCollab.Text, leForm.txtBoxRueCollab.Text,
+                 leCollab = new Collaborateur(Convert.ToInt32(leForm.txtBoxMatriculeCollab.Text),leForm.cBxCivilite.SelectedItem.ToString(),leForm.cBxSituation.SelectedItem.ToString(), leForm.txtBoxNomCollab.Text, leForm.txtBoxPrenomCollab.Text, leForm.txtBoxRueCollab.Text,
                      leForm.txtBxVille.Text, leForm.txtBxCP.Text, leForm.tBxTel.Text,Archiver) ;
-                DictionnaireCollaborateur.Ajouter(E);
+                DictionnaireCollaborateur.Ajouter(leCollab);
                 uncolab = new Collaborateurs(uncolab.matricule, uncolab.Civilite, uncolab.SituationMaritale, uncolab.Nom, uncolab.Prenom, uncolab.Rue, uncolab.Ville, uncolab.CodePostal, uncolab.Telephone,uncolab.Archive);
                 DonneesDAO.DbContextCollaborateurs.CollaborateursSet.Add(uncolab);
                 DonneesDAO.DbContextCollaborateurs.SaveChanges();
@@ -206,7 +208,7 @@ namespace ABIenCouche
                 if (Instancie())
                 {
                     leForm.DialogResult = DialogResult.OK;
-                    ctrlNouveauContrat leNouveauContrat = new ctrlNouveauContrat(uncolab);
+                    ctrlNouveauContrat leNouveauContrat = new ctrlNouveauContrat(leCollab);
                 }
                 
             } 

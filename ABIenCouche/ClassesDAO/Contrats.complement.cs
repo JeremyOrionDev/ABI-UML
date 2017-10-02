@@ -20,7 +20,7 @@ namespace ClassesDAO
         /// <param name="unLibelle">Libellé du contrat</param>
         /// <param name="unStatut">Etat du statut cadre du collaborateur</param>
         /// <param name="leDebut">La date de début du contrat</param>
-        public Contrats(Int32 unNumContrat, String uneFonction, String uneQualif, String unLibelle, Boolean unStatut, DateTime leDebut)
+        public Contrats(Int32 unNumContrat, String uneFonction, String uneQualif, String unLibelle, Boolean unStatut, DateTime leDebut,int unId)
         {
 
             this.DateDebut = leDebut;
@@ -29,6 +29,7 @@ namespace ClassesDAO
             this.Libelle = unLibelle;
             this.NumContrat = unNumContrat;
             this.Fonction = uneFonction;
+            this.idContrat = unId;
         }
         /// <summary>
         /// Le constrcuteur vide des contrats nécessaire à la classe DAO

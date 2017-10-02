@@ -30,7 +30,7 @@ namespace ABIenCouche
         /// <param name="unLibelle">Libellé du contrat</param>
         /// <param name="unStatut">Statut cadre du collaborateur</param>
         /// <param name="leDebut">Date de début du contrat</param>
-        public contratInterim(String uneAgence,String unMotif,Double leSalaire,DateTime uneDateFin, Int32 unNumContrat, String uneFonction, String uneQualif, String unLibelle, Boolean unStatut, DateTime leDebut) : base(unNumContrat, uneFonction, uneQualif, unLibelle, unStatut, leDebut)
+        public contratInterim(String uneAgence,String unMotif,Double leSalaire,DateTime uneDateFin, Int32 unNumContrat, String uneFonction, String uneQualif, String unLibelle, Boolean unStatut, DateTime leDebut,int unId) : base(unNumContrat, uneFonction, uneQualif, unLibelle, unStatut, leDebut,unId)
         {
             this.Agence = uneAgence;
             this.Salaire = leSalaire;
@@ -49,7 +49,7 @@ namespace ABIenCouche
         /// <summary>
         /// Attribut privé de Date de fin du contrat
         /// </summary>
-        private DateTime? laDateFin;
+        private DateTime laDateFin;
         /// <summary>
         /// Attribut privé du motif du contrat
         /// </summary>
@@ -80,7 +80,7 @@ namespace ABIenCouche
             }
         }
         [DataMember]
-        public DateTime? LaDateFin
+        public DateTime LaDateFin
         {
             get
             {

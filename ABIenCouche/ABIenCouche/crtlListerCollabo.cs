@@ -223,7 +223,7 @@ namespace ABIenCouche
             ctrlNouveauCollaborateur ctrl = new ctrlNouveauCollaborateur();
             if (ctrl.Resultat)
             {
-                ctrlNouveauContrat leContrat = new ctrlNouveauContrat(ctrl.uncolab);
+                ctrlNouveauContrat leContrat = new ctrlNouveauContrat(ctrl.leCollab);
                 if (leContrat.contratOK)
                 {
                     this.afficheCollabo();

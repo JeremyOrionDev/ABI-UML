@@ -73,6 +73,7 @@ namespace ClassesDAO
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         ///Collection de contrats du collaborateurs
+        [DataMember]
         public virtual ICollection<Contrats> Contrats { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         ///collection des augmentations

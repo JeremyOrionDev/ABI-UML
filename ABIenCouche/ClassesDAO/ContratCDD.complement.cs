@@ -29,7 +29,7 @@ namespace ClassesDAO
         /// <param name="unStatut">L'état du statut cadre ou non cadre du collaborateur</param>
         /// <param name="leDebut">La date de début du contrat</param>
         public ContratCDD(String unLibelle, DateTime uneDateFin, String unMotif, Int32 unNumContrat, String uneFonction,
-    String uneQualif, Boolean unStatut, DateTime leDebut) : base(unNumContrat, uneFonction, uneQualif, unLibelle, unStatut, leDebut)
+    String uneQualif, Boolean unStatut, DateTime leDebut, int unId) : base(unNumContrat, uneFonction, uneQualif, unLibelle, unStatut, leDebut,unId)
         {
             this.DateFin = uneDateFin;
             this.Motif = unMotif;

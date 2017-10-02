@@ -31,7 +31,7 @@ namespace ClassesDAO
             
             foreach (ContratCDD item in query)
             {
-                leContrat = new ContratCDD(item.Libelle,item.DateFin,item.Motif,item.NumContrat, item.Fonction, item.Qualification, item.Statut, item.DateDebut,item.idContrat);
+                leContrat = new ContratCDD(item.Libelle,item.DateFin,item.Motif,item.NumContrat, item.Fonction, item.Qualification, item.Statut, item.DateDebut);
                 leCollaborateur.Contrats.Add(leContrat);
                 DonneesDAO.DbContextCollaborateurs.SaveChanges();
                           }

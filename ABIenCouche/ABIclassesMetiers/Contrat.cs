@@ -41,16 +41,16 @@ namespace ABIenCouche
         /// <param name="unLibelle">Libellé complet du contrat</param>
         /// <param name="unStatut">Statut cadre ou non</param>
         /// <param name="leDebut">Date de début du contrat</param>
-        public Contrat(Int32 unNumContrat,String uneFonction,String uneQualif,String unLibelle,Boolean unStatut, DateTime leDebut)
+        public Contrat(Int32 unNumContrat, String uneFonction, String uneQualif, String unLibelle, Boolean unStatut, DateTime leDebut,int unId)
         {
 
-            this.DateDebutContrat = leDebut;
-            this.LeStatut = unStatut;
-            this.QualificationCollaborateur = uneQualif;
-            this.LibelleContrat = unLibelle;
+            this.dateDebutContrat = leDebut;
+            this.leStatut = unStatut;
+            this.qualificationCollaborateur = uneQualif;
+            this.libelleContrat = unLibelle;
             this.NumContrat = unNumContrat;
-            this.FonctionCollaborateur = uneFonction;
-            
+            this.fonctionCollaborateur = uneFonction;
+            this.IdContrat = unId;
         }
         /// <summary>
         /// Méthode de la classe métier de restitution de contrat pour un collaborateur et un numéro de contrat
@@ -86,6 +86,8 @@ namespace ABIenCouche
         /// Date de début du contrat
         /// </summary>
         private DateTime dateDebutContrat;
+
+        private int idContrat;
         /// <summary>
         /// Libellé complet du contrat
         /// </summary>
@@ -164,5 +166,7 @@ namespace ABIenCouche
                 numContrat = value;
             }
         }
+
+        public int IdContrat { get => idContrat; set => idContrat = value; }
     }
 }

@@ -31,7 +31,7 @@ namespace ABIenCouche
         /// <param name="unLibelle">Libellé du contrat du stagiaire</param>
         /// <param name="unStatut">Statut cadre ou non cadre</param>
         /// <param name="leDebut">Date de début du contrat</param>
-        public ContratStage(String uneEcole,String unMotif,DateTime uneDateDeFin ,String laMission, String leMaitre,Int32 unNumContrat, String uneFonction, String uneQualif,String unLibelle, Boolean unStatut, DateTime leDebut) : base(unNumContrat,uneFonction, uneQualif, unLibelle, unStatut, leDebut)
+        public ContratStage(String uneEcole,String unMotif,DateTime uneDateDeFin ,String laMission, String leMaitre,Int32 unNumContrat, String uneFonction, String uneQualif,String unLibelle, Boolean unStatut, DateTime leDebut,int unId) : base(unNumContrat,uneFonction, uneQualif, unLibelle, unStatut, leDebut,unId)
         {
             this.Ecole = uneEcole;
             this.Motif = unMotif;

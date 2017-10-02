@@ -13,8 +13,6 @@ namespace ClassesDAO
         /// </summary>
         public static lesCollaborateursContainer DbContextCollaborateurs;
 
-
-
         public lesCollaborateursContainer lesCollaborateursContainer
         {
             get => default(lesCollaborateursContainer);

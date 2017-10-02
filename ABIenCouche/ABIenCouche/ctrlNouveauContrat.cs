@@ -1,10 +1,11 @@
-﻿using ClassesDAO;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ClassesDAO;
+
 
 namespace ABIenCouche
 {
@@ -17,7 +18,7 @@ namespace ABIenCouche
         /// <summary>
         /// ref au collaborateur à qui ajouter le collaborateur
         /// </summary>
-        private Collaborateurs leCollaborateur;
+        private Collaborateur leCollaborateur;
         /// <summary>
         /// variable Booléen de controle valide pour la réponse au controleur appelant
         /// </summary>
@@ -31,7 +32,7 @@ namespace ABIenCouche
         /// Constructeur du controleur prenant en paramètre un objet collaborateur pour instancier le contrat
         /// </summary>
         /// <param name="unCollaborateur">Le collaborateur utilisé à qui sera associé le contrat</param>
-        public ctrlNouveauContrat(Collaborateurs unCollaborateur )
+        public ctrlNouveauContrat(Collaborateur unCollaborateur )
         {
 
             this.leCollaborateur = unCollaborateur;
@@ -52,11 +53,11 @@ namespace ABIenCouche
             formContrat.panelQualification.Visible = false;
             formContrat.panelDebut.Visible = false;
             formContrat.txBxNumeroContrat.Visible = true;
-            if (leCollaborateur.Contrats.Count == 0)
+            if (leCollaborateur.LesContrats.Count == 0)
             {
                 formContrat.txBxNumeroContrat.Text = "1";
             }
-            else formContrat.txBxNumeroContrat.Text = ((leCollaborateur.Contrats.Count) + 1).ToString();
+            else formContrat.txBxNumeroContrat.Text = ((leCollaborateur.LesContrats.Count) + 1).ToString();
             formContrat.cBxTypeContrat.SelectedValueChanged += new EventHandler(cBxTypeContrat_SelectedIndexChanged);
                 formContrat.btnValiderContrat.Click += new EventHandler(btnValiderContrat_click);
             formContrat.btnAnnuler.Click += new EventHandler(btnAnnucler_Click);
@@ -88,10 +89,10 @@ namespace ABIenCouche
         /// <param name="e"></param>
         private void cBxTypeContrat_SelectedIndexChanged(object sender,EventArgs e)
         {
-                Collaborateurs unColab = DonneesDAO.DbContextCollaborateurs.CollaborateursSet.Find(leCollaborateur.matricule);
-                if (unColab.Contrats!=null)
+                Collaborateur unColab = DictionnaireCollaborateur.retrouverCollaborateur(leCollaborateur.Matricule);
+                if (unColab.LesContrats!=null)
                 {
-                if (unColab.Contrats.FirstOrDefault().Avenant.Count != 0)
+                if (unColab.LesContrats.Count != 0)
                 {
                     formContrat.panelAvenant.Visible = true;
                 }
@@ -247,12 +248,40 @@ namespace ABIenCouche
                     cadre = true;
                 }
                 else cadre = false;
-                ClassesDAO.ContratCDI leContrat = new ClassesDAO.ContratCDI(formContrat.tBxLibelle.Text, Convert.ToDouble(formContrat.tBxSalaire.Text), Convert.ToInt32(formContrat.txBxNumeroContrat.Text), formContrat.tBxFonctionContrat.Text, formContrat.tBxQualification.Text, cadre, formContrat.choixDateDebutContrat.Value);
-                leCollaborateur.Contrats.Add(leContrat);
-                Collaborateurs unCollaborateur = DonneesDAO.DbContextCollaborateurs.CollaborateursSet.Find(leCollaborateur.matricule);
-                ClassesDAO.ContratCDI leCDI = new ClassesDAO.ContratCDI(leContrat.Libelle, leContrat.Salaire, leContrat.NumContrat, leContrat.Fonction, leContrat.Qualification, leContrat.Statut, leContrat.DateDebut);
 
-                unCollaborateur.Contrats.Add(leCDI);
+                Collaborateur unCollaborateur = DictionnaireCollaborateur.retrouverCollaborateur(leCollaborateur.Matricule);
+                if (formContrat.cBxTypeContrat.SelectedItem.ToString()=="CDD")
+                {
+                    ContratCDD leCDD = new ContratCDD(formContrat.tBxLibelle.Text, formContrat.ChoixDateFinContrat.Value, formContrat.tBxMotifContrat.Text, Convert.ToInt32( formContrat.txBxNumeroContrat.Text), formContrat.tBxFonctionContrat.Text, formContrat.tBxQualification.Text, cadre, formContrat.choixDateDebutContrat.Value, leCollaborateur.LesContrats.Count);
+                    unCollaborateur.ajoutContrat(leCDD);
+                    ClassesDAO.ContratCDD leCDDBDD = new ClassesDAO.ContratCDD(leCDD.Libelle, leCDD.DateFinContrat, leCDD.MotifContrat, leCDD.NumContrat, leCDD.FonctionCollaborateur, leCDD.QualificationCollaborateur, leCDD.LeStatut, leCDD.DateDebutContrat, leCDD.IdContrat);
+                    DonneesDAO.DbContextCollaborateurs.ContratsSet.Add(leCDDBDD);
+                    DonneesDAO.DbContextCollaborateurs.SaveChanges();
+                }
+                else if (formContrat.cBxTypeContrat.SelectedItem.ToString()=="CDI")
+                {
+                    ContratCDI leCDI = new ContratCDI(formContrat.tBxLibelle.Text, Convert.ToDouble(formContrat.tBxSalaire.Text), Convert.ToInt32(formContrat.txBxNumeroContrat.Text), formContrat.tBxFonctionContrat.Text, formContrat.tBxQualification.Text, cadre, formContrat.choixDateDebutContrat.Value,leCollaborateur.LesContrats.Count);
+                    unCollaborateur.LesContrats.Add(leCDI.IdContrat,leCDI);
+                    ClassesDAO.ContratCDI leCDIBDD = new ClassesDAO.ContratCDI(leCDI.LibelleContrat, leCDI.SalaireBrut, leCDI.NumContrat, leCDI.FonctionCollaborateur, leCDI.QualificationCollaborateur, leCDI.LeStatut, leCDI.DateDebutContrat, leCDI.IdContrat);
+                    DonneesDAO.DbContextCollaborateurs.ContratsSet.Add(leCDIBDD);
+                    DonneesDAO.DbContextCollaborateurs.SaveChanges();
+                }
+                else if (formContrat.cBxTypeContrat.SelectedItem.ToString()=="STAGE")
+                {
+                    ContratStage leStage = new ContratStage(formContrat.tBxEcole.Text, formContrat.tBxMotifContrat.Text, formContrat.ChoixDateFinContrat.Value, formContrat.txBxMissionStage.Text,formContrat.txBxMissionStage.Text,Convert.ToInt32( formContrat.txBxNumeroContrat.Text),formContrat.tBxFonctionContrat.Text,formContrat.tBxQualification.Text,formContrat.tBxLibelle.Text,cadre,formContrat.choixDateDebutContrat.Value,leCollaborateur.LesContrats.Count);
+                    unCollaborateur.ajoutContrat(leStage);
+                    ClassesDAO.ContratStage leStageBDD = new ClassesDAO.ContratStage(leStage.Ecole, leStage.Motif, leStage.DateDeFin, leStage.UneMission, leStage.UnMaitre, leStage.NumContrat, leStage.FonctionCollaborateur, leStage.QualificationCollaborateur, leStage.LibelleContrat, leStage.LeStatut, leStage.DateDebutContrat, leStage.IdContrat);
+                    DonneesDAO.DbContextCollaborateurs.ContratsSet.Add(leStageBDD);
+                    DonneesDAO.DbContextCollaborateurs.SaveChanges();
+                }
+                else if (formContrat.cBxTypeContrat.SelectedItem.ToString()=="INTERIM")
+                {
+                    contratInterim leContratInterim = new contratInterim(formContrat.tBxAgence.Text, formContrat.tBxMotifContrat.Text, Convert.ToDouble(formContrat.tBxSalaire.Text), formContrat.ChoixDateFinContrat.Value, Convert.ToInt32(formContrat.txBxNumeroContrat.Text), formContrat.tBxFonctionContrat.Text, formContrat.tBxQualification.Text, formContrat.tBxLibelle.Text, cadre, formContrat.choixDateDebutContrat.Value, leCollaborateur.LesContrats.Count);
+                    unCollaborateur.ajoutContrat(leContratInterim);
+                    ClassesDAO.ContratInterim lInterimBDD = new ContratInterim(leContratInterim.Agence, leContratInterim.MotifContrat, leContratInterim.Salaire,leContratInterim.LaDateFin, leContratInterim.NumContrat, leContratInterim.FonctionCollaborateur, leContratInterim.QualificationCollaborateur, leContratInterim.LibelleContrat, leContratInterim.LeStatut, leContratInterim.DateDebutContrat, leContratInterim.IdContrat);
+                    DonneesDAO.DbContextCollaborateurs.ContratsSet.Add(lInterimBDD);
+                    DonneesDAO.DbContextCollaborateurs.SaveChanges();
+                }
                
                 return true;
             }

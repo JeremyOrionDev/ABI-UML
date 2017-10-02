@@ -28,7 +28,7 @@ namespace ClassesDAO
 
             foreach (ContratCDI item in query)
             {
-                leContrat = new ContratCDI(item.Libelle, item.Salaire, item.NumContrat, item.Fonction, item.Qualification, item.Statut, item.DateDebut);
+                leContrat = new ContratCDI(item.Libelle, item.Salaire, item.NumContrat, item.Fonction, item.Qualification, item.Statut, item.DateDebut,item.idContrat);
                 leCollaborateur.Contrats.Add(leContrat);
                 DonneesDAO.DbContextCollaborateurs.SaveChanges();
 

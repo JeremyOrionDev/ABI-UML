@@ -24,7 +24,7 @@ namespace ClassesDAO
         /// <param name="unLibelle">Le libellé du contrat</param>
         /// <param name="unStatut">L'état du statut cadre du collaborateur</param>
         /// <param name="leDebut">La date de début du contrat</param>
-        public ContratInterim(String uneAgence, String unMotif, Double leSalaire, DateTime uneDateFin, Int32 unNumContrat, String uneFonction, String uneQualif, String unLibelle, Boolean unStatut, DateTime leDebut) : base(unNumContrat, uneFonction, uneQualif, unLibelle, unStatut, leDebut)
+        public ContratInterim(String uneAgence, String unMotif, Double leSalaire, DateTime uneDateFin, Int32 unNumContrat, String uneFonction, String uneQualif, String unLibelle, Boolean unStatut, DateTime leDebut,int unId) : base(unNumContrat, uneFonction, uneQualif, unLibelle, unStatut, leDebut,unId)
         {
             this.Agence = uneAgence;
             this.Salaire = leSalaire;

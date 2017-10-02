@@ -72,11 +72,17 @@
             this.panelAvenant = new System.Windows.Forms.Panel();
             this.dgAvenant = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnAjoutAvenant = new System.Windows.Forms.Button();
             this.btnValiderContrat = new System.Windows.Forms.Button();
             this.btnAnnuler = new System.Windows.Forms.Button();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.errorProviderContrat = new System.Windows.Forms.ErrorProvider(this.components);
-            this.btnAjoutAvenant = new System.Windows.Forms.Button();
+            this.panelMissionStage = new System.Windows.Forms.Panel();
+            this.lblMissionStage = new System.Windows.Forms.Label();
+            this.txBxMissionStage = new System.Windows.Forms.TextBox();
+            this.panelTuteurStage = new System.Windows.Forms.Panel();
+            this.lblTuteurStage = new System.Windows.Forms.Label();
+            this.txBxTuteurStage = new System.Windows.Forms.TextBox();
             this.gBxCadre.SuspendLayout();
             this.panelDate.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -95,6 +101,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgAvenant)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderContrat)).BeginInit();
+            this.panelMissionStage.SuspendLayout();
+            this.panelTuteurStage.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblNumContrat
@@ -251,7 +259,7 @@
             this.panelDate.BackColor = System.Drawing.Color.Transparent;
             this.panelDate.Controls.Add(this.lblDateFinContrat);
             this.panelDate.Controls.Add(this.ChoixDateFinContrat);
-            this.panelDate.Location = new System.Drawing.Point(3, 375);
+            this.panelDate.Location = new System.Drawing.Point(3, 457);
             this.panelDate.Name = "panelDate";
             this.panelDate.Size = new System.Drawing.Size(351, 28);
             this.panelDate.TabIndex = 17;
@@ -262,12 +270,14 @@
             this.flowLayoutPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanel2.Controls.Add(this.panelContratNumero);
             this.flowLayoutPanel2.Controls.Add(this.panelTypeContrat);
-            this.flowLayoutPanel2.Controls.Add(this.panelLibelle);
             this.flowLayoutPanel2.Controls.Add(this.panelCadre);
             this.flowLayoutPanel2.Controls.Add(this.panelMotif);
+            this.flowLayoutPanel2.Controls.Add(this.panelEcole);
+            this.flowLayoutPanel2.Controls.Add(this.panelMissionStage);
+            this.flowLayoutPanel2.Controls.Add(this.panelTuteurStage);
+            this.flowLayoutPanel2.Controls.Add(this.panelLibelle);
             this.flowLayoutPanel2.Controls.Add(this.panelFonction);
             this.flowLayoutPanel2.Controls.Add(this.panelQualification);
-            this.flowLayoutPanel2.Controls.Add(this.panelEcole);
             this.flowLayoutPanel2.Controls.Add(this.panelAgence);
             this.flowLayoutPanel2.Controls.Add(this.panelSalaire);
             this.flowLayoutPanel2.Controls.Add(this.panelDebut);
@@ -277,7 +287,7 @@
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(12, 12);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(357, 601);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(357, 683);
             this.flowLayoutPanel2.TabIndex = 20;
             // 
             // panelContratNumero
@@ -310,7 +320,7 @@
             // 
             this.panelLibelle.Controls.Add(this.tBxLibelle);
             this.panelLibelle.Controls.Add(this.lblLibelleContrat);
-            this.panelLibelle.Location = new System.Drawing.Point(3, 69);
+            this.panelLibelle.Location = new System.Drawing.Point(3, 261);
             this.panelLibelle.Name = "panelLibelle";
             this.panelLibelle.Size = new System.Drawing.Size(348, 28);
             this.panelLibelle.TabIndex = 28;
@@ -335,7 +345,7 @@
             // 
             this.panelCadre.Controls.Add(this.gBxCadre);
             this.panelCadre.Controls.Add(this.lblCadre);
-            this.panelCadre.Location = new System.Drawing.Point(3, 103);
+            this.panelCadre.Location = new System.Drawing.Point(3, 69);
             this.panelCadre.Name = "panelCadre";
             this.panelCadre.Size = new System.Drawing.Size(351, 40);
             this.panelCadre.TabIndex = 2;
@@ -344,7 +354,7 @@
             // 
             this.panelMotif.Controls.Add(this.tBxMotifContrat);
             this.panelMotif.Controls.Add(this.lblMotifContrat);
-            this.panelMotif.Location = new System.Drawing.Point(3, 149);
+            this.panelMotif.Location = new System.Drawing.Point(3, 115);
             this.panelMotif.Name = "panelMotif";
             this.panelMotif.Size = new System.Drawing.Size(351, 26);
             this.panelMotif.TabIndex = 19;
@@ -369,7 +379,7 @@
             // 
             this.panelFonction.Controls.Add(this.tBxFonctionContrat);
             this.panelFonction.Controls.Add(this.lblFonctionContrat);
-            this.panelFonction.Location = new System.Drawing.Point(3, 181);
+            this.panelFonction.Location = new System.Drawing.Point(3, 295);
             this.panelFonction.Name = "panelFonction";
             this.panelFonction.Size = new System.Drawing.Size(351, 27);
             this.panelFonction.TabIndex = 3;
@@ -378,7 +388,7 @@
             // 
             this.panelQualification.Controls.Add(this.tBxQualification);
             this.panelQualification.Controls.Add(this.lblQualificationContrat);
-            this.panelQualification.Location = new System.Drawing.Point(3, 214);
+            this.panelQualification.Location = new System.Drawing.Point(3, 328);
             this.panelQualification.Name = "panelQualification";
             this.panelQualification.Size = new System.Drawing.Size(351, 23);
             this.panelQualification.TabIndex = 4;
@@ -387,7 +397,7 @@
             // 
             this.panelEcole.Controls.Add(this.tBxEcole);
             this.panelEcole.Controls.Add(this.lblEcole);
-            this.panelEcole.Location = new System.Drawing.Point(3, 243);
+            this.panelEcole.Location = new System.Drawing.Point(3, 147);
             this.panelEcole.Name = "panelEcole";
             this.panelEcole.Size = new System.Drawing.Size(351, 26);
             this.panelEcole.TabIndex = 21;
@@ -412,7 +422,7 @@
             // 
             this.panelAgence.Controls.Add(this.tBxAgence);
             this.panelAgence.Controls.Add(this.lblAgence);
-            this.panelAgence.Location = new System.Drawing.Point(3, 275);
+            this.panelAgence.Location = new System.Drawing.Point(3, 357);
             this.panelAgence.Name = "panelAgence";
             this.panelAgence.Size = new System.Drawing.Size(351, 27);
             this.panelAgence.TabIndex = 22;
@@ -437,7 +447,7 @@
             // 
             this.panelSalaire.Controls.Add(this.tBxSalaire);
             this.panelSalaire.Controls.Add(this.lblSalaire);
-            this.panelSalaire.Location = new System.Drawing.Point(3, 308);
+            this.panelSalaire.Location = new System.Drawing.Point(3, 390);
             this.panelSalaire.Name = "panelSalaire";
             this.panelSalaire.Size = new System.Drawing.Size(351, 28);
             this.panelSalaire.TabIndex = 23;
@@ -462,7 +472,7 @@
             // 
             this.panelDebut.Controls.Add(this.label1);
             this.panelDebut.Controls.Add(this.choixDateDebutContrat);
-            this.panelDebut.Location = new System.Drawing.Point(3, 342);
+            this.panelDebut.Location = new System.Drawing.Point(3, 424);
             this.panelDebut.Name = "panelDebut";
             this.panelDebut.Size = new System.Drawing.Size(351, 27);
             this.panelDebut.TabIndex = 18;
@@ -470,7 +480,7 @@
             // panelAvenant
             // 
             this.panelAvenant.Controls.Add(this.dgAvenant);
-            this.panelAvenant.Location = new System.Drawing.Point(3, 409);
+            this.panelAvenant.Location = new System.Drawing.Point(3, 491);
             this.panelAvenant.Name = "panelAvenant";
             this.panelAvenant.Size = new System.Drawing.Size(351, 154);
             this.panelAvenant.TabIndex = 26;
@@ -488,10 +498,19 @@
             this.panel3.Controls.Add(this.btnAjoutAvenant);
             this.panel3.Controls.Add(this.btnValiderContrat);
             this.panel3.Controls.Add(this.btnAnnuler);
-            this.panel3.Location = new System.Drawing.Point(3, 569);
+            this.panel3.Location = new System.Drawing.Point(3, 651);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(282, 29);
             this.panel3.TabIndex = 27;
+            // 
+            // btnAjoutAvenant
+            // 
+            this.btnAjoutAvenant.Location = new System.Drawing.Point(199, 3);
+            this.btnAjoutAvenant.Name = "btnAjoutAvenant";
+            this.btnAjoutAvenant.Size = new System.Drawing.Size(75, 23);
+            this.btnAjoutAvenant.TabIndex = 26;
+            this.btnAjoutAvenant.Text = "+ Avenant";
+            this.btnAjoutAvenant.UseVisualStyleBackColor = true;
             // 
             // btnValiderContrat
             // 
@@ -517,14 +536,55 @@
             // 
             this.errorProviderContrat.ContainerControl = this;
             // 
-            // btnAjoutAvenant
+            // panelMissionStage
             // 
-            this.btnAjoutAvenant.Location = new System.Drawing.Point(199, 3);
-            this.btnAjoutAvenant.Name = "btnAjoutAvenant";
-            this.btnAjoutAvenant.Size = new System.Drawing.Size(75, 23);
-            this.btnAjoutAvenant.TabIndex = 26;
-            this.btnAjoutAvenant.Text = "+ Avenant";
-            this.btnAjoutAvenant.UseVisualStyleBackColor = true;
+            this.panelMissionStage.Controls.Add(this.txBxMissionStage);
+            this.panelMissionStage.Controls.Add(this.lblMissionStage);
+            this.panelMissionStage.Location = new System.Drawing.Point(3, 179);
+            this.panelMissionStage.Name = "panelMissionStage";
+            this.panelMissionStage.Size = new System.Drawing.Size(351, 32);
+            this.panelMissionStage.TabIndex = 29;
+            // 
+            // lblMissionStage
+            // 
+            this.lblMissionStage.AutoSize = true;
+            this.lblMissionStage.Location = new System.Drawing.Point(4, 10);
+            this.lblMissionStage.Name = "lblMissionStage";
+            this.lblMissionStage.Size = new System.Drawing.Size(45, 13);
+            this.lblMissionStage.TabIndex = 0;
+            this.lblMissionStage.Text = "Mission:";
+            // 
+            // txBxMissionStage
+            // 
+            this.txBxMissionStage.Location = new System.Drawing.Point(100, 7);
+            this.txBxMissionStage.Name = "txBxMissionStage";
+            this.txBxMissionStage.Size = new System.Drawing.Size(174, 20);
+            this.txBxMissionStage.TabIndex = 1;
+            // 
+            // panelTuteurStage
+            // 
+            this.panelTuteurStage.Controls.Add(this.txBxTuteurStage);
+            this.panelTuteurStage.Controls.Add(this.lblTuteurStage);
+            this.panelTuteurStage.Location = new System.Drawing.Point(3, 217);
+            this.panelTuteurStage.Name = "panelTuteurStage";
+            this.panelTuteurStage.Size = new System.Drawing.Size(351, 38);
+            this.panelTuteurStage.TabIndex = 30;
+            // 
+            // lblTuteurStage
+            // 
+            this.lblTuteurStage.AutoSize = true;
+            this.lblTuteurStage.Location = new System.Drawing.Point(4, 12);
+            this.lblTuteurStage.Name = "lblTuteurStage";
+            this.lblTuteurStage.Size = new System.Drawing.Size(41, 13);
+            this.lblTuteurStage.TabIndex = 0;
+            this.lblTuteurStage.Text = "Tuteur:";
+            // 
+            // txBxTuteurStage
+            // 
+            this.txBxTuteurStage.Location = new System.Drawing.Point(100, 9);
+            this.txBxTuteurStage.Name = "txBxTuteurStage";
+            this.txBxTuteurStage.Size = new System.Drawing.Size(174, 20);
+            this.txBxTuteurStage.TabIndex = 1;
             // 
             // frmContrat
             // 
@@ -533,7 +593,7 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(306, 614);
+            this.ClientSize = new System.Drawing.Size(389, 712);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Name = "frmContrat";
             this.Text = "frmContrat";
@@ -568,6 +628,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgAvenant)).EndInit();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderContrat)).EndInit();
+            this.panelMissionStage.ResumeLayout(false);
+            this.panelMissionStage.PerformLayout();
+            this.panelTuteurStage.ResumeLayout(false);
+            this.panelTuteurStage.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -623,5 +687,11 @@
         internal System.Windows.Forms.Panel panelLibelle;
         internal System.Windows.Forms.Panel panelDebut;
         internal System.Windows.Forms.Button btnAjoutAvenant;
+        internal System.Windows.Forms.Panel panelMissionStage;
+        private System.Windows.Forms.Label lblMissionStage;
+        internal System.Windows.Forms.TextBox txBxMissionStage;
+        internal System.Windows.Forms.Panel panelTuteurStage;
+        internal System.Windows.Forms.TextBox txBxTuteurStage;
+        private System.Windows.Forms.Label lblTuteurStage;
     }
 }

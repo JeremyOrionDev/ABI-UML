@@ -28,7 +28,7 @@ namespace ClassesDAO
 
             foreach (ContratInterim item in query)
             {
-                leContrat = new ContratInterim(item.Agence,item.Motif,item.Salaire,item.DateFin,item.NumContrat,item.Fonction,item.Qualification,item.Libelle,item.Statut,item.DateDebut);
+                leContrat = new ContratInterim(item.Agence,item.Motif,item.Salaire,item.DateFin,item.NumContrat,item.Fonction,item.Qualification,item.Libelle,item.Statut,item.DateDebut,item.idContrat);
                 leCollaborateur.Contrats.Add(leContrat);
                 DonneesDAO.DbContextCollaborateurs.SaveChanges();
 

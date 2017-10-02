@@ -31,7 +31,7 @@ namespace ClassesDAO
 
             foreach (ContratStage item in query)
             {
-                leContratStageDAO = new ContratStage(item.Ecole,item.Motif,item.DateFin,item.Mission,item.Tuteur,item.NumContrat,item.Fonction,item.Qualification,item.Libelle,item.Statut,item.DateDebut,item.idContrat);
+                leContratStageDAO = new ContratStage(item.Ecole,item.Motif,item.DateFin,item.Mission,item.Tuteur,item.NumContrat,item.Fonction,item.Qualification,item.Libelle,item.Statut,item.DateDebut);
                 
                 DonneesDAO.DbContextCollaborateurs.SaveChanges();
 

@@ -1,24 +1,22 @@
-﻿using ABIenCouche;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace ClassesDAO
 {
-    public class MContratsCDDDAOEFStatic
+    public class MContratsCDIDAOEFStatic
     {
-        public ContratCDD ContratCDD
+        public ContratCDI ContratCDI
         {
-            get => default(ContratCDD);
+            get => default(ContratCDI);
             set
             {
             }
         }
 
-        public static void instancieContratsCDD(Collaborateurs leCollaborateur)
+        public static void instancieContratsCDI(Collaborateurs leCollaborateur)
         {
             if (DonneesDAO.DbContextCollaborateurs == null) DonneesDAO.DbContextCollaborateurs = new lesCollaborateursContainer();
 
@@ -26,15 +24,16 @@ namespace ClassesDAO
                         where C.Collaborateurs.matricule == leCollaborateur.matricule
                         select C;
 
-            ContratCDD leContrat;
-            Collaborateur monColab = DictionnaireCollaborateur.retrouverCollaborateur(leCollaborateur.matricule);
-            
-            foreach (ContratCDD item in query)
+            ContratCDI leContrat;
+
+            foreach (ContratCDI item in query)
             {
-                leContrat = new ContratCDD(item.Libelle,item.DateFin,item.Motif,item.NumContrat, item.Fonction, item.Qualification, item.Statut, item.DateDebut,item.idContrat);
+                leContrat = new ContratCDI(item.Libelle, item.Salaire, item.NumContrat, item.Fonction, item.Qualification, item.Statut, item.DateDebut);
                 leCollaborateur.Contrats.Add(leContrat);
                 DonneesDAO.DbContextCollaborateurs.SaveChanges();
-                          }
+
+            }
+
 
         }
     }
