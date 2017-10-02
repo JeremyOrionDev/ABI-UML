@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace ABIenCouche
 {
     /// <summary>
     /// Classe des avenant associés au contrat
     /// </summary>
+    [DataContract]
     public  class avenantContrat
     {
         /// <summary>
@@ -39,14 +41,14 @@ namespace ABIenCouche
         /// <summary>
         /// méthode get-set du numéro
         /// </summary>
+        [DataMember]
         public int NumeroAvenant
         {
             get
             {
                 return numeroAvenant;
             }
-
-            set
+            private set
             {
                 numeroAvenant = value;
             }
@@ -54,14 +56,14 @@ namespace ABIenCouche
         /// <summary>
         /// méthode get-set du libellé
         /// </summary>
+        [DataMember]
         public string LibelleAvenant
         {
             get
             {
                 return libelleAvenant;
             }
-
-            set
+            private set
             {
                 libelleAvenant = value;
             }
@@ -69,14 +71,14 @@ namespace ABIenCouche
         /// <summary>
         /// méthode get-set pour la date de l'avenant
         /// </summary>
+        [DataMember]
         public DateTime DateAvenant
         {
             get
             {
                 return dateAvenant;
             }
-
-            set
+            private set
             {
                 dateAvenant = value;
             }
