@@ -18,6 +18,10 @@ namespace ABIenCouche
     /// </summary>
     [Serializable]
     [DataContract]
+    [KnownType(typeof(ContratCDI))]
+    [KnownType(typeof(ContratCDD))]
+    [KnownType(typeof(ContratStage))]
+    [KnownType(typeof(contratInterim))]
     public abstract class Contrat
     {
         /// <summary>
