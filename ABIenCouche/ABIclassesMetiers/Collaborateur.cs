@@ -150,7 +150,7 @@ namespace ABIenCouche
             {
                 return nomCollaborateur;
             }
-            private set
+            set
             {
                 if (this.nomCollaborateur != value)
                     this.nomCollaborateur = value;
@@ -176,7 +176,7 @@ namespace ABIenCouche
             {
                 return matricule;
             }
-            private set
+            set
             {
                 if (this.matricule != value)
                     this.matricule = value;
@@ -191,7 +191,7 @@ namespace ABIenCouche
             {
                 return situationMaritale;
             }
-            private set
+            set
             {
                 if (this.situationMaritale != value)
                     this.situationMaritale = value;
@@ -204,7 +204,7 @@ namespace ABIenCouche
             {
                 return rueCollab;
             }
-            private set
+            set
             {
                 rueCollab = value;
             }
@@ -216,7 +216,7 @@ namespace ABIenCouche
             {
                 return villeCollab;
             }
-            private set
+            set
             {
                 villeCollab = value;
             }
@@ -228,7 +228,7 @@ namespace ABIenCouche
             {
                 return cpCollab;
             }
-            private set
+            set
             {
                 cpCollab = value;
             }
@@ -241,7 +241,7 @@ namespace ABIenCouche
             {
                 return civilite;
             }
-            private set
+            set
             {
                 civilite = value;
             }
@@ -253,7 +253,7 @@ namespace ABIenCouche
             {
                 return telephone;
             }
-            private set
+            set
             {
                 telephone = value;
             }
@@ -266,7 +266,7 @@ namespace ABIenCouche
             {
                 return lesContrats;
             }
-            private set
+            set
             {
                 lesContrats = value;
             }
@@ -279,12 +279,12 @@ namespace ABIenCouche
             {
                 return lesContratsTriDate;
             }
-            private set
+            set
             {
                 lesContratsTriDate = value;
             }
         }
         [DataMember]
-        public bool Archive { get => archive;private set => archive = value; }
+        public bool Archive { get => archive;set => archive = value; }
     }
 }
